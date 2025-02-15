@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to Load Java Topics on Home Click
 function loadHomeContent() {
-  fetch("index.html") // Load index.html content
+  fetch("index2.html") // Load index.html content
     .then(response => response.text())
     .then(htmlContent => {
       document.getElementById("mainContent").innerHTML = htmlContent;
