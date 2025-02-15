@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="translate-parent">
+    <p>
+            Program accepts data from the user, generates response, extracts data from a database, etc., and keeps data in the memory of the device. 
+            Program reserves spaces in memory to keep data. These spaces are allocated by Java Runtime Environment (JRE) in memory.
+            <br>
+            Space reserved by program in memory is called variable It would be named space.
+    Source code of program must have command to reserve space in memory.This command is called command to create variable <br>
+    It is name Container in memory. <br>
+    Syntax of this command will be as follows--------- <br>
+    <strong>datatype_of_variable name_of_varible;</strong> <br>
+    <strong>int x;</strong>//this is a command to create variable. <br>
+            <br>
+            As we known Program fatch data from database and keep in memory.
+        </p>
+    
+        <h4>Command to Assign Value to the Variable</h4>
+        <hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+        <p>
+            <code>variable_name = value;</code>
+        </p>
+    
+        <h4>Data Types and Variables</h4>
+        <hr style="border: 1px solid black; width: 23%; margin-top: 5px; margin-left: 0;">
+        <p>
+            <strong>Example:</strong>
+            <code>int num = 90;</code>
+            <code>//variable=num</code>
+        </p>
+        <h1>Instance variable</h1>
+        <p>A variable which is declared inside class <span class="highlight">without using static keyword </span> is known as instance variable</p>
+        <p><strong>
+           public class AA  <br>
+       {  <br>
+         int x;//instance variable  <br>
+         static int y;//class variable  <br>
+       }
+        </strong></p>
+        <p>Command to create instance variable will be executed each time object from that class will be created.<br> It means this variable can have multiple copies in memory. <br>
+           <span class="highlight">Remember every object is instance of a class.</span></p>
+           <p>An instance variable in Java is a non-static variable that belongs to an instance (object) of a class. Each object of the class has its own copy of the instance variable.</p>
+           <p>✅ They are created when an object is created and destroyed when the object is destroyed.</p>
+           <p>✅ Instance variables can have different values for different objects.</p>
+           ✅ By default, they are initialized with default values (e.g., 0 for int, null for objects, false for boolean, etc.).
+           <p>✅ Instance variables are stored in Heap memory.</p>
+           <p>✅ Use instance variables when each object needs separate data.</p>
+           <h1>Static Variable</h1>
+           <p>A static variable in Java is a <span class="highlight">class-level variable</span> that is shared among all instances of the class. It is declared using the static keyword.</p>
+           <h3>Characteristics of Static Variables🚀</h3>
+           <hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+           <p>✅ Belongs to the class, not to a specific object. <br>
+              ✅ Shared among all objects of the class (only one copy exists in memory).  <br>
+              ✅ Stored in the Method Area (not in the Heap).  <br>
+              ✅ Can be accessed using the class name (no need for an object). <br>
+              ✅ Initialized only once when the class is loaded into memory.
+               
+               </p>
+               <h4>Class-Level Variable🔎</h4>
+               <hr style="border: 1px solid black; width: 22%; margin-top: 5px; margin-left: 0;">
+               <p>It is associated with the class rather than individual objects.</p>
+               <h4>Single Copy in Memory🔎</h4>
+               <hr style="border: 1px solid black; width: 22%; margin-top: 5px; margin-left: 0;">
+               <p>Only one copy of a static variable exists, shared by all instances of the class.</p>
+               <h4>Stored in the Method Area🔎</h4>
+               <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+               <p>Unlike instance variables (which are stored in the Heap), static variables are stored in the Method Area of memory.</p>
+               <h4>Accessed Using Class Name🔎</h4>
+               <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+               <p>A static variable can be accessed directly using the class name, without creating an object.</p>
+               <h4>Lifetime🔎</h4>
+               <hr style="border: 1px solid black; width: 8%; margin-top: 5px; margin-left: 0;">
+               <p>It is initialized when the class is loaded into memory and destroyed when the class is unloaded.</p>
+               <h4>How Static Variables Work? (Memory Representation)🙂</h4>
+               <hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
+               <p>When a class is loaded into memory, only one copy of the static variable is created in the Method Area.
+                   Each instance (object) of the class refers to this single copy instead of creating a new one</p>
+           <h4 style="background-color: rgb(110, 114, 92); display: inline-block;color:rgb(253, 239, 239); border-radius: 25%;">NOTE</h4>
+           <p>A static variable always has a single copy because it is stored in the class area.That's why its value gets updated whenever it is changed, and it stores only the last assigned value.</p>
+           
+    </div>
+</body>
+
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
+</html>

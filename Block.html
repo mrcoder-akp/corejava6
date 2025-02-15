@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div>
+    <p>A <b>block</b> in Java is a group of statements enclosed within curly braces {block}. It is used to define a scope for variables and statements. <br>
+        A <b>block</b> in Java is a section of code enclosed within curly braces {} that defines a specific execution scope. <br>
+        A <b>block</b> is a group of statements enclosed in {} that executes together as a unit.
+        In Java, a block is used to structure code logically and control the visibility of variables.  <br>
+        A <b>block</b> in Java is a way to organize multiple statements inside {} to control execution flow and variable lifetime. <br>
+        A code <b>block</b> in Java is a fundamental construct that groups related statements inside {} for execution. </p>
+    <h1>Types of Blocks</h1>
+<h4 style="background-color: rgb(90, 13, 13); display: inline-block; color: white; border-radius: 5%;">
+1.Static Block  <br>
+2.Instance Block <br>
+3.Method Block   <br>
+4.Synchronized Block   <br>
+5.Loop Block  </h4>
+<h3>Static Block</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+A static block is a special block in Java that runs <b>once</b> when the class is loaded into memory, before any object of that class is created or any method is called. It's primarily used for <b class="highlight">initializing static variables</b> or performing tasks that need to happen once for the class, such as loading configuration or establishing a database connection.
+<h4> Features of a Static Block</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p><b>1.Runs once when the class is loaded</b>(even before the <b>main</b> method is executed). <br>
+   <b>2.Used for static variable initialization </b> or for performing one-time tasks like loading configuration or performing setup operations.  <br>
+    <b>3.Cannot be called explicitly</b>—it runs automatically when the class is loaded into the JVM (Java Virtual Machine).  <br>
+    <b>4.Cannot access instance variables</b> (because it's before object creation) or non-static methods. <br> 
+    <b>Executes in order of declaration</b> - If multiple static blocks exist, they execute sequentially from top to bottom.  <br>
+    <b>Does not require object creation</b> - Runs automatically when the class is loaded by the JVM. </p>
+    <code>
+ static <br>
+        {  <br>
+      //  Initialization code or one-time setup tasks  <br>
+        }  
+    </code>
+    <h4><b>Example 1:</b> Basic Static Block Execution</h4>
+    <pre>
+        public class StaticBlockExample {
+    
+            // Static Block
+            static {
+                System.out.println("Static Block Executed");
+            }
+        
+            public static void main(String[] args) {
+                System.out.println("Main Method Executed");
+            }
+        }
+output 
+Static Block Executed  
+Main Method Executed  
+</pre>
+<h4><b>Example 2:</b> Multiple Static Blocks Execution Order</h4>
+<pre>
+    public class MultipleStaticBlocks {
+    
+        static {
+            System.out.println("First Static Block");
+        }
+    
+        static {
+            System.out.println("Second Static Block");
+        }
+    
+        public static void main(String[] args) {
+            System.out.println("Main Method");
+        }
+    }
+output 
+First Static Block  
+Second Static Block  
+Main Method  
+</pre>
+<h4><b>Example 3:</b> Static Block for Static Variable Initialization</h4>
+<pre>
+    public class StaticBlockExample {
+        static int count;
+    
+        // Static block to initialize static variables
+        static {
+            count = 10;
+            System.out.println("Static block executed! count = " + count);
+        }
+    
+        public static void main(String[] args) {
+            System.out.println("Main method executed! count = " + count);
+        }
+    }
+output 
+Static block executed! count = 10
+Main method executed! count = 10
+</pre>
+<p>If you need to initialize static variables in a specific way (like reading from a configuration file), a static block is helpful. It's useful for performing tasks like setting up database connections, loading libraries, or performing setup tasks that need to happen only once.</p>
+<h4><b>Example 4:</b> Static Block for Initialization</h4>
+<pre>
+    public class StaticInitialization {
+    
+        static int a;
+        static String name;
+        
+        // Static block initializes static variables
+        static {
+            a = 100;
+            name = "Java";
+            System.out.println("Static Block: Variables Initialized");
+        }
+    
+        public static void main(String[] args) {
+            System.out.println("Main Method");
+            System.out.println("a = " + a);
+            System.out.println("name = " + name);
+        }
+    }
+output 
+Static Block: Variables Initialized  
+Main Method  
+a = 100  
+name = Java  
+</pre>
+<p>The static block initializes static variables (a and name) before the main() method runs.</p>
+<h4><b>Example 5:</b> Static Block vs Constructor Execution</h4>
+<pre>
+    public class StaticVsConstructor {
+    
+        // Static Block
+        static {
+            System.out.println("Static Block Executed");
+        }
+    
+        // Constructor
+        StaticVsConstructor() {
+            System.out.println("Constructor Executed");
+        }
+    
+        public static void main(String[] args) {
+            System.out.println("Main Method Executed");
+    
+            // Creating object
+            StaticVsConstructor obj1 = new StaticVsConstructor();
+            StaticVsConstructor obj2 = new StaticVsConstructor();
+        }
+    }
+output 
+Static Block Executed  
+Main Method Executed  
+Constructor Executed  
+Constructor Executed  
+</pre>
+<p>Static block runs once when the class loads.
+    Constructor runs every time an object is created.</p>
+    <h4><b>Example 6:</b> Static Block in an External Class</h4>
+    <pre>
+        class ExternalClass {
+            static {
+                System.out.println("ExternalClass Static Block Executed");
+            }
+        }
+        
+        public class StaticBlockTest {
+            public static void main(String[] args) {
+                System.out.println("Main Method");
+                ExternalClass obj = new ExternalClass();  // Triggers ExternalClass static block
+            }
+        }
+output 
+Main Method  
+ExternalClass Static Block Executed  
+</pre>
+<p>The static block of ExternalClass runs only when the class is referenced (object created).</p>
+<h4><b>Example 7:</b> Static Block with Exception Handling</h4>
+<pre>
+    public class StaticBlockExample {
+        static int number;
+        
+        static {
+            try {
+                number = Integer.parseInt("100"); // Correct input
+                System.out.println("Static block executed successfully!");
+            } catch (Exception e) {
+                System.out.println("Error in static block: " + e.getMessage());
+            }
+        }
+    
+        public static void main(String[] args) {
+            System.out.println("Main method executed!");
+        }
+    }
+output 
+Static block executed successfully!
+Main method executed!
+</pre>
+<p>Handling Exceptions Static blocks can also be used to handle initialization errors for static variables (using try-catch).</p>
+<h3>Instance Block or init-Block</h3>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>An <b>instance block</b> in Java is a block of code enclosed within {} that is defined inside a class but not inside any method or constructor. It is used to perform instance-specific initialization when an object of the class is created. <br>
+<b>Instance blocks</b> are executed whenever an object is created from the class. <br>
+They run <b> after the super constructor</b> (if it exists) and before the constructor body.  </p>
+<h4>Characteristics of Instance Block</h4>
+<hr style="border: 1px solid black; width: 32%; margin-top: 5px; margin-left: 0;">
+<p>1.<b>Runs every time an object is created</b>-Instance blocks execute when the class object is instantiated (i.e., when new is used). <br>
+    2.<b>Executes before the constructor</b> - The instance block executes first, followed by the constructor. <br>
+    3.<b>Can be used to initialize instance variables</b> - Useful when you need some common initialization logic for all instances. <br>
+   4.<b>Multiple instance blocks</b> - If multiple instance blocks are defined, they execute in the order they appear.
+    </p>
+<h4>Example 1: Basic Instance Block</h4>
+<pre>
+    public class InstanceBlockExample {
+
+        // Instance Block
+        {
+            System.out.println("Instance Block Executed");
+        }
+    
+        public InstanceBlockExample() {
+            System.out.println("Constructor Executed");
+        }
+    
+        public static void main(String[] args) {
+            // Creating objects
+            InstanceBlockExample obj1 = new InstanceBlockExample();
+            InstanceBlockExample obj2 = new InstanceBlockExample();
+        }
+    }
+output 
+Instance Block Executed
+Constructor Executed
+Instance Block Executed
+Constructor Executed
+</pre>
+<p>Instance block runs every time an object is created, before the constructor.</p>
+<h4>Example 2: Multiple Instance Blocks</h4>
+<pre>
+    public class MultipleInstanceBlocks {
+
+        // First Instance Block
+        {
+            System.out.println("First Instance Block Executed");
+        }
+    
+        // Second Instance Block
+        {
+            System.out.println("Second Instance Block Executed");
+        }
+    
+        public MultipleInstanceBlocks() {
+            System.out.println("Constructor Executed");
+        }
+    
+        public static void main(String[] args) {
+            // Creating an object
+            MultipleInstanceBlocks obj = new MultipleInstanceBlocks();
+        }
+    }
+output 
+First Instance Block Executed
+Second Instance Block Executed
+Constructor Executed
+</pre>
+<p>Multiple instance blocks are executed in the order they are written in the class.</p>
+<h4>Example 3: Instance Block for Instance Variable Initialization</h4>
+<pre>
+    public class InstanceBlockInitialization {
+
+        int num;
+        String message;
+    
+        // Instance Block to initialize variables
+        {
+            num = 10;
+            message = "Hello, Instance Block!";
+            System.out.println("Instance Block Initialized Variables");
+        }
+    
+        public void show() {
+            System.out.println("num = " + num);
+            System.out.println("message = " + message);
+        }
+    
+        public static void main(String[] args) {
+            // Creating an object
+            InstanceBlockInitialization obj = new InstanceBlockInitialization();
+            obj.show();
+        }
+    }
+output 
+Instance Block Initialized Variables
+num = 10
+message = Hello, Instance Block!
+</pre>
+<p>The instance block initializes instance variables (num and message).</p>
+<h4>Example 4: Instance Block and Constructor Interaction</h4>
+<pre>
+    public class InstanceBlockConstructorExample {
+
+        // Instance Block
+        {
+            System.out.println("Instance Block Executed");
+        }
+    
+        // Constructor
+        public InstanceBlockConstructorExample() {
+            System.out.println("Constructor Executed");
+        }
+    
+        public static void main(String[] args) {
+            // Creating an object
+            InstanceBlockConstructorExample obj = new InstanceBlockConstructorExample();
+        }
+    }
+output 
+Instance Block Executed
+Constructor Executed
+</pre>
+<p>When an object is created, the instance block runs first and then the constructor is called.</p>
+<h3>Use Cases for Instance Block</h3>
+<hr style="border: 1px solid black; width: 32%; margin-top: 5px; margin-left: 0;">
+<p><b>Initialization of Instance Variables</b>:
+    Instance blocks are typically used to initialize instance variables that need to be set up before the constructor executes. This is helpful when the initialization process involves some logic or when multiple constructors are present. <br>
+    <b>Common Setup Tasks</b>:If multiple constructors are defined in the class, the instance block ensures that common setup tasks are executed before the constructor is called, so there is no need to repeat the initialization in each constructor. <br>
+    <b>Accessing Non-static Variables</b>:The instance block allows you to access and initialize instance variables (non-static) before the constructor body is executed. <br>  
+    <b>Error Handling or Logging</b>:You can use an instance block to log certain details or check for conditions before the object is fully initialized. </p>
+    <h4>When to Use Instance Block</h4>  
+    <hr style="border: 1px solid black; width: 28%; margin-top: 5px; margin-left: 0;">
+    <p>Use instance blocks when you need common initialization logic for every instance of a class,especially when the logic involves non-trivial operations.They are useful for class-wide setup, especially when there is no static context (i.e., no need for static block initialization).You can use instance blocks to reduce code duplication when using multiple constructors.</p>
+<h3>Method Block</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>A <b>method block</b> in Java is a group of statements enclosed within curly braces {} inside a method. It defines the <b>scope</b> of the method and executes the statements when the method is called. <br>
+<b>Method blocks</b> are executed <b>when the method is invoked</b>.
+They contain the actual logic of the method and define <b>local variables</b> that are accessible only within that method. </p>
+<h4> Characteristics of a Method Block</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>1.<b>Enclosed within a method</b> - A method block is always inside a method. <br>
+   2.<b>Scope of variables</b> – Variables declared inside a method block are local to the method and are destroyed after the method finishes execution. <br>
+   3.<b>Used to define the logic of a method</b> -The method block contains the code that is executed when the method is called. <br>
+   4.<b>Multiple blocks within a method</b> - You can have multiple code blocks or statements within a method, all of which are executed in sequence.</p>
+   <h4>Example 1: Basic Method Block</h4>
+   <pre>
+    public class MethodBlockExample {
+
+        // Method with a block of statements
+        public void displayMessage() {
+            System.out.println("This is inside the method block.");
+        }
+    
+        public static void main(String[] args) {
+            MethodBlockExample obj = new MethodBlockExample();
+            obj.displayMessage(); // Method call
+        }
+    }
+ output 
+ This is inside the method block.
+ </pre>
+ <h4>Example 2: Nested Blocks Inside a Method</h4>
+ <pre>
+    public class NestedMethodBlocks {
+
+        // Method with nested blocks
+        public void checkNumbers(int num1, int num2) {
+            {
+                // First nested block
+                int sum = num1 + num2;
+                System.out.println("Sum: " + sum);
+            }
+            {
+                // Second nested block
+                if (num1 > num2) {
+                    System.out.println(num1 + " is greater than " + num2);
+                } else {
+                    System.out.println(num2 + " is greater than " + num1);
+                }
+            }
+        }
+    
+        public static void main(String[] args) {
+            NestedMethodBlocks obj = new NestedMethodBlocks();
+            obj.checkNumbers(8, 5);  // Method call
+        }
+    }
+output 
+Sum: 13
+8 is greater than 5
+</pre>
+<p>Method blocks are used to group statements that define the logic for a particular method.
+    Variables declared inside a method block are local to that method and are destroyed when the method execution finishes.
+    You can have multiple statements, control flow (if-else), loops, and nested blocks inside a method block.
+    Method blocks are executed only when the method is called, meaning all statements inside are executed in sequence every time the method is invoked.</p>
+<h3>Synchronized Block</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>A <b>synchronized block</b> in Java is a critical section of code that ensures <b>only one thread</b> can execute it <b>at a time</b>. It is used to prevent <b>race conditions</b> and <b>inconsistent data issues</b> in multithreaded applications. <br>
+It allows multiple threads to <b> access different</b> sections of the code <b>simultaneously</b> but <b>restricts</b> them from entering the critical section at <b>the same time</b>. <br>
+Unlike the <b>synchronized</b> method (which locks the entire method), a <b>synchronized block locks only a specific portion of code</b>, making it more efficient. </p>
+<h4>Use a Synchronized Block</h4>
+<hr style="border: 1px solid black; width: 26%; margin-top: 5px; margin-left: 0;">
+<p>To ensure data consistency in a multi-threaded environment. <br>
+    To avoid deadlocks by synchronizing only necessary code instead of locking the entire method. <br>
+    To increase performance by allowing other non-critical sections to execute concurrently.</p>
+<h3>Types of Synchronization in Java</h3>
+<hr style="border: 1px solid black; width: 35%; margin-top: 5px; margin-left: 0;">
+<h4>1️⃣ Method Synchronization (locks the entire method)</h4> 
+<code>
+    public synchronized void methodName() <br>
+    { <br>
+      //   synchronized method (entire method is locked) <br>
+    }  <br>
+    
+</code>
+<p> <b>Disadvantage:</b> If one thread holds the lock, no other thread can execute the method, even if it doesn't access shared data.</p>
+<h4> 2️⃣ Block Synchronization (locks only a specific part)</h4>
+<code>
+    synchronized(object)  <br>
+    {  <br>
+        // Critical section (only this block is locked) <br>
+    } 
+    
+</code>
+<p> <b>Advantage:</b> Other parts of the method can still execute concurrently, improving efficiency.</p> 
+<h4>Example 1: Using a Synchronized Block</h4>
+<pre>
+    class SharedResource {
+        void printNumbers(int n) {
+            synchronized (this) {  // Synchronizing a block
+                for (int i = 1; i <= 5; i++) {
+                    System.out.println(n * i);
+                    try {
+                        Thread.sleep(500);  // Simulating delay
+                    } catch (InterruptedException e) {
+                        System.out.println(e);
+                    }
+                }
+            }
+        }
+    }
+    
+    class MyThread1 extends Thread {
+        SharedResource obj;
+        MyThread1(SharedResource obj) {
+            this.obj = obj;
+        }
+    
+        public void run() {
+            obj.printNumbers(5);
+        }
+    }
+    
+    class MyThread2 extends Thread {
+        SharedResource obj;
+        MyThread2(SharedResource obj) {
+            this.obj = obj;
+        }
+    
+        public void run() {
+            obj.printNumbers(10);
+        }
+    }
+    
+    public class SynchronizedBlockExample {
+        public static void main(String args[]) {
+            SharedResource obj = new SharedResource();
+            MyThread1 t1 = new MyThread1(obj);
+            MyThread2 t2 = new MyThread2(obj);
+            
+            t1.start();
+            t2.start();
+        }
+    }
+output 
+5
+10
+15
+20
+25
+10
+20
+30
+40
+50
+</pre>
+<p>synchronized (this) ensures that only one thread can enter the block at a time. <br>
+     Without synchronization, both threads might interleave and print unexpected results.</p>
+     <h4>Example 2: Synchronizing on a Specific Object</h4>
+     <pre>
+        class SharedCounter {
+            private int count = 0;
+        
+            void increment() {
+                synchronized (this) {  // Locking only this block
+                    count++;
+                    System.out.println("Count: " + count);
+                }
+            }
+        }
+        
+        class Worker extends Thread {
+            SharedCounter counter;
+            
+            Worker(SharedCounter counter) {
+                this.counter = counter;
+            }
+        
+            public void run() {
+                for (int i = 0; i < 5; i++) {
+                    counter.increment();
+                }
+            }
+        }
+        
+        public class SyncBlockObject {
+            public static void main(String[] args) {
+                SharedCounter counter = new SharedCounter();
+                Worker t1 = new Worker(counter);
+                Worker t2 = new Worker(counter);
+                
+                t1.start();
+                t2.start();
+            }
+        }
+output 
+Count: 1
+Count: 2
+Count: 3
+Count: 4
+Count: 5
+Count: 6
+Count: 7
+Count: 8
+Count: 9
+Count: 10
+</pre>
+<p> If the block was not synchronized, both threads could increment count simultaneously, leading to incorrect counts (e.g., missing values).</p>
+<h4>Example 3: Synchronizing on a Static Object</h4>
+<pre>
+    class SharedData {
+        static int data = 0;
+    
+        static void modifyData() {
+            synchronized (SharedData.class) {  // Locking on class level
+                data++;
+                System.out.println("Data: " + data);
+            }
+        }
+    }
+    
+    class ThreadA extends Thread {
+        public void run() {
+            for (int i = 0; i < 3; i++) {
+                SharedData.modifyData();
+            }
+        }
+    }
+    
+    class ThreadB extends Thread {
+        public void run() {
+            for (int i = 0; i < 3; i++) {
+                SharedData.modifyData();
+            }
+        }
+    }
+    
+    public class StaticSyncBlock {
+        public static void main(String[] args) {
+            ThreadA t1 = new ThreadA();
+            ThreadB t2 = new ThreadB();
+            
+            t1.start();
+            t2.start();
+        }
+    }
+    Data: 1
+    Data: 2
+    Data: 3
+    Data: 4
+    Data: 5
+    Data: 6
+</pre>
+<p>Since synchronized (SharedData.class) locks at the class level, no two threads can modify data simultaneously.</p>
+<h3>Advantages of Synchronized Blocks</h3>
+<hr style="border: 1px solid black; width: 35%; margin-top: 5px; margin-left: 0;">
+<p>✅ <b>More Efficient</b> - Locks only the critical section instead of the entire method.  <br>
+    ✅ <b>Prevents Race Conditions</b> - Ensures that shared resources are accessed safely. <br>
+    ✅ <b>Avoids Performance Bottlenecks</b> - Allows other non-critical sections to execute concurrently.</p>
+<h3>Disadvantages of Synchronized Blocks</h3>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>❌ <b>Overhead of Synchronization</b> - Introduces additional processing time.  <br>
+    ❌ <b>Possibility of Deadlocks</b> - If locks are not managed properly, threads can wait indefinitely.  <br>
+    ❌ <b>Reduced Concurrency</b> - If overused, it can slow down multi-threaded applications.</p>
+<h3>When to Use Synchronized Blocks</h3>
+<hr style="border: 1px solid black; width: 35%; margin-top: 5px; margin-left: 0;">
+<p>When only part of a method requires synchronization instead of locking the entire method.
+    When multiple objects need to access shared resources, and synchronization ensures correct results.
+    When working with shared counters, data structures, or files in multi-threaded programs.A synchronized block in Java is an efficient way to control access to shared resources while minimizing performance impact. Instead of blocking an entire method, it locks only the critical section where shared data is accessed or modified.</p>
+    <h3>Loop Block</h3>
+    <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+    <p>A loop block in Java is a set of statements enclosed within {} inside a loop <b>(for, while, or do-while).</b> This block repeats execution based on a condition, allowing us to execute a set of statements multiple times.</p>
+    <h4>Why Use a Loop Block</h4>
+    <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+    <p> <b>Avoids code repetition</b> - Instead of writing the same code multiple times, loops allow us to execute a block repeatedly. <br>
+        <b>Automates repetitive tasks</b> - Useful for iterating over arrays, lists, and ranges. <br>
+        <b>Makes code efficient and readable</b> - Shortens lengthy code by using iterations.</p>
+<center><h4>Types of Loop Blocks</h4></center>
+<center>
+    <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+ 
+        <tr>
+            <th style="border: 5px solid black; padding: 5px;">Loop Type</th>
+            <th style="border: 5px solid black; padding: 5px;">Condition Check</th>
+            <th style="border: 5px solid black; padding: 5px;">Execution Order</th>
+            <th style="border: 5px solid black; padding: 5px;">When to Use</th>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">for loop</td>
+            <td style="border: 5px solid black; padding: 5px;">Before every iteration</td>
+            <td style="border: 5px solid black; padding: 5px;">Entry-controlled</td>
+            <td style="border: 5px solid black; padding: 5px;">When the number of iterations is known</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">while loop</td>
+            <td style="border: 5px solid black; padding: 5px;">Before every iteration</td>
+            <td style="border: 5px solid black; padding: 5px;">Entry-controlled</td>
+            <td style="border: 5px solid black; padding: 5px;">When the number of iterations is unknown</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">do-while loop</td>
+            <td style="border: 5px solid black; padding: 5px;">After each iteration</td>
+            <td style="border: 5px solid black; padding: 5px;">Exit-controlled</td>
+            <td style="border: 5px solid black; padding: 5px;">When the loop should run at least once</td>
+        </tr>
+    </table>
+</center>
+</div>
+</body>
+</html>

@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="translate-parent">
+        <h3>Nested-Loop</h3>
+        <hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+        <p>Nested loop is required to make above pattern. <br>
+            Outer loop will be for row and inner loop will be for column. <br>
+            Total rows are n. <br>
+            Rowwise columns are row number.</p>
+            <p>A nested loop in Java is a loop inside another loop. The inner loop executes completely for each iteration of the outer loop. This is useful when working with multi-dimensional data or patterns that require repetitive operations within repetitive operations.</p>
+            <p><strong>Outer Loop:</strong> The main loop that controls the overall execution.</p>
+            <p><strong>Outer Loop:</strong>Inner Loop: The loop that gets executed fully for every iteration of the outer loop.</p>
+                <p><strong>Outer Loop:</strong>Execution: The inner loop runs completely for each iteration of the outer loop.</p>
+                <h4>Example..</h4>
+
+ <pre>
+for (initialization; condition; increment/decrement) { // Outer Loop
+   for (initialization; condition; increment/decrement) { // Inner Loop
+         // Code to execute inside the inner loop
+    }
+        // Code to execute inside the outer loop
+}
+ </pre>
+<pre>
+ public class NestedLoopExample {
+ public static void main(String[] args) {
+  for (int i = 1; i <= 5; i++) { // Outer loop for rows
+    for (int j = 1; j <= 5; j++) { // Inner loop for columns
+      System.out.print(i * j + "\t"); // Multiplying and printing
+    }
+    System.out.println(); // New line after each row
+    }
+    }
+    }
+    output
+   1	2	3	4	5	
+   2	4	6	8	10	
+   3	6	9	12	15	
+   4	8	12	16	20	
+   5	10	15	20	25
+ </pre>
+ <pre>
+    public class App 
+{
+  public static void main(String[] args) 
+  {
+    int n=6;
+    for(int r=1;r<=n;r++)
+     {
+	for(int c=1;c<=r;c++)
+	 {
+	    System.out.print("*");
+	 }
+	  System.out.println();
+	 }
+	 }
+}
+OUTPUT
+*
+**
+***
+****
+*****
+******
+ </pre>
+ <pre>
+    public class App2 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=1;r<=n;r++)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print(c);
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+1
+12
+123
+1234
+12345
+123456
+ </pre>
+ <pre>
+    public class App3 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=1;r<=n;r++)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print(r);
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+1
+22
+333
+4444
+55555
+666666
+ </pre>
+ <pre>
+    public class App4 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=1;r<=n;r++)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print((char)(c+64));
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+A
+AB
+ABC
+ABCD
+ABCDE
+ABCDEF
+ </pre>
+ <pre>
+    public class App5 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=1;r<=n;r++)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print((char)(r+64));
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+A
+BB
+CCC
+DDDD
+EEEEE
+FFFFFF
+ </pre>
+ <pre>
+    public class App 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=1;r<=n;r++)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * * * * 
+ </pre>
+ <pre>
+    public class App 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=n;r>=1;r--)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+* * * * * * 
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+ </pre>
+ <pre>
+    public class App2 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=n;r>=1;r--)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print(c+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+1 2 3 4 5 6 
+1 2 3 4 5 
+1 2 3 4 
+1 2 3 
+1 2 
+1 
+ </pre>
+ <pre>
+    public class App3 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=n;r>=1;r--)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print(r+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+6 6 6 6 6 6 
+5 5 5 5 5 
+4 4 4 4 
+3 3 3 
+2 2 
+1
+ </pre>
+ <pre>
+    public class App4 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=n;r>=1;r--)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print((char)(c+64)+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+A B C D E F 
+A B C D E 
+A B C D 
+A B C 
+A B 
+A 
+ </pre>
+ <pre>
+    public class App5 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=n;r>=1;r--)
+		{
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print((char)(r+64)+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+F F F F F F 
+E E E E E 
+D D D D 
+C C C 
+B B 
+A 
+ </pre>
+ <pre>
+    public class App2 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=n;r>=1;r--)
+		{
+			for(int c=r;c>=1;c--)
+			{
+				System.out.print(c);
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+654321
+54321
+4321
+321
+21
+1
+ </pre>
+ <pre>
+    public class App4 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=n;r>=1;r--)
+		{
+			for(int c=r;c>=1;c--)
+			{
+				System.out.print((char)(c+64));
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+FEDCBA
+EDCBA
+DCBA
+CBA
+BA
+A
+ </pre>
+ <pre>
+    public class App 
+{
+	public static void main(String[] args) 
+	{
+		int n=6;
+		for(int r=1;r<=n;r++)
+		{
+			for(int s=n-r;s>=1;s--)
+			{
+				System.out.print(" ");
+			}
+			for(int c=1;c<=r;c++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+OUTPUT
+     *
+    **
+   ***
+  ****
+ *****
+******
+ </pre>
+ <pre>
+    public class App2 
+    {
+        public static void main(String[] args) 
+        {
+            int n=6;
+            for(int r=1;r<=n;r++)
+            {
+                for(int s=n-r;s>=1;s--)
+                {
+                    System.out.print(" ");
+                }
+                for(int c=1;c<=r;c++)
+                {
+                    System.out.print(c);
+                }
+                System.out.println();
+            }
+        }
+    }
+    OUTPUT
+         1
+        12
+       123
+      1234
+     12345
+    123456
+    </pre>
+    
+    <pre>
+    public class App3 
+    {
+        public static void main(String[] args) 
+        {
+            int n=6;
+            for(int r=1;r<=n;r++)
+            {
+                for(int s=n-r;s>=1;s--)
+                {
+                    System.out.print(" ");
+                }
+                for(int c=1;c<=r;c++)
+                {
+                    System.out.print(r);
+                }
+                System.out.println();
+            }
+        }
+    }
+    OUTPUT
+         1
+        22
+       333
+      4444
+     55555
+    666666
+    </pre>
+    
+    <pre>
+    public class App4 
+    {
+        public static void main(String[] args) 
+        {
+            int n=6;
+            for(int r=1;r<=n;r++)
+            {
+                for(int s=n-r;s>=1;s--)
+                {
+                    System.out.print(" ");
+                }
+                for(int c=1;c<=r;c++)
+                {
+                    System.out.print((char)(c+64));
+                }
+                System.out.println();
+            }
+        }
+    }
+    OUTPUT
+         A
+        AB
+       ABC
+      ABCD
+     ABCDE
+    ABCDEF
+    </pre>
+    
+    <pre>
+    public class App5 
+    {
+        public static void main(String[] args) 
+        {
+            int n=6;
+            for(int r=1;r<=n;r++)
+            {
+                for(int s=n-r;s>=1;s--)
+                {
+                    System.out.print(" ");
+                }
+                for(int c=1;c<=r;c++)
+                {
+                    System.out.print((char)(r+64));
+                }
+                System.out.println();
+            }
+        }
+    }
+    OUTPUT
+         A
+        BB
+       CCC
+      DDDD
+     EEEEE
+    FFFFFF
+    </pre>
+    
+    <pre>
+    public class App 
+    {
+        public static void main(String[] args) 
+        {
+            int n=6;
+            for(int r=1;r<=n;r++)
+            {
+                for(int s=n-r;s>=1;s--)
+                {
+                    System.out.print("  ");
+                }
+                for(int c=1;c<=r;c++)
+                {
+                    System.out.print("* ");
+                }
+                System.out.println();
+            }
+        }
+    }
+    OUTPUT
+              * 
+            * * 
+          * * * 
+        * * * * 
+      * * * * * 
+    * * * * * * 
+    </pre>
+    <pre>
+        public class App 
+        {
+            public static void main(String[] args) 
+            {
+                int n=6;
+                for(int r=1;r<=n;r++)
+                {
+                    for(int s=n-r;s>=1;s--)
+                    {
+                        System.out.print(" ");
+                    }
+                    for(int c=1;c<=r;c++)
+                    {
+                        System.out.print("* ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+        OUTPUT
+             * 
+            * * 
+           * * * 
+          * * * * 
+         * * * * * 
+        * * * * * * 
+        </pre>
+        
+        <pre>
+        public class App 
+        {
+            public static void main(String[] args) 
+            {
+                int n=6;
+                for(int r=1;r<=n;r++)
+                {
+                    for(int s=n-r;s>=1;s--)
+                    {
+                        System.out.print(" ");
+                    }
+                    for(int c=1;c<=r;c++)
+                    {
+                        System.out.print("*");
+                    }
+                    for(int c=r-1;c>=1;c--)
+                    {
+                        System.out.print("*");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+        OUTPUT
+             *
+            ***
+           *****
+          *******
+         *********
+        ***********
+        </pre>
+        
+        <pre>
+        public class App2 
+        {
+            public static void main(String[] args) 
+            {
+                int n=6;
+                for(int r=1;r<=n;r++)
+                {
+                    for(int s=n-r;s>=1;s--)
+                    {
+                        System.out.print(" ");
+                    }
+                    for(int c=1;c<=r;c++)
+                    {
+                        System.out.print(c);
+                    }
+                    for(int c=r-1;c>=1;c--)
+                    {
+                        System.out.print(c);
+                    }
+                    System.out.println();
+                }
+            }
+        }
+        OUTPUT
+             1
+            121
+           12321
+          1234321
+         123454321
+        12345654321
+        </pre>
+        
+        <pre>
+        public class App3 
+        {
+            public static void main(String[] args) 
+            {
+                int n=6;
+                for(int r=1;r<=n;r++)
+                {
+                    for(int s=n-r;s>=1;s--)
+                    {
+                        System.out.print(" ");
+                    }
+                    for(int c=1;c<=r;c++)
+                    {
+                        System.out.print((char)(c+64));
+                    }
+                    for(int c=r-1;c>=1;c--)
+                    {
+                        System.out.print((char)(c+64));
+                    }
+                    System.out.println();
+                }
+            }
+        }
+        OUTPUT
+             A
+            ABA
+           ABCBA
+          ABCDCBA
+         ABCDEDCBA
+        ABCDEFEDCBA
+        </pre>
+        
+        <pre>
+        public class App 
+        {
+            public static void main(String[] args) 
+            {
+                int n=6;
+                for(int r=n;r>=1;r--)
+                {
+                    for(int s=n-r;s>=1;s--)
+                    {
+                        System.out.print(" ");
+                    }
+                    for(int c=1;c<=r;c++)
+                    {
+                        System.out.print("*");
+                    }
+                    for(int c=r-1;c>=1;c--)
+                    {
+                        System.out.print("*");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+        OUTPUT
+        ***********
+         *********
+          *******
+           *****
+            ***
+             *
+        </pre>
+        <pre>
+            public class App2 
+            {
+                public static void main(String[] args) 
+                {
+                    int n=6;
+                    for(int r=n;r>=1;r--)
+                    {
+                        for(int s=n-r;s>=1;s--)
+                        {
+                            System.out.print(" ");
+                        }
+                        for(int c=1;c<=r;c++)
+                        {
+                            System.out.print(c);
+                        }
+                        for(int c=r-1;c>=1;c--)
+                        {
+                            System.out.print(c);
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+            OUTPUT
+            12345654321
+             123454321
+              1234321
+               12321
+                121
+                 1
+            </pre>
+            
+            <pre>
+            public class App3 
+            {
+                public static void main(String[] args) 
+                {
+                    int n=6;
+                    for(int r=n;r>=1;r--)
+                    {
+                        for(int s=n-r;s>=1;s--)
+                        {
+                            System.out.print(" ");
+                        }
+                        for(int c=1;c<=r;c++)
+                        {
+                            System.out.print((char)(c+64));
+                        }
+                        for(int c=r-1;c>=1;c--)
+                        {
+                            System.out.print((char)(c+64));
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+            OUTPUT
+            ABCDEFEDCBA
+             ABCDEDCBA
+              ABCDCBA
+               ABCBA
+                ABA
+                 A
+            </pre>
+            
+            <pre>
+            public class App 
+            {
+                public static void main(String[] args) 
+                {
+                    int n=6;
+                    for(int r=1;r<=n;r++)
+                    {
+                        for(int s=n-r;s>=1;s--)
+                        {
+                            System.out.print(" ");
+                        }
+                        for(int c=1;c<=r;c++)
+                        {
+                            System.out.print("*");
+                        }
+                        for(int c=r-1;c>=1;c--)
+                        {
+                            System.out.print("*");
+                        }
+                        System.out.println();
+                    }
+                    for(int r=n-1;r>=1;r--)
+                    {
+                        for(int s=n-r;s>=1;s--)
+                        {
+                            System.out.print(" ");
+                        }
+                        for(int c=1;c<=r;c++)
+                        {
+                            System.out.print("*");
+                        }
+                        for(int c=r-1;c>=1;c--)
+                        {
+                            System.out.print("*");
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+            OUTPUT
+                 *
+                ***
+               *****
+              *******
+             *********
+            ***********
+             *********
+              *******
+               *****
+                ***
+                 *
+            </pre>
+            
+            <pre>
+            public class App2 
+            {
+                public static void main(String[] args) 
+                {
+                    int n=6;
+                    for(int r=1;r<=n;r++)
+                    {
+                        for(int s=n-r;s>=1;s--)
+                        {
+                            System.out.print(" ");
+                        }
+                        for(int c=1;c<=r;c++)
+                        {
+                            System.out.print(c);
+                        }
+                        for(int c=r-1;c>=1;c--)
+                        {
+                            System.out.print(c);
+                        }
+                        System.out.println();
+                    }
+                    for(int r=n-1;r>=1;r--)
+                    {
+                        for(int s=n-r;s>=1;s--)
+                        {
+                            System.out.print(" ");
+                        }
+                        for(int c=1;c<=r;c++)
+                        {
+                            System.out.print(c);
+                        }
+                        for(int c=r-1;c>=1;c--)
+                        {
+                            System.out.print(c);
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+            OUTPUT
+                 1
+                121
+               12321
+              1234321
+             123454321
+            12345654321
+             123454321
+              1234321
+               12321
+                121
+                 1
+            </pre>
+            
+            <pre>
+            public class App3 
+            {
+                public static void main(String[] args) 
+                {
+                    int n=6;
+                    for(int r=1;r<=n;r++)
+                    {
+                        for(int s=n-r;s>=1;s--)
+                        {
+                            System.out.print(" ");
+                        }
+                        for(int c=1;c<=r;c++)
+                        {
+                            System.out.print((char)(c+64));
+                        }
+                        for(int c=r-1;c>=1;c--)
+                        {
+                            System.out.print((char)(c+64));
+                        }
+                        System.out.println();
+                    }
+                    for(int r=n-1;r>=1;r--)
+                    {
+                        for(int s=n-r;s>=1;s--)
+                        {
+                            System.out.print(" ");
+                        }
+                        for(int c=1;c<=r;c++)
+                        {
+                            System.out.print((char)(c+64));
+                        }
+                        for(int c=r-1;c>=1;c--)
+                        {
+                            System.out.print((char)(c+64));
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+            OUTPUT
+                 A
+                ABA
+               ABCBA
+              ABCDCBA
+             ABCDEDCBA
+            ABCDEFEDCBA
+             ABCDEDCBA
+              ABCDCBA
+               ABCBA
+                ABA
+                 A
+            </pre>
+            <pre>
+                public class App 
+                {
+                    public static void main(String[] args) 
+                    {
+                        int n=6;
+                        for(int r=n;r>=1;r--)
+                        {
+                            for(int s=n-r;s>=1;s--)
+                            {
+                                System.out.print(" ");
+                            }
+                            for(int c=1;c<=r;c++)
+                            {
+                                System.out.print("*");
+                            }
+                            for(int c=r-1;c>=1;c--)
+                            {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                        }
+                        for(int r=2;r<=n;r++)
+                        {
+                            for(int s=n-r;s>=1;s--)
+                            {
+                                System.out.print(" ");
+                            }
+                            for(int c=1;c<=r;c++)
+                            {
+                                System.out.print("*");
+                            }
+                            for(int c=r-1;c>=1;c--)
+                            {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                        }
+                    }
+                }
+                OUTPUT
+                ***********
+                 *********
+                  *******
+                   *****
+                    ***
+                     *
+                    ***
+                   *****
+                  *******
+                 *********
+                ***********
+                </pre>
+                
+                <pre>
+                public class App2 
+                {
+                    public static void main(String[] args) 
+                    {
+                        int n=6;
+                        
+                        for(int r=n;r>=1;r--)
+                        {
+                            for(int s=n-r;s>=1;s--)
+                            {
+                                System.out.print(" ");
+                            }
+                            for(int c=1;c<=r;c++)
+                            {
+                                System.out.print(c);
+                            }
+                            for(int c=r-1;c>=1;c--)
+                            {
+                                System.out.print(c);
+                            }
+                            System.out.println();
+                        }
+                        for(int r=2;r<=n;r++)
+                        {
+                            for(int s=n-r;s>=1;s--)
+                            {
+                                System.out.print(" ");
+                            }
+                            for(int c=1;c<=r;c++)
+                            {
+                                System.out.print(c);
+                            }
+                            for(int c=r-1;c>=1;c--)
+                            {
+                                System.out.print(c);
+                            }
+                            System.out.println();
+                        }
+                    }
+                }
+                OUTPUT
+                12345654321
+                 123454321
+                  1234321
+                   12321
+                    121
+                     1
+                    121
+                   12321
+                  1234321
+                 123454321
+                12345654321
+                </pre>
+                
+                <pre>
+                public class App3 
+                {
+                    public static void main(String[] args) 
+                    {
+                        int n=6;
+                        
+                        for(int r=n;r>=1;r--)
+                        {
+                            for(int s=n-r;s>=1;s--)
+                            {
+                                System.out.print(" ");
+                            }
+                            for(int c=1;c<=r;c++)
+                            {
+                                System.out.print((char)(c+64));
+                            }
+                            for(int c=r-1;c>=1;c--)
+                            {
+                                System.out.print((char)(c+64));
+                            }
+                            System.out.println();
+                        }
+                        for(int r=2;r<=n;r++)
+                        {
+                            for(int s=n-r;s>=1;s--)
+                            {
+                                System.out.print(" ");
+                            }
+                            for(int c=1;c<=r;c++)
+                            {
+                                System.out.print((char)(c+64));
+                            }
+                            for(int c=r-1;c>=1;c--)
+                            {
+                                System.out.print((char)(c+64));
+                            }
+                            System.out.println();
+                        }
+                    }
+                }
+                OUTPUT
+                ABCDEFEDCBA
+                 ABCDEDCBA
+                  ABCDCBA
+                   ABCBA
+                    ABA
+                     A
+                    ABA
+                   ABCBA
+                  ABCDCBA
+                 ABCDEDCBA
+                ABCDEFEDCBA
+                </pre>
+                
+                <pre>
+                public class App3 
+                {
+                 public static void main(String[] args) 
+                 {
+                   int n = 9; // Size of the pattern
+                    for (int r = 0; r < n; r++) 
+                    {
+                    for (int j = 0; j < n; j++) 
+                     {
+                      if (r == j || r + j == n - 1)
+                       {
+                       System.out.print("*");
+                       } 
+                       else 
+                        {
+                          System.out.print(" ");
+                        }
+                        }
+                        System.out.println();
+                        }
+                    }
+                }
+                OUTPUT
+                *       *
+                 *     * 
+                  *   *  
+                   * *   
+                    *    
+                   * *   
+                  *   *  
+                 *     * 
+                *       *
+                </pre>
+                
+                <pre>
+                public class App4 
+                {
+                  public static void main(String[] args) 
+                  {
+                     int n = 6;
+                     // First pattern
+                    for (int r = n; r >= 1; r--) 
+                    {
+                     for (int c = 1; c <= r; c++) 
+                      {
+                        System.out.print((char) (c + 64) + " "); 
+                        System.out.println();
+                       }
+                       // Second pattern
+                        for (int r = 1; r <= n; r++) 
+                         {
+                           for (int c = 1; c <= r; c++) 
+                          {
+                          System.out.print((char) (c + 64) + " "); 
+                          }
+                          System.out.println();
+                        }
+                       }
+                       }
+                OUTPUT
+                A B C D E F 
+                A B C D E 
+                A B C D 
+                A B C 
+                A B 
+                A 
+                A 
+                A B 
+                A B C 
+                A B C D 
+                A B C D E 
+                A B C D E F
+                </pre>
+                <center><h4 style="background-color: indianred; display: inline-block; padding: 5px;">Congratulations! you have understood the concept of patterns...</h4></center>
+                <center><p>---------------------------------------------------------------------</p></center>
+                                          
+    </div>
+</body>
+
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+</html>

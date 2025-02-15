@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="translate-parent">
+        <p>It is one of the way to change type of any value
+            <br>
+            Typecasting in Java means converting one data type into another. It is helpful when you need to change the type of a value to make it compatible with operations or variables.
+        </p>
+<h4>=>(type)value</h4>
+<h4>=>(type)variable</h4>
+
+<h3>There are two types of typecasting:</h3>
+<hr style="border: 1px solid black; width: 45%; margin-top: 5px; margin-left: 0;">
+<p><strong>1) Explicit typecasting (<span class="highlight">Narrowing</span>):</strong> This type converts big to little. <br>
+    You manually convert a larger data type into a smaller one. <br>
+There is a risk of losing data during conversion. <br>
+Syntax: (type)value
+</p>
+<p><strong>2) Implicit typecasting (<span class="highlight">Type-Permission</span>):</strong> This type casting converts little to big.</p>
+
+<h3>Example of Explicit typecasting:</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<pre>
+int x;
+x=(int)56.78; //Here explicit
+</pre>
+
+<h3>Example of Implicit typecasting:</h3>
+<hr style="border: 1px solid black; width: 37%; margin-top: 5px; margin-left: 0;">
+<pre>
+float x;
+x=78; //Here implicit
+</pre>
+
+<h3>Example 1:</h3>
+<pre>
+public class TypeCasting
+{
+  public static void main(String[] args)
+  {
+    int num;
+    num=(int)90.99;
+    System.out.println(num); //Calling println() method
+  }
+}
+----------
+output
+90
+-----------
+</pre>
+
+<h3>Example 2:</h3>
+<pre>
+public class TypeCasting1
+{
+  public static void main(String[] args)
+  {
+    int x=10, y=4;
+    float z=(float)x/y;
+    System.out.println(z);
+  }
+}
+-----------------
+output 
+2.5
+-----------------
+</pre>
+
+<h3>Example 3:</h3>
+<pre>
+public class TypeCasting2
+{
+  public static void main(String[] args)
+  {
+    int num;
+    num='A'; //'A' will not be assigned to num. Unicode of 'A' will be assigned to num
+    System.out.println(num);
+  }
+}
+-----------------
+output
+65
+-----------------
+
+</pre>
+
+<h3>Example 4:</h3>
+<pre>
+public class TypeCasting3
+{
+  public static void main(String[] args)
+  {
+    int num;
+    num='9';
+    System.out.println(num);
+  }
+}
+----------------
+output 
+57
+-------------
+</pre>
+
+<h3>Example 5:</h3>
+<pre>
+public class TypeCasting4
+{
+  public static void main(String[] args)
+  {
+    char ch;
+    ch=97;
+    System.out.println(ch);
+  }
+}
+----------------
+output 
+a
+-----------------
+</pre>
+
+<h3>Example 6:</h3>
+<pre>
+public class TypeCasting5
+{
+  public static void main(String[] args)
+  {
+    System.out.println((int)'A'); //65
+    System.out.println((char)66); //B
+  }
+}
+</pre>
+
+<h3>Example 7:</h3>
+<pre>
+public class TypeCasting6
+{
+  public static void main(String[] args) 
+  {
+    char x='A';
+    char ch=(char)((int)x+1);
+    System.out.println(ch);//B
+  }
+}
+</pre>
+<pre>
+class TypeCasting7
+ {
+    public static void main(String[] args) 
+    {
+            for (int i = 65; i <= 90; i++)
+             { 
+                char ch = (char) i;
+                System.out.println(ch);//<span class="highlight">A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z</span>
+            }
+        }
+    }
+</pre>
+<p>Explicit Typecasting: Requires manual effort, may lose data. <br>
+    Implicit Typecasting: Done automatically by Java, safe. <br>
+    Works with primitive types (int, float, char, etc.) and objects with appropriate conversions.</p>
+    </div>
+</body>
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
+
+</html>

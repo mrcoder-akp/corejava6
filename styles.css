@@ -1,0 +1,223 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 60px);
+  overflow: hidden; /* Prevent overflow of the main container */
+  flex-direction: row; /* Ensure content stays in a row */
+}
+
+.sidebar {
+  background-color: #2c3e50;
+  color: black;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;  
+  
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  color:white;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Prevent extra margins */
+
+}
+
+.sidebar li {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #34495e;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  background:#a19293;
+  font-size: clamp(14px, 1.5vw, 18px); /* Adjust font size based on viewport width */
+  overflow: hidden; /* Hide any overflow content */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  max-width: 100%; /* Prevent overflow outside the screen */
+  
+}
+
+.sidebar li:hover {
+  background-color:rgb(150, 248, 111);
+  
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: rgb(150, 248, 111);
+  overflow-x: auto; /* Enable scrolling for long content */
+}
+
+.content h2 {
+  color: #373b0b;
+  background-color: #f5f7d2;
+  padding: 8px 0; /* Reduced padding for the heading */
+  width: 60%;
+  margin: 0 auto; /* Center align and remove bottom margin */
+  text-align: center;
+  border-radius: 4px;
+  font-size: 4vw;
+  margin-top: 0; /* No gap above the heading */
+}
+
+#content-description {
+  font-size: 18px;
+  line-height: 1.5; /* Tightened line height to reduce space between lines */
+}
+
+.content p {
+  background-color: skyblue;
+  padding: 2px; /* Reduced padding to make it closer to the heading */
+  border-radius: 5px;
+  line-height: 1.5; /* Adjusted line height for compact spacing */
+  margin-top: 0; /* Removed margin-top to bring the paragraph closer to the heading */
+  margin-bottom: 0; /* No gap below the paragraph */
+  overflow-x: auto;
+}
+
+/* Styling scrollbar for the sidebar */
+.sidebar ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar ul::-webkit-scrollbar-thumb {
+  background-color: #1abc9c;
+  border-radius: 4px;
+}
+
+.sidebar ul::-webkit-scrollbar-track {
+  background-color: #34495e;
+}
+
+/* General styles for headings */
+.sidebar h2,
+.content h2 {
+  text-align: center;
+  position: relative;
+  margin-bottom: 5px; /* Reduced margin between heading and paragraph */
+}
+
+.sidebar h2::after,
+.content h2::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  background-color: #1abc9c;
+  margin: 10px auto 0;
+  border-radius: 4px;
+}
+
+
+@media (min-width:552px){
+  .content{
+    width: calc(100% - 15%); /* Ensure it doesn't overlap the sidebar */
+
+  }
+  .sidebar{
+    width: 15%; /* Fixed width for the sidebar */
+
+  }
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Search Bar Styling */
+#searchBar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding doesn’t overflow */
+  background-color: #fff;
+}
+
+/* Search Bar Placeholder Styling */
+#searchBar::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsive adjustments for the search bar */
+@media (max-width: 552px) {
+  #searchBar {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Responsive adjustments */
+@media (max-width: 552px) {
+  .container {
+    flex-direction: column; /* Stack sidebar and content vertically on small screens */
+    height: auto;
+  }
+
+  .content {
+    padding: 15px;
+    max-width: 100%; /* Ensure content takes full width on smaller screens */
+  }
+
+  .sidebar h2,
+  .content h2 {
+    font-size: 4vw;
+  }
+
+  .sidebar ul {
+    max-height: none;
+  }
+
+  .sidebar li {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .content p {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 552px) {
+  .sidebar li {
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  .content h2 {
+    font-size: 5vw;
+  }
+
+  .content p {
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+/* Hide sidebar and make content full width on mobile */
+@media (max-width: 552px) {
+  .sidebar.hide-sidebar {
+    display: none;
+  }
+
+  .content.full-width {
+    width: 100%;
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Full Stack</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="bot.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container-nave">
+            <h1 class="logo">Software Devlopment</h1>
+            <div class="menu" id="menu">
+                <a href="#" onclick="loadHomeContent()" class="menu-item java">
+                    Java 
+                    <span class="new-badge">NEW</span> <!-- Small "NEW" text -->
+                </a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Profile</a>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#" onclick="loadHomeContent()" class="mobile-menu-item">
+                Java
+                <span class="new-badge">NEW</span> <!-- Small "NEW" label on Java -->
+            </a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Profile</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+   <section>
+    <div id="mainContent" class="special-content">
+        <img class="special-img" src="image/boy1.png" alt="">
+        <h1 class="welcome-heading"><span class="first-letter">W</span>elcome to <span class="first-letter">C</span>oding <span class="first-letter">U</span>niverse</h1>
+        <div>
+            <div class="marquee-container">
+            <!-- 🔥 4 Blinking Circles on the Corners -->
+           <div class="blinking-circle top-left"></div>
+           <div class="blinking-circle top-right"></div>
+           <div class="blinking-circle bottom-left"></div>
+           <div class="blinking-circle bottom-right"></div>
+           <!-- 🔥 Shadows for 3D Effect -->
+           <div class="marquee-shadow-left"></div>
+           <div class="marquee-shadow-right"></div>    
+               <!-- Hidden div jisme text store hai -->
+            <div id="text-source" style="display: none;">
+                Class Happy {
+                public static void main(String[] args) 
+                { 
+                      while(!success )
+                { 
+                    tryAgain(); 
+                    if(dead) 
+                    break; 
+                } } 
+                    public static void tryAgain(){ 
+                    success = confidence && hardwork; 
+                } }
+              </div>
+            <!-- Marquee text container -->
+            <p id="marquee-text" class="marquee-text"></p>
+            </div>
+            <div class="chat-logo" id="chat-logo">💬</div>
+            <div class="cross-btn" id="cross-btn">✖</div>
+        
+            <div class="chat-container" id="chat-container">
+                <div class="chat-header" id="chat-header">Conversion😊</div>
+                <div class="chat-box" id="chat-box"></div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Type your message...">
+                    <button id="send-button">➤</button>
+                    <button class="clear-btn" id="clear-button">Clear</button>
+                </div>
+            </div>
+        </div>
+     </div>
+   </section>
+ <script src="script.js"></script>
+ <script src="bot.js"></script>
+ <script src="speak.js"></script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="translate-parent">
+<p>It makes coding simple and easy. <br> You write a command once, and that command will run <em><span class="highlight">n </span></em> times.</p>
+<p><em><span class="highlight">n  </span></em> can be finite or infinite. <br> You must define a loop using one of the following keywords:</p>
+       <ul class="decimal-list">
+        <strong>
+            <li>For-loop</li>
+        <li>While</li>
+        <li>do-While</li>
+        </strong>
+       </ul>
+       <p>These keywords are known as loop constructs--- </p>
+       <p><strong>Using for:</strong> When <em>n</em> is finite and fixed.</p>
+<p><strong>Using while:</strong> When <em>n</em> is finite or infinite and not fixed.</p>
+<p><strong>Using do-while:</strong> When <em>n</em> is finite or infinite and not fixed.</p>
+<h3>For-Loop</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p><strong>When to Use:</strong> When <em>n</em> is finite and fixed.</p>
+<pre>
+public class App {
+  public static void main(String[] args) {
+    for(int ctr = 1; ctr <= 10; ctr++) {
+      System.out.println(ctr);
+    }
+  }
+}
+</pre>
+<pre>
+public class App2 {
+  public static void main(String[] args) {
+    for(int ctr = 10; ctr >= 1; ctr--) {
+      System.out.println(ctr);
+    }
+  }
+}
+</pre>
+<pre>
+public class ForDemo {
+  public static void main(String[] args) {
+    for(int ctr = 0; ctr < 10; ctr++) {
+      System.out.println("Coding krenge");
+    }
+  }
+}
+</pre>
+<pre>
+import java.util.Scanner;
+public class Table {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the number: ");
+    int num = sc.nextInt();
+    for(int ctr = 2; ctr <= 10; ctr++) {
+        res=num*ctr;
+      System.out.println(res);
+    }
+  }
+}
+</pre>
+<pre>
+import java.util.Scanner;
+public class Table1
+{
+  public static void main(String[] args)
+  {
+ 	Scanner sc=new Scanner(System.in);
+	System.out.print("Enter the number:");
+	int num=sc.nextInt();	
+	int res=num;
+	System.out.println(res);
+	for(int ctr=1;ctr<=9;ctr++)
+	{
+	   res=res+num;
+	   System.out.println(res);	   
+	}	
+  }
+}
+</pre>
+<h3>While-Loop</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p><strong>When to Use:</strong> When <em>n</em> is finite or infinite and not fixed. The condition is checked before execution.</p>
+<pre>
+    public class WhileDemo {
+      public static void main(String[] args) {
+        int ctr = 0;
+        while(ctr < 10) {
+          System.out.println("jai shree ram");
+          ctr++;
+        }
+      }
+    }
+    </pre>
+    <h3>Do-While Loop</h3>
+    <hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p><strong>When to Use:</strong> When <em>n</em> is finite or infinite and not fixed. The statement is executed at least once before the condition is checked.</p>
+<pre>
+    public class DoWhileDemo {
+      public static void main(String[] args) {
+        int ctr = 0;
+        do {
+          System.out.println("I LOVE MY INDIA");
+          ctr++;
+        } while(ctr < 10);
+      }
+    }
+    </pre>
+    <h3>Using Conditions and Loop Combinations</h3>
+    <hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+
+<h4>Example: Multiplication Table</h4>
+<pre>
+public class App {
+  public static void main(String[] args) {
+    int num = 8;
+    for(int ctr = 1; ctr <= 10; ctr++) {
+      System.out.println(num * ctr);
+    }
+  }
+}
+</pre>
+
+<h4>Example: x Power y</h4>
+<pre>public class App3 {
+    public static void main(String[] args) {
+        int x = 2, y = 7; 
+        int p = x;
+        for (int i = 1; i < y; i++) {
+            p = p * x;
+        }
+        System.out.println(p); // Output: 128
+    }
+}
+------
+or 
+----
+public class App3 {
+ public static void main(String[] args) {
+   int x = 3, y = 5;
+   int result = x;
+   for(int i = 1; i < y; i++) {
+     result *= x;
+   }
+   System.out.println(result);
+ }
+}</pre>
+
+<h4>Example: Factorial</h4>
+<pre>
+    public class App4 
+{
+	public static void main(String[] args) 
+	{
+		int num=6;
+		for(int ctr=num-1;ctr>=2;ctr--)
+		{
+			num=num*ctr;
+		}
+		System.out.println(num);
+	}
+}
+OUTPUT=720
+    -------
+     or
+    ------
+public class App4 {
+  public static void main(String[] args) {
+    int num = 6;
+    for(int i = num - 1; i >= 2; i--) {
+      num *= i;
+    }
+    System.out.println(num);
+  }
+}
+</pre>
+<h4>Increment 1+2+3+4+5+------</h4>
+<pre>
+    public class App5 
+    {
+        public static void main(String[] args) 
+        {
+            int x=1;
+            for(int c=1;c<=10;c++)
+            {
+                System.out.println(x);
+                x=x+c;
+            }
+        }
+    }
+    OUTPUT=1,2,4,7,11,16,22,29,37,46 
+</pre>
+
+<h4>Example: All Factors of a Number</h4>
+<pre>
+    public class App6 
+{
+	public static void main(String[] args) 
+	{
+		int num=12;
+		int half=num/2;
+		System.out.println(1);
+		for(int ctr=2;ctr<=half;ctr++)
+		{
+			if(num%ctr==0)
+			{
+				System.out.println(ctr);
+			}
+		}
+		System.out.println(num);
+	}
+}
+OUTPUT=1,2,3,4,6,12
+    -----
+     or
+    ----
+public class App6 {
+  public static void main(String[] args) {
+    int num = 12;
+    for(int i = 1; i <= num / 2; i++) {
+      if(num % i == 0) {
+        System.out.println(i);
+      }
+    }
+    System.out.println(num);
+  }
+}
+---
+or
+----
+import java.util.Scanner;
+public class App7 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the number:");
+		int num=sc.nextInt();
+		int half=num/2;
+		System.out.println("All factors of "+num+" are as follows");
+		System.out.println(1);
+		for(int ctr=2;ctr<=half;ctr++)
+		{
+			if(num%ctr==0)
+			{
+				System.out.println(ctr);
+			}
+		}
+		System.out.println(num);
+		sc.close();
+	}
+}
+OUTPUT=1,2,3,4,6,12
+</pre>
+
+<h3>Example: Check if Prime</h3>
+<pre>public class App8 
+    {
+        public static void main(String[] args) 
+        {
+            int num=121;
+            int half=num/2;
+            int flag=0;
+            for(int ctr=2;ctr<=half;ctr++)
+            {
+                if(num%ctr==0)
+                {
+                    System.out.println("Number is not prime");
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0)
+            {
+                System.out.println("Number is prime");
+            }
+        }
+    }
+
+----
+or
+----    
+public class App8 {
+  public static void main(String[] args) {
+    int num = 121;
+    boolean isPrime = true;
+    for(int i = 2; i <= num / 2; i++) {
+      if(num % i == 0) {
+        isPrime = false;
+        break;
+      }
+    }
+    System.out.println(isPrime ? "Prime" : "Not Prime");
+  }
+}
+</pre>
+<h4>Accept the num of the user & check  weather it is prime or not</h4>
+<pre>
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		int num=197;
+		int half=num/2;
+		int flag=0,count=0;
+		for(int ctr=2;ctr<=half;ctr++)
+		{
+			count++;
+			if(num%ctr==0)
+			{
+				System.out.println("Number is not prime");
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0)
+		{
+			System.out.println("Number is prime");
+		}
+		System.out.println("Total division done:"+count);
+	}
+}
+OR
+-----
+//Using math.sqrt method
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		int num=197;
+		int sr=(int)Math.sqrt(num);
+		int flag=0,count=0;
+		for(int ctr=2;ctr<=sr;ctr++)
+		{
+			count++;
+			if(num%ctr==0)
+			{
+				System.out.println("Number is not prime");
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0)
+		{
+			System.out.println("Number is prime");
+		}
+		System.out.println("Total division done:"+count);
+	}
+}
+OR
+------
+
+public class App3 
+{
+	public static void main(String[] args) 
+	{
+		int num=197,count=1;
+		if(num%2==0)
+		{
+			System.out.println("Number is not prime");
+		}
+		else
+		{
+			int sr=(int)Math.sqrt(num);
+			int flag=0;
+			for(int ctr=3;ctr<=sr;ctr+=2)
+			{
+				count++;
+				if(num%ctr==0)
+				{
+					System.out.println("Number is not prime");
+					flag=1;
+					break;
+				}
+			}
+			if(flag==0)
+			{
+				System.out.println("Number is prime");
+			}
+		}
+		System.out.println("Total division done:"+count);
+	}
+}
+</pre>
+
+<h4>Example: Digits of a Number</h4>
+<pre>
+public class App {
+  public static void main(String[] args) {
+    int num = 244657;
+    while(num != 0) {
+      System.out.println(num % 10);
+      num /= 10;
+    }
+  }
+}
+or
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		int num=244657,rem;
+		while(num!=0)
+		{
+			rem=num%10;
+			System.out.println(rem);
+			num=num/10;
+		}
+	}
+}
+OUTPUT
+7
+5
+6
+4
+4
+2
+------
+or
+import java.util.Scanner;
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the number:");
+		int num=sc.nextInt();
+		int rem;
+		while(num!=0)
+		{
+			rem=num%10;
+			System.out.println(rem);
+			num=num/10;
+		}
+	}
+}
+OUTPUT
+7
+5
+6
+4
+4
+2
+</pre>
+<h4>Accept number from user and display all digit of that one by one </h4>
+<pre>
+//value large amount then use long datatype
+import java.util.Scanner;
+public class App3 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the number:");
+		long num=sc.nextLong();
+		long rem;
+		while(num!=0)
+		{
+			rem=num%10;
+			System.out.println(rem);
+			num=num/10;
+		}
+	}
+}
+</pre>
+<h4>Accept num from user and all digits sum</h4>
+ <pre>
+    import java.util.Scanner;
+public class App5 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the number:");
+		long num=sc.nextLong();
+		long rem,sum=0;
+		while(num!=0)
+		{
+			rem=num%10;
+			sum=sum+rem;
+			num=num/10;
+		}
+		System.out.println("Sum="+sum);
+	}
+}
+ </pre>
+ <h4>Accept num from user and all digits reverse order</h4>
+ <pre>
+    import java.util.Scanner;
+
+public class App6 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the number:");
+		long num=sc.nextLong();
+		long rem,sum=0;
+		while(num!=0)
+		{
+			rem=num%10;
+			sum=sum*10+rem;
+			num=num/10;
+		}
+		System.out.println("Reverse value="+sum);
+	}
+}
+ </pre>
+    </div>
+     <center><h4 style="background-color: indianred; display: inline-block; padding: 5px;">Study hard, one day you will teach coding...</h4></center>
+     <center><p>---------------------------------------------------------------------</p></center>
+   
+</body>
+
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
+
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="translate-parent">
+        <p>Our program will perform arithmetic operations, comparison operations, as well as logical operations on the data kept in variables. <br> Operators are used to write commands to perform these operations. <br> Every operator returns a value after performing the operation.</p>
+    
+        <h4><strong>Using Operators in Commands</strong></h4>
+        <hr style="border: 1px solid black; width: 31%; margin-top: 5px; margin-left: 0;">
+        <p>We can use the following operators in our command to perform arithmetic, comparison, and logical operations:</p>
+        <ul class="decimal-list">
+            <li>+,-,*,/,% // Arithmetic operators</li>
+            <li>+=,-=,*=,/=,%= // Arithmetic assignment operators</li>
+            <li>++,-- // Increment and decrement operators</li>
+            <li>&lt;, &lt;=, &gt;, &gt;=, ==, != // Comparison operators</li>
+            <li>&& (AND), || (OR), ^ (XOR), ! (NOT) // Logical operators</li>
+        </ul>
+    
+        <h4><strong>Arithmetic Operators</strong></h4>
+        <hr style="border: 1px solid black; width: 23%; margin-top: 5px; margin-left: 0;">
+        <p>Operators like +, -, *, /, and % are used for arithmetic operations. The + operator performs addition and returns an int value.</p>
+        <pre>
+    Example:
+    public class ArithmeticOperator {
+        public static void main(String[] args) {
+            int x = 100, y = 16;
+            int z = x % y;
+            System.out.println(z);//4
+        }
+    }
+        </pre>
+    
+        <pre>
+    public class ArithmeticOperator1 {
+        public static void main(String[] args) {
+            double tempf = 101.0;
+            System.out.print("Temperature in Fahrenheit is: ");
+            System.out.println(tempf);
+            // Code to convert temperature into Celsius
+            double tempc = (tempf - 32) * 5 / 9;
+            System.out.print("Temperature in Celsius is: ");
+            System.out.println(tempc);
+        }
+    }
+    -------------
+    output 
+    Temperature in Fahrenheit is: 101.0
+    Temperature in Celsius is: 38.333333333333336
+    --------------
+        </pre>
+    
+        <pre>
+    public class ArithmeticOperator2 {
+        public static void main(String[] args) {
+            String x = "10", y = "20";
+            String z = x + y;
+            System.out.println(z);//1020
+        }
+    }
+        </pre>
+    
+        <pre>
+    public class ArithmeticAssignmentOperator {
+        public static void main(String[] abc) {
+            int salary = 70000;
+            System.out.println("Salary before increment: " + salary);
+            salary += 9000;
+            System.out.println("Salary after increment: " + salary);
+        }
+    }
+    ------------------
+    output 
+    Salary before increment: 70000
+    Salary after increment: 79000
+    --------------------
+        </pre>
+    
+        <p><strong>Note:</strong><span class="highlight"> Every operator returns a value after performing the operation.</span></p>
+        <h4><strong>Increment Operators</strong></h4>
+        <hr style="border: 1px solid black; width: 18%; margin-top: 5px; margin-left: 0;">
+        <pre>
+    public class IncrementOperator {
+        public static void main(String[] abc) {
+            int x = 10;
+            // Increment x by 1 using various methods
+          //  x = x + 1;  // Good
+           // x += 1;     // Better
+            ++x;        // Best
+            System.out.println(x);//11
+        }
+    }
+        </pre>
+    
+        <pre>
+    public class IncrementOperator3 {
+        public static void main(String[] abc) {
+            int x = 10, y;
+            y = ++x; // Value of x will be incremented by 1 and assigned to y
+            System.out.println("x = " + x);//11
+            System.out.println("y = " + y);//11
+        }
+    }
+        </pre>
+    
+        <pre>
+    public class IncrementOperator5 {
+        public static void main(String[] abc) {
+            int x = 10, y;
+            y = x++ - ++x;
+            System.out.println("x = " + x); //12
+            System.out.println("y = " + y); // -2
+        }
+    }
+        </pre>
+    
+        <h4><strong>Comparison Operators</strong></h4>
+        <hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+        <p>Operators like <span class="highlight">&lt;, &lt;=, &gt;, &gt;=, ==, !=</span> are used to compare numeric values. These operators return a boolean value (true or false).</p>
+        <pre>
+    int x = 10, y = 20;
+    boolean z = x < y;
+    System.out.println(z);//true
+        </pre>
+    
+        <h4><strong>Logical Operators</strong></h4>
+        <hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+        <p>Operators like <span class="highlight">&&, ||, and ^ </span>are used with boolean values and return a boolean value:
+          <br>
+          These operators are used with boolean value and return boolean value <br>
+          Accepts two boolean value and returns single boolean value  
+
+        </p>
+        <ul>
+            <li><strong>&&</strong> Returns true if both conditions are true.</li>
+            <li><strong>||</strong> Returns true if at least one condition is true.</li>
+            <li><strong>^</strong> Returns true if only one condition is true.</li>
+        </ul>
+        <pre>
+    public class LogicalOperator {
+        public static void main(String[] args) {
+            boolean r1 = true && true;
+            boolean r2 = true || true;
+            boolean r3 = true ^ true;
+            System.out.println(r1);//true
+            System.out.println(r2);//true
+            System.out.println(r3);//false
+        }
+    }
+        </pre>
+    
+        <pre>
+    public class LogicalOperator5 {
+        public static void main(String[] args) {
+            int x = 0, y = 0;
+            for (int c = 0; c < 10; c++) {
+                boolean z = ++x < 5 && ++y < 10;
+            }
+            System.out.println(x); // 10
+            System.out.println(y); // 4
+        }
+    }
+        </pre>
+    
+        <pre>
+    public class LogicalOperator7 {
+        public static void main(String[] args) {
+            int x = 0, y = 0;
+            for (int c = 0; c < 10; c++) {
+                boolean z = ++x < 5 ^ ++y < 10;
+            }
+            System.out.println(x); // 10
+            System.out.println(y); // 10
+        }
+    }
+        </pre>
+        <pre>
+            class LogicalOperator8 {
+                public static void main(String[] args) {
+                    int x = 0, y = 0;
+                    for (int c = 0; c < 10; c++) {
+                        boolean z = ++x < 5 || ++y < 10;
+                    }
+                    System.out.println(x); // 10
+                    System.out.println(y); // 6
+                }
+            }
+        </pre>
+        <h3>Note</h3>
+        <hr style="border: 1px solid black; width: 8%; margin-top: 5px; margin-left: 0;">
+        <p>If first condition returns false then && returns false without executing second condition <br> If first condition returns true then || returns true without executing second condition</p>
+        <ul class="decimal-list">
+            <li>=: Assigns a value to a variable.</li>
+            <li>+=: Adds the value to the variable and assigns it.</li>
+            <li>-=: Subtracts the value from the variable and assigns it.</li>
+            <li>*=: Multiplies the value with the variable and assigns it.</li>
+            <li>/=: Divides the value of the variable and assigns it.</li>
+            <li>&lt;: Less than</li>
+            <li>&gt;: Greater than</li>
+            <li>&lt;=: Less than or equal to</li>
+            <li>&gt;=: Greater than or equal to</li>
+            <li>==: Equal to</li>
+            <li>!=: Not equal to</li>
+            <li>&& (Logical AND): True if both conditions are true.</li>
+            <li>|| (Logical OR): True if at least one condition is true.</li>
+            <li>^ (Logical XOR): True if only one condition is true.</li>
+            <li>! (Logical NOT): Reverses the boolean value.</li>
+            <li>&: Bitwise AND</li>
+            <li>|: Bitwise OR</li>
+            <li>^: Bitwise XOR</li>
+            <li>~: Bitwise complement</li>
+            <li>&lt;&lt;: Left shift</li>
+            <li>&gt;&gt;: Right shift</li>
+          </ul>
+          <h3>Ternary Operator</h3>
+          <hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+          <p>The ternary operator in Java is a shorthand for the if-else statement. It evaluates a condition and returns one of two values depending on whether the condition is true or false.</p>
+          <ul>
+            <li>condition: A boolean expression that evaluates to true or false.</li>
+            <li>value1: The value returned if the condition is true.</li>
+            <li>value2: The value returned if the condition is false.</li>
+          </ul>
+          <pre>
+int a = 10, b = 20;
+int max = (a > b) ? a : b; // Returns the larger value
+System.out.println("Max: " + max); // Output: Max: 20
+          </pre>
+          <h3>Explanation:</h3>
+          <hr style="border: 1px solid black; width: 12%; margin-top: 5px; margin-left: 0;">
+          <ul>
+            <li>(a > b) is the condition.</li>
+            <li>If a > b is true, the result is a.</li>
+            <li>If a > b is false, the result is b.</li>
+          </ul>
+    </div>
+</body>
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div class="translate-parent">
+<p>It is blueprint or template from which objects are created. <br>
+Inside class, properties(attributes and behaviours) of the objects are defined. <br>
+Container that will hold states of the real world entity must have following behaviours.. </p>
+<p>A class in Java is a blueprint or template for creating objects. It defines the state (fields/variables) and behavior (methods) of objects. A class encapsulates data and methods to operate on that data.</p>
+<h4 style="background-color: rgb(6, 31, 255); display: inline-block; color: white; border-radius: 10%;">Behaviour to hold data
+🌞</h4>
+    <strong><p>Define variables and constructors inside class for this.</p></strong>
+    <h4 style="background-color: rgb(6, 31, 255); display: inline-block; color: white; border-radius: 10%;">Behaviour to change data🌞</h4>
+    <strong><p> Define methods inside class.These methods are known as setter.</p></strong>
+    <h4 style="background-color: rgb(6, 31, 255); display: inline-block; color: white; border-radius: 10%;">Behaviour to get data🌞</h4> <br>
+    <strong>Define methods inside class.These methods are known as getter.</strong>  <br>
+     <p> A class is a simply a reparsentation of a type of object It is the blue/plan/template that describe the details..</p>
+<h4>Example✔️</h4>
+    <pre>
+        public class Product
+        {
+          //declaring variabe to hold state of product
+          int pid;
+          String name;
+          String brand;
+          int price;
+          //defining constructor 
+          public Product(int a1,String a2,String a3,int a4) 
+          {
+            this.pid=a1;
+            this.name=a2;
+            this.brand=a3;
+            this.price=a4;
+          }
+           
+        }
+     </pre>
+     <h3>Types of Classes😊</h3>
+     <hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+     <h4 style="background-color: rgb(90, 13, 13); display: inline-block; color: white; border-radius: 5%;">
+      1.Non-Static Class  <br>
+      2.Static Class  <br>  
+      3.Concrete Class  </h4>
+     <h3>Non-Static Class⚡</h3>
+     <hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>A non-static class in Java is a class defined inside another class and does not have the static keyword. It is also called an Inner Class. <br>
+Since a non-static inner class is tied(connected/dependent on) to an instance of the outer class, it cannot exist without an object of the outer class.  <br>
+➡️ The inner class cannot exist without an object of the outer class.  <br>
+➡️ To create an object of the inner class, we must first create an object of the outer class.</p>
+<h4>Example..</h4>
+<pre>
+class Outer {
+    class Inner {
+    void display() {
+    System.out.println("Inside inner class");
+            }
+        }
+    }
+    public class Test {
+        public static void main(String[] args) {
+            Outer.Inner obj = new Outer().new Inner();
+            obj.display();
+        }
+    }
+</pre>
+<h4>Why Use a Non-Static Class🤔</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>To logically group classes together that are only used within a specific class. <br>
+To access private members of the outer class.  <br>
+To make the code more readable and encapsulated.</p>
+<h4>Types of Non-Static Classes🛠️</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>There are three types of non-static classes in Java:</p>
+<p style="background-color: rgb(36, 65, 56);display: inline-block; color: white;"><strong>1.Member Inner Class</strong> <br> <strong>2.Local Inner Class</strong> <br> <strong> 3.Anonymous Inner Class</strong> </p>
+<h4>Member Inner Class</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>A member inner class is a normal class defined inside another class without using static. It acts like a normal class but can access all members (even private) of the outer class.</p>
+<h4>Example..</h4>
+<pre>
+class Outer {
+ private String message = "Hello from Outer class";
+    // Non-static Inner class
+    class Inner {
+        void display() {
+        System.out.println(message); // Accessing private member of Outer class
+            }
+        }
+        public static void main(String[] args) {
+        Outer outer = new Outer(); // Create Outer class object
+        Outer.Inner inner = outer.new Inner(); // Create Inner class object
+        inner.display(); // Calling method of Inner class
+        }
+    }
+ output 
+ Hello from Outer class
+</pre>
+<h4>Local Inner Class</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>A local inner class is defined inside a method of the outer class. It is only accessible within that method.</p>
+<pre>
+class Outer {
+    void display() {
+    // Local Inner Class inside method
+     class Inner {
+        void show() {
+         System.out.println("Inside Local Inner Class");
+           }
+            }
+        Inner inner = new Inner(); // Creating object of Inner class
+        inner.show(); // Calling method of Inner class
+        }
+        public static void main(String[] args) {
+            Outer outer = new Outer();
+            outer.display();
+        }
+    }
+output 
+Inside Local Inner Class
+</pre>
+<h4>Anonymous Inner Class</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>An anonymous inner class is a class without a name. It is used when you need to override a method only once.</p>
+<pre>
+    abstract class Animal {
+        abstract void sound();
+    }
+    
+    public class Test {
+        public static void main(String[] args) {
+            // Creating an anonymous inner class
+            Animal dog = new Animal() {
+                void sound() {
+                    System.out.println("Dog barks");
+                }
+            };
+            dog.sound(); // Calling method
+        }
+    }
+output 
+Dog barks  
+</pre>
+<h4>Advantages of Non-Static Classes🎯 </h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>✅ They provide better encapsulation by keeping related code together. <br>
+    ✅ They can access private members of the outer class directly.  <br>
+    ✅ They help reduce redundant code (especially anonymous inner classes).</p>
+     
+<center>
+    <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+        <tr>
+            <th style="border: 5px solid black; padding: 5px;">Type</th>
+            <th style="border: 5px solid black; padding: 5px;">Where It Is Defined</th>
+            <th style="border: 5px solid black; padding: 5px;">Can Access Private Members?</th>
+            <th style="border: 5px solid black; padding: 5px;">Example Use Case</th>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;"><strong>Member Inner Class</strong></td>
+            <td style="border: 5px solid black; padding: 5px;">Inside an outer class</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">Grouping related classes</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;"><strong>Local Inner Class</strong></td>
+            <td style="border: 5px solid black; padding: 5px;">Inside a method</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes (only inside the method)</td>
+            <td style="border: 5px solid black; padding: 5px;">Encapsulating logic within a method</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;"><strong>Anonymous Inner Class</strong></td>
+            <td style="border: 5px solid black; padding: 5px;">Inside a method or constructor</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">Overriding methods quickly</td>
+        </tr>
+    </table>
+</center>
+<h3>Static Class (Nested Static Class)</h3>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>In Java, a class itself cannot be static, but we can create a static class inside another class, which is called a static nested class.  <br>
+A <strong>static class (static nested class)</strong> is a class <strong>inside another class</strong> that is declared using the <span class="highlight">static</span> keyword. Unlike non-static inner classes, <strong class="highlight"> a static nested class does not require an object of the outer class</strong> to be created.  <br>
+In Java, a class cannot be static on its own. However, a class inside another class can be made static. This is called a static nested class.  <br>
+A static nested class is a class inside another class, but it does not require an object of the outer class to be created.  <br>
+✅ It belongs to the outer class, but it does not depend on it.  <br>
+✅ It can only access the static members of the outer class. </p>
+<h4>Example..</h4>
+<pre>
+class Outer {
+  static class Inner {  // Static Nested Class
+  void display() {
+  System.out.println("Inside Static Nested Class");
+}
+}
+public static void main(String[] args) {
+   Outer.Inner obj = new Outer.Inner(); // Creating object of Static Nested Class
+    obj.display();
+        }
+}
+output 
+Inside Static Nested Class
+ </pre>
+ <p>A static nested class is just like a normal class, but it is defined inside another class and marked as static. Since it is independent of the outer class instance, we do not need to create an object of the outer class.
+However, if the static nested class contains non-static members (like methods and instance variables), we still need to create an object of the static nested class to access them.</p>
+<h4>If Everything is Static, No Object is Needed</h4>
+<pre>
+class Outer {
+    static class Inner {  
+            static void display() { // Now this method is static
+                System.out.println("Inside Static Nested Class");
+            }
+        }
+public static void main(String[] args) {
+    Outer.Inner.display(); // No need to create an object
+        }
+}
+ output 
+ Inside Static Nested Class
+</pre>
+<p>✅Static nested classes do not require an object of the outer class.  <br>
+    ✅If the static nested class has non-static members, you must create an object of the nested class. <br>
+    ✅If all members inside the static nested class are static, you can access them directly without an object. </p>
+<pre>
+class Bank {
+ private static double interestRate = 5.5; // Static variable (same for all banks)
+    // Static Nested Class
+    static class InterestCalculator {
+    static double calculateInterest(double amount, int years) {
+     return (amount * interestRate * years) / 100;
+            }
+    }
+public static void main(String[] args) {
+    double amount = 10000;
+    int years = 3;
+    // Calling static method from static nested class
+    double interest = Bank.InterestCalculator.calculateInterest(amount, years);
+    System.out.println("Interest for " + years + " years on ₹" + amount + " is: ₹" + interest);
+        }
+    }
+output
+Interest for 3 years on ₹10000 is: ₹1650.0
+</pre>
+<p>✅ Encapsulation: InterestCalculator is only related to Bank, so we keep it inside Bank.  <br>
+    ✅ No Need for Outer Class Object: InterestCalculator does not depend on Bank objects, so it’s static. <br>
+    ✅ Better Code Organization: Instead of writing InterestCalculator as a separate class, we keep it inside Bank for clarity.  <br>
+    ✅ A static nested class is useful when the inner class is logically related to the outer class but does not need access to instance variables of the outer class. <br>
+    ✅It helps group related functionality inside a class, making the code more organized and readable. <br>
+    ✅ Since InterestCalculator is completely independent of Bank objects, it is static.</p>
+<pre>
+//In a company, employees have ID cards that store their details like name, ID number, and department. The ID Card details are specific to the Employee but do not need access to the Employee's instance variables.
+Since an ID Card is logically related to an Employee but does not depend on an Employee object, we can use a static nested class to represent it.
+--------------------------------------------------------------------------------------------------------------
+class Employee {
+        private String name;
+        private int empId;
+    
+        // Constructor for Employee
+        Employee(String name, int empId) {
+            this.name = name;
+            this.empId = empId;
+        }
+    
+        // Static Nested Class for ID Card
+        static class IDCard {
+            private String department;
+            private int idNumber;
+    
+            // Constructor for IDCard
+            IDCard(String department, int idNumber) {
+                this.department = department;
+                this.idNumber = idNumber;
+            }
+    
+            void displayIDCard() {
+                System.out.println("Employee ID Card:");
+                System.out.println("Department: " + department);
+                System.out.println("ID Number: " + idNumber);
+            }
+        }
+    
+        void displayEmployee() {
+            System.out.println("Employee Name: " + name);
+            System.out.println("Employee ID: " + empId);
+        }
+    
+        public static void main(String[] args) {
+            // Creating Employee Object
+            Employee emp1 = new Employee("John Doe", 101);
+            emp1.displayEmployee();
+            
+            System.out.println(); // Line Break
+            
+            // Creating IDCard Object (No need for Employee object)
+            Employee.IDCard id1 = new Employee.IDCard("IT", 5001);
+            id1.displayIDCard();
+        }
+    }
+ output 
+Employee Name: John Doe
+Employee ID: 101
+Employee ID Card:
+Department: IT
+ID Number: 5001
+------------------------------------------ 
+✅ Encapsulation – The IDCard class is only used inside Employee, so it makes sense to keep it inside.
+✅ No Need for Outer Class Object – An ID Card does not need to access an Employee’s name or ID directly. It exists independently.
+✅ Logical Grouping – Keeping IDCard inside Employee makes the code more readable and organized.
+</pre>
+<h3>Concrete Class</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>A concrete class is a normal class in Java that contains:  <br>
+    ✅ Fields (variables) – to store data  <br>
+    ✅ Methods (functions) – to perform actions  <br>
+    ✅ Objects can be created from it – unlike abstract or interface classes</p>
+    <h4>Why is it called a "Concrete" Class</h4>
+    <hr style="border: 1px solid black; width: 35%; margin-top: 5px; margin-left: 0;">
+    <p>The word "concrete" means real or complete.  <br>
+        A concrete class is a fully defined class that provides complete implementation for all its methods. <br>
+        It is not abstract and not an interface.</p>
+<h4>Example</h4>
+<pre>
+    class Animal {
+        // Fields (Variables)
+       String name;
+    
+        // Constructor
+       Animal(String name) {
+            this.name = name;
+        }
+    
+        // Method (Function)
+        void makeSound() {
+            System.out.println(name + " is making a sound!");
+        }
+        
+        public static void main(String[] args) {
+            Animal dog = new Animal("Buddy"); // Creating Object
+            dog.makeSound(); // Calling Method
+        }
+    }
+output 
+Buddy is making a sound!
+</pre>
+<p>
+    ✅ It is a normal class – Not abstract, not interface.  <br> 
+✅ It contains complete methods – No need for subclass implementation. <br>
+✅ Objects can be created from it – Unlike abstract classes.  <br>
+✅ It can extend other classes – Inheritance works.  <br>
+✅ It can implement interfaces – Supports multiple behaviors.
+</p>
+<pre>
+A car has properties like brand, speed, and color. It also has actions like drive() and brake().
+A concrete class is perfect for modeling a real-world object.
+    class Car {
+        // Fields
+        String brand;
+        int speed;
+    
+        // Constructor
+        Car(String brand, int speed) {
+            this.brand = brand;
+            this.speed = speed;
+        }
+    
+        // Method to drive the car
+        void drive() {
+            System.out.println(brand + " is driving at " + speed + " km/h");
+        }
+    
+        public static void main(String[] args) {
+            Car myCar = new Car("Toyota", 80); // Creating Object
+            myCar.drive(); // Calling Method
+        }
+    }
+output 
+Toyota is driving at 80 km/h
+</pre>
+<h4> Concrete Class Different from Abstract & Interface</h4>
+<hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
+<br>
+<center>
+    <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+        <tr>
+            <th style="border: 5px solid black; padding: 5px;">Feature</th>
+            <th style="border: 5px solid black; padding: 5px;">Concrete Class</th>
+            <th style="border: 5px solid black; padding: 5px;">Abstract Class</th>
+            <th style="border: 5px solid black; padding: 5px;">Interface</th>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Can Have Methods with Code?</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">❌ No (Only method signatures)</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Can Have Variables?</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes (Only static final)</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Can Create an Object?</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">❌ No</td>
+            <td style="border: 5px solid black; padding: 5px;">❌ No</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Can Extend Another Class?</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">❌ No (Only implements)</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Can Implement an Interface?</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">❌ No</td>
+        </tr>
+    </table>
+    
+</center>
+<br>
+<center><h4 style="background-color: indianred; display: inline-block; padding: 5px;border-radius: 10px;">Congratulations! you have understood the concept of CLass...😊</h4></center>
+<center><p>---------------------------------------------------------------------</p></center>
+                       
+</div>
+</body>
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+</html>

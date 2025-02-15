@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="translate-parent">
+        <p>As we know set of methods is known as program... <br>
+            Every java program must have atleast one  method this method is main method without main method programe can not run. <br>
+            A method is a set of instructions or commands. Every Java program must have at least one method, which is the <code class="highlight">main()<span></span></code> method.
+            <ul class="decimal-list">
+                <li>Declaring the method</li>
+                <li>Implementing the method</li>
+                <li>Writing the body of the method</li>
+                <li>Calling/Invoking the method<br>
+                    <code>System.out.println("OK");</code>
+                </li>
+            </ul>
+            <strong>
+                <pre>
+         Public static void main(String[] args)//This is main() and this method run by JVM
+                {
+                     // write here any task to perform.
+                }
+                </pre>
+            </strong>
+        </p>
+    
+        <h4>Declaring Method</h4>
+        <hr style="border: 1px solid black; width: 16%; margin-top: 5px; margin-left: 0;">
+        <p>
+            Here you will have to give method specification
+            Specification of method can have following parts 
+           <strong>
+            <ul class="decimal-list">
+                <li>Name:It is mandatory</li>
+                   <li>Return type:It is mandatory</li>
+                    <li>Modifiers:It is optional</li>
+                    <li>Argument list/parameter list:It is optional</li>
+                    <li>() parenthesys:It is mandatory</li>
+            </ul>
+           </strong>
+            
+            public static void add(int x,float y)
+            
+            This is specification of a method
+            add= is name of method
+            void= is return type of method
+            public= and static are modifiers
+            x and y are argument list
+        </p>
+        <pre>
+     public static void add()
+    {
+      int x=10;//Command to create a variable and assign value to the variable.
+      int y=20;//Command to create a variable and assign value to the variable.
+      int z=x+y;//command to perform arithmatic operation and assign value to the variable.
+      System.out.println(z); 
+    }
+    public static void main(String[] args)
+    {
+       add()//Calling method in the main method
+    }
+    OUTPUT=30;
+        </pre>
+        <h4>Implementing Method</h4>
+        <hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+        <p>Giving body of the method is called implementing method. Inside the body of the method, you will have to write commands/instructions. These commands are executed in a sequence by the computer to perform a specific task.</p>
+        <p>Following commands can be written inside the body of the method:</p>
+        <hr style="border: 1px solid black; width: 48%; margin-top: 5px; margin-left: 0;">
+        <ul class="decimal-list">
+          <li>Command to create variable</li>
+          <li>Command to assign value to the variable</li>
+          <li>Command to perform arithmetic operation</li>
+          <li>Command to perform comparison operation</li>
+          <li>Command to perform logical operation</li>
+          <li>Command to apply condition</li>
+          <li>Command to execute loop</li>
+          <li>Command to return value</li>
+          <li>Command to call method</li>
+          <li>Command to create object</li>
+          <li>Command to create array</li>
+        </ul>
+    
+        <h4>Calling Method</h4>
+        <hr style="border: 1px solid black; width: 16%; margin-top: 5px; margin-left: 0;">
+        <p>
+            A method is called using the <code>methodName()</code> syntax.
+        </p>
+    
+        <h4>Example of Calling Method</h4>
+        <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+        <pre>
+            public static void add() {
+                int x = 10;
+                int y = 20;
+                int z = x + y;
+                System.out.println(z);
+            }
+    
+            public static void main(String[] args) {
+                add();  // Calling method in the main method
+            }
+        </pre>
+        <h4>Body of method</h4>
+        <hr style="border: 1px solid black; width: 16%; margin-top: 5px; margin-left: 0;">
+        <p>Body of method can have several commands, These command are executed/run in a sequence to perform a specific task. <br>
+            These command will be executed when method will be called by program. <br>
+            It should be written inside a methodRememeber method must be called inorder to execute commands written inside that method's body. <br>
+            These command execute by computer in a sequence to perfrom a specific task.</p>
+            <h4>Example</h4>
+            <hr style="border: 1px solid black; width: 16%; margin-top: 5px; margin-left: 0;">
+            <pre>
+     public class CallingMethod
+      {  
+      public static void add()  
+      {	
+         int num1=900;	
+         int num2=300;	
+         int sum=num1+num2;	
+         System.out.println("Sum of "+num1+" and "+num2+" is "+sum);  
+         }  
+         public static void main(String[] args)  
+         {	
+          System.out.println("Program started");	
+            <span class="highlight">add();</span>//Invoked this method into main() main method is execute task
+          System.out.println("Program stopped");  
+           }
+           }
+    ----------------------------
+    OUTPUT=>Program stared
+           1200
+           Program stopped
+    -----------------------------
+    
+    Example2
+    -----------
+    public class CallingMethod1
+    {
+      static void sayHello()
+      {
+        System.out.println("Hello everyone");
+        sayThank();
+      }
+      static void sayThank()
+      {
+        System.out.println("Thank everyone");
+        sayBye();
+      }
+      static void sayBye()
+      {
+        System.out.println("Bye everyone");
+      }
+      public static void main(String[] args)
+      {
+        <span class="highlight">sayHello();// this method Declared inside main() then main() execute this sayHello() this method Invoked sayThank() and  perform self task and sayThank() Invoked sayBye() and perform self task and sayBye() execute self task </span>
+      }
+    }
+    output 
+    ------------------
+    Hello everyone
+    Thank everyone
+    Bye everyone
+    ------------------
+            </pre>
+ <h1>Types of methods</h1>
+ <h4 style="background-color: rgb(119, 151, 58); display: inline-block; color: white; border-radius: 6px;">
+  1.Non Static Method  <br>
+  2.Static Method <br>
+  3.Special Methods  <br>
+  4.User-Defined Methods  <br>
+  5.Method to method calling  <br>
+  6.Method Chaining  </h4>
+ <h3>Non Static Method</h3>   
+ <hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+ <p>To call a non-static method, you must create an object and use its reference. <br>
+  Non-static methods belong to an object, not the class.  <br>
+  Can access both static and non-static members <br>
+  Mostly used for object-related operations. <br>
+  You cannot call them directly inside main() without an object. </p>
+  <h4>Example..</h4>
+<pre>
+class NonStatic {
+  // Non-static method
+ public void nonstatic() {
+      System.out.println("Hello from Non-Static Method!");
+  }
+  public static void main(String[] args) {
+    // Creating an object to call the non-static method
+      NonStatic obj = new NonStatic();
+      obj.nonstatic(); // Calling the non-static method
+  }
+}
+output 
+Hello from Non-Static Method!
+</pre>
+<h3>Static Method</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>A static method is a method that belongs to the class, not to any specific object. <br>
+   It can be called without creating an object of the class.  <br>
+   You can call it using the class name directly. <br>
+   It is declared with the static keyword. <br>
+   Can only access static variables and other static methods directly. <br>
+   In simple words, static methods are for class-level operations and are not connect to any object. <br>
+   ❌ It cannot access instance (non-static) variables directly. <br>
+   A static method can access only static variables directly </p>
+  <h4>Example..</h4>
+  <pre>
+  class Staticmethod {
+    // Static method
+    static void showMessage() {
+          System.out.println("This is a Static Method!");
+      }
+  
+      public static void main(String[] args) {
+          // Calling static method using class name
+          Staticmethod.showMessage();
+      }
+  }
+output 
+This is a Static Method!
+  </pre> 
+<h4>Static Method Accessing Static Variable ✅(Allowed)</h4>  
+<pre>
+  class Example {
+    // Static variable
+    static int staticVar = 100;
+     // Static method
+    static void showStatic() {
+        System.out.println("Static Variable: " + staticVar);
+
+    public static void main(String[] args) {
+        showStatic(); // Calling static method
+    }
+}
+}
+output 
+Static Variable: 100
+</pre>  
+<h4>Static Method Trying to Access Instance Variable ❌ (Not Allowed Directly)</h4>
+<hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
+<pre>
+  class Example {
+    // Instance (non-static) variable
+    int instanceVar = 50;
+
+    // Static method
+    static void showInstance() {
+        System.out.println("Instance Variable: " + instanceVar);
+    }
+
+    public static void main(String[] args) {
+        showInstance();
+    }
+}
+output 
+Cannot make a static reference to the non-static field instanceVar
+</pre>    
+<h4>Accessing Instance Variable using Object Reference ✅ (Allowed)</h4>
+<pre>
+  class Example {
+    // Instance variable
+    int instanceVar = 50;
+
+    // Static method
+    static void showInstance() {
+        Example obj = new Example(); // Creating an object
+        System.out.println("Instance Variable: " + obj.instanceVar);
+    }
+
+    public static void main(String[] args) {
+    showInstance();
+    }
+}
+output 
+Instance Variable: 50
+</pre> 
+<h4>📌Can We Access Instance Variables Inside a Static Method Without Creating an Object📌</h4>
+<p> Pass an Object as a Parameter The caller provides an object reference while calling the static method.</p>
+<pre>
+class Example 
+{
+  int x = 50;  // Instance variable
+  static void display(Example obj) 
+   { // Static method with object parameter
+      System.out.println(obj.x);  // Accessing instance variable
+   }
+    public static void main(String[] args) {
+     Example e = new Example();
+     display(e);  // Passing object manually
+  }
+}
+output 
+</pre>
+<h4>📌Manually Create an Object Inside the Static Method📌</h4>
+<pre>
+class Example 
+{
+  int x = 100;
+   static void show() 
+   {
+        Example obj = new Example(); // Creating an object inside the static method
+        System.out.println(obj.x);
+    }
+
+    public static void main(String[] args) {
+        show(); // Calling static method
+    }
+}
+output 
+100
+</pre>
+<h4 style="background-color: coral;">📌Using a Static Variable to Hold an Object Reference📌</h4>
+<pre>
+  class Example {
+    int x = 200;
+    <strong class="highlight">static Example obj = new Example();</strong>  // Static object reference
+
+    static void print() {
+        System.out.println(obj.x);  // Accessing instance variable using static object
+    }
+
+    public static void main(String[] args) {
+        print(); // Calling static method
+    }
+}
+output 
+200
+</pre>
+<h4>If a method is static, directly use instance variables without creating an object.</h4>  
+<p>it cannot directly use instance variables To access instance variables inside a static method <br>
+  ✔ Pass an object reference manually as a parameter.  <br>
+  ✔ Create an object inside the method and use it.  <br>
+  ❌ this cannot be used because static methods do not belong to an object.  <br>
+  ✔ The caller must provide an object reference when calling the method. </p> 
+  <pre>
+class AA 
+{
+  int x;
+  // Static method taking an object reference
+  public static void method1(AA t) 
+  {
+      t.x = 90;  // Accessing instance variable using object reference
+  }
+      // Non-static method accessing instance variable directly
+    public void method2() 
+      {
+          x = 100;  // Modifying instance variable
+      }
+    public static void main(String[] args) {
+      AA obj = new AA(); // Creating an object
+      method1(obj); // Passing object reference manually
+      System.out.println("After method1: x = " + obj.x); // Output: 90
+          // obj.method2(); // Calling non-static method
+          System.out.println("After method2: x = " + obj.x); // Output: 100
+      }
+  }
+output 
+After method1:90;
+After method2:100
+</pre> 
+<h3>Special Methods</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>Special methods are automatically called by Java at specific times.</p>
+<h4>A.Constructor Method</h4>
+<hr style="border: 1px solid black; width: 26%; margin-top: 5px; margin-left: 0;">
+<p>Called automatically when an object is created. <br>
+  Used to initialize variables.</p>
+<pre>
+class Person {
+    // Constructor (No return type)
+    Person() {
+        System.out.println("Constructor Called!");
+    }
+
+    public static void main(String[] args) {
+        Person p = new Person(); // Constructor is called automatically
+    }
+}
+output 
+Constructor Called!
+</pre>
+<h4>B.Getter & Setter Methods</h4>
+<hr style="border: 1px solid black; width: 26%; margin-top: 5px; margin-left: 0;">
+<p><strong>Getter</strong>  Used to return private variables.  <br>
+  <strong>Setter </strong> Used to modify private variables.</p>
+  <pre>
+    class Student {
+      private String name;
+  
+      // Setter Method (Assign Value)
+      void setName(String newName) {
+          name = newName;
+      }
+  
+      // Getter Method (Return Value)
+      String getName() {
+          return name;
+      }
+  
+      public static void main(String[] args) {
+          Student s = new Student();
+          s.setName("Alice"); // Set name
+          System.out.println("Student Name: " + s.getName()); // Get name
+      }
+  }
+output 
+Student Name: Alice
+
+or
+
+class Student {
+  private String name;
+
+  // Setter Method (Assign Value)
+  void setName(String newName) {
+      name = newName;
+  }
+
+  // Getter Method (Return Value)
+  String getName() {
+     System.out.println("Student name "+ name);
+      return name;
+  }
+
+  public static void main(String[] args) {
+      Student s = new Student();
+      s.setName("Alice"); // Set name
+      s.getName(); // Get name
+  }
+}
+output 
+Student Name: Alice
+</pre>
+<h3>User-Defined Methods</h3>
+<hr style="border: 1px solid black; width: 26%; margin-top: 5px; margin-left: 0;">
+<p>These are methods created by the user to perform specific tasks. <br>
+   They help in code reusability and better structure.</p>
+   <h4>A.Based on Return Type</h4>
+   <center>
+    <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+    <thead>
+          <tr>
+              <th style="border: 5px solid black; padding: 5px;">Method Type</th>
+              <th style="border: 5px solid black; padding: 5px;">Description</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="border: 5px solid black; padding: 5px;">Void Method</td>
+              <td style="border: 5px solid black; padding: 5px;">Does not return any value.</td>
+          </tr>
+          <tr>
+              <td style="border: 5px solid black; padding: 5px;">Return Method</td>
+              <td style="border: 5px solid black; padding: 5px;">Returns a value (e.g., int, double, String).</td>
+          </tr>
+      </tbody>
+  </table>
+   </center>
+   <pre>
+class Example {
+  // Void method (No return value)
+  void sayHello() 
+  {
+   System.out.println("Hello, Java!");
+  }
+   // Method with return type
+      int multiply(int a, int b) {
+          return a * b;
+      }
+  public static void main(String[] args) {
+          Example obj = new Example();
+          obj.sayHello(); // Calls void method
+  
+          int result = obj.multiply(4, 5);
+          System.out.println("Multiplication: " + result);
+      }
+  }
+output
+Hello, Java!
+Multiplication: 20 
+</pre>
+<h4>B.Based on Parameters</h4>
+<center>
+  <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+  
+      <tr>
+          <th style="border: 5px solid black; padding: 5px;">Method Type</th>
+          <th style="border: 5px solid black; padding: 5px;">Description</th>
+      </tr>
+      <tr>
+          <td style="border: 5px solid black; padding: 5px;">Method without Parameters</td>
+          <td style="border: 5px solid black; padding: 5px;">Does not take any input values.</td>
+      </tr>
+      <tr>
+          <td style="border: 5px solid black; padding: 5px;">Method with Parameters</td>
+          <td style="border: 5px solid black; padding: 5px;">Takes input values and processes them.</td>
+      </tr>
+  </table>
+  </center>
+<pre>
+  class Test {
+    // Non-parameterized method
+    void showMessage() {
+        System.out.println("Welcome to Java!");
+    }
+
+    // Parameterized method
+    void greet(String name) {
+        System.out.println("Hello, " + name);
+    }
+
+    public static void main(String[] args) {
+        Test obj = new Test();
+        obj.showMessage();
+        obj.greet("John");
+    }
+}
+output 
+Welcome to Java!
+Hello, John
+</pre>
+<h4>C.Based on Method Type</h4>
+<center>
+  <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+    <thead>
+         <tr>
+             <th style="border: 5px solid black; padding: 5px;">Method Type</th>
+             <th style="border: 5px solid black; padding: 5px;">Description</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td style="border: 5px solid black; padding: 5px;">Instance Method</td>
+             <td style="border: 5px solid black; padding: 5px;">Works on object instances (requires object).</td>
+         </tr>
+         <tr>
+             <td style="border: 5px solid black; padding: 5px;">Static Method</td>
+             <td style="border: 5px solid black; padding: 5px;">Does not require an object, called using class name.</td>
+         </tr>
+     </tbody>
+   </table>
+</center>
+<pre>
+class Demo {
+      // Instance method
+      void instanceMethod() {
+          System.out.println("Instance Method Called!");
+      }
+  
+      // Static method
+      static void staticMethod() {
+          System.out.println("Static Method Called!");
+      }
+  
+      public static void main(String[] args) {
+          Demo obj = new Demo();
+          obj.instanceMethod(); // Calling instance method
+  
+          Demo.staticMethod(); // Calling static method
+      }
+  }
+  output 
+  Instance Method Called!
+  "Static Method Called!"
+</pre>
+<h3>Method to method Calling</h3>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p> Method-to-method calling in Java means calling one method from another method within the same class or a different class.</p>
+<h4>1️⃣Calling a Method from Another Method in the Same Class</h4>
+<p> We can directly call a method inside another method using its name (if it's in the same class).If the method is non-static, we must use an object.If the method is static, it can be called directly or using the class name.</p>
+<h4><strong>Example</strong>: Calling Methods in the Same Class</h4>
+<pre>
+class Example 
+ {
+    void method1() {
+    System.out.println("Method 1 called");
+    method2(); // Calling method2 from method1
+  }
+
+    void method2() {
+        System.out.println("Method 2 called");
+    }
+
+    public static void main(String[] args) {
+        Example obj = new Example();
+        obj.method1(); // Calling method1, which calls method2
+    }
+}
+output 
+Method 1 called
+Method 2 called
+</pre>
+<h4>2️⃣ Calling a Method from Another Class</h4>
+<p>We must create an object of the other class before calling its method (if it's non-static).
+If the method is static, it can be called directly using the class name.</p>
+<h4><strong>Example</strong>: Calling a Methods from Another Class</h4>
+<pre>
+  class ClassA {
+    void display() {
+        System.out.println("Method in ClassA");
+    }
+}
+
+class ClassB {
+    public static void main(String[] args) {
+        ClassA obj = new ClassA(); // Creating an object of ClassA
+        obj.display(); // Calling method from another class
+    }
+}
+output 
+Method in ClassA
+</pre>
+<h4>3️⃣ Calling Static and Non-Static Methods</h4>
+<p>Static methods can be called directly inside another static method.
+  Non-static methods require an object to be called.</p>
+<h4><strong>Example</strong>:  Calling Static and Non-Static Methods</h4>
+<pre>
+  class Test {
+    static void staticMethod() {
+        System.out.println("Static Method Called");
+    }
+
+    void nonStaticMethod() {
+        System.out.println("Non-Static Method Called");
+        staticMethod(); // Static method called inside non-static method
+    }
+
+    public static void main(String[] args) {
+        staticMethod(); // Direct call (since it's static)
+
+        Test obj = new Test();
+        obj.nonStaticMethod(); // Calling non-static method
+    }
+}
+output 
+Static Method Called
+Non-Static Method Called
+Static Method Called
+</pre>
+<h4> static Method calling with a returned object</h4>
+<pre>
+  class AA {
+    public static void show() {
+        System.out.println("Avinash");
+    }
+}
+
+class BB {
+    public static AA disp() {
+        return new AA(); // Returning an instance of AA
+    }
+
+    public static void main(String[] args) {
+        disp().show(); // Calling show() using returned object
+    }
+}
+output 
+Avinash
+</pre>
+<h4> Non-static Method calling with a returned object</h4>
+<pre>
+  class AA 
+{
+    public void show()
+    {
+        System.out.println("Avinash");
+    }
+}
+class BB
+{
+    public AA disp()
+    {
+        AA obj=new AA();
+        return obj;
+    }
+    public static void main(String[] args)
+    {
+        new BB().disp().show();
+    }
+}
+output 
+Avinash
+------------------------------------------- 
+or
+-------------------------------------------
+class AA {
+  public void show() {
+      System.out.println("Avinash");
+  }
+}
+
+class BB {
+  public AA disp() {
+      return new AA(); // Returning an object of AA
+  }
+
+  public static void main(String[] args) {
+      BB obj = new BB(); // Creating BB object
+      AA obj2 = obj.disp(); // Calling disp() and storing AA object
+      obj2.show(); // Calling show() method
+  }
+}
+output 
+Avinash
+</pre>
+<h3>Method Chaining</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>Method chaining happens when a method returns an object and we call another method on that returned object in a single statement.</p>
+<h4>Example.. Non-Static method Chaining</h4>
+<pre>
+  class AA {
+    public AA show() {  // Returning 'this' for chaining
+        System.out.println("Avinash");
+        return this;
+    }
+
+    public AA display() {  // Another method for chaining
+        System.out.println("Pandey");
+        return this;
+    }
+}
+
+class BB {
+    public AA disp() {
+        return new AA(); // Returning an instance of AA
+    }
+
+    public static void main(String[] args) {
+        new BB().disp().show().display(); // Now it's method chaining
+    }
+}
+output 
+Avinash
+Pandey
+</pre>
+<h4>Example..Static method Chaining</h4>
+<pre>
+  class AA {
+    public static AA show() { // Static method returning class type
+        System.out.println("Avinash");
+        return new AA(); // Returning new instance of AA
+    }
+
+    public static AA display() { // Another static method returning class type
+        System.out.println("Pandey");
+        return new AA(); // Returning new instance of AA
+    }
+}
+
+class BB {
+    public static AA disp() {
+        return new AA(); // Returning an instance of AA
+    }
+
+    public static void main(String[] args) {
+        disp().show().display(); // Static method chaining
+    }
+}
+output 
+Avinash 
+Pandey
+</pre>
+<p>Static methods belong to the class, not an instance, so this cannot be used inside a static method.</p>
+<h4> Example... method chaining with both static and non-static methods </h4>
+<p>1️⃣Static methods return a new instance of the class (since <strong>this</strong> cannot be used in static methods).  <br>
+  2️⃣ Non-static methods return <strong>this </strong>(to maintain the same object for chaining).</p>
+<pre>
+  class AA {
+    public static AA create() { // Static method returning a new instance
+        System.out.println("Static: Creating instance");
+        return new AA(); 
+    }
+
+    public AA show() { // Non-static method returning the same object
+        System.out.println("Instance: Avinash");
+        return this; // Returning 'this' for method chaining
+    }
+
+    public AA display() { // Non-static method returning the same object
+        System.out.println("Instance: Hello");
+        return this; // Returning 'this' for method chaining
+    }
+}
+
+class BB {
+    public static void main(String[] args) {
+        AA.create().show().display(); // Chaining static & non-static methods
+        or 
+        new AA().show().display(); // Chaining static & non-static methods
+    }
+}
+output 
+Static: Creating instance
+Instance: Avinash
+Instance: Hello
+</pre>
+<br>
+<h4 style="background-color: rgb(110, 114, 92); display: inline-block;color:rgb(253, 239, 239); border-radius: 25%;">NOTE</h4>
+<p>Object Creation Without <strong class="highlight" style="border-radius: 10%;">new</strong> Instead of <span class="highlight" style="border-radius: 10%;">Car obj = new Car();</span>, we use <span class="highlight" style="border-radius: 10%;">Car.create().</span> This makes the code more readable and structured. <br>
+  <strong style="background-color: rgb(87, 85, 90); color: white; border-radius: 10%;">new Car().paint("Red").drive();</strong> <br>
+  Same as...  <br>
+  <strong style="background-color: rgb(87, 85, 90); color:white; border-radius: 10%;">Car.create().paint("Red").drive();</strong>
+</p>
+<pre>
+  class Car {
+    String color;
+
+    // Static factory method
+    public static Car create() {
+        System.out.println("Car Created");
+        return new Car();
+    }
+
+    // Instance method (returns this for chaining)
+    public Car paint(String c) {
+        this.color = c;
+        System.out.println("Car Painted: " + color);
+        return this;
+    }
+
+    public Car drive() {
+        System.out.println("Car is driving");
+        return this;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Car.create().paint("Red").drive(); // Chaining static & non-static
+    }
+}
+output 
+Car Created
+Car Painted: Red
+Car is driving
+-------------------------------------------
+or
+-------------------------------------------
+class Car {
+  String color;
+
+  // Static method to create an object
+  public static Car create(String c) {
+      Car obj = new Car(); // Using 'new' internally
+      obj.color = c;
+      return obj;
+  }
+
+  public void drive() {
+      System.out.println("Car is driving with color: " + color);
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+      Car.create("Red").drive(); // Static method indirectly creates an object
+  }
+}
+output 
+Car is driving with color: Red
+-------------------------------------------------------------------------------
+Can We Avoid new:Not entirely, but we can hide it inside a method (Factory Method Pattern)
+Without new, there's no memory allocation for instance variables.
+class Car {
+  String color; // Instance variable
+
+  public static Car create(String c) { 
+      color = c; // ❌ ERROR: Cannot access 'color' without an object
+      return this; // ❌ ERROR: 'this' cannot be used in a static context
+  }
+}
+Compilation Error 🚨
+</pre>
+<center><h3>Difference Between Method Calling and Method Chaining</h3></center>
+<center>
+  <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+ 
+    <tr>
+        <th style="border: 5px solid black; padding: 5px;">Feature</th>
+        <th style="border: 5px solid black; padding: 5px;">Method Calling 🚀</th>
+        <th style="border: 5px solid black; padding: 5px;">Method Chaining 🔗</th>
+    </tr>
+    <tr>
+        <td style="border: 5px solid black; padding: 5px;"><b>Definition</b></td>
+        <td style="border: 5px solid black; padding: 5px;">Calling a method individually</td>
+        <td style="border: 5px solid black; padding: 5px;">Calling multiple methods sequentially using returned objects</td>
+    </tr>
+    <tr>
+        <td style="border: 5px solid black; padding: 5px;"><b>Return Type</b></td>
+        <td style="border: 5px solid black; padding: 5px;">Can return any value (void, int, String, etc.)</td>
+        <td style="border: 5px solid black; padding: 5px;">Must return <code>this</code> (or another object of the same type)</td>
+    </tr>
+    <tr>
+        <td style="border: 5px solid black; padding: 5px;"><b>Object Requirement</b></td>
+        <td style="border: 5px solid black; padding: 5px;">Can be called on any object</td>
+        <td style="border: 5px solid black; padding: 5px;">Must return an object to continue chaining</td>
+    </tr>
+    <tr>
+        <td style="border: 5px solid black; padding: 5px;"><b>Code Style</b></td>
+        <td style="border: 5px solid black; padding: 5px;">Regular method calls (separate statements)</td>
+        <td style="border: 5px solid black; padding: 5px;">Compact and readable, combines multiple calls</td>
+    </tr>
+    <tr>
+        <td style="border: 5px solid black; padding: 5px;"><b>Flexibility</b></td>
+        <td style="border: 5px solid black; padding: 5px;">More flexible, can return different types</td>
+        <td style="border: 5px solid black; padding: 5px;">Limited to methods that return an object</td>
+    </tr>
+    <tr>
+        <td style="border: 5px solid black; padding: 5px;"><b>Use Case</b></td>
+        <td style="border: 5px solid black; padding: 5px;">When methods work independently</td>
+        <td style="border: 5px solid black; padding: 5px;">When methods modify and return the same object</td>
+    </tr>
+</table>
+</center>
+ <br>
+<center><h4 style="background-color: indianred; display: inline-block; padding: 5px; border-radius: 10px;">Congratulation! - you are achieved first level! 🎉</h4></center>
+<center><p>-------------------------------------------------------------------------------</p></center> 
+ </div>
+</body>
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
+
+</html>

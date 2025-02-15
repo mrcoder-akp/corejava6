@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="translate-parent">
+ <p>It is a special type of method  <br>
+    Name of constructor must be same as the name of class   <br>
+    Return type is not allowed in constructor.It means constructor can not have any return type. <br>
+    It is called automatically when an object is created.  <br>
+    It cannot return any value, not even void.  <br>
+    <strong>Constructor is a just like a method but method is genral and constructor is specific </strong>
+    </p>
+    <h4>Why doesn't the constructor have a return type🛠️</h4>
+    <hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+    <p>The purpose of a return type is to return different types of values from a method.
+A constructor does not have a return type because it always returns a reference to the object of its own class. The name of the constructor is the same as the class name, and it automatically returns the created object's reference.</p>
+    <h4>Rule--</h4>
+<p>Every class must have atleast one constructor  <br>
+     Without constructor object from the class can not be created/constructed  <br>
+     During construction of the object constructor is called</p>
+        <h4>Command to create object</h4>
+        <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+        <strong class="highlight" >new AA();</strong>
+        <p>Command to create object, contains command to call constructor. <br>
+            Remember constructor can not be called explicitily  <br>
+            The constructor is called when an object is created using the new keyword.</p>
+            <h4>➡️New Keyword</h4>
+            <hr style="border: 1px solid black; width: 12%; margin-top: 5px; margin-left: 0;">
+            <p>In Java, the new keyword is used to create new objects or instances of a class. It allocates memory for the object and calls the constructor to initialize it. <br>
+                When you use new, you're telling Java to create a new instance of a class in memory. <br>
+              In Java, the new keyword performs <strong class="highlight">dynamic memory allocation</strong>. This means that memory for objects is allocated at runtime (when the program is running) rather than at compile time. <br>
+              When you create an object in Java using the new keyword, memory is allocated dynamically in <span class="highlight"> Heap Memory</span>, and a reference variable is stored in <span class="highlight">Stack Memory.</span> </p>
+              <h4>1️⃣ Heap Memory</h4>
+              <hr style="border: 1px solid black; width: 17%; margin-top: 5px; margin-left: 0;">
+              <p>Java allocates memory for objects in the heap when new is used. <br>
+                The heap is a shared memory space used for object storage.</p>
+                <h4>2️⃣ Reference Variable in Stack</h4>
+                <hr style="border: 1px solid black; width: 27%; margin-top: 5px; margin-left: 0;">
+                <p>A reference to the object is stored in the stack memory.  <br>
+                    The reference points to the actual object in the heap.</p>
+                    <h4>Example..</h4>
+                    <code>Car myCar = new Car("Toyota");// Memory is allocated dynamically</code>
+                    <p>✅(new Car("Toyota")) is created in the heap. <br>
+                        ✅ Car("Toyota") initializes the object. <br>
+                        ✅ The reference variable myCar is stored in the stack and points to the object in the heap. </p>
+                        <div class="image-container">
+                            <img src="image/heap&stack.png" alt="">
+                        </div>
+                        <div class="image-container">
+                            <img src="image/heap&stack.jpg" alt="">
+                        </div>
+                        <p>If an object is not referenced anymore, Java’s Garbage Collector (GC) will remove it from the heap. <br>myCar = null; // The object is now eligible for garbage collection.
+                        </p>
+                        <h1>Types of Constructors🚀</h1>
+<h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white;">1️⃣Default Constructor
+<a style="color: black;">Called by the Compiler (Only if not explicitly defined)</a>  </h4>  <br>
+<h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white;">2️⃣Non-Parameterized Constructor <a style="color: black;"> Called by the Caller (Developer needs to create an object)</a> </h4>  <br>
+<h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white;">3️⃣Parameterized Constructor <a style="color: black;">Called by Caller (Developer must pass arguments) </a> </h4> <br>
+<h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white;">4️⃣Copy Constructor <a style="color: black;">  Called by the Caller (Developer must manually call it)</a> </h4>  <br>
+<h3>Default constructor</h3>
+<hr style="border: 1px solid black; width: 27%; margin-top: 5px; margin-left: 0;">
+<p>When source code of the class has no constructor then compiler inserts a non-parameterzied constructor inside class file of the class.This constructor is called default constructor
+    Object will be initialized with default value by default constructor.  <br>
+    A default constructor is a constructor without parameters.  <br>
+If you don't define any constructor, Java automatically creates a default constructor. <br>
+If you define a constructor explicitly, the compiler does NOT provide a default constructor.</p>
+<pre>
+<h4>Example..</h4>    
+public class AA 
+{
+	//Declaring instance variables
+	private int v1;
+	private float v2;
+	private boolean v3;
+	private  char v4;
+	private String v5;
+	
+	public void showValues()
+	{
+		System.out.println("Value of v1="+this.v1);
+		System.out.println("Value of v2="+this.v2);
+		System.out.println("Value of v3="+this.v3);
+		System.out.println("Value of v4="+this.v4);
+		System.out.println("Value of v5="+this.v5);
+	}
+	
+}
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		AA o1=new AA();
+		o1.showValues();
+	}
+}
+output 
+Value of v1=0
+Value of v2=0.0
+Value of v3=false
+Value of v4=
+Value of v5=null
+<code class="highlight">public AA(){}</code>//default constructor
+🔥 The class AA declares instance variables (v1, v2, v3, v4, v5) but does not initialize them explicitly.
+🔥  Since no constructor is defined in AA, the compiler provides a default constructor.
+🔥  The showValues() method prints the default values of instance variables. 
+🔥  Default Constructor is provided by the compiler only when no other constructor is defined.
+🔥   Instance variables always get default values if not explicitly initialized.
+🔥   <span class="highlight">Local variables do not get default values (must be explicitly assigned before use)</span> 
+</pre>
+<h3>Non-Parametrized Construtor</h3>
+<hr style="border: 1px solid black; width: 33%; margin-top: 5px; margin-left: 0;">
+<p>A Non-Parametrized Constructor is a constructor without parameters.  <br>
+    If you define a constructor without parameters, the compiler does not call it automatically.
+    The developer (caller) must explicitly create an object using new to call it. </p>
+<pre>
+    <h4>Example..</h4>
+    public class AA 
+{
+	//Declaring instance variables
+	private int v1;
+	private float v2;
+	private boolean v3;
+	private  char v4;
+	private String v5;
+	
+	public AA() 
+	{
+		System.out.println("Constructor called");
+	}
+	
+	public void showValues()
+	{
+		System.out.println("Value of v1="+this.v1);
+		System.out.println("Value of v2="+this.v2);
+		System.out.println("Value of v3="+this.v3);
+		System.out.println("Value of v4="+this.v4);
+		System.out.println("Value of v5="+this.v5);
+	}
+	
+}
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		AA o1=new AA();
+		o1.showValues();
+	}
+}
+output 
+Constructor called
+Value of v1=0
+Value of v2=0.0
+Value of v3=false
+Value of v4=
+Value of v5=null
+---------------------
+Explanation
+------------
+v1 → int → default value: 0
+v2 → float → default value: 0.0
+v3 → boolean → default value: false
+v4 → char → default value: '' (empty space)
+v5 → String → default value: null
+The constructor AA() is explicitly defined and includes System.out.println("Constructor called");
+When the object o1 is created in main(), the constructor is automatically called, printing "Constructor called".
+showValues() prints the default values of the instance variables.
+Since we explicitly defined a constructor, the default constructor (provided by the compiler) is not used.
+The instance variables still get their default values.
+</pre>
+<h3>Parameterized constructor</h3>
+<hr style="border: 1px solid black; width: 33%; margin-top: 5px; margin-left: 0;">
+<p>This constructur should be defined inside class when your program wants to initialize object with value passed to the constructor. <br>
+    A parameterized constructor allows passing values while creating an object.  <br>
+    It helps in assigning dynamic values instead of fixed values. <br>
+    The caller must provide arguments when calling the constructor.  <br>
+    The compiler never calls parameterized constructors automatically. </p>
+<pre>
+<h4>Example..</h4>
+public class AA 
+{
+	//Declaring instance variables
+	private int v1;
+	private float v2;
+	private boolean v3;
+	private  char v4;
+	private String v5;
+	
+	public AA(int a1,float a2,boolean a3,char a4,String a5) 
+	{
+		this.v1=a1;
+		this.v2=a2;
+		this.v3=a3;
+		this.v4=a4;
+		this.v5=a5;
+	}
+	
+	public void showValues()
+	{
+		System.out.println("Value of v1="+this.v1);
+		System.out.println("Value of v2="+this.v2);
+		System.out.println("Value of v3="+this.v3);
+		System.out.println("Value of v4="+this.v4);
+		System.out.println("Value of v5="+this.v5);
+	}
+	
+}
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		AA o1=new AA(10,78.4f,true,'k',"AVinash");
+		o1.showValues();
+	}
+}
+output 
+Value of v1=10
+Value of v2=78.4
+Value of v3=true
+Value of v4=k
+Value of v5=AVinash
+--------------------------
+The constructor AA(int a1, float a2, boolean a3, char a4, String a5) initializes the instance variables using parameterized values.
+The this keyword is used to assign values to instance variables.
+Unlike a default constructor, this constructor does not assign default values, but rather initializes variables with user-defined values.
+</pre>  
+<h3>Copy Constructor</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>This constructor should be defined inside class when your program wants to create multiple copies of an existing object.  <br>
+    This constructor will accept reference of existing object as argument/parameter. <br>
+    It means program will pass reference of existing object to this constructor.  <br>  
+    A copy constructor is used to create a new object by copying an existing object. <br>
+This is useful when you want a duplicate object with the same values.
+    </p>
+<pre>
+<h4>Exampe..</h4>
+public class AA 
+{
+	//Declaring instance variables
+	private int v1;
+	private float v2;
+	private boolean v3;
+	private  char v4;
+	private String v5;
+	
+	public AA() {}
+	public AA(int a1,float a2,boolean a3,char a4,String a5) 
+	{
+		this.v1=a1;
+		this.v2=a2;
+		this.v3=a3;
+		this.v4=a4;
+		this.v5=a5;
+	}
+	//Defining copy constructor
+	public AA(AA arg) 
+	{
+		this.v1=arg.v1;
+		this.v2=arg.v2;
+		this.v3=arg.v3;
+		this.v4=arg.v4;
+		this.v5=arg.v5;
+	}
+	public void showValues()
+	{
+		System.out.println("Value of v1="+this.v1);
+		System.out.println("Value of v2="+this.v2);
+		System.out.println("Value of v3="+this.v3);
+		System.out.println("Value of v4="+this.v4);
+		System.out.println("Value of v5="+this.v5);
+		System.out.println("--------------------");
+	}
+	
+}
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		AA o1=new AA(10,78.4f,true,'k',"Avinash");
+		AA o2=new AA(o1);
+		AA o3=new AA(o1);
+        AA o4 = new AA(); // Default constructor
+		
+		o1.showValues();
+		o2.showValues();
+		o3.showValues();
+        o4.showValues(); // Show values of the default constructor
+	}
+}
+output 
+Value of v1=10
+Value of v2=78.4
+Value of v3=true
+Value of v4=k
+Value of v5=Avinash
+--------------------
+Value of v1=10
+Value of v2=78.4
+Value of v3=true
+Value of v4=k
+Value of v5=Avinash
+--------------------
+Value of v1=10
+Value of v2=78.4
+Value of v3=true
+Value of v4=k
+Value of v5=Avinash
+--------------------
+alue of v1=0
+Value of v2=0.0
+Value of v3=false
+Value of v4= 
+Value of v5=null
+--------------------
+Copy Constructor allows cloning an object.
+o2 and o3 have the same values as o1, but they are separate objects.
+The output confirms that o2 and o3 are successfully copying values from o1.
+Copies values from an existing object (arg) to create a new object with the same values.
+</pre>
+<h4>Example of All Constructor</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<pre>
+<h4>Example1..</h4>
+------------------
+public class AA 
+{
+	public AA() //Non-parameterized constructor
+	{
+		System.out.println("Non parameterzied constructor called");
+	}
+	public AA(int num) //Parameterized constructor
+	{
+		System.out.println("Parameterzied constructor called");
+	}
+	public void method1() //It is a non-static method
+	{
+		System.out.println("Method1 called");
+	}
+
+}
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		//Command to create three objects from class AA
+		AA o1=new AA();//Non-parameterized constructor will be called
+		AA o2=new AA(40);//Parameterized constructor will be called
+ 
+		o1.method1();
+ 
+        o2.method1();  
+	}
+}
+output 
+------
+Non parameterzied constructor called
+Parameterzied constructor called
+Method1 called
+Method1 called
+--------------------
+Constructor Overloading: Two constructors with different parameters.
+Object Creation: Each object calls its respective constructor.
+Method Calling: Non-static method method1() can be called using objects.
+<h4>Example2..</h4>
+--------------------
+class Student {
+    String name;
+    int age;
+
+    // Parameterized Constructor
+    Student(String studentName, int studentAge) {
+        name = studentName;
+        age = studentAge;
+    }
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student("Avinash", 21);
+        Student s2 = new Student("Akash", 19);
+
+        s1.display();
+        s2.display();
+    }
+}
+output 
+------------
+Name: Avinash, Age: 21
+Name: Akash, Age: 19
+------------------------------
+<h4>Example3..</h4>
+--------------------
+class Book {
+    String title;
+    
+    // Parameterized Constructor
+    Book(String t) {
+       this.title = t;
+    }
+
+    // Copy Constructor
+    Book(Book obj) {
+        this.title = obj.title;
+    }
+
+    void display() {
+        System.out.println("Book Title: " + title);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Book b1 = new Book("Java Programming");
+        Book b2 = new Book(b1); // Copy Constructor
+
+        b1.display();
+        b2.display();
+    }
+}
+output 
+------------
+Book Title: Java Programming
+Book Title: Java Programming
+<h3>Reference Example</h3>
+----------------------------
+public class Employee 
+{
+	private String name;
+	private String department;
+	private int salary;
+	
+	public Employee(String arg1,String arg2,int arg3)
+	{
+		this.name=arg1;
+		this.department=arg2;
+		this.salary=arg3;
+	}
+	public void showDetails()
+	{
+		System.out.println("Name is:"+this.name);
+		System.out.println("Department is:"+this.department);
+		System.out.println("Salary is:"+this.salary);
+		System.out.println("--------------------------");
+	}
+}
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		Employee e1=new Employee("AAA","Sales",80000);
+		Employee e2=new Employee("BBB","Accounts",90000);
+		Employee e3=new Employee("CCC","Marketing",70000);
+		
+		e1=e2;
+		e2=e3;
+		e3=e1;
+		e1.showDetails();//? BBB
+		e2.showDetails();//? CCC
+		e3.showDetails();//? BBB
+	}
+}
+output 
+-------
+Name is: BBB
+Department is: Accounts
+Salary is: 90000
+--------------------------
+Name is: CCC
+Department is: Marketing
+Salary is: 70000
+--------------------------
+Name is: BBB
+Department is: Accounts
+Salary is: 90000
+--------------------------
+Since e1 and e3 both refer to the Employee originally pointed to by e2 (BBB), and e2 now refers to Employee originally pointed to by e3 (CCC), the output is:
+----------------------------------------
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		Employee e1=new Employee("AAA","Sales",80000);
+		Employee e2=new Employee("BBB","Accounts",90000);
+		Employee e3=new Employee("CCC","Marketing",70000);
+		
+		e2=e1;
+		e1.showDetails();//? 
+		e3=e2;
+		e2.showDetails();//? 
+		e1=e3;
+		e3.showDetails();//? 
+	}
+}
+OUTPUT
+--------
+Name is:AAA
+Department is:Sales
+Salary is:80000
+--------------------------
+Name is:AAA
+Department is:Sales
+Salary is:80000
+--------------------------
+Name is:AAA
+Department is:Sales
+Salary is:80000
+--------------------------
+✔Reference Reassignment: Changing references does not copy objects, it only changes which object a reference variable is pointing to.
+✔ Garbage Collection: The original object "AAA", "Sales", 80000 is now unreachable and may be garbage collected.
+✔ Objects vs References: Even though e1, e2, and e3 were initially different, the assignments made e1 and e3 point to the same object.
+-------------------------------------------------------------------
+<h4>Returning the Current Instance (this as a Return Value)</h4>
+class Employee {
+    String name;
+
+    Employee setName(String name) {
+        this.name = name;
+        return this; // Returning the current instance
+    }
+
+    void show() {
+        System.out.println("Employee Name: " + name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Employee emp = new Employee();
+        emp.setName("John").show(); // Method chaining
+    }
+}
+</pre>
+<h3> Constructor Overloading</h3>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>Java allows multiple constructors in a class with different parameters.
+    This is called constructor overloading.Java will call the correct constructor based on the arguments passed during object creation.</p>
+<pre>
+    class Person {
+        String name;
+        int age;
+    
+        // Constructor 1: No parameters (Default Constructor)
+        public Person() {
+           this.name = "Avinash";
+           this.age = 23;
+        }
+    
+        // Constructor 2: One parameter
+        public Person(String n) {
+            this.name = n;
+            this.age = 27;
+        }
+    
+        // Constructor 3: Two parameters
+        public Person(String n, int a) {
+            this.name = n;
+            this.age = a;
+        }
+    
+        public void showDetails() {
+            System.out.println("Name: " + name + ", Age: " + age);
+        }
+    }
+    
+public class App {
+public static void main(String[] args) {
+    Person p1 = new Person();               // Calls Constructor 1
+    Person p2 = new Person("Akash");         // Calls Constructor 2
+    Person p3 = new Person("Devansh", 25);    // Calls Constructor 3
+    
+    p1.showDetails();
+    p2.showDetails();
+    p3.showDetails();
+        }
+    }
+output
+--------
+Name:Avinash,age:23
+Name:Akash,age:27
+Name:Devash,age:25
+
+</pre>
+<h4>Calling a Constructor from Another Class</h4>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>You can also call a constructor from another class by creating an object of that class. <br>
+    In object-oriented programming, calling a constructor from another class usually involves creating an instance of that class inside the desired class. There are different ways to achieve this depending on the programming language being used. In Java, you can call a constructor of another class by creating an object of that class inside another class.</p>
+<pre>
+    class Engine {
+        // Constructor
+        Engine() {
+            System.out.println("Engine is created!");
+        }
+    }
+    
+    class Car {
+        // Constructor
+        Car() {
+            System.out.println("Car is created!");
+            <code class="highlight">Engine e = new Engine();</code> // Calls Engine's constructor
+        }
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            Car c = new Car(); // Calls Car constructor, which calls Engine constructor
+        }
+    }
+output 
+---------- 
+Car is created!
+Engine is created!
+------------------- 
+<h4>Using an Instance of the Class</h4>
+-----------------------------------------
+class A {
+    A() {
+        System.out.println("Constructor of class A is called.");
+    }
+}
+
+class B {
+    public static void main(String[] args) {
+        A obj = new A();  // Calls the constructor of class A
+    }
+}
+//When we create an object new A(), the constructor A() is automatically called.
+//This is a direct way of invoking a constructor from another class.
+</pre>
+<h4>Calling a Constructor from Another Class Using a Method</h4>
+<hr style="border: 1px solid black; width: 55%; margin-top: 5px; margin-left: 0;">
+<p>Instead of directly calling a constructor, you can use a method to create an object.</p>
+<pre>
+class A {
+        A() {
+            System.out.println("Constructor of A is called");
+        }
+    }
+    
+class B {
+    public  void createA() {
+      A obj = new A();  // Calls constructor of A
+        }
+    }
+    
+class Main {
+        public static void main(String[] args) {
+            B b = new B();
+            b.createA();  // Calls method which calls constructor
+        }
+    }
+output 
+Constructor of A is called
+//The method createA() creates an object of class A, which invokes its constructor.
+</pre>
+<h4>Calling a Constructor from Another Class Using Factory Methods</h4>
+<hr style="border: 1px solid black; width: 55%; margin-top: 5px; margin-left: 0;">
+<p>A factory method can return an instance of a class.</p>
+<pre>
+    class A {
+        A() {
+            System.out.println("Constructor of A is called");
+        }
+    }
+    
+    class B {
+        static A getInstance() {
+            return new A();  // Calls constructor and returns the object
+        }
+    }
+    
+    class Main {
+        public static void main(String[] args) {
+            A obj = B.getInstance();  // Calls getInstance() method
+        }
+    }
+Constructor of A is called
+//The static method getInstance() in class B returns a new instance of A.
+//This is useful when controlling object creation.
+<span class="highlight">Non-static method getInstance() cannot be referenced from a static context</span>
+</pre>
+<h3>Constructor Chaining</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>Constructor chaining means calling one constructor from another constructor within the same class or from a parent class. It helps in code reuse and avoids redundancy. <br>
+We use this() to call another constructor in the same class. </p>
+<pre>
+class AA {
+    // Constructor 1 (Default)
+    public AA() {
+        this(6); // Calls Constructor 2
+        System.out.println("Non-parameterized constructor is called");
+        }
+    
+        // Constructor 2 (int parameter)
+        public AA(int x) {
+            this("Avinash"); // Calls Constructor 3
+            System.out.println("parameterized constructor is called");
+        }
+    
+        // Constructor 3 (String parameter)
+        public AA(String x) {
+            System.out.println("parameterized2 constructor is called");
+        }
+    
+        // Main method
+        public static void main(String[] args) {
+            new AA(); // Creating an object of AA, which calls Constructor 1
+        }
+    }
+output
+parameterized2 constructor is called
+parameterized constructor is called
+Non-parameterized constructor is called
+-------------------------------------  
+new AA(); calls the default constructor (AA()).
+Inside AA(), this(6); calls AA(int x).
+Inside AA(int x), this("Avinash"); calls AA(String x).
+Inside AA(String x), it prints:
+</pre>
+<hr style="border: 1px solid black; width: 95%; margin-top: 5px;">
+<h3>➡️this Keyword</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>this is a keyword in Java that holds the reference to the current object at runtime. The object is created in the heap memory. When we write many commands inside a method, each command may create an object. So, the JVM needs a reference to link the command with the object. <br>
+    The this keyword in Java refers to the current instance of a class. It is used to differentiate instance variables from parameters, call another constructor within the same class, or return the current object. <br>
+    You can use this to call another instance method in the same class.
+     </p>
+   <center>
+    <div class="image-container">
+        <img src="image/this.jpg" alt="">
+    </div>
+   </center>
+<h4> Calling Another Constructor in the Same Class (this())</h4>
+<hr style="border: 1px solid black; width: 47%; margin-top: 5px; margin-left: 0;">
+<p>You can use this() to call another constructor in the same class. This is useful for constructor chaining.</p>
+<center>
+    <div class="image-container">
+        <img src="image/this().png" alt="">
+    </div>
+</center>
+<pre>
+class Car {
+    String brand;
+    int speed;
+    
+    // Default constructor
+    Car() {
+         this("Toyota", 100); // Calls the parameterized constructor
+        }
+    
+     // Parameterized constructor
+     Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+        }
+    
+        void showDetails() {
+            System.out.println("Brand: " + brand + ", Speed: " + speed);
+        }
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            Car car1 = new Car(); // Calls the default constructor, which calls the parameterized constructor
+            car1.showDetails();
+        }
+    }
+
+    <h4>Example2..</h4>
+    class A {
+        int x;
+    
+        // Constructor 1
+        A() {
+            this(10); // Calls Constructor 2
+            System.out.println("Default Constructor");
+        }
+    
+        // Constructor 2
+        A(int x) {
+            this.x = x;
+            System.out.println("Parameterized Constructor: " + x);
+        }
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            A obj = new A(); // Calls Constructor 1, which calls Constructor 2
+        }
+    }
+    
+    
+</pre>
+<h3>Invoking/calling constructor of parent class</h3>
+<hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
+<p>Child class constructor must call/invoke constructor of parent class.It is a rule and it can not be violated So during construction of child class object constructor of both child class and parent class will be executed  <br>
+Following command must be inserted inside constructor of child class to call the constructor of parent </p>
+<h4>super();</h4>
+<hr style="border: 1px solid black; width: 10%; margin-top: 5px; margin-left: 0;">
+<p>This command will call default constructor(non-parameterzied) of parent class. This command can also be inserted by compiler.This command will be inserted by compiler inside constructor of child class.This command will invoke/call non-parameterized constructor of parent class <br>
+super() is a special keyword in Java used to call the constructor of the parent class (also called the superclass). <br>
+It must be the first statement in a subclass constructor.  <br>
+super() helps initialize the parent class before executing the child class constructor. </p>
+<pre>
+class Parent {
+    Parent() {  
+    System.out.println("Parent class constructor called");  
+      }  
+    }
+    class Child extends Parent {
+        Child() {  
+            super();  // Calls Parent class constructor (Optional, as it's invoked by default)
+            System.out.println("Child class constructor called");  
+        }
+    }
+    class Main {
+        public static void main(String[] args) {
+            Child obj = new Child();  // Creates an object of Child, which first calls Parent constructor
+        }
+    }
+    output 
+Parent class constructor called  
+Child class constructor called  
+</pre>
+<h4>super(parameters);</h4>
+<hr style="border: 1px solid black; width: 17%; margin-top: 5px; margin-left: 0;">
+<p>This command will call parameterzied constructor of parent class. This command can not be inserted by compiler This command will be inserted by programmer inside constructor of child class.This command will invoke/call parameterized constructor of parent class</p>
+<pre>
+class Parent {
+   Parent(int x) {  
+     System.out.println("Parent class constructor called with value: " + x);  
+        }  
+    }
+    class Child extends Parent {
+      Child(int y) {  
+      super(y);  // Passes 'y' to the Parent constructor
+    System.out.println("Child class constructor called with value: " + y);  
+        }
+    }
+class Main {
+  public static void main(String[] args) {
+    Child obj = new Child(10);  // Creates an object of Child with value 10
+        }
+    }
+output
+Parent class constructor called with value: 10
+Child class constructor called with value: 10 
+</pre>
+<h4>Example::Combining Default and Parameterized Constructors</h4>
+<hr style="border: 1px solid black; width: 45%; margin-top: 5px; margin-left: 0;">
+<p>You can mix both types of constructors</p>
+<pre>
+<h4>example1..</h4>
+public class AA 
+{
+	public AA()
+	{
+		System.out.println("Non-parameterized constructor of class AA");
+	}
+	public AA(String str)
+	{
+		System.out.println("Parameterized constructor of class AA");
+	}
+}
+public class BB extends AA 
+{
+	public BB()
+	{
+		System.out.println("This is a constructor of class BB");
+	}
+	public static void main(String[] args) 
+	{
+		new BB();
+	}
+}
+output 
+Non-parameterized constructor of class AA
+This is a constructor of class BB
+------------------------------------------------------------------- 
+<h4>Exaple2..</h4>
+class AA 
+{
+	public AA()
+	{
+		System.out.println("Non-parameterized constructor of class AA");
+	}
+	public AA(String str)
+	{
+		System.out.println("Parameterized constructor of class AA");
+	}
+}
+ class BB extends AA 
+{
+	public BB()
+	{    super("Avinash");
+		System.out.println("This is a constructor of class BB");
+	}
+	public static void main(String[] args) 
+	{
+		new BB();
+	}
+}
+output 
+Parameterized constructor of class AA
+This is a constructor of class BB
+--------------------------------------------------------- 
+<h4>Example..</h4> 
+---------------------
+class AA 
+{
+	public AA()
+	{
+		System.out.println("Non-parameterized constructor of class AA");
+	}
+	public AA(String str)
+	{
+		System.out.println("Parameterized constructor of class AA");
+	}
+}
+ class BB extends AA 
+{
+	public BB()
+	{  
+		System.out.println("This is a constructor of class BB");
+	}
+		public BB(String str)
+	{    super("Avinash");
+		System.out.println("Parameterized constructor of class BB");
+	}
+	public static void main(String[] args) 
+	{
+		new BB("Avinash");
+	}
+}
+output 
+Parameterized constructor of class AA
+Parameterized constructor of class BB
+---------------------------------------------------------
+<h4>Example..</h4>
+-------------------- 
+
+class AA 
+{
+	public AA()
+	{
+	    this("Avinash");
+		System.out.println("Non-parameterized constructor of class AA");
+	}
+	public AA(String str)
+	{
+		System.out.println("Parameterized constructor of class AA");
+	}
+}
+ class BB extends AA 
+{
+	public BB()
+	{  
+		System.out.println("This is a constructor of class BB");
+	}
+	public static void main(String[] args) 
+	{
+		new BB();
+	}
+}
+output 
+Parameterized constructor of class AA
+Non-parameterized constructor of class AA
+This is a constructor of class BB
+</pre>
+<center>
+<table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+        <tr>
+            <th style="border: 5px solid black; padding: 5px;">Feature</th>
+            <th style="border: 5px solid black; padding: 5px;">super() (Non-Parameterized)</th>
+            <th style="border: 5px solid black; padding: 5px;">super(arguments) (Parameterized)</th>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Calls which constructor?</td>
+            <td style="border: 5px solid black; padding: 5px;">Default constructor of the parent class</td>
+            <td style="border: 5px solid black; padding: 5px;">Parameterized constructor of the parent class</td>
+        </tr>
+        <tr>
+        <td style="border: 5px solid black; padding: 5px;">Implicit or explicit?</td>
+        <td style="border: 5px solid black; padding: 5px;">Implicit (added automatically if omitted)</td>
+            <td style="border: 5px solid black; padding: 5px;">Explicit (must be written manually)</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Can pass arguments?</td>
+            <td style="border: 5px solid black; padding: 5px;">❌ No</td>
+            <td style="border: 5px solid black; padding: 5px;">✅ Yes</td>
+        </tr>
+    </table>
+</center>
+<br>
+<center><h4 style="background-color: indianred; display: inline-block; padding: 5px;">Congratulations! You have understood the constructor properly.😊</h4></center>
+<center>---------------------------------------------------------------------</center>
+
+    </div>
+</body>
+
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+</html>

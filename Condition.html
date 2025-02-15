@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div  class="translate-parent">
+        <p>In Java, conditions are expressions or statements that control the flow of a program by evaluating whether something is true or false. They help the program make decisions and execute different blocks of code based on the result.</p>
+        <h3>If: Condition</h3>
+        <hr style="border: 1px solid black; width: 13%; margin-top: 5px; margin-left: 0;">
+     <p>Executes a block of code if a given condition is true.</p>
+<pre>
+public class DiscountFinder {
+  public static void main(String[] args) {
+    double amount = 12000;
+    double discount = 0.0;
+
+    if (amount >= 10000) {
+      discount = amount * 20 / 100;
+    }
+    if (amount >= 7500 && amount < 10000) {
+      discount = amount * 15 / 100;
+    }
+    if (amount >= 5000 && amount < 7500) {
+      discount = amount * 10 / 100;
+    }
+    if (amount >= 2500 && amount < 5000) {
+      discount = amount * 5 / 100;
+    }
+    System.out.println("Purchase amount was: " + amount);
+    System.out.println("Discount amount is: " + discount);
+    double pa = amount - discount;
+    System.out.println("Payable amount is: " + pa);
+  }
+}
+</pre>
+
+<h3>If-else</h3>
+<hr style="border: 1px solid black; width: 13%; margin-top: 5px; margin-left: 0;">
+<p>Executes one block of code if the condition is true and another block if the condition is false.</p>
+
+<pre>
+public class DiscountFinder1 {
+  public static void main(String[] args) {
+    double amount = 12000;
+    double discount = 0.0;
+
+    if (amount >= 10000) {
+      discount = amount * 20 / 100;
+    } else {
+      if (amount >= 7500) {
+        discount = amount * 15 / 100;
+      } else {
+        if (amount >= 5000) {
+          discount = amount * 10 / 100;
+        } else {
+          if (amount >= 2500) {
+            discount = amount * 5 / 100;
+          }
+        }
+      }
+    }
+    System.out.println("Purchase amount was: " + amount);
+    System.out.println("Discount amount is: " + discount);
+    double pa = amount - discount;
+    System.out.println("Payable amount is: " + pa);
+  }
+}
+</pre>
+
+<h3>If-Else Ladder</h3>
+<hr style="border: 1px solid black; width: 13%; margin-top: 5px; margin-left: 0;">
+<p> Used when there are multiple conditions to check.</p>
+
+<pre>
+public class DiscountFinder3 {
+  public static void main(String[] args) {
+    double amount = 2000;
+    double discount = 0.0;
+    if (amount >= 10000) {
+      discount = amount * 20 / 100;
+    } else if (amount >= 7500) {
+      discount = amount * 15 / 100;
+    } else if (amount >= 5000) {
+      discount = amount * 10 / 100;
+    } else if (amount >= 2500) {
+      discount = amount * 5 / 100;
+    }
+    System.out.println("Purchase amount was: " + amount);
+    System.out.println("Discount amount is: " + discount);
+    double pa = amount - discount;
+    System.out.println("Payable amount is: " + pa);
+  }
+}
+</pre>
+
+<h3>Division Example</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<pre>
+public class Division {
+  public static void main(String[] args) {
+    int hindi = 56, english = 45, math = 60, physics = 50, chemistry = 68;
+    int total = hindi + english + math + physics + chemistry;
+    double per = (double) total * 100 / 500;
+    System.out.println("Total marks: " + total);
+    System.out.println("Percentage: " + per);
+    if (per >= 60) {
+      System.out.println("First division");
+    }
+    if (per >= 45 && per < 60) {
+      System.out.println("Second division");
+    }
+    if (per >= 33 && per < 45) {
+      System.out.println("Third division");
+    }
+    if (per < 33) {
+      System.out.println("Fail");
+    }
+  }
+}
+</pre>
+
+<h3>Discount Finder with Scanner</h3>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<pre>
+import java.util.Scanner;
+
+public class DiscountFinder5 {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter purchasing amount: ");
+    double amount = sc.nextDouble();
+    System.out.println("Purchase amount was: " + amount);
+    if (amount < 2500) {
+      System.out.println("Sorry you are not eligible for any discount");
+    } else {
+      double discount = 0.0;
+      if (amount >= 10000) {
+        discount = amount * 20 / 100;
+      } else if (amount >= 7500) {
+        discount = amount * 15 / 100;
+      } else if (amount >= 5000) {
+        discount = amount * 10 / 100;
+      } else if (amount >= 2500) {
+        discount = amount * 5 / 100;
+      }
+      System.out.println("Discount amount is: " + discount);
+      double pa = amount - discount;
+      System.out.println("Payable amount is: " + pa);
+    }
+  }
+}
+</pre>
+<h3>switch Statement:</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>Used for checking multiple possible values of a single variable.</p>
+  
+<pre>
+    switch (day) {
+        case 1: System.out.println("Monday"); break;
+        case 2: System.out.println("Tuesday"); break;
+        default: System.out.println("Invalid day");
+    }
+    </pre>
+    <p><strong><span class="highlight">Logical operators like &&, ||, and !</span></strong> are often used in conditions to combine or modify them.
+        Conditions are crucial for controlling program flow and decision-making.</p>
+    </div>
+</body>
+
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
+</html>

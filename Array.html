@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="translate-parent">
+        <p>Like variable ,array can also be created and used by program to keep data in memory.. <br>
+           <strong>1.</strong> Array can hold multiple vlaues/data  <br>
+           <strong>2.</strong> It can hold similar type of values only. <br>
+           <strong>3.</strong> An array is data structure for storing more then one data item that has similar data type.  <br>
+           <strong>4.</strong> An array is collection of similar types of data item which share comman name It is also called linear data structure.  <br>
+           <strong>5.</strong> Memory allocation of the array will be <span class="highlight">static..</span>  <br>
+           <strong>6.</strong> Size of the array is also <span class="highlight">fixed  </span>  <br>
+           <strong>7.</strong> In array memory is allocated in <span class="highlight">contiguous manner  </span>   <br>
+           <strong>8.</strong>  Accessing data/value from the array is much faster than accessing data/value from linkedlist</p>
+           <h4>Example..</h4>
+          <p> Think of an array like a train with compartments. Each compartment can hold one piece of luggage (value), and the compartments are numbered (index) so you know where to find or place your luggage.</p>
+          <h1>Types of Array</h1>
+          <h4><strong>1.</strong> One-Dimantional array</h4>
+          <h4><strong>2.</strong> Two-Dimantional array</h4>
+          <h4><strong>3.</strong> Multi-Dimantional array</h4>
+          <br>
+          <h3>One-Dimantional array</h3>
+          <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+          <p>A one-dimensional array is like a single row of elements arranged in a straight line. It is similar to a list where elements are stored one after another in a sequence. <br>
+            Think of it as a line of boxes, each containing one value.</p>
+            <strong>Example: [10, 20, 30, 40, 50]</strong>
+            <p>Each box has an index (starting from 0) that helps you access the value.</p>
+            <strong>For example: <br>
+                array[0] = 10  <br>
+                array[2] = 30</strong>
+                <p>when storing a simple list of values like test scores, names, etc.</p>
+                <h3>Two-Dimenstional array</h3>
+                <hr style="border: 1px solid black; width: 28%; margin-top: 5px; margin-left: 0;">
+                <p>It is array of arrays. <br>
+                    A two-dimensional array is like a grid or a table with rows and columns. It stores data in a matrix form.  <br>
+                    Think of it as multiple rows of boxes stacked together, where each row has the same number of columns.</p>
+                    <strong>Example... <br>
+                          [1, 2, 3], <br>
+                          [4, 5, 6],  <br>
+                          [7, 8, 9]</strong>
+                          <p>array[0][0] = 1 (First row, first column)  <br>
+                            array[1][2] = 6 (Second row, third column) <br>
+                            int[][] new int[][];
+                        </p>
+     <h3>Command to create array</h3>
+     <hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+     <span class="highlight"><strong>datatype[] variable_name=new datatype[size];</strong></span>
+     <p>datatype of array can be both primitive as well as non-primitive</p>
+     <p>int[] num=new int[10];  <br>
+      or <br>
+     int num[]=new int[10];</p>
+     <p>Value will also be assigned to the array
+      Value can be default value as well as value given by program</p>
+    <center> <table style="border: 2px solid black; border-collapse: collapse; width: 50%;">
+        <thead>
+         <tr>
+         <th style="border: 2px solid black; padding: 8px;">Data Type</th>
+         <th style="border: 2px solid black; padding: 8px;">Default Value</th>
+         </tr>
+            </thead>
+            <tbody>
+             <tr>
+            <td style="border: 2px solid black; padding: 8px;">integer</td>
+            <td style="border: 2px solid black; padding: 8px;">0</td>
+               </tr>
+                <tr>
+                <td style="border: 2px solid black; padding: 8px;">float</td>
+                 <td style="border: 2px solid black; padding: 8px;">0.0</td>
+                  </tr>
+               <tr>
+                 <td style="border: 2px solid black; padding: 8px;">boolean</td>
+               <td style="border: 2px solid black; padding: 8px;">false</td>
+                 </tr>
+                 <tr>
+                 <td style="border: 2px solid black; padding: 8px;">char</td>
+               <td style="border: 2px solid black; padding: 8px;">null character ('\u0000')</td>
+                     </tr>
+                     <tr>
+                 <td style="border: 2px solid black; padding: 8px;">String</td>
+             <td style="border: 2px solid black; padding: 8px;">null</td>
+             </tr>
+            </tbody>
+          </table></center>
+          <h3>Array based Questions</h3>
+          <hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+          <h4>Declaring-array</h4>
+          <p>------------------</p>
+          <p>int[] numbers; // Declares an array of integers <br>
+            String[] names; // Declares an array of strings  <br>
+            arrayName = new type[size];  <br>
+            type[] arrayName = new type[size];  <br>
+            type[] arrayName = {value1, value2, value3, ...}; <br>
+            int[] num=new int[5]; <br>
+           <strong>1.</strong> Reference variable num will be created  <br>
+           <strong>2.</strong> Array of type int and size 5 will be created and reference of the array will be returned  <br>
+           <strong>3.</strong> Reference of the array will be assigned to variable num  <br>
+            int[] num= {10,20,30,40,50,60,70};</p>
+            <pre>
+                public class App 
+                {
+                    public static void main(String[] args) 
+                    {
+                        //int[] num=new int[] {10,20,30,40,50};
+                        int[] num={10,20,30,40,50};
+                        System.out.println(num[0]);
+                        System.out.println(num[1]);
+                        System.out.println(num[2]);
+                        System.out.println(num[3]);
+                        System.out.println(num[4]);
+                    }
+                }
+                OUTPUT
+                [10,20,30,40,50]
+                </pre>
+                <pre>
+                    public class App
+                    {
+                      public static void main(String[] args) 
+                      {
+                         int[] num = {10, 20, 30, 40, 50, 60, 70};
+                         int x = num.length;  // Declare and initialize x
+                         for (int i = 0; i < x; i++)
+                         {
+                             System.out.println(num[i]);
+                         }
+                      }
+                    }
+                    output 
+                    10
+                    20
+                    30
+                    40
+                    50
+                    60
+                    70
+                    </pre>
+                    <pre>
+                public class App 
+                {
+                    public static void main(String[] args) 
+                    {
+                        int[] num=new int[5];
+                        //float[] num=new float[5];
+                        //boolean[] num=new boolean[5];
+                        //String[] num=new String[5];
+                        //char[] num=new char[5];
+                        System.out.println(num[0]);
+                        System.out.println(num[1]);
+                        System.out.println(num[2]);
+                        System.out.println(num[3]);
+                        System.out.println(num[4]);
+                    }
+                }
+                OUTPUT
+                [0,0,0,0,0]=Default values
+                </pre>
+                <pre>
+                public class App2 
+                {
+                    public static void main(String[] args) 
+                    {
+                        char[] num=new char[5];
+                        if(num[0]=='\u0000')
+                            System.out.println("Correct");
+                        else
+                            System.out.println("Incorrect");
+                    }
+                }
+                OUTPUT
+                Correct
+                </pre>
+                <h4>Reverse the array</h4>
+                <pre>
+                public class App 
+                {
+                    public static void main(String[] args) 
+                    {
+                        int[] num= {10,20,30,40,50,60,70};
+                        for(int i=num.length-1;i>=0;i--)
+                        {
+                            System.out.println(num[i]);
+                        }
+                    }
+                }
+                OUTPUT
+                70
+                60
+                50
+                40
+                30
+                20
+                10
+                </pre>
+                <h4>Add all values using loop</h4>
+                <pre>
+                    class App2 {
+                        public static void main(String[] args) {
+                            int[] num = {10, 20, 30, 40, 50, 60, 70};
+                            int sum = 0;  // Initialize sum to 0
+                            for (int i = 0; i < num.length; i++) {
+                                sum += num[i];  // Add each element to sum
+                            }
+                            System.out.println(sum);  // Output the sum 280
+                        }
+                    }
+                </pre>
+                <h4>Reverse the array</h4>
+                <pre>
+                public class App3 
+                {
+                    public static void main(String[] args) 
+                    {
+                        int[] num= {10,70,34,567,12,354,67,90};
+                        int i=0, j=num.length-1;
+                        while(i<=j)
+                        {
+                            int temp=num[i];
+                            num[i]=num[j];
+                            num[j]=temp;
+                            i++;
+                            j--;
+                        }
+                        for (int n : num) 
+                        {
+                            System.out.print(n + " ");
+                        }
+                    }
+                }
+                OUTPUT
+                90
+                67
+                354
+                12
+                567
+                34
+                70
+                10
+                Step-by-Step Dry Run
+                ----------------------
+               i = 0, 
+               j = 7,
+               Swap num[0] and num[7]:
+               int temp = num[0] = 10
+               num[0] = num[7] = 90
+               num[7] = temp = 10
+               i++=1
+               j--=6
+                </pre>
+                <h4>Reverse the array</h4>
+                 <pre>
+                public class App3 
+                {
+                    public static void main(String[] args) 
+                    {
+                        char[] num = {'A', 'V', 'I', 'N', 'S'}; 
+                        int i = 0, j = num.length - 1;
+                
+                        while (i <= j) 
+                        {
+                            char temp = num[i]; 
+                            num[i] = num[j];
+                            num[j] = temp;
+                            i++;
+                            j--;
+                        }
+                
+                        // Print the reversed array
+                        System.out.println(num);
+                    }
+                }
+                OUTPUT
+                SNIVA
+                </pre> 
+                <h4>All value sum and average</h4>
+                <pre>
+                    public class Avg 
+                    {
+                        public static void main(String[] args) 
+                        {
+                            int[] num = {10, 15, 35, 20, 22};
+                            int sum = num[0];
+                            for (int i = 1; i < num.length; i++)
+                            {
+                                sum = sum + num[i];
+                            }
+                            System.out.println("Sum: " + sum);
+                            double avg = (double) sum / num.length;
+                            // variable avg will be created
+                            // Value of sum will be typecast into double
+                            // Typecasted value of sum will be divided by value of num.length
+                            // Returned value will be assigned to the variable avg 
+                            System.out.println("Average: " + avg);
+                        }
+                    }
+                
+                    OUTPUT
+                    Sum: 102
+                    Average: 20.4
+</pre>
+<h4>Write code to copy each element of array x into a new array without loop</h4> 
+<pre>
+    public class App 
+{
+	public static void main(String[] args) 
+	{
+		int[] x= {10,45,100,2345,18,7,567};
+		int[] y=new int[x.length];
+		y[0]=x[0];
+		y[1]=x[1];
+		y[2]=x[2];
+		y[3]=x[3];
+		y[4]=x[4];
+		y[5]=x[5];
+		y[6]=x[6];
+		
+		System.out.println(y[0]);
+                System.out.println(y[2]);
+                System.out.println(y[3]);
+                System.out.println(y[4]);
+	}
+}
+OUTPUT 
+[10,45,2345,18,-------]
+</pre>  
+<h4>Write code to copy each element of array x into a new array</h4>
+
+    <pre>
+        public class App2 
+        {
+            public static void main(String[] args) 
+            {
+                int[] x = {10, 45, 100, 2345, 18, 7, 567}; 
+                int[] y = new int[x.length];
+                
+                // Copy elements from x to y
+                for (int i = 0; i < x.length; i++)
+                {
+                    y[i] = x[i];
+                }
+        
+                // Print elements of y
+                for (int i = 0; i < y.length; i++)
+                {
+                    System.out.print(y[i] + " ");
+                }
+            }
+        }
+        
+        OUTPUT:
+        10 45 100 2345 18 7 567
+        </pre>
+    <h4>Write code to copy each element of array x into a new array in reverse order without loop </h4>              
+      <pre>
+        public class App3 
+{
+	public static void main(String[] args) 
+	{
+		int[] x= {10,45,100,2345,18};
+		int[] y=new int[x.length];
+		
+		y[0]=x[4];
+		y[1]=x[3];
+		y[2]=x[2];
+		y[3]=x[1];
+		y[4]=x[0];
+ 
+               System.out.println(y[0]);
+               System.out.println(y[2]);
+               System.out.println(y[3]);
+               System.out.println(y[4]);
+	}
+}
+OUTPUT
+18
+2345
+100
+45
+10
+      </pre>
+<h4>Write code to copy each element of array x into a new array in reverse order  </h4>
+      <pre>
+        public class App4 
+{
+	public static void main(String[] args) 
+	{
+		int[] x= {10,45,100,2345,18};
+		int[] y=new int[x.length];
+		
+		for(int i=0,j=x.length-1;j>=0;i++,j--)
+		{
+			y[i]=x[j];
+                System.out.println(y[i])
+		}
+	}
+}
+OUTPUT
+18
+2345
+100
+45
+10
+Dry run
+-------------
+i = 0, j = 4
+ y[0] = x[4]
+y[0] = 18
+y = {18, 0, 0, 0, 0}
+Same as all
+      </pre>
+<h4>Write code to copy each element of array x into a new array in reverse order</h4>
+      <pre>
+        public class App5 
+{
+	public static void main(String[] args) 
+	{
+		int[] x= {10,45,100,2345,18};
+		int[] y=new int[x.length];
+		
+		for(int i=x.length-1;i>=0;i--)
+		{
+			y[y.length-1-i]=x[i];
+                   System.out.println(x[i]);
+		}
+	}
+}
+OUTPUT
+18
+2345
+100
+45
+10
+Dry run
+---------------
+i = 4
+y[y.length - 1 - i] = x[i]
+y[5 - 1 - 4] = x[4]
+y[0] = 18
+y = {18, 0, 0, 0, 0}
+x[4] = 18.
+Decrement i to 3.
+      </pre>
+ <h4>Write code to find largset number from given array</h4>
+      <pre>
+        public class App6 
+{
+	public static void main(String[] args) 
+	{
+		int[] x= {10,45,100,2345,18,7,123,46};
+		int m=x[0];
+		for(int i=1;i<x.length;i++)
+		{
+			if(x[i]>m)
+				m=x[i];
+		}
+		System.out.println(m);
+	}
+}
+OUTPUT
+2345
+Dry run
+----------
+m=x[0]=10
+i = 1
+x[1] = 45
+x[1] > m → 45 > 10 → True
+m = 45.
+m: 45
+      </pre>
+<h4>Code to display those numbers that are greater than their adjacent number</h4>
+      <pre>
+        public class App7 
+{
+	public static void main(String[] args) 
+	{
+		int[] x= {310,45,100,2345,18,700,123,406};
+		if(x[0]>x[1])
+			System.out.println(x[0]);
+		int j=x.length-1;
+		
+		for(int i=1;i<j;i++)
+		{
+			if(x[i]>x[i-1] && x[i]>x[i+1])
+				System.out.println(x[i]);
+		}
+		if(x[j]>x[j-1])
+			System.out.println(x[j]);
+		
+	}
+}
+OUTPUT
+310
+2345
+700
+406
+Dry run
+-----------
+ x[0] > x[1] → 310 > 45 → True
+Print x[0] = 310.
+Output: 310
+(i = 1 to j-1):
+i = 1
+x[1] > x[0] && x[1] > x[2] → 45 > 310 && 45 > 100 → False
+No action.
+i = 2
+x[2] > x[1] && x[2] > x[3] → 100 > 45 && 100 > 2345 → False
+No action.
+i = 3
+x[3] > x[2] && x[3] > x[4] → 2345 > 100 && 2345 > 18 → True
+x[3] = 2345.
+Output: 2345
+      </pre>
+      <h4>code to display all 2 digit numbers</h4>
+      <pre>
+        public class App8 
+{
+	public static void main(String[] args) 
+	{
+		int[] x= {310,45,100,2345,18,700,13,406};
+		for(int i=0;i<x.length;i++)
+		{
+			if(x[i]>=10 && x[i]<=99)
+			{
+				System.out.println(x[i]);
+			}
+		}
+	}
+}
+OUTPUT
+45
+18
+13
+      </pre>
+      <h4>Searching element exit or not in this array</h4>
+      <pre>
+        public class App 
+        {
+            public static void main(String[] args) 
+            {
+                int[] arr = {100, 34, 2446, 77, 898, 8, 49, 343, 10};
+                int num = 140;
+                boolean found = false;
+        
+                // Loop through the array to find the number
+                for (int i = 0; i < arr.length; i++) 
+                {
+                    if (num == arr[i]) 
+                    {
+                        System.out.println("Found");
+                        found = true;
+                        break; // Exit the loop once the number is found
+                    } 
+                }
+        
+                // Check if the number was not found
+                if (!found) 
+                {
+                    System.out.println("Not Found");
+                }
+            }
+        }
+        
+        OUTPUT:
+        Not Found
+        </pre>
+        <h4>Searching element exit or not in this array</h4>
+        <pre>
+            public class App2 
+            {
+                public static void main(String[] args) 
+                {
+                    String[] arr = {"Hemant", "Kuldeep", "Alok", "Suman", "AKP", "Rakesh"};
+                    String name = "Rakesh";
+                    boolean found = false;
+            
+                    // Loop through the array to find the name
+                    for (int i = 0; i < arr.length; i++) 
+                    {
+                        if (name.equals(arr[i])) 
+                        {
+                            System.out.println("Found");
+                            found = true;
+                            break; // Exit the loop once the name is found
+                        } // end of if
+                    } // end of loop
+            
+                    // Check if the name was not found
+                    if (!found) 
+                    {
+                        System.out.println("Not Found");
+                    }
+                }
+            }
+            </pre>
+            <pre>
+                public class App3 
+                {
+                    public static void main(String[] args) 
+                    {
+                        String[] arr = {"Hemant", "Kuldeep", "Alok", "Suman", "Imran", "Rakesh"};
+                        String name = "rakesh";
+                        boolean found = false;
+                
+                        // Loop through the array to find the name
+                        for (int i = 0; i < arr.length; i++) 
+                        {
+                            if (name.equalsIgnoreCase(arr[i])) // Use equalsIgnoreCase for case-insensitive comparison
+                            {
+                                System.out.println("Found");
+                                found = true;
+                                break; // Exit the loop once the name is found
+                            } // end of if
+                        } // end of loop
+                
+                        // Check if the name was not found
+                        if (!found) 
+                        {
+                            System.out.println("Not Found");
+                        }
+                    }
+                }
+                </pre>
+                <pre>
+                    public class Searching
+                    {
+                        public static void main(String[] args) 
+                        {
+                            int[] x = {10, 20, 30, 40, 50, 60};
+                            int[] y = {14, 78, 4, 10, 67, 123, 50, 30};
+                    
+                            // Loop through each element in array x
+                            for (int i = 0; i < x.length; i++) 
+                            {
+                                int a = x[i]; // Get the current element from x
+                    
+                                // Loop through each element in array y
+                                for (int j = 0; j < y.length; j++) 
+                                {
+                                    int b = y[j]; // Get the current element from y
+                    
+                                    // Check if elements from x and y match
+                                    if (a == b) 
+                                    {
+                                        System.out.println(a); // Print the matching element
+                                        break; // Exit the inner loop
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    output 
+                    10
+                    50
+
+                    </pre>
+           <h3>Array with method</h3> 
+           <pre>
+            public class AA
+            {
+                public static void displayarray(int[] arr)
+                {
+                    for (int i = 0; i < arr.length - 1; i++)
+                    {
+                        System.out.println(arr[i]);
+                    }
+                }
+                
+                public static void main(String[] args)
+                {
+                    int[] x = {10, 20, 30, 40, 50, 60};
+                    displayarray(x);
+                }
+            }
+            output 
+            10
+            20
+            30 
+            40
+            50
+
+            </pre>
+          <h3>Two-Dimensional array</h3>
+          <hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+          <p>It is array of arrays</p>
+          <h4>Question</h4>
+           <p>you will have to store oofr mark 5 sub ofr 3 student you can create three int type array of size 5.</p>
+            <h4>Ans</h4>
+            <p>int[] mark1=new int[]{50,60,70,80};  <br>
+               int[] mark2=new int[]{50,60,70,80};  <br>
+               int[] mark3=new int[]{50,60,70,80};</p>
+               <p>int[][] marks={mark1,mark2,mark3};  <br>
+                int[][] marks=new int[4][3]  <br>
+                marks[0] =mark1;  <br>
+                marks[1] =mark2;  <br>
+                marks[2] =mark3;</p>
+                <h4>or</h4>
+                <p>int[][] marks=new int[][]{{50,60,70,80},{50,60,70,80},{50,60,70,80}};</p>
+                <h4>Solve</h4>
+                <p> -------{50,60,70,80}  <br>
+                    marks={50,60,70,80}  <br>
+                  --------{50,60,70,80}</p>
+                  <p>Ex..marks[o][2]=70</p>
+                  <h4>when show index all values</h4>
+                  <pre>
+                    public class MarksArray
+                    {
+                        public static void main(String[] args)
+                        {
+                            // Example 2D array
+                            int[][] marks = {
+                                {50,60,70,80}
+                                {50,60,70,80}
+                                {50,60,70,80}
+                                
+                            };
+                    
+                            // Displaying the second row (index 2) of the 2D array
+                            int n = marks[2].length;
+                            for (int i = 0; i < n; i++)
+                            {
+                                System.out.println(marks[2][i]);
+                            }
+                    
+                            // Displaying all values in the 2D array
+                            for (int j = 0; j < marks.length; j++)
+                            {
+                                for (int i = 0; i < marks[j].length; i++)
+                                {
+                                    System.out.println(marks[j][i]);
+                                }
+                            }
+                        }
+                    }
+                    output 
+                    50
+                    60
+                    70
+                    80
+
+                    50
+                    60
+                    70
+                    80
+                    50
+                    60
+                    70
+                    80
+
+                    </pre>
+                    <pre>
+                        public class MarksArray
+                        {
+                            public static void main(String[] args)
+                            {
+                                // Example 2D array
+                                int[][] marks = {
+                                    {85, 90, 95},
+                                    {75, 80},
+                                    {60, 65, 70, 75}
+                                };
+                        
+                                // Displaying the second row (index 2) of the 2D array
+                                int n = marks[2].length;
+                                for (int i = 0; i < n; i++)
+                                {
+                                    System.out.println(marks[2][i]);
+                                }
+                        
+                                System.out.println("All values in the 2D array:");
+                        
+                                // Displaying all values in the 2D array
+                                for (int j = 0; j < marks.length; j++)
+                                {
+                                    for (int i = 0; i < marks[j].length; i++)
+                                    {
+                                        System.out.println(marks[j][i]);
+                                    }
+                                }
+                            }
+                        }
+output 
+60
+65
+70
+75
+All values in the 2D array:
+85
+90
+95
+75
+80
+60
+65
+70
+75
+
+                        </pre>
+    <h4><span class="highlight">NOTE... </span></h4>
+            <pre>
+public class AA
+{
+ public static void show(int... arr)
+	 {
+	     System.out.println("welcome");
+	 }
+	  public static void main(String[] args)
+	 {
+	show();
+	show(0) //show(new int[0]);
+	show(20,63)//show(90,20);
+	show(new int[3]);
+	 }
+}
+<strong><span class="highlight">if you are useing int[] then this inttype array only accept array in this method  <br>
+    but you are using int... then this is called <span style="background-color: crimson; color:white">varargs</span> and this create array after accept array.</span></strong>
+            </pre>
+<h4>Create a array and show the higest values of given element</h4>  
+<p>Ex.If it is 10 then higest value 8 because this is bigest another 3 or 5.</p> 
+<pre>
+    public class AA {
+        public static void main(String[] args)
+     {
+        int[] arr = {5, 12, 3, 19, 8};
+        int target = 10;
+        int max = Integer.MIN_VALUE;
+    
+        for (int i = 0; i < arr.length; i++) 
+        { 
+         if (arr[i] < target && arr[i] > max) 
+         {
+            max = arr[i];
+            }
+            }
+            if (max == Integer.MIN_VALUE) 
+             { 
+              System.out.println("No element smaller than " + target + " found.");
+              }
+             else {
+                System.out.println("Largest element smaller than " + target + " is: " + max);
+               }
+        }
+    }
+    OUTPUT
+    Largest element smaller than 10 is: 8
+    Dry run
+  ----------
+arr = {5, 12, 3, 19, 8}
+target = 10
+max = Integer.MIN_VALUE → Initial value of max = -2147483648 (minimum value for an integer).
+First Iteration (i = 0):
+arr[0] = 5
+Condition: arr[0] < target && arr[0] > max → 5 < 10 && 5 > -2147483648 → True
+max = 5
+Updated max: 5
+Second Iteration (i = 1):
+arr[1] = 12
+Condition: arr[1] < target && arr[1] > max → 12 < 10 && 12 > 5 → False
+Action: No change.
+Current max: 5
+Same as all
+</pre>             
+    </div>
+    <h3>Resizeble Array</h3>
+    <pre>
+import java.util.*;
+class Arrayresizble {
+    private String[] arr;
+    private int i = -1;
+
+    public Arrayresizble() {
+        arr = new String[4];
+    }
+
+    public void add(String str) {
+        if(arr.length==i+1)
+        {
+        growsize();
+        }
+         arr[++i] = str;
+    }
+    public void growsize()
+    {
+        String[] x=new String[arr.length+arr.length/2];
+        for (int c = 0; c <= i; c++) 
+        {
+            x[c]=arr[c];
+        }
+        arr=x;
+        System.out.println("size increging");
+        
+    }
+
+    public int capacity() {
+        return arr.length;
+    }
+
+    public void showString() {
+        for (int c = 0; c <= i; c++) {
+            System.out.println(arr[c]);
+        }
+    }
+}
+
+class App {
+    public static void main(String[] args) {
+        Arrayresizble nm = new Arrayresizble();
+        nm.add("Amit");
+        nm.add("Avin");
+        nm.add("Avinash");
+        nm.add("Sonu");
+       nm.add("akp");
+
+        System.out.println(nm.capacity());
+        nm.showString();
+    }
+}
+OUTPUT
+size increging
+6
+Amit
+Avin
+Avinash
+Sonu
+akp
+</pre>
+<center><h4 style="background-color: indianred; display: inline-block; padding: 5px; border-radius: 10px;">Congratulations! you have understood the concept of Array...😊</h4></center>
+<center><p>---------------------------------------------------------------------</p></center>
+                       
+</body>
+
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
+
+</html>

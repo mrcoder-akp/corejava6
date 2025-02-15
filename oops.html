@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="translate-parent">
+        <h1>Object Oriented Programming Structure</h1>
+        <p>As we know java is an object oriented programming language. <br>
+            A java program can create one or more than one objects in memory during execution. <br>
+            Program can keep data into these objects. <br>
+            Methods called by program can get data from these objects and change data of these obejcts also. <br>
+            Object can hold multiple values/data. <br> 
+            Object can hold different types of values. <br>
+            Object can be shared. <br>
+            Other programs and methods can use/access object created by a program.</p>
+            <strong>OOP (Object-Oriented Programming) is based on four key principles, often referred to as the four(4)..</strong>
+            <h3>Pillars of OOPS🚀</h3>
+            <hr style="border: 1px solid black; width: 22%; margin-top: 5px; margin-left: 0;">
+<h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white; border-radius: 10px;" >
+ 1️⃣Encapsulation <a style="color: black;">(Data Hiding) </a>  <br> 
+ 2️⃣ Inheritance<a style="color: black;">(Code Reusability)</a>   <br>
+3️⃣Polymorphism <a style="color: black;">(One Name, Many Forms) </a><br>
+4️⃣Abstraction <a style="color: black;"> (Hiding Implementation Details)</a> </h4>
+<p><strong>The 4 pillars of OOP (Encapsulation, Inheritance, Polymorphism, and Abstraction) make Java:</strong></p>
+<h4 style="background-color: #5b636b; display: inline-block; color: white; border-radius: 10px; ">✅ Efficient.. <br>✅ Scalable.. <br>✅ Secure.. <br> ✅ Reusable..</h4>
+<center><div class="image-container">
+            <img src="image/oops.png" alt="oops img">
+           </div></center>
+            <h3>What is object🚀</h3>
+            <hr style="border: 1px solid black; width: 18%; margin-top: 5px; margin-left: 0;">
+            <p>Every real world entity is an object. <br>
+                Every object has states. <br>
+                Take an example of smartphone. <br>
+                8GB RAM is state. <br>
+                16GBB ROM is state. <br>
+                5000Mh battery is state. <br>
+                Black color is state. <br>
+                Etc....</p>
+                <p>Our program will create a <span class="highlight">container to keep states of real world entity in memory</span>.since real world entity is an object that's why this container is called an object.
+                    Object is termed as a <span class="highlight">instance of a class</span>, and it has its own state,behaviour and attribute. <br>
+                    Every object has following two characterisitics.....</p>
+                   <strong>
+                    <ul class="decimal-list">
+                        <li>Attributes🌞</li>
+                        <li>Behaviours🌞</li>
+                    </ul>
+                   </strong>
+<h3>Creating object by program</h3>
+<hr style="border: 1px solid black; width: 32%; margin-top: 5px; margin-left: 0;">
+<p>As we know our program will create one or more than one objects to keep states of real world entity in memory. <br>
+    <strong>"📌Program will create these objects from class📌"</strong></p>
+    <h3>What is class😊</h3>
+    <hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+    <p>It is blueprint or template from which objects are created. <br>
+        Inside class, properties(attributes and behaviours) of the objects are defined. <br>
+        Container that will hold states of the real world entity must have following behaviours.. <br>
+<h4 style="background-color: rgb(6, 31, 255); display: inline-block; color: white;">Behaviour to hold data</h4>
+        <strong><p>Define variables and constructors inside class for this.</p></strong>
+        <h4 style="background-color: rgb(6, 31, 255); display: inline-block; color: white;">Behaviour to change data</h4>
+       <strong><p> Define methods inside class.These methods are known as setter.</p></strong>
+        <h4 style="background-color: rgb(6, 31, 255); display: inline-block; color: white;">Behaviour to get data</h4> <br>
+        <strong>Define methods inside class.These methods are known as getter.</strong>  <br>
+        A class is a simply a reparsentation of a type of object It is the blue/plan/template that describe the details..</p>
+        <h4>Example✔️</h4>
+<pre>
+    public class Product
+    {
+      //declaring variabe to hold state of product
+      int pid;
+      String name;
+      String brand;
+      int price;
+      //defining constructor 
+      public Product(int a1,String a2,String a3,int a4) 
+      {
+        this.pid=a1;
+        this.name=a2;
+        this.brand=a3;
+        this.price=a4;
+      }
+       
+    }
+ </pre>
+ <h1>Instance variable</h1>
+ <p>A variable which is declared inside class <span class="highlight">without using static keyword </span> is known as instance variable</p>
+ <p><strong>
+    public class AA  <br>
+{  <br>
+  int x;//instance variable  <br>
+  static int y;//class variable  <br>
+}
+ </strong></p>
+ <p>Command to create instance variable will be executed each time object from that class will be created.<br> It means this variable can have multiple copies in memory. <br>
+    <span class="highlight">Remember every object is instance of a class.</span></p>
+    <p>An instance variable in Java is a non-static variable that belongs to an instance (object) of a class. Each object of the class has its own copy of the instance variable.</p>
+    <p>✅ They are created when an object is created and destroyed when the object is destroyed.</p>
+    <p>✅ Instance variables can have different values for different objects.</p>
+    ✅ By default, they are initialized with default values (e.g., 0 for int, null for objects, false for boolean, etc.).
+    <p>✅ Instance variables are stored in Heap memory.</p>
+    <p>✅ Use instance variables when each object needs separate data.</p>
+    <h3>Command to create object⚡</h3>
+    <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+    <p> <strong>new Classname(); <br>
+        new Classname(parameters/arguments);
+        </p></strong>
+        <p>When above command will run, following tasks will be performed internally..</p>
+<strong>
+ <ul class="decimal-list">
+    <li>Instance variable will be created <span class="highlight">Memory to the object is allocated</span></li>
+    <li>Unique reference of these variables will be generated <span class="highlight">Reference of the object is generated</span></li>
+    <li>These variable will be initialized <span class="highlight">Value will be Object is initialized</span></li>
+    <li>Reference of these variables will be returned <span class="highlight">/Reference of the object is returned</span>
+    </li>
+        </ul>      
+</strong>
+<pre>
+<h3>Example..</h3>
+public class Product 
+{
+	//Declaring instance variable
+	int pid;
+	String name;
+	String brand;
+	int price;
+	
+	//Defining constructor
+	public Product(int a1,String a2,String a3,int a4)
+	{
+		this.pid=a1;
+		this.name=a2;
+		this.brand=a3;
+		this.price=a4;
+	}
+	//Defining method
+	public void showDetails()
+	{
+		System.out.println("Product id is:"+this.pid);
+		System.out.println("Product name is:"+this.name);
+		System.out.println("Product brand is:"+this.brand);
+		System.out.println("Product price is:"+this.price);
+		System.out.println("--------------------------------");
+	}
+}
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		//Declaring reference variable
+		Product p1,p2,p3;
+		//Command to create object from Product
+		p1=new Product(101,"Mouse","Logitech",1500);
+		p2=new Product(102,"Printer","Dell",6500);
+		p3=new Product(103,"Keyboard","Logitech",2500);
+		
+		//Command to call showDetails() method of class Product
+		p3.showDetails();
+	}
+}
+OUTPUT
+103,"Keyboard","Logitech",2500
+       </pre>
+       <strong>📌Defining <span class="highlight">getter</span>(To get vlaue from the object) and <span class="highlight">setter</span>(To change value of the object) inside class..📌</strong>
+       <pre>
+public class Point
+{
+  //Declaring instance variables
+  int x;
+  int y;
+  //Defining constructor
+  public Point(int a1,int a2)
+  {
+	this.x=a1;
+	this.y=a2;
+  }
+  //Defining getters
+  public int getX()
+  {
+	return this.x;
+  }  
+  public int getY()
+  {
+	return this.y;
+  }  
+  //Defining setters 
+  public void setX(int a)
+  {
+	this.x=a;
+  }
+  public void setY(int a)
+  {
+	this.y=a;
+  }
+}
+       </pre>
+<h4>📌Inside a Product class using a getter and setter Method📌</h4>
+<pre>
+public class Product 
+{
+	//Declaring instance variable
+	int pid;
+	String name;
+	String brand;
+	int price;
+	
+	//Defining constructor
+	public Product(int a1,String a2,String a3,int a4)
+	{
+		this.pid=a1;
+		this.name=a2;
+		this.brand=a3;
+		this.price=a4;
+	}
+	//Defining method
+	public void showDetails()
+	{
+		System.out.println("Product id is:"+this.pid);
+		System.out.println("Product name is:"+this.name);
+		System.out.println("Product brand is:"+this.brand);
+		System.out.println("Product price is:"+this.price);
+		System.out.println("--------------------------------");
+	}
+	//Defining getters
+	public int getPid()
+	{
+		return this.pid;
+	}
+	public String getName()
+	{
+		return this.name;
+	}
+	public String getBrand()
+	{
+		return this.brand;
+	}
+	public int getPrice()
+	{
+		return this.price;
+	}
+	//Defining setters
+	public void setPid(int arg)
+	{
+		this.pid=arg;
+	}
+	public void setName(String arg)
+	{
+		this.name=arg;
+	}
+	public void setBrand(String arg)
+	{
+		this.brand=arg;
+	}
+	public void setPrice(int arg)
+	{
+		this.price=arg;
+	}
+}
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		Product p1,p2,p3;
+		p1=new Product(101,"Mouse","Logitech",1500);
+		System.out.println("Before changing price");
+		p1.showDetails();
+		p1.setPrice(2000);
+		System.out.println("After changing price");
+		p1.showDetails();
+	}
+output 
+Before changing price
+Product id is:101
+Product name is:Mouse
+Product brand is:Logitech
+Product price is:1500
+--------------------------------
+After changing price
+Product id is:101
+Product name is:Mouse
+Product brand is:Logitech
+Product price is:2000
+--------------------------------
+}
+</pre>
+<h3>📌getprice and show📌</h3>
+<pre>
+class App2 
+    {
+        public static void main(String[] args) 
+        {
+            Product p1,p2,p3;
+            p1=new Product(101,"Mouse","Logitech",1500);
+            
+            int x=p1.getPrice();
+            
+            System.out.println("Price of the product is:"+x);
+        }
+output 
+Price of the product is:1500
+}
+</pre>
+<h3>📌getprice and setprice📌</h3>
+<pre>
+class App3 
+    {
+        public static void main(String[] args) 
+        {
+            Product p1,p2,p3;
+            p1=new Product(101,"Mouse","Logitech",1500);
+            //Write code to increase price of the product by 100;
+            int x=p1.getPrice();
+            x=x+100;
+            p1.setPrice(x);
+            System.out.println("Price of the product is:"+x);
+        }
+output 
+Price of the product is:1600
+}
+</pre>
+<h1>Static Variable</h1>
+<p>A static variable in Java is a <span class="highlight">class-level variable</span> that is shared among all instances of the class. It is declared using the static keyword.</p>
+<h3>Characteristics of Static Variables🚀</h3>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>✅ Belongs to the class, not to a specific object. <br>
+   ✅ Shared among all objects of the class (only one copy exists in memory).  <br>
+   ✅ Stored in the Method Area (not in the Heap).  <br>
+   ✅ Can be accessed using the class name (no need for an object). <br>
+   ✅ Initialized only once when the class is loaded into memory.
+    
+    </p>
+    <h4>Class-Level Variable🔎</h4>
+    <hr style="border: 1px solid black; width: 22%; margin-top: 5px; margin-left: 0;">
+    <p>It is associated with the class rather than individual objects.</p>
+    <h4>Single Copy in Memory🔎</h4>
+    <hr style="border: 1px solid black; width: 22%; margin-top: 5px; margin-left: 0;">
+    <p>Only one copy of a static variable exists, shared by all instances of the class.</p>
+    <h4>Stored in the Method Area🔎</h4>
+    <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+    <p>Unlike instance variables (which are stored in the Heap), static variables are stored in the Method Area of memory.</p>
+    <h4>Accessed Using Class Name🔎</h4>
+    <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+    <p>A static variable can be accessed directly using the class name, without creating an object.</p>
+    <h4>Lifetime🔎</h4>
+    <hr style="border: 1px solid black; width: 8%; margin-top: 5px; margin-left: 0;">
+    <p>It is initialized when the class is loaded into memory and destroyed when the class is unloaded.</p>
+    <h4>How Static Variables Work? (Memory Representation)🙂</h4>
+    <hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
+    <p>When a class is loaded into memory, only one copy of the static variable is created in the Method Area.
+        Each instance (object) of the class refers to this single copy instead of creating a new one</p>
+<h4 style="background-color: rgb(110, 114, 92); display: inline-block;color:rgb(253, 239, 239); border-radius: 25%;">NOTE</h4>
+<p>A static variable always has a single copy because it is stored in the class area.That's why its value gets updated whenever it is changed, and it stores only the last assigned value.</p>
+<h4>Example✔️</h4>
+<pre>
+    class Example {
+        static int y;  // Static variable
+    
+        public Example(int b) {
+            Example.y = b;  // Updating static variable
+        }
+    
+        public void show() {
+            System.out.println("y = " + y);
+        }
+    
+        public static void main(String[] args) {
+            Example obj1 = new Example(10);
+            Example obj2 = new Example(20);
+            Example obj3 = new Example(30); // Last value assigned
+    
+            obj1.show();
+            obj2.show();
+            obj3.show();
+    }
+}
+</pre>
+<p style="background-color: rgb(77, 88, 28); color: peachpuff;">Static variable sirf ek baar memory me allocate hota hai (class area me), aur sabhi objects usi ek copy ko share karte hain.Jab bhi koi object static variable ki value change karega, wo sabhi objects ke liye update ho jayegi, kyunki static variable ki ek hi copy hoti hai.Agar multiple objects static variable ko modify karein, to last assigned value hi store hoti hai.</p>
+<pre>
+    class AA {
+        int x;       // Instance variable
+        static int y; // Static variable
+    
+        // Constructor (Fixed Syntax)
+        public AA(int a, int b) {  
+            this.x = a;   // Assign instance variable
+            AA.y = b;     // Assign static variable
+        }
+    
+        public void show() {
+            System.out.println("x = " + x); // Instance variable (different for each object)
+            System.out.println("y = " + y); // Static variable (shared by all objects)
+        }
+    
+        public static void main(String[] args) {
+            AA obj1 = new AA(100, 100);
+            AA obj2 = new AA(50, 50);
+            AA obj3 = new AA(12, 12);
+    
+            obj1.show();
+            obj2.show();
+            obj3.show();
+        }
+    }
+output
+x = 100
+y = 12
+x = 50
+y = 12
+x = 12
+y = 12
+</pre>
+<p><strong>Static variables are shared</strong> → Last assigned value affects all objects.</p>
+<pre>
+ class Employee {
+    int empId;  // Instance Variable
+    String empName;
+    static String companyName = "TechCorp"; // Static Variable
+    // Constructor
+    Employee(int id, String name) {
+                    this.empId = id;
+                    this.empName = name;
+ }
+    void display() {
+    System.out.println("ID: " + empId + ", Name: " + empName + ", Company: " + companyName);
+    }
+    }
+    public class Main {
+     public static void main(String[] args) {
+     Employee e1 = new Employee(101, "Alice");
+     Employee e2 = new Employee(102, "Bob");
+     e1.display();
+     e2.display();
+     // Changing the static variable value
+     Employee.companyName = "NewTech";
+     e1.display();
+     e2.display();
+     }
+     }
+output 
+ID: 101, Name: Alice, Company: TechCorp  
+ID: 102, Name: Bob, Company: TechCorp  
+
+ID: 101, Name: Alice, Company: NewTech  
+ID: 102, Name: Bob, Company: NewTech  
+
+            
+        </pre>
+        <h4>When to Use Static Variables📌</h4>
+        <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+        <p>✅ When a value needs to be shared among all objects (e.g., a company name, tax rate, interest rate). <br>
+            ✅ To save memory, as only one copy exists in memory.  <br>
+            ✅ For constants or configuration values that should be consistent across instances.</p>
+<pre>
+<strong> Counting the Number of Objects Created</strong>
+class Counter {
+        static int count = 0; // Static variable
+    
+        Counter() {
+            count++; // Increment the count when an object is created
+        }
+    
+        void displayCount() {
+            System.out.println("Total Objects: " + count);
+        }
+    }
+    
+public class Main {
+        public static void main(String[] args) {
+            Counter c1 = new Counter();
+            Counter c2 = new Counter();
+            Counter c3 = new Counter();
+    
+            c3.displayCount(); // Output: Total Objects: 3
+        }
+    }
+count is static, so it is shared by all objects.
+Every time a new object is created, count increases.
+This helps us keep track of how many objects have been created.
+    
+</pre>
+<p>A static variable belongs to the class, not objects. <br>
+    Only one copy of a static variable exists in memory (Method Area).  <br>
+    It can be accessed using the class name (best practice).  <br>
+    Used for constants, shared resources, and memory optimization.</p>
+    <center><h4>📌Static Variable vs. Instance Variable📌</h4></center>
+    <center><hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;"></center>
+   <br>
+   <center>
+    <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+        <tr>
+            <th style="border: 5px solid black; padding: 5px;">Feature</th>
+            <th style="border: 5px solid black; padding: 5px;">Instance Variable</th>
+            <th style="border: 5px solid black; padding: 5px;">Static Variable</th>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Belongs To</td>
+            <td style="border: 5px solid black; padding: 5px;">Object</td>
+            <td style="border: 5px solid black; padding: 5px;">Class</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Memory</td>
+            <td style="border: 5px solid black; padding: 5px;">Stored in Heap memory</td>
+            <td style="border: 5px solid black; padding: 5px;">Stored in Method Area</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Access</td>
+            <td style="border: 5px solid black; padding: 5px;">Needs object to access</td>
+            <td style="border: 5px solid black; padding: 5px;">Can be accessed using class name</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Separate Copy for Objects?</td>
+            <td style="border: 5px solid black; padding: 5px;">Yes</td>
+            <td style="border: 5px solid black; padding: 5px;">No (Shared across all objects)</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Lifetime</td>
+            <td style="border: 5px solid black; padding: 5px;">Created when an object is created</td>
+            <td style="border: 5px solid black; padding: 5px;">Created when the class is loaded</td>
+        </tr>
+    </table>
+</center>
+<h3>Encapsulation</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>Wraping up <b>attribute</b> and <b> behaviour </b> of the object into a single unit is called encapsulation.  <br>
+This is achived by define a class <b>getter()</b> and <b>setter()</b> method. <br>
+Advantage of encapsulation is <b>data hiding</b> .for this instance variable must be <b>private</b> .</p>
+<h4>Encapsulation is achieved using</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p> <b>Private variables</b> (restrict direct access). <br>
+Public <b>getter</b> and <b>setter</b> methods (provide controlled access)</p>
+<h4>Why Use Encapsulation</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>✅ <b>Data Hiding:</b> Prevents unauthorized access to data.  <br>
+    ✅ <b>Better Code Control:</b> Only specific methods can modify data.  <br>
+    ✅ <b>Flexibility and Maintainability:</b> Changes can be made without affecting other parts of the program.  <br>
+    ✅ <b> Improves Security:</b> Sensitive data remains protected.</p>
+    <h4>Example: Without Encapsulation (Data is not protected)</h4>
+<pre>
+    class Person {
+        String name;  // Public variable (BAD practice)
+        int age;
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            Person p = new Person();
+            p.name = "John"; // Direct access (BAD)
+            p.age = 25;
+    
+            System.out.println("Name: " + p.name);
+            System.out.println("Age: " + p.age);
+    
+            // Directly modifying data (BAD)
+            p.age = -5; // Invalid age but no restriction!
+            System.out.println("Updated Age: " + p.age);
+        }
+    }    
+</pre>
+<p> <b>No Data Validation:</b> Anyone can set an invalid age (-5 years old).  <br>
+    <b>No Security:</b> Any part of the code can change data unexpectedly. <br>
+    <b>No Control:</b> We cannot prevent unauthorized changes.</p>
+<h4>Encapsulation Applied (Using Private Variables & Getters/Setters)</h4>
+<pre>
+    class Person {
+        // Private variables (Cannot be accessed directly)
+        private String name;
+        private int age;
+    
+        // Public setter method (to set data)
+        public void setName(String name) {
+            this.name = name;
+        }
+    
+        // Public getter method (to retrieve data)
+        public String getName() {
+            return name;
+        }
+    
+        // Setter method with validation
+        public void setAge(int age) {
+            if (age > 0) { // Age cannot be negative
+                this.age = age;
+            } else {
+                System.out.println("Invalid age. Setting age to 0.");
+                this.age = 0; // Default value
+            }
+        }
+    
+        // Getter method
+        public int getAge() {
+            return age;
+        }
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            Person p = new Person();
+    
+            // Setting values using setter methods
+            p.setName("John");
+            p.setAge(25);
+    
+            // Accessing values using getter methods
+            System.out.println("Name: " + p.getName());
+            System.out.println("Age: " + p.getAge());
+    
+            // Attempt to set an invalid age
+            p.setAge(-5);
+            System.out.println("Updated Age: " + p.getAge()); // Output: 0 (validation applied)
+        }
+    }    
+</pre>
+<h4>Encapsulation in Real-World Scenarios</h4>
+<pre>
+    class BankAccount {
+        private double balance;
+    
+        public void deposit(double amount) {
+            if (amount > 0) {
+                balance += amount;
+                System.out.println("Deposited: $" + amount);
+            } else {
+                System.out.println("Invalid deposit amount.");
+            }
+        }
+    
+        public void withdraw(double amount) {
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
+                System.out.println("Withdrawn: $" + amount);
+            } else {
+                System.out.println("Insufficient balance or invalid amount.");
+            }
+        }
+    
+        public double getBalance() {
+            return balance;
+        }
+    }
+    
+    public class Main {
+        public static void main(String[] args) {
+            BankAccount account = new BankAccount();
+            account.deposit(500);
+            account.withdraw(200);
+            System.out.println("Current Balance: $" + account.getBalance());
+        }
+    }
+output 
+Deposited: $500.0
+Withdrawn: $200.0
+Current Balance: $300.0    
+</pre>
+<p> <b>Private Balance:</b> Users cannot directly change balance. <br>
+   <b> Controlled Transactions:</b> Only deposit and withdrawal methods are allowed. <br>
+   <b>Patient Records:</b> Keep sensitive medical information private. <br>
+   <b>Controlled Updates:</b> Only authorized doctors can modify records. </p>
+   <center>
+
+    <table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+    
+        <tr>
+            <th style="border: 5px solid black; padding: 5px;">Feature</th>
+            <th style="border: 5px solid black; padding: 5px;">Without Encapsulation</th>
+            <th style="border: 5px solid black; padding: 5px;">With Encapsulation</th>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Access Control</td>
+            <td style="border: 5px solid black; padding: 5px;">Data is public and modifiable</td>
+            <td style="border: 5px solid black; padding: 5px;">Data is private, controlled by methods</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Security</td>
+            <td style="border: 5px solid black; padding: 5px;">Low (anyone can modify data)</td>
+            <td style="border: 5px solid black; padding: 5px;">High (controlled access)</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Data Validation</td>
+            <td style="border: 5px solid black; padding: 5px;">No validation (invalid values possible)</td>
+            <td style="border: 5px solid black; padding: 5px;">Allows validation (prevents errors)</td>
+        </tr>
+        <tr>
+            <td style="border: 5px solid black; padding: 5px;">Maintainability</td>
+            <td style="border: 5px solid black; padding: 5px;">Hard to manage</td>
+            <td style="border: 5px solid black; padding: 5px;">Easier to maintain</td>
+        </tr>
+    </table>
+   </center>
+<p>✅ Benefits: Data security, controlled access</p>
+</div>
+</body>
+</html>
