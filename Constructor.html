@@ -51,15 +51,16 @@ A constructor does not have a return type because it always returns a reference 
                     <p>✅(new Car("Toyota")) is created in the heap. <br>
                         ✅ Car("Toyota") initializes the object. <br>
                         ✅ The reference variable myCar is stored in the stack and points to the object in the heap. </p>
+                       <center>
                         <div class="image-container">
                             <img src="image/heap&stack.png" alt="">
-                        </div>
-                        <div class="image-container">
                             <img src="image/heap&stack.jpg" alt="">
                         </div>
-                        <p>If an object is not referenced anymore, Java’s Garbage Collector (GC) will remove it from the heap. <br>myCar = null; // The object is now eligible for garbage collection.
-                        </p>
-                        <h1>Types of Constructors🚀</h1>
+                       </center>
+<p>If an object is not referenced anymore, Java's Garbage Collector (GC) will remove it from the heap. <br>myCar = null; // The object is now eligible for garbage collection.
+</p>
+<h1>Types of Constructors🚀</h1>
+<br>
 <h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white;">1️⃣Default Constructor
 <a style="color: black;">Called by the Compiler (Only if not explicitly defined)</a>  </h4>  <br>
 <h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white;">2️⃣Non-Parameterized Constructor <a style="color: black;"> Called by the Caller (Developer needs to create an object)</a> </h4>  <br>
@@ -743,11 +744,13 @@ Inside AA(String x), it prints:
 <h4> Calling Another Constructor in the Same Class (this())</h4>
 <hr style="border: 1px solid black; width: 47%; margin-top: 5px; margin-left: 0;">
 <p>You can use this() to call another constructor in the same class. This is useful for constructor chaining.</p>
+<br>
 <center>
     <div class="image-container">
         <img src="image/this().png" alt="">
     </div>
 </center>
+<br>
 <pre>
 class Car {
     String brand;

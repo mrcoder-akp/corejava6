@@ -692,6 +692,263 @@ Current Balance: $300.0
     </table>
    </center>
 <p>✅ Benefits: Data security, controlled access</p>
+<h3>Instantiation</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p> Creating object from the class is called instantitation. <br>
+    Remeber every object instance of a class.</p>
+<h3>Inheritance</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;"> 
+<p>It is one of the OOPS concept.  <br>
+    Acquiring properties(methods and variables) by a new class from an existing class is called inheritance. <br>
+    Inheritance is a concept where one class shares  the structure and behaviour defined in another class.  <br>
+    Advantage is inheritance is code reusability.</p>
+<h4>Example..Task</h4>
+<p>Define/create following four classes  <br>
+    Addition  <br>
+    Multiplication   <br>
+    Subtraction   <br>
+    Division   <br>
+    In each class define following properties
+    1.Define three int type instance variables in class <br>
+    2.Define method in each class to accept two integer value from user and assign then into first two instance variables  <br>
+    3.Define one method in each class to perform required arithmetic operation value of first two instance variables and assign result into third instance variable.Remember this method will not be common <br>
+    4.Define method in each class to print/display value of third instance variable</p>
+<h4>Without using Inheritance properties</h4>
+<pre>
+    import java.util.Scanner;
+    class Addition 
+    {
+        private int num1;
+        private int num2;
+        private int res;
+        public void acceptNumbers()
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.print("Enter first number:");
+            this.num1=sc.nextInt();
+            System.out.print("Enter second number:");
+            this.num2=sc.nextInt();
+        }
+        public void add()
+        {
+            this.res=this.num1+this.num2;
+        }
+        public void showResult()
+        {
+            System.out.println("Result="+this.res);
+        }
+    }
+    class Subtraction
+    {
+        private int num1;
+        private int num2;
+        private int res;
+        
+        public void acceptNumbers()
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.print("Enter first nujmber:");
+            this.num1=sc.nextInt();
+            System.out.print("Enter second nujmber:");
+            this.num2=sc.nextInt();
+        }
+        public void subtract()
+        {
+            this.res=this.num1-this.num2;
+        }
+        public void showResult()
+        {
+            System.out.println("Result="+this.res);
+        }
+    }
+    class Multiplication 
+    {
+        private int num1;
+        private int num2;
+        private int res;
+        
+        public void acceptNumbers()
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.print("Enter first nujmber:");
+            this.num1=sc.nextInt();
+            System.out.print("Enter second nujmber:");
+            this.num2=sc.nextInt();
+        }
+        public void multiply()
+        {
+            this.res=this.num1*this.num2;
+        }
+        public void showResult()
+        {
+            System.out.println("Result="+this.res);
+        }
+    }
+     class Division 
+    {
+        private int num1;
+        private int num2;
+        private int res;
+        
+        public void acceptNumbers()
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.print("Enter first nujmber:");
+            this.num1=sc.nextInt();
+            System.out.print("Enter second nujmber:");
+            this.num2=sc.nextInt();
+        }
+        public void divide()
+        {
+            this.res=this.num1/this.num2;
+        }
+        public void showResult()
+        {
+            System.out.println("Result="+this.res);
+        }
+    }
+     class App 
+    {
+        public static void main(String[] args) 
+        {
+            Addition o1=new Addition();
+            o1.acceptNumbers();
+            o1.add();
+            o1.showResult();
+            //Substraction 01=new substraction();
+            //01.acceptNumber();
+            //Multiplication 01=new multiplication();
+            //01.acceptNumber();
+            //Divition 01=new Divition();
+            //01.acceptNumber();
+        } 
+}   
+</pre>
+<h4>Using Inheritance properties.</h4>
+<pre>
+    import java.util.Scanner;
+    class Arithmetic
+    {
+        protected int num1;
+        protected int num2;
+        protected int res;
+        public void acceptNumbers()
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.print("Enter first number:");
+            this.num1=sc.nextInt();
+            System.out.print("Enter second number:");
+            this.num2=sc.nextInt();
+        }
+    }
+    class Addition extends Arithmetic
+    {
+        public void add()
+        {
+            this.res=this.num1+this.num2;
+        }
+        public void showResult()
+        {
+            System.out.println("Result="+this.res);
+        }
+    }
+    class Subtraction extends Arithmetic
+    {
+        public void subtract()
+        {
+            this.res=this.num1-this.num2;
+        }
+        public void showResult()
+        {
+            System.out.println("Result="+this.res);
+        }
+    }
+    class Multiplication extends Arithmetic
+    {
+        public void multiply()
+        {
+            this.res=this.num1*this.num2;
+        }
+        public void showResult()
+        {
+            System.out.println("Result="+this.res);
+        }
+    }
+    class Division extends Arithmetic
+    {
+        public void divide()
+        {
+            this.res=this.num1/this.num2;
+        }
+        public void showResult()
+        {
+            System.out.println("Result="+this.res);
+        }
+    }
+    class App 
+    {
+        public static void main(String[] args) 
+        {
+            Addition o1=new Addition();
+            o1.acceptNumbers();
+            o1.add();
+            o1.showResult();
+            Subtraction o2=new Subtraction();
+            o2.acceptNumbers();
+            o2.subtract();
+            o2.showResult();
+            Multiplication o3=new Multiplication();
+            o3.acceptNumbers();
+            o3.multiply();
+            o3.showResult();
+            Division o4=new Division();
+            o4.acceptNumbers();
+            o4.divide();
+            o4.showResult();
+        }
+    }                                                               
+ </pre>
+ <h3>When to use inheritance</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p><b>1.When you want to create extension of an existing class.  <br>
+    2.When you want to define multiple classes in hierarchical manner. </b> <br> 
+     <b>Code Reusability</b> - Avoid rewriting the same code.  <br>
+     <b>Extensibility</b> - Easily extend functionalities of an existing class. <br>
+     <b> Organized Code</b> - Create a logical hierarchy.  <br>
+     <b>Polymorphism Support</b> - Allows method overriding. 
+    </p>
+<code style="color: white;">
+    public class AA   //parent class   <br>
+    {    <br>
+      //properties   <br> 
+    }  <br>
+    public class BB extends AA //child class  <br>
+    {   <br>
+      //properties   <br>
+    }  <br>
+    {   <br>
+      //properties  <br>
+    }  <br>
+</code>
+<p>Here class BB is inheriting/acquiring properties from the class AA.  <br>
+    Class BB will be sub/child/derived class of class AA. <br> 
+    Class AA will be super/parent/base class of class BB.</p>
+<h1>Types of Inheritace</h1>
+<h4 style="background-color: rgb(60, 63, 68); display: inline-block; color: white; border-radius: 10px; padding: 10px;">
+    1️⃣ Single Inheritance <a style="color: rgb(173, 216, 230);"> (Simple Inheritance (SI))</a>  <br> 
+    2️⃣ Multiple Inheritance <a style="color: rgb(173, 216, 230);"> (Multi-Base Inheritance (MI))</a>   <br>
+    3️⃣ Multilevel Inheritance <a style="color: rgb(173, 216, 230);"> (Chain Inheritance (MLI))</a> <br>
+    4️⃣ Hierarchical Inheritance <a style="color: rgb(173, 216, 230);"> (Tree Inheritance (HI))</a>  <br>
+    5️⃣ Hybrid Inheritance <a style="color: rgb(173, 216, 230);"> (Mixed Inheritance (HBI))</a>
+</h4>
+<br>
+<br>
+<center>
+    <div class="image-container" style="background-color:rgb(180, 252, 122);border-radius: 10px;">
+        <img src="image/inheritance.png" alt="Inheritace Architecture">
+        <img src="image/inheritance2.png" alt="Inheritace Architecture">
+    </div>
+</center>
 </div>
 </body>
 </html>
