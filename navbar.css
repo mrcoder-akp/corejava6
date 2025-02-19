@@ -262,15 +262,17 @@ body {
 
 /* ///////////////////////////////////////////////////////////////////////////////////////// */
 #mainContent.special-content {
-  background: rgba(0, 0, 0, 0.87); /* Dark Transparent Grey */
-  backdrop-filter: blur(3px) contrast(1.2); /* Soft blur & contrast for depth */
-  box-shadow: inset 0 0 10px rgba(43, 15, 15, 0.1); /* Scratchy Inner Glow */
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 70%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
-  background-size: 8px 8px; /* Creates a fine scratch effect */
-    height: calc(100vh - 60px);
-    position: relative; /* Important for absolute positioning of the image */
-   // cursor: pointer;
+  /* Background Image */
+  background-image: url('public/main.jpg'); /* Replace with your image path */
+  background-size: cover; /* Fit the container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repetition */
+  background-attachment: fixed; /* Parallax effect on scroll (optional) */
+  height: calc(100vh - 60px);
+  position: relative;
+  overflow: hidden; /* Prevents content overflow */
 }
+
 /* Image Styling */
 #mainContent.special-content .special-img {
   position: absolute;

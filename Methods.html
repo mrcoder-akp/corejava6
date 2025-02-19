@@ -169,6 +169,22 @@
     Bye everyone
     ------------------
             </pre>
+  <h4>🚫 Method Declaration Inside main() (Not Allowed)</h4> 
+  <hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+  <p>Methods cannot be declared inside another method in Java.  <br>
+    In Java, you <b>cannot declare a method inside the main() method</b> or inside any other method. Java <b>does not allow nested method</b> definitions. However, you can declare <b> inner classes, lambda expressions, or anonymous classes inside main()</b>, which can contain methods.
+     </p>   
+ <pre>
+  public class Test {
+   public static void main(String[] args) 
+   {
+        public void show() 
+        {  // ❌ Not allowed: Method inside another method
+            System.out.println("Hello");
+        }
+    }
+}
+ </pre>          
  <h1>Types of methods</h1>
  <h4 style="background-color: rgb(119, 151, 58); display: inline-block; color: white; border-radius: 6px;">
   1.Non Static Method  <br>
