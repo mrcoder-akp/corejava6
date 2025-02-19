@@ -291,6 +291,9 @@ body {
      -webkit-user-select: none; /* Safari ke liye */
      -moz-user-select: none; /* Firefox ke liye */
      -ms-user-select: none; /* IE ke liye */
+      /* Right-click aur long-press block karne ke liye */
+  -webkit-touch-callout: none; /* iOS devices */
+  pointer-events: auto; /* Ensure other interactions work */
 }
 @keyframes glowing-shadow {
  50% {

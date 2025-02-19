@@ -118,3 +118,33 @@ setInterval(() => {
   getComputedStyle(badge).opacity; // Opacity check without console log
 }, 500);
 ;
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//Yaha se code for address bar hide karne ke liye start hai
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      window.scrollTo(0, 1); // Address bar ko hide karne ke liye
+    }, 0);
+  });
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//Yaha se image for right click disable karne ke liye start hai
+// Right-click disable (Desktop)
+document.addEventListener('contextmenu', function(e) {
+  if (e.target.classList.contains('special-img')) {
+    e.preventDefault();
+  }
+});
+
+// Long-press disable (Mobile)
+document.addEventListener('DOMContentLoaded', () => {
+  const img = document.querySelector('.special-img');
+
+  if (img) {
+    img.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+    });
+  }
+});
+
