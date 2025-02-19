@@ -215,6 +215,7 @@ body {
 
   .content p {
     padding: 12px;
+    background: linear-gradient(to bottom, #FAF3E0, #F2E8CF);
   }
 }
 

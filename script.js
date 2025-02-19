@@ -107,3 +107,14 @@ document.querySelectorAll(".mobile-menu a").forEach(item => {
     }
   });
 });
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+//New ko blinking ke liye code yaha se start hai
+const badge = document.querySelector('.new-badge');
+
+// Debugging logs removed
+setInterval(() => {
+  getComputedStyle(badge).opacity; // Opacity check without console log
+}, 500);
+;

@@ -82,33 +82,30 @@ body {
 }
 
 .java {
-  position: relative; /* Ensures "NEW" stays above Java */
+  position: relative;
+  display: inline-block;
 }
-
 
 .new-badge {
   position: absolute;
-  top: -10px; /* Moves it right above Java */
-  right: 0; /* Aligns to the top-right corner of Java text */
-  background-color: red; /* Highlighted background */
+  top: -5px;
+  right: -5px;
+  background-color: red;
   color: white;
   font-size: 10px;
   font-weight: bold;
   padding: 2px 5px;
   border-radius: 4px;
   text-transform: uppercase;
-  animation: blink 1.5s infinite alternate; /* Blinking effect */
+  animation: blinkEffect 2s infinite alternate !important;
+  visibility: visible !important;
 }
-
-
-/* Blinking effect for "NEW" badge */
-@keyframes blink {
-  0% { opacity: 1; }
-  100% { opacity: 0.5; }
+/* Blinking Effect */
+@keyframes blinkEffect {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
 }
-
-
-
 
 /* Mobile Menu Button */
 .menu-toggle {
@@ -129,13 +126,17 @@ body {
   right: 0;
  // width: 100%; /* Full width */
   flex-direction: column;
-  background-color:#142238;
+  background: linear-gradient(135deg, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3));
+  backdrop-filter: blur(15px); /* Glassmorphism effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border */
   padding: 10px;
   text-align: center;
   z-index: 9999; /* Ensure it's below the navbar */
   opacity: 0; /* Initially hidden */
   transform: translateY(-10px); /* Start position */
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+  border-radius: 10px; /* Smooth rounded edges */
 }
 
 /* Apply styles to links in mobile menu */
@@ -196,7 +197,7 @@ body {
 .mobile-menu a:first-child .new-badge {
   position: absolute;
   top: 0; /* Align the "NEW" badge to the top edge of the Java link */
-  right: -10px; /* Adjust this to position the badge on the right side without going outside */
+  right: -8px; /* Adjust this to position the badge on the right side without going outside */
   background-color: red; /* Full red background */
   color: white;
   font-size: 10px;

@@ -934,6 +934,7 @@ Current Balance: $300.0
     Class BB will be sub/child/derived class of class AA. <br> 
     Class AA will be super/parent/base class of class BB.</p>
 <h1>Types of Inheritace</h1>
+<br>
 <h4 style="background-color: rgb(60, 63, 68); display: inline-block; color: white; border-radius: 10px; padding: 10px;">
     1️⃣ Single Inheritance <a style="color: rgb(173, 216, 230);"> (Simple Inheritance (SI))</a>  <br> 
     2️⃣ Multiple Inheritance <a style="color: rgb(173, 216, 230);"> (Multi-Base Inheritance (MI))</a>   <br>
@@ -950,6 +951,250 @@ Current Balance: $300.0
     </div>
 </center>
 <br>
+<h3>Single Inheritance (Simple Inheritance (SI))</h3>
+<hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
+<p>There are only two class <br>
+    First one is parent class and that class has no parent and only one child class. <br>
+    Second one is child class and that class has only one parent and no child class. <br>
+    Inheriting properties from a single class is single inheritance. <br>
+    The child class gets access to the methods and variables of the parent class.  <br>
+    It can use them as they are or modify them as needed. 
+</p>
+<p>
+    <b>
+        class Parent  <br>
+        {  <br>
+            //properties  <br>
+        }  <br>
+        class Child extends Parent  <br>
+        {  <br>
+            //properties  <br>
+        }  <br>
+    
+    </b>
+</p>
+<h4>Example.......</h4>
+<pre>
+    class Parent
+    {
+        public void show()
+        {
+            System.out.println("Parent class method");
+        }
+    }
+    class Child extends Parent
+    {
+        public void display()
+        {
+            System.out.println("Child class method");
+        }
+    }
+    class App
+    {
+        public static void main(String[] args) 
+        {
+            Child c=new Child();
+            c.show();
+            c.display();
+        }
+    }`
+output
+Parent class method
+Child class method
+--------------------------------------------------------------------------------------
+Explanation:
+The parent class has a method show().
+The Child class inherits the parent class using extends.
+The Child class has its own method display().
+The Child object can use both show() (from parent) and display() (from itself).
+</pre>
+<br>
+<h4>Real-Life Example (Understanding with a Simple Scenario)</h4>
+<p>Vehicle (Parent) has common properties like wheels and an engine. <br>
+    Car (Child) inherits these properties but adds more features like AC and music system.</p>
+<pre>
+    // Parent class
+    class Vehicle {
+        void start() {
+            System.out.println("Vehicle is starting...");
+        }
+    }
+    
+    // Child class
+    class Car extends Vehicle {
+        void playMusic() {
+            System.out.println("Playing music in the car...");
+        }
+    }
+    
+    // Main method
+    public class Main {
+        public static void main(String[] args) {
+            Car myCar = new Car();
+            myCar.start();      // Inherited from Vehicle
+            myCar.playMusic();  // Defined in Car
+        }
+    }
+output
+Vehicle is starting...
+Playing music in the car...
+</pre>
+<h3>Multiple inheritance(Multi-Base Inheritance (MI))</h3>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>Inheriting properties from multiple classes is multiple inheritance <br>
+    When child class has multiple parent class then this inheritance is called multiple inheritance. <br>
+    In java this inheritance is not allowed inside classes but allowed inside interfaces.</p>
+<p>
+ <b>
+    class Parent1  <br>
+    {  <br>
+        //properties  <br>
+    }  <br>
+    class Parent2  <br>
+    {  <br>
+        //properties  <br>
+    }  <br>
+    class Child extends Parent1,Parent2  <br>
+    {  <br>
+        //properties  <br>
+    }  <br>
+</b>
+</p>
+<p>
+    Here class CC is inheriting properties from class AA and BB  <br>
+    This will be multiple inheritance  <br>
+    In java multiple inheritance is not allowed in classes.  <br>
+    C++ and Python allows multiple inheritance in classes.  <br>
+    In java multiple inheritance is allowed in interfaces.   
+</p>
+<h4>🚫 Why Java Doesn't Support Multiple Inheritance with Classes</h4>
+<hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
+<p>
+    Imagine we have two parent classes with the same method name. If a child class inherits both, Java won't know which method to use.This is called the <b>Diamond Problem</b>.
+</p>
+<h4>Example of the Diamond Problem (If Java Allowed Multiple Inheritance with Classes)</h4>
+<pre>
+    class Parent1 {
+        void show() {
+            System.out.println("Parent1 Show Method");
+        }
+    }
+    
+    class Parent2 {
+        void show() {
+            System.out.println("Parent2 Show Method");
+        }
+    }
+    
+    // ❌ Java does NOT allow this!
+    class Child extends Parent1, Parent2 {
+        public static void main(String args[]) {
+            Child obj = new Child();
+            obj.show(); // Which show() method to call? Parent1 or Parent2? ❌
+        }
+    }
+<p>👉 Java avoids this confusion by NOT allowing multiple inheritance with classes.</p>    
+</pre>
+<h3>Multilevel Inheritance (Chain Inheritance (MLI))</h3>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+    A child class inherits from a parent class. <br> 
+    Another child class inherits from this child class. <br>
+    This creates a chain of inheritance (Grandparent → Parent → Child). <br>
+    Grandfather → Father → Son (Each generation inherits properties from the previous one)   
+</p>
+<p>
+    <b>
+        class GrandParent  <br>
+        {  <br>
+            //properties  <br>
+        }  <br>
+        class Parent extends GrandParent  <br>
+        {  <br>
+            //properties  <br>
+        }  <br>
+        class Child extends Parent  <br>
+        {  <br>
+            //properties  <br>
+        }  <br>
+    </b>
+</p>
+<h4>Real-Time Example of Multilevel Inheritance in Java</h4>
+<pre>
+    // Grandparent class
+    class CEO {
+        String companyName = "Tech Solutions";
+    
+        void displayCompany() {
+            System.out.println("Company Name: " + companyName);
+        }
+    }
+    
+    // Parent class inheriting CEO
+    class Manager extends CEO {
+        String department = "Software Development";
+    
+        void displayDepartment() {
+            System.out.println("Department: " + department);
+        }
+    }
+    
+    // Child class inheriting Manager
+    class Employee extends Manager {
+        String employeeName = "John Doe";
+    
+        void displayEmployee() {
+            System.out.println("Employee Name: " + employeeName);
+        }
+    
+        public static void main(String[] args) {
+            Employee emp = new Employee();
+            emp.displayCompany();      // Inherited from CEO
+            emp.displayDepartment();   // Inherited from Manager
+            emp.displayEmployee();     // Defined in Employee
+        }
+    }
+output
+Company Name: Tech Solutions
+Department: Software Development
+Employee Name: John Doe       
+</pre>
+<br>
+<pre>
+    class Animal {
+        void eat() {
+            System.out.println("Animals eat food.");
+        }
+    }
+    
+    class Mammal extends Animal {
+        void warmBlooded() {
+            System.out.println("Mammals are warm-blooded.");
+        }
+    }
+    
+    class Dog extends Mammal {
+        void bark() {
+            System.out.println("Dogs bark.");
+        }
+    
+        public static void main(String[] args) {
+            Dog myDog = new Dog();
+            myDog.eat();        // Inherited from Animal
+            myDog.warmBlooded();// Inherited from Mammal
+            myDog.bark();       // Defined in Dog
+        }
+    }
+output
+Animals eat food.
+Mammals are warm-blooded.
+Dogs bark.    
+</pre>
+<h3>Hybrid Inheritance (Mixed Inheritance (HBI))</h3>
+<hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
+<p>
+    Hybrid inheritance is a <b>combination of two or more types of inheritance</b>. Since Java <b>does not support multiple inheritance with classes</b> (to prevent ambiguity), hybrid inheritance is achieved using interfaces.
+</p>
 </div>
 </body>
 </html>
