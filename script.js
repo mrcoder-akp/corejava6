@@ -119,15 +119,15 @@ setInterval(() => {
 }, 500);
 ;
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//Yaha se address bar ko hide karne ke liye code start hai
+// Hide address bar on mobile devices
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    window.scrollTo(0, 1); // Address bar ko hide karta hai
+  }, 0);
+});
 
-
-//////////////////////////////////////////////////////////////////////////////////////
-//Yaha se code for address bar hide karne ke liye start hai
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      window.scrollTo(0, 1); // Address bar ko hide karne ke liye
-    }, 0);
-  });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //Yaha se image for right click disable karne ke liye start hai
 // Right-click disable (Desktop)
