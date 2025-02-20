@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div>
+       <p>It is root class in java. <br>
+        It has 13 useful methods. <br>
+        Every class in java inherits properties of Object class by default <br>
+        The <b>Object class</b> in Java is the root of the class hierarchy. Every class in Java directly or indirectly inherits from the Object class. It provides some basic methods that all Java objects have. </p>
+<code>
+public class AA 
+{ 
+    // class code 
+}  
+    // Parent of class AA is Object class  
+    // class AA extends Object internally 
+public class BB extends AA  
+{  
+    // class code 
+}  
+</code>
+<br>
+<h1>Methods of the Object Class</h1>  
+<p>
+<b>1. toString()</b> – Returns a <b>string representation</b> of the object.<br>
+<b>2. equals(Object obj)</b> – Compares two objects for <b>equality</b>.<br>
+<b>3. hashCode()</b> – Returns a <b>hash code value</b> for the object.<br>
+<b>4. getClass()</b> – Returns the <b>runtime class</b> of the object.<br>
+<b>5. clone()</b> – Creates and returns a <b>copy</b> of the object.<br>
+<b>6. finalize()</b> – Called by the <b>garbage collector</b> before destroying an object. (<b>Deprecated</b> in recent versions)<br>
+<b>7. wait()</b>, <b>notify()</b>, <b>notifyAll()</b> – Used for <b>thread synchronization</b>.
+8. <b>public final void wait(long timeout)</b> -Waits for the specified time or until notified.<br>
+9.<b>public final void notify()</b> -Wakes up a single thread that is waiting on this object's monitor.<br>
+etc...
+</p>
+<h4>Example...</h4>
+<pre>
+public class Demo {
+public static void main(String[] args) {
+Demo obj1 = new Demo();
+Demo obj2 = new Demo();
+
+System.out.println(obj1.toString());      // toString()
+System.out.println(obj1.equals(obj2));    // equals()
+System.out.println(obj1.hashCode());      // hashCode()
+System.out.println(obj1.getClass());      // getClass()
+    }
+}
+output 
+Demo@2a139a55
+false
+705927765
+class Demo    
+</pre>
+<h3>finalize() Method</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+The <b>finalize()</b> method was called by the <b>Garbage Collector</b> before destroying an object to perform cleanup operations (like closing files, releasing resources, etc.). However, it is deprecated from <b>Java 9 onwards</b> due to unpredictable behavior and better alternatives like try-with-resources.    
+</p>
+<pre>
+class Demo {
+@Override
+protected void finalize() throws Throwable {
+System.out.println("Finalize method called before object is destroyed");
+}
+
+public static void main(String[] args) {
+Demo obj = new Demo();
+obj = null;  // Object is now eligible for garbage collection
+
+System.gc(); // Suggests JVM to run Garbage Collector
+
+System.out.println("Main method ends");
+}
+}
+output
+Main method ends
+Finalize method called before object is destroyed
+</pre>
+<p>In Java, Garbage Collection (GC) works automatically, but its execution is managed by the JVM. <br>
+When you do <b> obj = null;</b> , the object becomes eligible for Garbage Collection because there are no active references to it. <br>
+However, it won't be collected immediately. The JVM decides when to run the Garbage Collector based on memory needs. <br>
+You're telling the JVM, "I don't need this object anymore," but when to clean it up is JVM's call. </p>
+<h4>System.gc() necessary to trigger GC</h4>
+<p>
+System.gc(); is just a request to the JVM to run the Garbage Collector. <br>
+The JVM may or may not execute it immediately.   <br>
+The <b>finalize() method (if overridden)</b> is called before the object is destroyed, but the exact timing is unpredictable.  
+</p>
+<pre>
+class Demo {
+@Override
+protected void finalize() throws Throwable {
+System.out.println("Finalize method called");
+}
+
+public static void main(String[] args) {
+Demo obj = new Demo();
+obj = null; // Eligible for GC
+
+System.out.println("Before GC");
+System.gc(); // Requesting GC
+System.out.println("After GC");
+
+// Adding delay to give JVM time for GC
+try { Thread.sleep(1000); } catch (InterruptedException e) {}
+}
+}
+output
+Before GC
+After GC
+Finalize method called   
+or
+---
+Before GC
+Finalize method called
+After GC   
+</pre>
+<p> <b>obj = null</b> → Eligible for GC but not immediate.  <br>
+    System.gc(); → A polite request, not a command.  <br>
+    finalize() → Runs before object destruction but at JVM's discretion.</p>
+    <br>
+<h4 style="background-color: yellowgreen; border-radius: 5px; display: inline-block;">NOTE Deeply Explation  </h4> 
+<p>
+Jab object <strong>Garbage Collection</strong> ke liye <strong>eligible</strong> ho jata hai to iska matlab ye nahi ki object turant <strong>Garbage Collector</strong> dvara hata diya jayega.<br>
+<strong>JVM</strong> khud tay karegi ki kab <strong>Garbage Collector</strong> ko chalana hai.<br>
+Aap <strong>JVM</strong> ko bol rahe ho ki ye object nahi chahiye, lekin <em>kab</em> use hatana hai ye <strong>JVM</strong> par nirbhar karta hai.<br>
+<code>System.gc()</code> sirf <strong>JVM</strong> ko <em>request</em> karta hai ki <strong>Garbage Collector</strong> chalaya jaye, par ye sirf ek <em>nivedan</em> hai.<br>
+<strong>JVM</strong> ise maane ya na maane, ye us par nirbhar karta hai. Kai baar to <strong>JVM</strong> is nivedan ko <em>ignore</em> kar deti hai.<br>
+<code>finalize()</code> method tab chalta hai jab object ko <strong>Garbage Collector</strong> hatane wala hota hai, lekin <em>kab</em> chalega iska koi <em>theekana</em> nahi hota.<br>
+Ye aapke sabhi <strong>print statements</strong> ke baad chalega ya nahi, ye bhi <strong>JVM</strong> par nirbhar karta hai.<br>
+Isliye <strong>Java 9</strong> se <code>finalize()</code> ko <strong>deprecated</strong> kar diya gaya hai kyunki iska behavior <em>unpredictable</em> hai. 🚀
+</p>
+<h3>wait(), notify(), and notifyAll() (Thread Synchronization)</h3>
+<pre>
+    class SharedResource {
+        private boolean available = false;
+    
+        synchronized void produce() {
+            available = true;
+            System.out.println("Produced resource");
+            notify();  // Notify waiting threads
+        }
+    
+        synchronized void consume() {
+            while (!available) {
+                try {
+                    wait(); // Wait until resource is available
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("Consumed resource");
+            available = false;
+        }
+    }
+    
+    public class ThreadExample {
+        public static void main(String[] args) {
+            SharedResource resource = new SharedResource();
+    
+            // Consumer Thread
+            new Thread(() -> resource.consume()).start();
+    
+            // Producer Thread (delayed)
+            new Thread(() -> {
+                try {
+                    Thread.sleep(1000); // Delay to ensure consumer waits
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                resource.produce();
+            }).start();
+        }
+    }
+output
+Consumed resource
+Produced resource
+----------------------------------------------
+wait() can only be called inside a synchronized block/method.
+After calling wait(), the thread releases the lock and waits.
+notify() wakes up one waiting thread, while notifyAll() wakes up all.
+</pre>
+</div>
+</body>
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
+</html>

@@ -19,13 +19,21 @@ body {
     padding: 2px 4px;
     border-radius: 4px;
     font-family: monospace;
+    display: inline-block;
   }
   code {
-    background-color:rgb(38, 160, 22);
+    background-color: rgb(94, 158, 85,0.6);
     padding: 2px 4px;
-    border-radius: 4px;
+    border-radius: 10px;
     font-family: monospace;
-  }
+    color:rgb(52, 53, 35);
+    display: inline-block;
+    white-space: pre-wrap;   /* Allow text wrapping */
+    word-wrap: break-word;   /* Break long words if needed */
+    box-sizing: border-box;  /* Include padding in width */
+    text-align: left;        /* Align text to the left */
+}
+
 
 /* End of this point */
   h3 {

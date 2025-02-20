@@ -524,8 +524,7 @@ This helps us keep track of how many objects have been created.
         </tr>
     </table>
 </center>
-<h3>Encapsulation</h3>
-<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<h1>Encapsulation</h1>
 <p>Wraping up <b>attribute</b> and <b> behaviour </b> of the object into a single unit is called encapsulation.  <br>
 This is achived by define a class <b>getter()</b> and <b>setter()</b> method. <br>
 Advantage of encapsulation is <b>data hiding</b> .for this instance variable must be <b>private</b> .</p>
@@ -696,11 +695,10 @@ Current Balance: $300.0
 <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
 <p> Creating object from the class is called instantitation. <br>
     Remeber every object instance of a class.</p>
-<h3>Inheritance</h3>
-<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;"> 
+<h1>Inheritance</h1>
 <p>It is one of the OOPS concept.  <br>
     Acquiring properties(methods and variables) by a new class from an existing class is called inheritance. <br>
-    Inheritance is a concept where one class shares  the structure and behaviour defined in another class.  <br>
+    Inheritance is a concept where <span class="highlight">one class shares  the structure and behaviour defined in another class</span>.  <br>
     Advantage is inheritance is code reusability.</p>
 <h4>Example..Task</h4>
 <p>Define/create following four classes  <br>
@@ -917,23 +915,25 @@ Current Balance: $300.0
      <b> Organized Code</b> - Create a logical hierarchy.  <br>
      <b>Polymorphism Support</b> - Allows method overriding. 
     </p>
-<code style="color: white;">
-    public class AA   //parent class   <br>
-    {    <br>
-      //properties   <br> 
-    }  <br>
-    public class BB extends AA //child class  <br>
-    {   <br>
-      //properties   <br>
-    }  <br>
-    {   <br>
-      //properties  <br>
-    }  <br>
-</code>
+
+<code>
+ public class AA   //parent class 
+{   
+ //properties   
+}  
+public class BB extends AA //child class  
+{   
+//properties   
+}  
+{   
+ //properties  
+}  
+</code>    
 <p>Here class BB is inheriting/acquiring properties from the class AA.  <br>
     Class BB will be sub/child/derived class of class AA. <br> 
     Class AA will be super/parent/base class of class BB.</p>
-<h1>Types of Inheritace</h1>
+<h3>Types of Inheritace</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
 <br>
 <h4 style="background-color: rgb(60, 63, 68); display: inline-block; color: white; border-radius: 10px; padding: 10px;">
     1️⃣ Single Inheritance <a style="color: rgb(173, 216, 230);"> (Simple Inheritance (SI))</a>  <br> 
@@ -1207,6 +1207,340 @@ Dogs bark.
 <p>
     Hybrid inheritance is a <b>combination of two or more types of inheritance</b>. Since Java <b>does not support multiple inheritance with classes</b> (to prevent ambiguity), hybrid inheritance is achieved using interfaces.
 </p>
+<code>
+class A { }  // Parent class
+class B extends A { }  // Child class
+interface C { }  // Interface
+class D extends B implements C { }  // Hybrid inheritance
+</code>
+<br>
+<h1>Polymorphism</h1>
+<p>
+<strong>Polymorphism</strong> means <strong>many forms</strong>.<br>
+We can say <strong>one name</strong> and <strong>many forms</strong>.<br>
+<strong>Polymorphism</strong> reduces <strong>complexity</strong> of the code.<br>
+<strong>Polymorphism</strong> in <strong>Java</strong> (in simple words) means <strong>"many forms"</strong>.<br>
+It allows <strong>one action</strong> to behave differently based on the <strong>object</strong> performing it.<br>
+Think of it like this: a <strong>single word</strong> can have different meanings depending on the <strong>context</strong> —<br>
+just like <strong>polymorphism</strong> lets <strong>one method</strong> or <strong>function</strong> work in <strong>multiple ways</strong>. </p>
+<h4> It is achieved by following two ways----</h4>
+<h3>1.(Static polymorphism)By overloading methods</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is also called compile time polymorphism <br>
+Existing in different physical forms simultaneously  <br>
+This polymorphism is also known as compile time polymorphism   <br>
+This is achieved by method overaloding
+</p>
+<pre>
+class Calculator 
+{
+public int add(int a, int b) 
+{
+  return a + b;
+}
+
+public  int add(int a, int b, int c) 
+{
+    return a + b + c;
+}
+}
+class Main 
+{
+public static void main(String[] args) {
+Calculator calc = new Calculator();
+System.out.println(calc.add(5, 10));      // Output: 15
+System.out.println(calc.add(5, 10, 20));  // Output: 35
+}
+}
+</pre>
+<h3>2.(Dynamic polymorphism)By overriding methods</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is achieved by method overriding  <br>
+It is also called run time polymorphism  <br>
+Changing its form dependending upon circumstances   
+</p>
+<pre>
+class Animal 
+{
+  void sound() 
+{
+ System.out.println("Animal makes a sound");
+}
+}
+class Dog extends Animal 
+{
+void sound() 
+{
+System.out.println("Dog barks");
+}
+}
+class Cat extends Animal 
+{
+void sound()
+{
+System.out.println("Cat meows");
+}
+}
+ class Main 
+ {
+public static void main(String[] args)
+ {
+Animal myAnimal;
+myAnimal = new Dog();
+ myAnimal.sound(); // Output: Dog barks
+myAnimal = new Cat();
+myAnimal.sound(); // Output: Cat meows
+ }
+}
+</pre>
+<h1>Abstraction</h1>
+<p>
+Hiding complexcity is called abstraction.  <br>
+Hiding non-essential details of the object from the user is called abstraction.  <br>
+This is also called hiding complexity  <br>
+Hiding implimantion of method from the caller is also abstraction. <br>
+In object oriented programming, abstraction is achieved by defining abstract methods.
+</p>
+<h3>Abstract method</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+A method which has no body or implementation is known as abstract method  <br>
+Abstract method can be define either inside abstract class or inside interface.  <br>
+Method inside class should be abstract when implemantation of that method,method is diffrent in other class(Those class
+having same methods but implimantation of these method are different)  <br>
+<b>public abstract return-type method-name(argument-list);</b>  <br>
+abstract method can not be made private    <br>
+abstract method can not be made final  <br>
+abstract method can not be made static  <br>
+abstract method can not be made synchronized  <br>
+abstract method can not be made strictfp  <br>
+abstract method can not be made native  <br>
+</p>
+<code>
+public abstract class AA 
+{
+public abstract void method1();
+abstract void method2();
+protected abstract void method3();
+}    
+</code>
+<h3>Abstarct Class</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>A class which is defined by using abstract keyword is known as abstract class. <br>
+Abstract class can not be instantiated. <br>
+It means object from an abstract class can not be created <br>
+Abstarct class can be inherited only child class must override all abstract method of parent class otherwise child class code will given error. <br>
+Abstract classes can maintain state with fields (instance variables). <br>
+Abstract class can have abstract method as well as non-abstract method. <br>
+In Java, the abstract class  introduced in the initial version of Java (JDK 1.0). <br>
+Abstract class can have constructor. <br>
+Abstract class can have static method. <br>
+Abstract class can have final method. <br>
+Abstract class can have main method. <br>
+Abstract class can have static block. <br>
+Abstract class can have instance block. <br>
+Abstract class can have static variable. <br>
+Abstract class can have instance variable. <br>
+Abstract class can have final variable. <br>
+Abstract class can have final static variable. <br>
+Abstract class can have final instance variable. <br>
+Abstract class can have final static method. <br>
+Abstract class can have final instance method. <br>
+Abstract class can have final static block. <br>
+</p>
+<h4>Example.....</h4>
+<pre>
+public abstract class AA 
+{
+}
+public class App 
+{
+public static void main(String[] args) 
+{
+AA obj=new AA();
+}
+} 
+output 
+error: AA is abstract; cannot be instantiated AA obj=new AA();
+</pre>
+<br>
+<pre>
+Public abstract class Animal
+{
+Public abstract void Animalsound()
+public void sleep()
+{
+    System.out.println("Zzz..")
+}
+}
+Public Dog extends Animal
+{
+    public void Animalsound()
+{
+    System.out.println("Bho..Bho..")
+}
+}
+public class App
+{
+    public static void main(String[] args)
+{
+    Dog mydog=new Dog();
+mydog.Animalsound();
+mydog.sleep();
+}
+}
+Output
+----------
+Bho..Bho.. 
+Zzz..   
+</pre>
+<br>
+<pre>
+public abstract class Shape 
+{
+public abstract void findShapeArea();
+}
+public class Circle extends Shape 
+{
+public static final double PI=3.14;
+private int radius;
+public Circle(int radius)
+{
+    this.radius=radius;
+}
+public void findShapeArea()
+{
+    double area=PI*radius*radius;
+    System.out.println("Area of circle is:"+area);
+}
+public void findPerimeter()
+{
+    double pm=2*PI*radius;
+    System.out.println("Perimeter of circle is:"+pm);
+}
+}
+public class Rectangle extends Shape 
+{
+private int length;
+private int breadth;
+public Rectangle(int length,int breadth)
+{
+    this.length=length;
+    this.breadth=breadth;
+}
+public void findShapeArea()
+{
+    int area=length*breadth;
+    System.out.println("Area of rectangle is:"+area);
+}
+}
+public class App 
+{
+public static void main(String[] args) 
+{
+    Circle sh=new Circle(10);
+    sh.findShapeArea();
+    sh.findPerimeter();
+}
+}
+Output
+--------
+Circle sh = new Circle(10);
+
+A Circle object is instantiated with a radius of 10.
+sh.findShapeArea();
+
+The findShapeArea method of the Circle class is invoked.
+The area is calculated as:
+Area =𝜋*radius*radius=3.14*10*10=314.0
+"Area of circle is:314.0"
+sh.findPerimeter();
+The findPerimeter method of the Circle class is invoked.
+The perimeter is calculated as:
+Perimeter=2*𝜋*radius=2*3.14*10=62.8
+Perimeter=2*π*radius=2*3.14*10=62.8
+"Perimeter of circle is:62.800000000000004"    
+</pre>
+<h4 style="background-color: goldenrod; border-radius: 3px; display: inline-block;">NOTE Deeply Explanation(Hindi)👇</h4>
+<p>
+<b>Abstract Class</b> ka use Java me un situations me hota hai, jahan aapko ek aisi Base Class chahiye jo kuch common behavior (aam kaam) ko share kare, lekin sath hi aap chahte hain ki kuch methods ko subclasses me alag se define kiya jaye.  
+♻️ Code Reusability (Code ka punah upyog) <br>
+🎭 Partial Abstraction (Thoda chhupao, thoda dikhao) <br>
+🏗️ Common Structure banana (Ek base framework banana)  <br>
+"Abstract" ka matlab hota hai adhura ya aspasht. <br>
+Abstract Class wo class hoti hai jiska direct object nahi banaya ja sakta. 🚫🧱  <br>
+Isme do tarah ke methods ho sakte hain:  <br>
+🔸 Abstract Methods → (Sirf declaration hota hai, koi body nahi)  <br>
+🔸 Concrete Methods → (Proper body ke sath hota hai) <br>
+🧩 Common Behavior Share Karne ke Liye: 
+Agar aapke paas kai classes hain jinme kuch common features hain, to unhe ek abstract class me daal sakte hain. Isse code baar-baar likhne ki jarurat nahi padti. <br>
+🎭 Partial Abstraction Dene ke Liye:
+Interface me pehle 100% abstraction hota tha, lekin abstract class me aap chahein to kuch methods ki body de sakte hain aur kuch ko abstract chhod sakte hain.  <br>
+🏆 Base Class Banane ke Liye: <br>
+Jab aap ek parent class banana chahte hain lekin uska object nahi banana chahte, tab abstract class ka use karte hain.
+🔐 Code Security Badhane ke Liye:
+Aap complex implementation ko hide kar sakte hain aur sirf important details subclasses ko de sakte hain.
+</p>
 </div>
 </body>
+
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+
 </html>
