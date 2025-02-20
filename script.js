@@ -140,3 +140,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Yaha se fullscreen ke liye code start hai
+// Fullscreen on click
+document.addEventListener('click', () => {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  }
+});
+

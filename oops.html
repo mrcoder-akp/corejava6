@@ -379,7 +379,7 @@ Price of the product is:1600
     }
 }
 </pre>
-<p style="background-color: rgb(77, 88, 28); color: peachpuff;">Static variable sirf ek baar memory me allocate hota hai (class area me), aur sabhi objects usi ek copy ko share karte hain.Jab bhi koi object static variable ki value change karega, wo sabhi objects ke liye update ho jayegi, kyunki static variable ki ek hi copy hoti hai.Agar multiple objects static variable ko modify karein, to last assigned value hi store hoti hai.</p>
+<p style="background-color: rgb(86, 105, 0);">Static variable sirf ek baar memory me allocate hota hai (class area me), aur sabhi objects usi ek copy ko share karte hain.Jab bhi koi object static variable ki value change karega, wo sabhi objects ke liye update ho jayegi, kyunki static variable ki ek hi copy hoti hai.Agar multiple objects static variable ko modify karein, to last assigned value hi store hoti hai.</p>
 <pre>
     class AA {
         int x;       // Instance variable
@@ -1070,8 +1070,10 @@ Playing music in the car...
 <h4>🚫 Why Java Doesn't Support Multiple Inheritance with Classes</h4>
 <hr style="border: 1px solid black; width: 50%; margin-top: 5px; margin-left: 0;">
 <p>
-    Imagine we have two parent classes with the same method name. If a child class inherits both, Java won't know which method to use.This is called the <b>Diamond Problem</b>.
-</p>
+    1.Imagine we have two parent classes with the same method name. If a child class inherits both, Java won't know which method to use.This is called the <b>Diamond Problem </b><br>
+       2. In Java, multiple inheritance (through classes) is not directly allowed, so the traditional <b>Diamond Problem</b> does not occur. <br> 3.If method names are not the same, then theoretically there is no ambiguity, but Java still does not allow multiple classes inheritance. <br> 4.Java supports <b>multiple inheritance</b> through interfaces. In interfaces, only method <b>declarations</b> exist, so there is no <b>ambiguity</b>. <br>
+   5.But in <b>Java 8</b> features, the <b>diamond problem </b> can occur with <b>default methods</b> because we have two different <b>interfaces</b> with the same method name, and their <b>implementation</b> can be either different or the same. When we <b>implement</b> these interfaces in a class, the <b>diamond problem</b> can happen.To solve this, we need to <b> override</b> that method in the class. After overriding, the method belongs to the <b>class</b>, and we can either change its <b>implementation</b> or keep it the same.
+    However, if the interfaces have the same method name but different <b>implementations</b>, and we want to <b>call</b> both methods based on the interface in the class, we need to use the <b>super</b> keyword with the interface name inside the overridden method. Example.. <code>AA.super.show();</code> </p>
 <h4>Example of the Diamond Problem (If Java Allowed Multiple Inheritance with Classes)</h4>
 <pre>
     class Parent1 {
@@ -1095,6 +1097,16 @@ Playing music in the car...
     }
 <p>👉 Java avoids this confusion by NOT allowing multiple inheritance with classes.</p>    
 </pre>
+<h4 style="background-color: goldenrod; border-radius: 3px; display: inline-block;">NOTE Deeply Explanation(Hindi)👇</h4>
+<p>Java me multiple inheritance (multiple classes se direct inheritance) allow nahi hai kyunki yeh ambiguity create kar sakti hai. Agar ek child class do parent classes ko inherit karti hai aur dono parent me same method hai, to Java ko yeh decide karne me dikkat hogi ki kaunsi method call ki jaye. Isliye Java Diamond Problem ko avoid karta hai kyunki multiple classes inherit hi nahi hoti. <br>
+    Lekin aap yeh bhi keh sakte hai ki agar method name same na ho to — tab bhi Java me theoretically ambiguity nahi hoti, lekin Java phir bhi support nahi karta kyunki yeh multiple classes ko inherit hi nahi kar sakta. <br>
+    Inheritance ka purpose hi hota hai ek class ke data members aur method implementation ko dusri class ko dena, jo ambiguity create kar sakti hai. <br>
+    Java ko simpler rakhne ke liye single inheritance (extends) aur multiple interface (implementation) ka concept rakha gaya hai. <br> 
+    Lekin C++ me multiple class inheritance possible hai, isliye C++ me Diamond Problem aata hai kyunki dono classes me method name same ho sakte hai. <br> C++ me Diamond Problem ko solve karne ke liye virtual inheritance ka use kiya jata hai. Virtual inheritance ensure karta hai ki common base class ka sirf ek instance ho, chahe multiple inheritance kyu na ho. <br>
+   <b>Example (C++) </b> Agar A class hai, usko extend kiya hai B class aur C class ne, aur ek D class hai jo B aur C ko extend karti hai, to D ke paas A class ki do copies aa jati hai. Isliye virtual keyword ka use kiya jata hai taki D class ke paas sirf single instance aaye, jisse Diamond Problem na ho. <br> 
+   Java 8 feature me default method aaya jisme method ka body de sakte hai. To phir agar do alag-alag interface ke same name ka method ho aur uska implementation same ya alag-alag ho, to isme Diamond Problem aa sakta hai.
+   Isko solve karne ke liye hame jo class implement kar rahi hai in interfaces ko, us class me in methods ko override karna padega. Tab jaakar problem solve hoga. Override karne ke baad method ka implementation change ya same bhi rakh sakte hai. Override karne par JVM ko yeh samajh aata hai ki jo class implement kiya hai interface, wo us class ka method hai, isliye problem solve ho jata hai.
+   Lekin agar dono methods same hai aur in dono methods ko call karna hai, to uske liye override method me interface ka naam super keyword ke sath likhna hoga aur method ka naam batana hoga, tab jaakar call hoga. 💖 Dhanyawad! Happy Coding! 👨‍💻🚀 </p>
 <h3>Multilevel Inheritance (Chain Inheritance (MLI))</h3>
 <hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
 <p>
