@@ -267,11 +267,39 @@ body {
   background-size: cover; /* Fit the container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent repetition */
-  background-attachment: fixed; /* Parallax effect on scroll (optional) */
-  height: calc(100vh - 60px);
+  background-attachment: fixed; /* Fixed background */
+  height: calc(100vh - 60px); /* Fixed height */
   position: relative;
   overflow: hidden; /* Prevents content overflow */
+  transform: translate3d(0, 0, 0); /* Prevents flickering */
+  will-change: transform; /* Optimizes rendering */
+  background-color: #000; /* Optional: Fallback color while image loads */
 }
+
+/* Ensuring image loads fully before display */
+#mainContent.special-content::before {
+  content: '';
+  background-image: url('public/main.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Mobile Specific Tweaks */
+@media only screen and (max-width: 768px) {
+  #mainContent.special-content {
+    background-attachment: scroll; /* Scrollable if needed */
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 
 /* Image Styling */
 #mainContent.special-content .special-img {
@@ -445,9 +473,3 @@ border-bottom-right-radius: 20px;  /* Rounded corner on the right */
 
 
 /* ///////////////////////////////////////////////////////////// */
-@media only screen and (max-width: 768px) {
-  body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Horizontal scroll hatane ke liye */
-  }
