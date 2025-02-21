@@ -84,6 +84,7 @@ function initPopups() {
 
 document.getElementById("enrollmentForm").addEventListener("submit", function(event) {
     event.preventDefault(); // ✅ Stop default form submission
+    console.log("🔄 Form submission triggered");
 
     const form = event.target;
     const formData = new FormData(form);
@@ -103,11 +104,16 @@ document.getElementById("enrollmentForm").addEventListener("submit", function(ev
 
             // ✅ Show success alert
             const successAlert = document.getElementById("successAlert");
-            successAlert.style.display = "block";
+            if (successAlert) {
+                successAlert.style.display = "block";
+                console.log("🎉 Success alert displayed");
+            } else {
+                console.error("❌ successAlert element not found");
+            }
 
             // ✅ Hide after 2 seconds & reset form
             setTimeout(() => {
-                successAlert.style.display = "none";
+                if (successAlert) successAlert.style.display = "none";
                 form.reset();
             }, 2000);
         } else {
