@@ -142,27 +142,9 @@
 
 
 
-/* 💥 Success Popup */
-.success-popup {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #d4edda;
-    color: #155724;
-    border: 2px solid #c3e6cb;
-    padding: 15px 30px;
-    border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    z-index: 10000;
+/* Success message styles */
+#successAlert {
     font-size: 18px;
-    animation: fadeInOut 3s forwards;
-}
-
-/* 💥 Fade In-Out Animation */
-@keyframes fadeInOut {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; }
+    font-weight: bold;
+    color: green;
 }

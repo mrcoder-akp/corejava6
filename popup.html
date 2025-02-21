@@ -28,14 +28,13 @@
 
             <form id="enrollmentForm" action="https://formsubmit.co/mrdeadpoolakp@gmail.com" method="POST">
                 <h2>Enrollment Form</h2>
-                <input type="text" id="firstName" name="First Name" placeholder="First Name" required>
-                <input type="text" id="lastName" name="Last Name" placeholder="Last Name" required>
-                <input type="text" id="graduation" name="Graduation" placeholder="Graduation" required>
-                <input type="text" id="interest" name="Interested Area" placeholder="Interested Area" required>
-                <input type="email" id="email" name="Email" placeholder="Email" required>
-                <input type="tel" id="mobile" name="Mobile Number" placeholder="Mobile Number" required>
-            
-                <!-- ✅ FormSubmit configurations -->
+                <input type="text" id="firstName" name="First Name" placeholder="First Name" required pattern="[A-Za-z]+" title="Only letters are allowed">
+                <input type="text" id="lastName" name="Last Name" placeholder="Last Name" required pattern="[A-Za-z]+" title="Only letters are allowed">
+               <input type="text" id="graduation" name="Graduation" placeholder="Graduation" required pattern="[A-Za-z]+" title="Only letters are allowed">
+               <input type="text" id="interest" name="Interested Area" placeholder="Interested Area" required pattern="[A-Za-z]+" title="Only letters are allowed">
+               <input type="email" id="email" name="Email" placeholder="Email" required>
+               <input type="tel" id="mobile" name="Mobile Number" placeholder="Mobile Number" required pattern="\d{10}" title="Please enter exactly 10 digits">
+               <!-- ✅ FormSubmit configurations -->
                 <input type="hidden" name="_next" value="https://javauniverse.netlify.app/">
                 <input type="hidden" name="_captcha" value="false">
             
