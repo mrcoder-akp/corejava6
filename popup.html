@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Course Popup</title>
+    
+    <!-- 🔗 Link to popup.css -->
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <!-- 💥 Offer Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2>💥 Java Course - Only ₹5000 for 1 Month! 💥</h2>
+            <p>📅 Limited Time Offer - Grab Now!</p>
+            <p>🎓 Start Your Full Stack Journey Today!</p>
+            <button id="enroll-btn">Enroll Now</button>
+        </div>
+    </div>
+
+    <!-- 💥 Enrollment Form Popup -->
+    <div class="popup form-popup" id="formPopup">
+        <div class="popup-content">
+            <!-- ❌ Close Button for Form -->
+            <span class="close-btn" id="closeForm">&times;</span>
+
+            <form id="enrollmentForm" action="https://formsubmit.co/mrdeadpoolakp@gmail.com" method="POST" netlify>
+             <h2>Enrollment Form</h2>
+                <input type="text" id="firstName" name="First Name" placeholder="First Name" required>
+                <input type="text" id="lastName" name="Last Name" placeholder="Last Name" required>
+                <input type="text" id="graduation" name="Graduation" placeholder="Graduation" required>
+                <input type="text" id="interest" name="Interested Area" placeholder="Interested Area" required>
+                <input type="email" id="email" name="Email" placeholder="Email" required>
+                <input type="tel" id="mobile" name="Mobile Number" placeholder="Mobile Number" required>
+            
+                <!-- ✅ FormSubmit configurations -->
+                <input type="hidden" name="_next" value="https://javauniverse.netlify.app/">
+                <input type="hidden" name="_captcha" value="false">
+            
+                <button class="submit-btn" type="submit">Submit</button>
+            </form>
+            
+            
+                
+        </div>
+    </div>
+
+    <!-- 🔗 Link to popup.js -->
+    <script src="popup.js"></script>
+</body>
+</html>
