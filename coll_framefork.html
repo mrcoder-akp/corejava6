@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div>
+<p>This framework will help you to manage object in memory It means your programe can use collection framework for object managament
+    in memory.</p>
+    <h3>What is collection</h3>
+    <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is group of objects  <br>
+Collection itself would be an object  <br>
+So collection will be container of elements <br>
+In most of the cases collection will be homogeneous
+But collection can be heterogeneous also    <br>
+Our program will create objects and keep data into these objects  <br>
+Our program will use collection framework to manage these objects in memory
+</p>
+<p>Collection framework performs following tasks for our program---</p>
+<p>1.Adding objects<br>
+2. Removing objects<br>
+3. Iterating objects<br>
+4. Searching objects<br>
+5. Sorting objects</p>
+
+<p>Program will create object keep data.<br>
+Our program will call methods of Collection framework to manage reference of these objects.</p>
+
+<p>Collection framework provides several interfaces and classes. Few of them are as follows:</p>
+<h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white; border-radius: 10px;" >
+    1.Collection interface  <br>
+    2.List interface  <br>
+    3.Set interface  <br>
+    4.Queue interface  <br>
+    5.ArrayList class  <br>
+    6.LinkedList class  <br>
+    7.Vector class  <br>
+    8.HashSet class   <br>
+    9.PriorityQueue class 
+</h4>
+<p>java.util package contains these interfaces and classes.</p>
+<p>Every collection is iterable.</p>
+<br>
+<h1>Collection Interface (root interface)</h1>
+<p>
+    It has object management methods (Remember methods without body)<br>
+    Every collection (list, set, and queue) has implemented methods of this interface<br>
+    Collection interface has several methods. Few of them are as follows:<br>
+    1. public boolean add(E element)<br>
+    2. public boolean remove(E element)<br>
+    3. public boolean contains(E element)<br>
+    4. public boolean isEmpty()<br>
+    5. public void clear()<br>
+    6. public int size()<br>
+    7. public boolean addAll(collection c)<br>
+    8. public boolean removeAll(collection c)<br>
+    9. public boolean retainAll(collection c)<br>
+    10. public Iterator iterator()<br>
+    Every collection (list, set, queue) has these methods. E is a type parameter.<br>
+    E will be the class whose object management will be done by collection.
+</p>
+<h4>Types of collection</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>There are three types of collection in collection framework</p>
+<p>
+<b style="background-color: #353f44; display: inline-block; color: white; border-radius: 10px; ">
+1.List collection(List Interface) <br> 
+2.Set collection(Set Interface) <br>
+3.Queue collection(Queue Interface)    
+</b>    
+</p>
+<h1>List collection(ordered collection) or List Interface</h1>
+<p>
+List is an interface<br>
+It is a child of Collection interface<br>
+List interface has all methods of the Collection interface as well as several of its own methods:<br>
+1. public E remove()<br>
+2. public E get(int index)<br>
+3. public E set(int index, E element)<br>
+4. public void add(int index, E element)<br>
+So, it has all properties of the Collection interface as well as List properties.<br>
+It means it has both Collection methods and List methods without body.<br>
+The body/implementation of these methods are given in the following three classes----
+  </p>
+<h4 style="background-color: #353f44; display: inline-block; color: white; border-radius: 10px;">
+1.ArrayList class<br>
+2.LinkedList class<br>
+3.Vector class
+</h4>
+<br>
+<code>
+public interface List extends Collection
+{
+}
+public class ArrayList implements List
+{
+}
+public class LinkedList implements List,DeQueue
+{
+}
+public class Vector implements List
+{
+} 
+</code>
+<p>
+The List interface is implemented by classes like ArrayList, LinkedList, and Vector. <br>
+These classes are already defined in java.util package  <br>
+ArrayList class is implementation of List interface  <br>
+LinkedList class is implementation of List and DeQue interface   <br>
+Vector class is implementation of List interface   
+</p>
+<h4>Features of list collection</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+1.It is an ordered collection  <br>
+2.It allows duplicacy of elements  <br>
+3.It allows multiple null values   
+</p>
+<h4>Iterating elements from list collection</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+1.By for loop  <br> 
+2.By foreach loop(was introduced in JDK1.5)  <br>
+3.By Iterator interface  <br>
+4.By ListIterator interface <br>
+5.By forEach method(was introduced in JDK1.8)    
+</p>
+<h4>Iterating elements from set collection</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+1.By foreach loop  <br>
+2.By Iterator interface  <br>
+3.By forEach method
+</p>
+<h3>ArrayList class</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is an implementation of List interface  <br>
+Our program can create an object of ArrayList class and use this object as list collection  <br>
+ArrayList class creates and uses resizable array of type E and size 10 to keep elements <br>
+<b>ArrayList<Product> list1=new ArrayList<Product>();</b>   <br>
+This collection will create a resizable array of type Product and size 10 to keep reference of objects of Product class  <br>
+This collection will be <span class="highlight"> homogeneous collection</span>  <br>
+<b>ArrayList<String> lis2=new ArrayList<String>();</b>  <br>
+This collection will create a resizable array of type String and size 10 to keep reference of objects of String class <br>
+This collection will be <span class="highlight">homogeneous collection</span>  <br>
+<b>ArrayList lis3=new ArrayList();</b>  <br>
+This collection will create a resizable array of type Object and size 10 to keep reference of objects of every java class <br>
+This collection will be <span class="highlight">Hetrogenious collection</span> <br>
+This collection keep reference every class  <br>
+</p>
+<p>
+<b>Dynamic Array</b> 👉 Unlike standard arrays, ArrayList can grow or shrink in size dynamically.<br>
+<b>Ordered Collection</b> 👉 It maintains the order of insertion.<br>
+<b>Allows Duplicates</b> 👉 You can store duplicate elements.<br>
+<b>Zero-based Indexing</b> 👉 Elements can be accessed via their index, starting from 0.<br>
+<b> Not Synchronized</b> 👉 By default, it is not thread-safe, but you can make it synchronized.
+</p>
+<h4>Example...</h4>
+<pre>
+import java.util.ArrayList;
+
+public class App 
+{
+public static void main(String[] args) 
+{
+ArrayList<String> list=new ArrayList<String>();
+list.add("Amit");
+list.add("Manoj");
+list.add("Kuldeep");
+list.add("Suman");
+list.add("David");
+System.out.println(list);
+}
+}
+OUTPUT
+[Amit, Manoj, Kuldeep, Suman, David]   
+</pre>
+<br>
+<pre>
+public class MyString 
+{
+private String str;
+public MyString(String str)
+{
+    this.str=str;
+}
+public String toString()
+{
+    return "You are fool";//return value You are fool
+}
+}
+import java.util.ArrayList;
+
+public class App2 
+{
+public static void main(String[] args) 
+{
+ArrayList<MyString> list=new ArrayList<MyString>();
+list.add(new MyString("Rahul"));
+list.add(new MyString("Amit"));
+list.add(new MyString("Rahul"));
+list.add(null);
+list.add(new MyString("Kapil"));
+list.add(null);
+list.add(new MyString("Neha"));
+System.out.println(list);//Value returned by toString() method
+}
+}
+OUTPUT
+[You are fool, You are fool, You are fool, null, You are fool, null, You are fool]    
+</pre>
+<br>
+<pre>
+public class MyString 
+{
+private String str;
+public MyString(String str)
+{
+    this.str=str;
+}
+public String toString()
+{
+    return str;
+}
+}
+import java.util.ArrayList;
+
+public class App2 
+{
+public static void main(String[] args) 
+{
+ArrayList<MyString> list=new ArrayList<MyString>();
+list.add(new MyString("Rahul"));
+list.add(new MyString("Amit"));
+list.add(new MyString("Rahul"));
+list.add(null);
+list.add(new MyString("Kapil"));
+list.add(null);
+list.add(new MyString("Neha"));
+System.out.println(list);//Value returned by toString() method
+}
+}
+OUTPUT
+[Rahul, Amit, Rahul, null, Kapil, null, Neha]   
+</pre>
+</div> 
+<br>
+<pre>
+import java.util.ArrayList;
+
+class App 
+{
+public static void main(String[] args) 
+{
+ArrayList<String> list=new ArrayList<String>(Arrays.asList("Avinash","Amit"));
+System.out.println(list);
+}
+}
+OUTPUT
+[Avinash, AMit]    
+</pre>
+<h4 style="background-color: red;color: white; border-radius: 2px; display: inline-block;">NOTE</h4>
+<p>
+ <b>List<String> list=new ArrayList<String>(); <br>
+    add.list("Avinash");</b>   <br>
+<b>"Avinash"</b>=>Here, the value passed is "Avinash". However, the JVM doesn't consider this as just a value; it treats it as a 
+command to create an object. The value passed is of type String, so an object of the String class will be created. This object
+ will be stored in the String Constant Pool, and the value returned by the toString() method of this object will be given to the add() method.
+</p>
+<h4>Without override tostring()</h4>
+<pre>
+import java.util.ArrayList;
+
+class MyString {
+private String value;
+
+public MyString(String value) {
+    this.value = value;
+}
+
+public static void main(String[] args) {
+ArrayList<MyString> list = new ArrayList<>();
+list.add(new MyString("Avinash"));
+System.out.println(list); 
+}
+}
+OUTPUT
+MyString@H1133    
+</pre>
+<h4>Override toString()</h4>
+<pre>
+import java.util.ArrayList;
+
+class MyString {
+private String value;
+
+public MyString(String value) {
+    this.value = value;
+}
+public String toString()
+{
+    return value;
+}
+
+public static void main(String[] args) {
+ArrayList<MyString> list = new ArrayList<>();
+list.add(new MyString("Avinash"));
+System.out.println(list); 
+}
+}
+OUTPUT
+[Avinash]    
+</pre>
+<pre>
+import java.util.ArrayList;
+
+public class App4 
+{
+public static void main(String[] args) 
+{
+ArrayList<String> list=new ArrayList<String>();
+list.add("Rahul");
+list.add("Amit");
+list.add(0,"Rakesh");
+list.add("Suman");
+list.add("Kapil");
+list.add("Imran");
+list.add("Neha");
+list.clear();
+System.out.println(list.isEmpty());
+System.out.println(list.size());
+System.out.println(list);
+}
+}
+OUTPUT
+true
+0
+[]   
+</pre>
+<br>
+<pre>
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class IteratorInterface 
+{
+    public static void main(String[] args) 
+    {
+ArrayList<String> list=new ArrayList<String>();
+list.add("Rahul");
+list.add("Amit");
+list.add(0,"Rakesh");
+list.add("Suman");
+list.add("Kapil");
+list.add(0,"Imran");
+list.add("Neha");
+
+Iterator<String> itr=list.iterator();
+while(itr.hasNext())
+{
+String str=itr.next();
+System.out.println(str);
+}
+}
+}
+OUTPUT
+Imran
+Rakesh
+Rahul
+Amit
+Suman
+Kapil
+Neha   
+</pre>
+<br>
+<pre>
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class ListIteratorInterface 
+{
+    public static void main(String[] args) 
+    {
+ArrayList<String> list=new ArrayList<String>();
+list.add("Rahul");
+list.add("Amit");
+list.add(0,"Rakesh");
+list.add("Suman");
+list.add("Kapil");
+list.add(0,"Imran");
+list.add("Neha");
+
+ListIterator<String> itr=list.listIterator();
+while(itr.hasNext())
+{
+    String str=itr.next();
+    System.out.println(str);
+}
+}
+}
+OUTPUT
+Imran
+Rakesh
+Rahul
+Amit
+Suman
+Kapil
+Neha    
+</pre>
+<br>
+<pre>
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class ListIteratorInterface 
+{
+public static void main(String[] args) 
+{
+ArrayList<String> list=new ArrayList<String>();
+list.add("Rahul");
+list.add("Amit");
+list.add(0,"Rakesh");
+list.add("Suman");
+list.add("Kapil");
+list.add(0,"Imran");
+list.add("Neha");
+
+ListIterator<String> itr=list.listIterator();
+while(itr.hasNext())
+{
+String str=itr.next();
+System.out.println(str);
+}
+}
+}
+OUTPUT
+Imran
+Rakesh
+Rahul
+Amit
+Suman
+Kapil
+Neha
+</pre>
+<br>
+<pre>
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class ListIteratorInterface2 
+{
+public static void main(String[] args) 
+{
+ArrayList<String> list=new ArrayList<String>();
+list.add("Rahul");
+list.add("Amit");
+list.add(0,"Rakesh");
+list.add("Suman");
+list.add("Kapil");
+list.add(0,"Imran");
+list.add("Neha");
+
+ListIterator<String> itr=list.listIterator(list.size());
+//ListIterator<String> itr=list.listIterator();
+while(itr.hasPrevious())
+{
+String str=itr.previous();
+System.out.println(str);
+}
+}
+}
+OUTPUT
+Neha
+Kapil
+Suman
+Amit
+Rahul
+Rakesh
+Imran    
+</pre>
+<br>
+<pre>
+import java.util.ArrayList;
+
+public class UsingFor 
+{
+public static void main(String[] args) 
+{
+ArrayList<String> list=new ArrayList<String>();
+list.add("Rahul");
+list.add("Amit");
+list.add(0,"Rakesh");
+list.add("Suman");
+list.add("Kapil");
+list.add(0,"Imran");
+list.add("Neha");
+int x=list.size();
+for(int i=0;i< x; i++)
+{
+    String str=list.get(i);
+    System.out.println(str);
+}
+}
+}
+OUTPUT
+Imran
+Rakesh
+Rahul
+Amit
+Suman
+Kapil
+Neha    
+</pre>
+<br>
+<pre>
+class ArrayListDemo {
+public static void main(String[] args) {
+ArrayList<String> list = new ArrayList<>();
+
+// Adding elements
+list.add("Dog");
+list.add("Cat");
+list.add("Horse");
+
+// Accessing elements
+System.out.println("First element: " + list.get(0));
+
+// Updating an element
+list.set(1, "Elephant");
+
+// Removing an element
+list.remove("Horse");
+
+// Sorting the list
+Collections.sort(list);
+
+// Iterating over elements
+for (String animal : list) {
+    System.out.println(animal);
+}
+
+// Checking size
+System.out.println("Size of the list: " + list.size());
+}
+}
+OUTPUT
+First element: Dog
+Dog
+Elephant
+Size of the list: 2   
+</pre>
+<h4>How to make an ArrayList thread-safe</h4>
+<code>List<String> syncList = Collections.synchronizedList(new ArrayList<>());</code>
+<h4>How to convert an ArrayList to an array</h4> 
+<pre>
+ArrayList<String> list = new ArrayList<>(Arrays.asList("A", "B", "C"));
+String[] array = list.toArray(new String[0]);//When you pass new String[0], you're telling Java:➔ “I don't know the size, please create an appropriately sized array.”
+System.out.println(Arrays.toString(array)); // Output: [A, B, C]
+</pre>   
+<br>
+<h3>LinkedList class</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is implementation of List interface and Deque interface <br>
+It means it has properties of both List interface and Deque interface  <br>
+Few methods of Deque interface implemented in this class  <br>
+1.public void addFirst(E element)  <br>
+2.public void addLast(E element)   <br>
+3.public E removeFirst()   <br>
+4.public E removeLast()   <br>
+5public E getFirst()   <br>
+6.public E getLast() <br>
+LinkedList class creates and uses doubly linkedlist to keep elements  <br>
+<b>Dynamic Size</b>: Can grow and shrink dynamically.  <br>
+<b>Efficient Insertions/Deletions</b>: Particularly at the beginning or middle of the list.  <br> 
+<b>Allows Duplicates</b>: Just like ArrayList, it allows duplicate elements. <br>
+<b>Implements Deque</b>: Supports operations on both ends (as a stack or queue).
+</p>
+<h4>Example..</h4>
+<pre>
+import java.util.LinkedList;
+
+public class App 
+{
+public static void main(String[] args) 
+{
+LinkedList<String> list=new LinkedList<String>();
+list.add("Rahul");
+list.add("Amit");
+list.addLast("Imran");
+list.add(0,"Hemant");
+list.addFirst("Kapil");
+list.add("Rakesh");
+list.addFirst("Neha");
+System.out.println(list);
+}
+}
+OUTPUT
+Neha,Kapil,Hemant,Rahul,Amit,Imran,Rakesh    
+</pre>
+<br>
+<pre>
+import java.util.LinkedList;
+
+
+class Codechef
+{
+public static void main (String[] args) throws java.lang.Exception
+{
+LinkedList<String> list1=new LinkedList<String>();
+list1.add("Rahul");
+list1.add("Amit");
+list1.add("Imran");
+LinkedList<String> list2=new LinkedList<String>();
+list2.add("Hemant");
+list2.add("Kapil");
+list2.add("Rakesh");
+LinkedList<String> list3=new LinkedList<String>();
+list3.add("Suman");
+list3.add("Naveen");
+list3.add("Akash");
+list3.addAll(list1);
+list3.addAll(list2);
+System.out.println(list3);
+for(String str:list1)
+{
+list3.remove(str);
+System.out.println(str);
+}
+System.out.println(list3);
+
+}
+}
+OUTPUT
+[Suman, Naveen, Akash, Rahul, Amit, Imran, Hemant, Kapil, Rakesh]
+Rahul
+Amit
+Imran    
+[Suman, Naveen, Akash, Hemant, Kapil, Rakesh]
+</pre>
+<br>
+<h3>Vector class</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is an implementation of List interface  <br>
+It creates and uses resizable array of type E and size 20 to keep elements. <br>
+This class was introduced in JDK1.0 while collection framework was introduced in JDK1.2  <br>
+So Vector class is a legacy class of collection framework  <br>
+<b>Thread-Safe</b>: All methods in Vector are synchronized.  <br>
+Vector class is a synchronized class while ArrayList class is an unsynchronized class  <br>
+<b>Dynamic Size</b>: Automatically resizes when elements are added or removed.  <br>
+Thread-Safe: All methods in Vector are synchronized.  <br>
+Dynamic Size: Automatically resizes when elements are added or removed. <br>
+Allows Duplicates: Like other list implementations, it permits duplicate elements. <br>
+Maintains Insertion Order: Elements are stored and accessed in the order they were added. <br>
+Random Access: Provides fast access to elements using their index.    
+</p>
+<h4>Example..</h4>
+<pre>
+import java.util.Vector;
+
+class App 
+{
+public static void main(String[] args) 
+{
+Vector<String> list=new Vector<String>();
+list.add("Rahul");
+list.add("Amit");
+list.add("Rakesh");
+list.add("Suman");
+list.add("Kapil");
+list.add("Imran");
+list.add("Neha");
+System.out.println(list);	
+Iterator<String> nn=list.iterator();
+while(nn.hasNext())
+{
+String str=nn.next();
+System.out.println(str);
+}
+}
+}
+OUTPUT
+[Rahul, Amit, Rakesh, Suman, Kapil, Imran, Neha]
+Rahul
+Amit
+Rakesh
+Suman
+Kapil
+Imran
+Neha    
+</pre>
+<br>
+<pre>
+import java.util.Enumeration;
+import java.util.Vector;
+
+public class App 
+{
+public static void main(String[] args) 
+{
+Vector<String> list=new Vector<String>();
+list.add("Rahul");
+list.add("Amit");
+list.add("Rakesh");
+list.add("Suman");
+list.add("Kapil");
+list.add("Imran");
+list.add("Neha");
+
+Enumeration<String> e=list.elements();
+while(e.hasMoreElements())
+{
+String str=e.nextElement();
+System.out.println(str);
+}
+}
+}
+OUTPUT
+Rahul
+Amit
+Rakesh
+Suman
+Kapil
+Imran
+Neha    
+</pre>
+<br>
+<h3>Set Collection</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+Set is an interface and it is child of Collection interface  <br>
+It means it has all methods of Collection interface  <br>
+Set collection has following features  <br>
+1.It does not allow duplicacy of elements  <br>
+2It allows single null  <br>
+3.It is unordered also  <br>
+<b>Set interface has following two implementation class and one child class</b>  <br>
+<h4 style="background-color: rgb(61, 45, 45);color: white; border-radius: 2px; display: inline-block;">
+1.HashSet class  <br>
+2.LinkedHashSet class  <br>
+It has following child interface  <br>
+1.SortedSet interface    
+</h4>
+<br>
+<h4>HashSet class</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is an implementation of Set interface  <br>
+It creates an uses an instance of HashMap class to keep elements  <br>
+Our program will call/invoked add method of HashSet class and pass element to this method  <br>
+add() method of HashSet class will call/invoke put method of HashMap class and pass element to put method
+put method will keep that element into HashMap object as key <br>
+Since key will always be unique so element passed to the add method of HashSet class will also be unique(as HashMap keeps this element as key) <br>
+Backed by a HashMap(Backed by a hash table.).  <br>
+No guarantee of insertion order(Unordered collection.)  <br>
+Fast access and retrieval (constant time complexity for most operations).  <br>
+Allows one null value.  <br>
+Remember in list collection every elements has indexing in collection, while in set collection elements has no indexing  <br>
+Set interface has methods of Collection interface only. 
+</p>
+<h3>LinkedHashSet class</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is an implementation of Set interface and child of HashSet class. <br>
+Maintains insertion order. <br>
+Slightly slower than HashSet due to the additional overhead of maintaining the order.  <br>
+<code>
+public class LinkedHashSet extends HashSet implements Set
+{
+}
+Unlike HashSet, It maintains insertion order of elements    
+</code>  
+</p>
+<h3>TreeSet class</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+It is an implementation of SortedSet interface  <br>
+SortedSet interface is a child of Set interface   <br>
+SortedSet interface has feature to keep elements in ascending or descending order  <br>
+So TreeSet collection keep elements in ascending or descending order. <br>
+TreeSet class invokes/calls compareTo() method of Comparable interface to compare elments inorder to arrange them in ascending or descending order  <br>
+If class of the element has not implemented Comparable interface then HashSet will create and throw ClassCastException
+A TreeSet maintains its elements in a sorted order.
+It relies on the compareTo() method (from Comparable) or a Comparator provided during construction.
+When you add a new element to the TreeSet:
+The TreeSet uses binary search to determine the correct position.
+It compares the new element with the existing elements using the compareTo() or Comparator.
+If the comparison returns 0, the new element is not added because duplicates are not allowed.
+Maintains sorted order.
+Does not allow null values.
+</p>
+<pre>
+ Set Interface Example
+----------------------
+import java.util.HashSet;
+
+public class App 
+{
+public static void main(String[] args) 
+{
+HashSet<String> set=new HashSet<String>();
+set.add("Amit");
+set.add("Manoj");
+set.add("Kuldeep");
+set.add("Amit");
+set.add(null);
+set.add("Rakesh");
+set.add(null);
+set.add("David");
+System.out.println(set.size());
+System.out.println(set.isEmpty());
+System.out.println(set.contains("Apple"));
+System.out.println(set);
+}
+}
+OUTPUT
+6
+false
+False
+[null, Kuldeep, Amit, Rakesh, David, Manoj]   
+</pre>
+<br>
+<pre>
+import java.util.HashSet;
+class App 
+{
+public static void main(String[] args) 
+{
+HashSet<Integer> set=new HashSet<Integer>();
+set.add(14);
+set.add(32);
+set.add(8);
+set.add(0);
+set.add(16);
+set.add(3);
+set.add(19);
+System.out.println(set.size());
+System.out.println(set.isEmpty());
+System.out.println(set);
+}
+}
+OUTPUT
+7
+false
+[32, 0, 16, 3, 19, 8, 14]
+</pre>
+<h4 style="background-color: rgb(108, 145, 6);color: white; border-radius: 2px; display: inline-block;">Explaination Deeply👉HashSet and HashMap Relationship</h4>
+<p>
+    <b>HashSet</b> is a collection that <b>does not allow duplicate values</b>.<br>
+    Internally, <b>HashSet</b> uses a <b>HashMap</b> to store its elements.<br>
+    When you add an element to a <b>HashSet</b>, it is internally stored as a <b>key</b> in a <b>HashMap</b> with a dummy value (<b>HashMap</b> uses a constant value, typically <b>PRESENT</b>, for this).<br><br>
+    
+    <b>When you create a HashSet:</b><br>
+    <code>HashSet&lt;Integer&gt; set = new HashSet&lt;&gt;();</code><br>
+    Internally, it creates a <b>HashMap</b> like this:<br>
+    <code>HashMap&lt;Integer, Object&gt; map = new HashMap&lt;&gt;();</code><br><br>
+    
+    The <b>keys</b> in the <b>HashMap</b> represent the elements in the <b>HashSet</b>.<br>
+    The <b>values</b> in the <b>HashMap</b> are a constant dummy object (<b>PRESENT</b>).<br><br>
+    
+<code>
+set.add(14);<br>
+set.add(32);<br>
+set.add(8);<br>
+set.add(0);<br>
+set.add(16);<br>
+set.add(3);<br>
+set.add(19);<br>
+</code><br>
+
+    <b>HashSet.add()</b> calls the <b>put()</b> method of the internal <b>HashMap</b>.<br>
+    <code>map.put(14, PRESENT);</code><br><br>
+    
+    The <b>put()</b> method in <b>HashMap</b> performs the following steps:<br>
+    <b>1. Calculate Hash Code:</b> The <b>hashCode()</b> of the key (e.g., 14) is calculated.<br>
+    <b>2. Determine Bucket:</b> The <b>hash code</b> is used to determine the <b>bucket</b> (index in an internal array) where the key-value pair will be stored.<br>
+    <b>3. Check for Duplicates:</b> If the bucket already contains a key that is equal to the new key, the new key is <b>not added</b> (to ensure uniqueness).<br>
+    <b>4. Store Key-Value Pair:</b> If no duplicates are found, the key-value pair (e.g., <code>14 → PRESENT</code>) is stored in the bucket.<br><br>
+    
+    The <b>HashMap</b> uses a combination of:<br>
+    - <b>Array</b> (called the <b>table</b>)<br>
+    - <b>Linked List</b> or <b>Tree</b> (for handling hash collisions)<br><br>
+    
+    <b>Here’s how it works:</b><br>
+    <b>Array:</b> The <b>hash code</b> determines the index in the internal array (<b>bucket</b>).<br>
+    <b>Linked List/Tree:</b> If multiple keys map to the same bucket (<b>hash collision</b>), they are stored as a <b>linked list</b>.<br>
+    For larger buckets (since <b>Java 8</b>), the linked list is converted into a balanced tree (<b>Red-Black Tree</b>) for faster lookups.<br><br>
+    
+    <b>Why Use HashMap in HashSet:</b><br>
+    <b>- Fast Operations:</b> HashMap provides <b>O(1)</b> time complexity for <b>add</b>, <b>remove</b>, and <b>contains</b> operations.<br>
+    <b>- Ensures Uniqueness:</b> Automatically checks for duplicates using <b>equals()</b>.<br>
+    <b>- Efficient Storage:</b> Using a dummy value reduces memory usage.<br><br>
+    
+    <b>Why Use Buckets and How They Work:</b><br>
+    The internal array (<b>buckets</b>) allows efficient key placement.<br>
+    When an element is added, its <b>hash code</b> determines the <b>bucket</b>.<br>
+    If two keys have the same hash code, they are placed in the same bucket and stored as a <b>linked list</b> or <b>tree</b>.<br><br>
+    
+    <b>How HashSet Stores Keys:</b><br>
+    <b>HashSet</b> uses a <b>HashMap</b> internally.<br>
+    When you add an element, it’s stored as a <b>key</b> in the <b>HashMap</b>.<br><br>
+    
+    <b>Key Steps:</b><br>
+    1. Calculate <b>hashCode()</b>:<br>
+    <code>int hashCode = key.hashCode();</code><br><br>
+    
+    2. Calculate <b>Bucket Index</b>:<br>
+    <code>index = hashCode % table.length;</code><br><br>
+    
+    3. <b>Store the Key</b> in the corresponding bucket.<br><br>
+    
+    <b>Example:</b><br>
+    - Key 14 → index 14 % 16 = 14<br>
+    - Key 32 → index 32 % 16 = 0<br>
+    - Key 0 → index 0 % 16 = 0 (collision with 32)<br>
+    - Key 16 → index 16 % 16 = 0 (collision with 32 and 0)<br>
+    - Key 3 → index 3 % 16 = 3<br>
+    - Key 19 → index 19 % 16 = 3 (collision with 3)<br><br>
+    
+    <b>Internal Array:</b><br>
+    <center>
+      <table border="1">
+        <tr>
+          <th>Bucket Index</th>
+          <th>Keys</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>32 → 0 → 16</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>3 → 19</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>14</td>
+        </tr>
+      </table>
+      </center><br>
+    <b>Collisions:</b> If two keys share the same index, they are stored as a <b>linked list</b> or <b>tree</b>.<br>
+    <b>Efficient Lookups:</b> Buckets help in quick lookups by using <b>hash codes</b> and handling collisions effectively.
+    </p>
+<br>
+<h4 style="background-color: rgb(108, 145, 6);color: white; border-radius: 2px; display: inline-block;">Hindi Deeply Explaination</h4>
+<p>
+HashSet ek collection hai jo duplicate values ko allow nahi karta. <br>
+Internally, HashSet elements ko store karne ke liye HashMap ka use karta hai. <br>
+Jab hum HashSet ke add() method ko call/invoke karte hain aur usme element pass karte hain, toh wo add() internally HashMap ke put() method ko call karta hai aur us element ko pass kar deta hai. put() method us element ko as a key store karta hai, aur key unique hoti hai. Isliye hum keh sakte hain ki jo element add() me pass kiya gaya hai, wo unique hai. <br>
+Jab aap HashSet me koi element add karte ho, wo HashMap ke key ke roop me store hota hai aur value me ek dummy object hota hai (jise usually PRESENT kaha jata hai). <br>
+HashSet ke elements 👉 HashMap ke keys hote hain. <br>
+HashMap ke values → Constant dummy object (jaise PRESENT) hote hain. <br>
+Jab aap set.add(14); likhte ho, toh internally yeh hota hai: <b> map.put(14, PRESENT)</b> ; <br>
+✅ Step 1: Hash Code Nikalna: <br>
+Har object ka ek hashCode() hota hai, jo ek integer return karta hai. <br>
+HashSet me add() method ke dauraan, sabse pehle element ka hashCode() method call hota hai. <br>
+int hashCode = key.hashCode();
+Integer 14 ka hashCode = 14 hoga (kyunki integers ka hash code unka khud ka value hota hai). <br>
+✅ Step 2: Bucket Index Calculate Karna (Hashing): <br>
+HashMap ke paas ek internal array hota hai (table), jisme elements store hote hain. <br>
+Har element ek bucket me store hota hai, jiska index yeh formula se nikala jata hai: <br>
+index = hashCode % table.length; <br>
+hashCode ➔ Element ka hash code <br>
+table.length ➔ Array ki size (by default 16) <br>
+% (modulus) ➔ Hash code ko array ke limit me rakhne ke liye <br>
+14 % 16 = 14 (bucket index) <br>
+✅ Step 3: Key Bucket Me Store Hoga <br>
+Jo index calculate hua, us bucket me key store hogi.
+Agar bucket already occupied hai (same index par koi aur key hai), toh:
+Linked List banata hai (multiple keys store karne ke liye). <br>
+Java 8 ke baad, agar collisions zyada hote hain, toh Red-Black Tree me convert karta hai (faster search ke liye).
+</p>
+<h4> Example: Bucket Index Calculate Karna</h4>
+<center>
+    <table border="1">
+  <tr>
+    <th>Key</th>
+    <th>Hash Code</th>
+    <th>Index (hashCode % 16)</th>
+    <th>Stored in Bucket</th>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>14</td>
+    <td>14 % 16 = 14</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>32</td>
+    <td>32</td>
+    <td>32 % 16 = 0</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>8</td>
+    <td>8 % 16 = 8</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0 % 16 = 0</td>
+    <td>32 → 0 <i>(Collision)</i></td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>16</td>
+    <td>16 % 16 = 0</td>
+    <td>32 → 0 → 16 <i>(Collision)</i></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>3</td>
+    <td>3 % 16 = 3</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>19</td>
+    <td>19 % 16 = 3</td>
+    <td>3 → 19 <i>(Collision)</i></td>
+  </tr>
+</table>
+</center>
+<h4> Final Internal Array (Table) Look:</h4>
+<center>
+<table border="1">
+  <tr>
+    <th>Bucket Index</th>
+    <th>Keys</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>32 → 0 → 16</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>3 → 19</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>...</td>
+    <td>...</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>14</td>
+  </tr>
+</table>
+</center>
+<p>
+⚡ Collisions: Agar 2 keys ka bucket index same aa jaye, toh dono ek hi bucket me store hote hain (Linked List ya Tree ke through). <br>
+⚡ Fast Search: Jab key dhoondni hoti hai, toh pehle bucket index calculate hota hai, fir bucket me search hoti hai. <br>
+⚡ Efficiency:
+HashMap ki wajah se HashSet me operations jaise add, remove, search bahut fast hote hain.    
+</p>
+<br>
+<h4>Example-Set-Interface using LinkednHashset class</h4>
+<pre>
+ import java.util.HashSet;
+
+ class App 
+{
+public static void main(String[] args) 
+{
+Set<String> set=new LinkedHashSet<String>();
+set.add("Amit");
+set.add("Manoj");
+set.add("Kuldeep");
+set.add("Amit");
+set.add(null);
+set.add("Rakesh");
+set.add(null);
+set.add("David");
+System.out.println(set.size());
+System.out.println(set.isEmpty());
+System.out.println(set);
+}
+}
+OUTPUT
+6
+false
+[Amit, Manoj, Kuldeep, null, Rakesh, David]   
+</pre>
+<br>
+<h4>Example-Set-Interface using TreeSet</h4>
+<pre>
+public class Product implements Comparable<Product>
+{
+private String name;
+private int price;
+public Product(String name, int price) 
+{
+this.name = name;
+this.price = price;
+}
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public int getPrice() {
+return price;
+}
+public void setPrice(int price) {
+this.price = price;
+}
+public int compareTo(Product obj) 
+{
+int c=this.price-obj.price;
+//int c=obj.price-this.price;
+//int c=this.name.compareTo(obj.name);
+//return c;
+}
+public String toString() 
+{
+return "Product [name=" + name + ", price=" + price + "]";
+}
+
+}
+import java.util.TreeSet;
+import java.util.Iterator;
+
+public class App5 
+{
+public static void main(String[] args) 
+{
+TreeSet<Product> set=new TreeSet<Product>();
+set.add(new Product("BBB",400));
+set.add(new Product("FFF",1400));
+set.add(new Product("AAA",4000));
+set.add(new Product("PPP",2400));
+set.add(new Product("CCC",1300));
+set.add(new Product("DDD",40));
+set.add(new Product("EEE",2300));
+
+Iterator<Product> itr=set.iterator();
+while(itr.hasNext())
+{
+Product p=itr.next();
+System.out.println(p);
+}
+}
+}
+OUTPUT
+Product [name=DDD, price=40]
+Product [name=BBB, price=400]
+Product [name=CCC, price=1300]
+Product [name=FFF, price=1400]
+Product [name=EEE, price=2300]
+Product [name=PPP, price=2400]
+Product [name=AAA, price=4000]  
+</pre>
+<br>
+<h4>Without impliments Comprable interface</h4>
+<pre>
+import java.util.TreeSet;
+import java.util.Iterator;
+
+class Product
+{
+private String name;
+private int price;
+public Product(String name, int price) 
+{
+this.name = name;
+this.price = price;
+}
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public int getPrice() {
+return price;
+}
+public void setPrice(int price) {
+this.price = price;
+}
+public String toString() 
+{
+return "Product [name=" + name + ", price=" + price + "]";
+}
+}
+class App5
+{
+public static void main(String[] args) 
+{
+TreeSet<Product> set = new TreeSet<Product>(new Comparator<Product>() 
+{
+@Override
+public int compare(Product p1, Product p2) {
+return Integer.compare(p2.getPrice(), p1.getPrice());
+}
+});
+
+set.add(new Product("BBB", 400));
+set.add(new Product("FFF", 1400));
+set.add(new Product("AAA", 4000));
+set.add(new Product("PPP", 2400));
+set.add(new Product("CCC", 1300));
+set.add(new Product("DDD", 40));
+set.add(new Product("EEE", 2300));
+Iterator<Product> itr = set.iterator();
+while (itr.hasNext()) {
+Product p = itr.next();
+System.out.println(p);
+}
+}
+}
+OUTPUT
+Product [name=DDD, price=40]
+Product [name=BBB, price=400]
+Product [name=CCC, price=1300]
+Product [name=FFF, price=1400]
+Product [name=EEE, price=2300]
+Product [name=PPP, price=2400]
+Product [name=AAA, price=4000]  
+</pre>
+<br>
+<h4>Without impliments Comprable interface</h4>
+<pre>
+import java.util.TreeSet;
+import java.util.Iterator;
+
+class Product
+{
+private String name;
+private int price;
+public Product(String name, int price) 
+{
+this.name = name;
+this.price = price;
+}
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public int getPrice() {
+return price;
+}
+public void setPrice(int price) {
+this.price = price;
+}
+public String toString() 
+{
+return "Product [name=" + name + ", price=" + price + "]";
+}
+}
+class App5 {
+public static void main(String[] args) {
+TreeSet<Product> set = new TreeSet<>(Comparator.comparingInt(Product::getPrice));
+
+set.add(new Product("BBB", 400));
+set.add(new Product("FFF", 1400));
+set.add(new Product("AAA", 4000));
+set.add(new Product("PPP", 2400));
+set.add(new Product("CCC", 1300));
+set.add(new Product("DDD", 40));
+set.add(new Product("EEE", 2300));
+
+Iterator<Product> itr = set.iterator();
+while (itr.hasNext()) {
+Product p = itr.next();
+System.out.println(p);
+}
+}
+}
+OUTPUT
+Product [name=DDD, price=40]
+Product [name=BBB, price=400]
+Product [name=CCC, price=1300]
+Product [name=FFF, price=1400]
+Product [name=EEE, price=2300]
+Product [name=PPP, price=2400]
+Product [name=AAA, price=4000]  
+</pre>
+<br>
+<pre>
+//Without impliments Comprable interface
+//Name accendding order
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.HashSet;
+import java.util.TreeSet;
+import java.util.Iterator;
+
+class Product
+{
+private String name;
+private int price;
+public Product(String name, int price) 
+{
+this.name = name;
+this.price = price;
+}
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public int getPrice() {
+return price;
+}
+public void setPrice(int price) {
+this.price = price;
+}
+
+public String toString() 
+{
+return "Product [name=" + name + ", price=" + price + "]";
+}
+}
+
+class App5 {
+public static void main(String[] args) {
+// Sort by name in ascending order
+TreeSet<Product> setAscending = new TreeSet<>(Comparator.comparing(Product::getName));
+
+setAscending.add(new Product("BBB", 400));
+setAscending.add(new Product("FFF", 1400));
+setAscending.add(new Product("AAA", 4000));
+setAscending.add(new Product("PPP", 2400));
+setAscending.add(new Product("CCC", 1300));
+setAscending.add(new Product("DDD", 40));
+setAscending.add(new Product("EEE", 2300));
+
+System.out.println("Ascending Order (by Name):");
+for (Product product : setAscending) {
+System.out.println(product);
+}
+}
+
+} 
+Ascending Order (by Name):
+Product [name=AAA, price=4000]
+Product [name=BBB, price=400]
+Product [name=CCC, price=1300]
+Product [name=DDD, price=40]
+Product [name=EEE, price=2300]
+Product [name=FFF, price=1400]
+Product [name=PPP, price=2400]
+</pre>
+<br>
+<pre>
+class App5 {
+public static void main(String[] args) {
+// Sort by name in ascending order
+    TreeSet<Product> setDescending = new TreeSet<>(Comparator.comparing(Product::getName).reversed());
+
+setDescending.add(new Product("BBB", 400));
+setDescending.add(new Product("FFF", 1400));
+setDescending.add(new Product("AAA", 4000));
+setDescending.add(new Product("PPP", 2400));
+setDescending.add(new Product("CCC", 1300));
+setDescending.add(new Product("DDD", 40));
+setDescending.add(new Product("EEE", 2300));
+
+System.out.println("\nDescending Order (by Name):");
+for (Product product : setDescending) {
+System.out.println(product);
+}
+}
+
+}
+OUTPUT
+Descending Order (by Name):
+Product [name=PPP, price=2400]
+Product [name=FFF, price=1400]
+Product [name=EEE, price=2300]
+Product [name=DDD, price=40]
+Product [name=CCC, price=1300]
+Product [name=BBB, price=400]
+Product [name=AAA, price=4000]
+</pre>
+<br>
+<h4>Arrays.asList using</h4>
+<pre>
+import java.util.*;
+
+class SetDemo 
+{
+public static void main(String[] args) 
+{
+// HashSet example
+Set<String> hashSet = new HashSet<>(Arrays.asList("Apple", "Banana", "Cherry"));
+System.out.println("HashSet: " + hashSet);
+
+// LinkedHashSet example
+Set<String> linkedHashSet = new LinkedHashSet<>(Arrays.asList("Apple", "Banana", "Cherry"));
+System.out.println("LinkedHashSet: " + linkedHashSet);
+
+// TreeSet example
+Set<String> treeSet = new TreeSet<>(Arrays.asList("Banana", "Apple", "Cherry"));
+System.out.println("TreeSet: " + treeSet);
+
+// Set operations
+Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3));
+Set<Integer> set2 = new HashSet<>(Arrays.asList(3, 4, 5));
+
+set1.addAll(set2);
+System.out.println("Union: " + set1);
+
+// Intersection
+Set<Integer> intersection = new HashSet<>(set1);
+intersection.retainAll(set2);
+System.out.println("Intersection: " + intersection);
+
+// Difference
+Set<Integer> difference = new HashSet<>(set1);
+difference.removeAll(set2);
+System.out.println("Difference: " + difference);
+}
+}
+OUTPUT
+HashSet: [Apple, Cherry, Banana]
+LinkedHashSet: [Apple, Banana, Cherry]
+TreeSet: [Apple, Banana, Cherry]
+Union: [1, 2, 3, 4, 5]
+Intersection: [3, 4, 5]
+Difference: [1, 2]
+</pre>
+<br>
+<h4>Collection framework provides</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p><b>
+  1.Collection  <br>
+2.Map
+</b></p>
+<h3>Map interface</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+<b>Map</b> is <b>not</b> a <b>collection</b>.<br>
+It is <b>not</b> a child of the <b>Collection</b> interface, but our program can use it to manage elements.<br>
+It always accepts data in <b>key-value</b> pairs.<br>
+<b>Key-value</b> pairs are always <b>unique</b> in a <b>Map</b>.<br>
+For each element, our program assigns a <b>unique key</b>.<br>
+This <b>key</b> will be used by the program to <b>identify</b> elements in the map.<br>
+Both <b>key</b> and <b>value</b> should be in the form of <b>objects</b>.<br>
+We use a <b>Map</b> when we want to keep elements in <b>key-value</b> pairs.<br>
+By using the <b>key</b>, accessing elements will be <b>fast</b>.<br>
+The <b>key-value</b> pair inside a <b>Map</b> is known as an <b>entry</b>.<br>
+Entries inside a <b>Map</b> will always be <b>unique</b>. <b>Remember:</b> The <b>key</b> will be <b>unique</b>.<br>
+<b>Map (Interface)</b>
+&emsp;|<br>
+&emsp;|-- <b>HashMap</b><br>
+&emsp;|-- <b>LinkedHashMap</b><br>
+&emsp;|-- <b>TreeMap</b><br>
+&emsp;|-- <b>Hashtable</b><br>
+<b>Implementation of Map Interface</b><br>
+===================================<br>
+It has the following implementation classes:<br>
+1.<b>HashMap</b> class<br>
+2.<b>LinkedHashMap</b> class<br>
+3. <b>TreeMap</b> class<br>
+4. <b>Hashtable</b> class
+</p>
+<h3>HashMap class</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+  It is an <b>implementation</b> of the <b>Map</b> interface.<br>
+  Initial <b>capacity</b> of <b>HashMap</b> is <b>16</b>.<br>
+  A total of <b>16 objects</b> of <b>LinkedList</b> are created by <b>HashMap</b> as an <b>array</b>.<br>
+  Each object of this array is called a <b>bucket</b>.<br>
+  Stores <b>key-value</b> pairs in a <b>hash table</b>.<br>
+  <b>Keys</b> are <b>unordered</b>.<br>
+  Allows <b>null</b> for both <b>key</b> and <b>value</b>.<br>
+  <b>Non-synchronized</b> (not thread-safe).<br>
+  <b>Example:</b><br>
+  <code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();<br>
+  map.put("Avinash", "8810436567");</code><br>
+  The <b>put()</b> method of the <b>Map</b> interface creates an object of the <b>Map.Entry</b> interface to keep the <b>key-value</b> pair.<br>
+  It means <b>map</b> holds a reference of the <b>Map.Entry</b> interface object.<br>
+  The <b>entrySet()</b> method of the <b>Map</b> interface returns a <b>Set</b> collection of <b>Map.Entry</b> interface objects.<br>
+<b>Remember:</b><br>
+- <b>Map</b> is <b>not iterable</b> while <b>Collection</b> is <b>iterable</b>.<br>
+- Entries inside <b>HashMap</b> will be <b>unordered</b>.
+  </p>
+  <h3>LinkedHashMap class</h3>
+  <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+  <p>
+    It is a child of HashMap class and implementation of Map interface  <br>
+    It maintains inserion order of entries.    
+  </p>
+  <h3>TreeMap class</h3>
+  <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+  <p>
+It is an implementation of SortedMap interface  <br>
+SortedMap interface is child of Map interface  <br>
+Entries inside TreeMap will be either in ascending order or descending order of keys  <br>
+Class of key must have implemented Comparable interface.Because TreeMap will call compareTo()
+method of Comparable interface to sort entries  <br>
+</p>
+<h4>How TreeMap Works Internally in Java</h4> 
+<hr style="border: 1px solid rgb(0, 0, 0); width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+A TreeMap in Java is part of the Collection Framework and implements the NavigableMap interface, extending the AbstractMap class.
+It is a sorted map that stores key-value pairs in ascending order of keys by default, using a Red-Black Tree as its underlying data structure.  
+</p>
+<h4>Sorted Order</h4>
+<p>
+Keys are stored in natural order (as defined by Comparable) or in a custom order (using a Comparator).  
+</p>
+<h4>Time Complexity</h4>
+<p>
+Search, insert, and delete operations have a time complexity of O(log n) due to the Red-Black Tree structure.
+</p>
+<h4>No null Keys</h4>
+<p>
+Unlike HashMap, TreeMap does not allow null keys but allows multiple null values.
+</p>
+<h4>Internal Working of TreeMap</h4>
+<p>
+<b>1. Data Structure:</b><br>
+The <b>TreeMap</b> is internally based on a <b>Red-Black Tree</b>, a type of self-balancing binary search tree that ensures:<br>
+- The height of the tree remains approximately <b>log(n)</b>.<br>
+- Operations like <b>insertion</b>, <b>deletion</b>, and <b>lookup</b> are efficient.<br>
+<b>2. Insertion:</b><br>
+When a <b>key-value</b> pair is inserted, the key is compared to existing keys using:<br>
+- <b>compareTo</b> (if keys implement <b>Comparable</b>).<br>
+- <b>compare</b> (if a custom <b>Comparator</b> is provided).<br>
+Based on the comparison:<br>
+- The new node is placed either to the <b>left</b> (if smaller) or <b>right</b> (if larger).<br>
+- After insertion, the <b>Red-Black Tree</b> adjusts itself to maintain balance (e.g., <b>rotations</b> and <b>recoloring</b>).<br>
+<b>3. Retrieval:</b><br>
+To retrieve a value, the <b>TreeMap</b> performs a <b>binary search</b> on the keys, starting from the <b>root</b>.<br>
+The key is compared at each step until the matching key is found.<br>
+<b>4. Deletion:</b><br>
+<b>Deletion</b> involves removing the <b>key-value</b> pair and rebalancing the <b>Red-Black Tree</b> to maintain its properties.<br>
+<b>5. Balancing:</b><br>
+After any modification (<b>insertion</b> or <b>deletion</b>), the <b>Red-Black Tree</b> ensures:<br>
+- No two consecutive <b>red nodes</b>.<br>
+- The tree remains approximately <b>balanced</b> for efficiency.
+<hr>
+<b>Key Points to Remember</b> <br>
+Red-Black Tree Properties: <br>
+  Self-balancing. <br>
+  Maintains sorted order of keys.
+</p>
+<h4>Methods of TreeMap</h4>
+<hr>
+<p>
+put(key, value): Adds a key-value pair. <br>
+get(key): Retrieves the value for a key.  <br>
+remove(key): Removes a key-value pair. <br>
+firstKey(): Returns the smallest key.  <br>
+lastKey(): Returns the largest key.   <br>
+ceilingKey(key): Returns the smallest key greater than or equal to the given key.  <br>
+floorKey(key): Returns the largest key less than or equal to the given key. <br>
+Custom Sorting:Use a Comparator to define custom key ordering.
+</p>
+<h4>Example-Using Hashap</h4>
+<pre>
+  //using map-interface
+import java.util.HashMap;
+public class App 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new HashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("amit","8810436567");
+System.out.println(map);
+}
+}
+OUTPUT
+{rahul=9902134566, manoj=7700998800, amit=8810436567, kuldeep=9919875298}
+</pre>
+<br>
+<pre>
+import java.util.HashMap;
+
+class App2 
+{
+public static void main(String[] args) 
+{
+HashMap<Integer,String> map=new HashMap<Integer, String>();
+map.put(10,"Rakesh");
+map.put(25,"Hemant");
+map.put(1,"Kuldeep");
+map.put(16,"Ravi");
+map.put(4,"Kapil");
+map.put(32,"Neha");
+map.put(8,"Imram");
+System.out.println(map);
+}
+}
+OUTPUT
+{16=Ravi, 32=Neha, 1=Kuldeep, 4=Kapil, 8=Imram, 25=Hemant, 10=Rakesh}
+</pre>
+<br>
+<pre>
+import java.util.HashMap;
+
+class App3 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new HashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("Imran","8810436567");
+String value=map.get("amit");
+if(value!=null)
+System.out.println(value);
+else
+System.out.println("You have entered wrong key");
+}
+}
+OUTPUT
+4455667788
+</pre>
+<br>
+<pre>
+import java.util.HashMap;
+
+public class App4 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new HashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("akp","8810436567");
+System.out.println(map.containsKey("Avinash"));
+}
+}
+OUTPUT
+</pre>
+<br>
+<pre>
+class App5 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new HashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("Imran","8810436567");
+for (Map.Entry<String, String> entry : map.entrySet())
+{
+System.out.println(entry.getKey() + " -> " + entry.getValue());
+}
+}}
+OUTPUT
+rahul -> 9902134566
+manoj -> 7700998800
+amit -> 4455667788
+kuldeep -> 9919875298
+Imran -> 8810436567  
+</pre>
+<br>
+<pre>
+class App5 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new HashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("Imran","8810436567");
+for (Map.Entry<String, String> entry : map.entrySet())
+{
+System.out.println(entry.getKey() + " -> " + entry.getValue());
+}
+}}
+OUTPUT
+rahul -> 9902134566
+manoj -> 7700998800
+amit -> 4455667788
+kuldeep -> 9919875298
+Imran -> 8810436567
+</pre>
+<br>
+<pre>
+  class App5 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new HashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("Imran","8810436567");
+
+Set<Map.Entry<String,String>> set=map.entrySet();
+for(Map.Entry<String,String> ab:set)
+{
+System.out.println(ab);
+}
+
+}
+}
+OUTPUT
+rahul=9902134566
+manoj=7700998800
+amit=4455667788
+kuldeep=9919875298
+Imran=8810436567
+</pre>
+<br>
+<pre>
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+class App5 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new HashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("Imran","8810436567");
+
+Set<Map.Entry<String,String>> set=map.entrySet();
+Iterator<Map.Entry<String,String>> itr=set.iterator();
+while(itr.hasNext())
+{
+Map.Entry<String,String> me=itr.next();
+System.out.println(me);
+}
+}
+}
+OUTPUT
+rahul=9902134566
+manoj=7700998800
+amit=4455667788
+kuldeep=9919875298
+Imran=8810436567
+</pre>
+<br>
+<h4>Example-map-interface using LinkedHashmap class</h4>
+<pre>
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
+class App6 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new LinkedHashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("imran","8810436567");
+for(Map.Entry<String,String> nm:map.entrySet())
+{
+    System.out.println(nm.getKey()+"->"+nm.getValue());
+}
+}}
+OUTPUT
+amit->4455667788
+manoj->7700998800
+kuldeep->9919875298
+rahul->9902134566
+imran->8810436567
+</pre>
+<br>
+<pre>
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
+class App6 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new LinkedHashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("imran","8810436567");
+Set<Map.Entry<String,String>> nm=map.entrySet();
+for(Map.Entry<String,String> aa:nm)
+{
+System.out.println(aa);
+}
+}
+}
+OUTPUT
+amit=4455667788
+manoj=7700998800
+kuldeep=9919875298
+rahul=9902134566
+imran=8810436567
+</pre>
+<br>
+<pre>
+  import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
+class App6 
+{
+public static void main(String[] args) 
+{
+HashMap<String,String> map=new LinkedHashMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("imran","8810436567");
+
+Set<Map.Entry<String,String>> set=map.entrySet();
+Iterator<Map.Entry<String,String>> itr=set.iterator();
+while(itr.hasNext())
+{
+Map.Entry<String,String> me=itr.next();
+System.out.println(me);
+}
+}
+}
+OUTPUT
+amit=4455667788
+manoj=7700998800
+kuldeep=9919875298
+rahul=9902134566
+imran=8810436567
+</pre>
+<h4>Example-map-interface using TreeSet Class</h4>
+<pre>
+  import java.util.TreeMap;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeMap;
+
+ class App7 
+{
+public static void main(String[] args) 
+{
+TreeMap<String,String> map=new TreeMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("imran","8810436567");
+for(Map.Entry<String,String> nm:map.entrySet())
+{
+System.out.println(nm.getKey()+"-->"+nm.getValue());
+}
+}
+}
+OUTPUT
+amit-->4455667788
+imran-->8810436567
+kuldeep-->9919875298
+manoj-->7700998800
+rahul-->9902134566
+</pre>
+<br>
+<pre>
+import java.util.TreeMap;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeMap;
+
+class App7 
+{
+public static void main(String[] args) 
+{
+TreeMap<String,String> map=new TreeMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("imran","8810436567");
+Set<Map.Entry<String,String>> set=map.entrySet();
+for(Map.Entry<String,String> nm:set)
+{
+System.out.println(nm.getKey()+"-->"+nm.getValue());
+}
+}}
+OUTPUT
+amit-->4455667788
+imran-->8810436567
+kuldeep-->9919875298
+manoj-->7700998800
+rahul-->9902134566
+</pre>
+<br>
+<pre>
+import java.util.Set;
+import java.util.TreeMap;
+
+class App7 
+{
+public static void main(String[] args) 
+{
+TreeMap<String,String> map=new TreeMap<String, String>();
+map.put("amit","4455667788");
+map.put("manoj","7700998800");
+map.put("kuldeep","9919875298");
+map.put("rahul","9902134566");
+map.put("imran","8810436567");
+
+
+Set<Map.Entry<String,String>> set=map.entrySet();
+Iterator<Map.Entry<String,String>> itr=set.iterator();
+while(itr.hasNext())
+{
+Map.Entry<String,String> me=itr.next();
+System.out.println(me);
+}
+}
+}
+OUTPUT
+amit-->4455667788
+imran-->8810436567
+kuldeep-->9919875298
+manoj-->7700998800
+rahul-->9902134566
+</pre>
+<h4>creating a self class using treemap</h4>
+<pre>
+import java.util.TreeMap;
+
+class MyString implements Comparable<MyString> 
+{
+private String value;
+
+public MyString(String value) 
+{
+this.value = value;
+}
+
+public String getValue() 
+{
+return value;
+}
+
+@Override
+public int compareTo(MyString other) 
+{
+return this.value.compareTo(other.value); // Natural order (alphabetical)
+}
+
+@Override
+public boolean equals(Object obj) 
+{
+if (this == obj) return true;
+if (obj == null || getClass() != obj.getClass()) return false;
+MyString myString = (MyString) obj;
+return value.equals(myString.value);
+}
+
+@Override
+public int hashCode() {
+return value.hashCode();
+}
+
+@Override
+public String toString() {
+return value;
+}
+}
+
+public class App {
+public static void main(String[] args) {
+// Create a TreeMap with MyString as key and String as value
+TreeMap<MyString, String> map = new TreeMap<>();
+
+// Add key-value pairs
+map.put(new MyString("amit"), "4455667788");
+map.put(new MyString("manoj"), "7700998800");
+map.put(new MyString("kuldeep"), "9919875298");
+map.put(new MyString("rahul"), "9902134566");
+map.put(new MyString("imran"), "8810436567");
+
+// Iterate and print the TreeMap
+for (Map.Entry<MyString, String> entry : map.entrySet()) {
+System.out.println(entry.getKey() + " -> " + entry.getValue());
+}
+}
+}
+OUTPUT
+amit -> 4455667788
+imran -> 8810436567
+kuldeep -> 9919875298
+manoj -> 7700998800
+rahul -> 9902134566
+</pre>
+<br>
+<center>
+<table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+<tr>
+<th style="border: 5px solid black; padding: 5px;">Type</th>
+<th style="border: 5px solid black; padding: 5px;">Order Maintained</th>
+<th style="border: 5px solid black; padding: 5px;">Allows Null Key</th>
+<th style="border: 5px solid black; padding: 5px;">Thread-Safe</th>
+<th style="border: 5px solid black; padding: 5px;">Usage Scenario</th>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">HashMap</td>
+<td style="border: 5px solid black; padding: 5px;">No</td>
+<td style="border: 5px solid black; padding: 5px;">Yes</td>
+<td style="border: 5px solid black; padding: 5px;">No</td>
+<td style="border: 5px solid black; padding: 5px;">Fast, general-purpose map.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">LinkedHashMap</td>
+<td style="border: 5px solid black; padding: 5px;">Yes (insertion order)</td>
+<td style="border: 5px solid black; padding: 5px;">Yes</td>
+<td style="border: 5px solid black; padding: 5px;">No</td>
+<td style="border: 5px solid black; padding: 5px;">When insertion order matters.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">TreeMap</td>
+<td style="border: 5px solid black; padding: 5px;">Yes (sorted by key)</td>
+<td style="border: 5px solid black; padding: 5px;">No</td>
+<td style="border: 5px solid black; padding: 5px;">No</td>
+<td style="border: 5px solid black; padding: 5px;">Sorted key-value pairs.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Hashtable</td>
+<td style="border: 5px solid black; padding: 5px;">No</td>
+<td style="border: 5px solid black; padding: 5px;">No</td>
+<td style="border: 5px solid black; padding: 5px;">Yes</td>
+<td style="border: 5px solid black; padding: 5px;">Thread-safe map for legacy applications.</td>
+</tr>
+</table>
+</center>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div>
+<p>
+It has one and only one abstract method is known as functional interface.  <br>
+A Functional Interface in Java is an interface that has one and only one abstract method.  <br>
+It is used primarily in lambda expressions, method references, and stream operations.  <br>
+A functional interface can have default and static methods, but these do not affect its functional nature. <br>
+<span class="highlight">@FunctionalInterface</span>   <br>
+annotation is used to indicate that an interface is a functional interface. If someone tries to add 
+more abstract methods, the compiler will throw an error. <br> 
+</p>
+<h4>Example</h4>
+<pre>
+@FunctionalInterface
+interface MyFunctionalInterface {
+void show(); // Only one abstract method
+}
+
+class Main {
+public static void main(String[] args) {
+MyFunctionalInterface obj = new MyFunctionalInterface() {
+public void show() {
+System.out.println("Hello from Functional Interface!");
+}
+};
+
+obj.show(); // Call the abstract method
+}
+}
+output 
+Hello from Functional Interface!
+</pre>
+<br>
+<h3>TYPE OF FUNCTIONAL INTERFACE</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<br>
+<h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white; border-radius: 10px;">
+1.Runnable interface <br>
+2.Comparable interface  <br>
+3.Comparator interface following functional interface were introduction java8  <br>
+4.predicate interface <br>
+5.Consume interface <br>
+6.function interface  <br>
+7.Suppiler interface 
+</h4>
+<p>Use a lambda expression to provide the implementation of the single abstract method.
+    Invoke the method on the interface instance created using the lambda expression.</p>
+<h3>Lambda Expression</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>A lambda expression is a short block of code that takes in parameters and returns a value. 
+    It is used to implement functional interfaces (interfaces with a single abstract method). 
+    Lambda expressions make it easy to write concise and readable code, especially when working with 
+    collections, streams, or functional interfaces.</p>
+<code>(parameters) -> { body }</code>
+<b>Parameters</b>: A comma-separated list of input parameters for the method. <br>
+<b>Arrow (->)</b>: Separates parameters from the body of the lambda. <br>
+<b>Body</b>: The implementation of the method.
+<h4>Example</h4>
+<pre>
+@FunctionalInterface
+interface Akp
+{
+void show(String name);
+}
+class App
+{
+public static void main (String[] args) 
+{
+Akp obj=(name)->{
+System.out.println(name);
+} ;
+obj.show("Avinash");
+
+}
+}
+OUTPUT
+Avinash
+</pre>
+<br>
+<pre>
+import java.util.function.Function;
+interface Addition
+{
+int add( int num1, int num2);
+}
+class App
+{
+public static void main(String[] args)
+{
+Addition obj=(n1,n2)->n1+n2;
+int res= obj.add(800,400);
+System.out.println(res);
+}
+}
+OUTPUT
+1200    
+</pre>
+<h3>Lambda in Collection</h3>
+<p>
+Lambda expressions simplify working with collections, especially when performing operations like iteration,
+sorting, filtering, and mapping. Let's explore how to use lambda expressions with different types of collections step by step.
+</p>
+<h4>Example</h4>
+<p>accending  order salary without lambda</p>
+<pre>
+import java.util.*;
+class Employee implements Comparable<Employee> {
+private int eid;
+private String name;
+private String depat;
+private int salary;
+
+public Employee(int eid, String name, String depat, int salary) {
+this.eid = eid;
+this.name = name;
+this.depat = depat;
+this.salary = salary;
+}
+
+public void show() {
+System.out.println("eid:=" + this.eid);
+System.out.println("name:=" + this.name);
+System.out.println("depat:=" + this.depat);
+System.out.println("salary:=" + this.salary);
+}
+
+public int geteid() {
+return eid;
+}
+
+public String getname() {
+return name;
+}
+
+public String getdepat() {
+return depat;
+}
+
+public int getsalary() {
+return salary;
+}
+
+public void seteid(int eid) {
+this.eid = eid;
+}
+
+public void setname(String name) {
+this.name = name;
+}
+
+public void setdepat(String depat) {
+this.depat = depat;
+}
+
+public void setsalary(int salary) {
+this.salary = salary;
+}
+
+
+@Override
+public int compareTo(Employee eid) {
+int c=this.salary-eid.salary;
+return c;
+}
+}
+
+class App {
+public static void main(String[] args) {
+List<Employee> emm = new ArrayList<Employee>();
+emm.add(new Employee(101, "Avinash", "IT", 45000));
+emm.add(new Employee(102, "Amit", "EC", 55000));
+emm.add(new Employee(103, "Akash", "EC", 25000));
+emm.add(new Employee(104, "Ak", "EC", 65000));
+
+Collections.sort(emm); // Corrected method name
+
+for (Employee e : emm) {
+e.show(); 
+}
+}
+}
+OUTPUT
+eid:=103
+name:=Akash
+depat:=EC
+salary:=25000
+eid:=101
+name:=Avinash
+depat:=IT
+salary:=45000
+eid:=102
+name:=Amit
+depat:=EC
+salary:=55000
+eid:=104
+name:=Ak
+depat:=EC
+salary:=65000
+</pre>
+<p>With lambda expression use</p>
+<pre>
+class App {
+public static void main(String[] args) {
+List<Employee> emm = new ArrayList<Employee>();
+emm.add(new Employee(101, "Avinash", "IT", 45000));
+emm.add(new Employee(102, "Amit", "EC", 55000));
+emm.add(new Employee(103, "Akash", "EC", 25000));
+emm.add(new Employee(104, "Ak", "EC", 65000));
+
+Collections.sort(emm,(eid1,eid2)->eid1.getsalary()-eid2.getsalary());
+
+for (Employee e : emm) {
+e.show(); 
+}
+}
+}
+OUTPUT
+eid:=103
+name:=Akash
+depat:=EC
+salary:=25000
+eid:=101
+name:=Avinash
+depat:=IT
+salary:=45000
+eid:=102
+name:=Amit
+depat:=EC
+salary:=55000
+eid:=104
+name:=Ak
+depat:=EC
+salary:=65000 
+</pre>
+<h4>Collections</h4>
+<pre>
+public class Main {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Avinash", "Rohan", "Amit", "Suman");
+
+// Using lambda to iterate over the list
+names.forEach(name -> System.out.println(name));
+}
+}
+OUTPUT
+Avinash
+Rohan
+Amit
+Suman 
+</pre>
+<br>
+<pre>
+// Sorting a List
+import java.util.*;
+
+public class Main {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Avinash", "Rohan", "Amit", "Suman");
+
+// Sort the list using a lambda
+names.sort((s1, s2) -> s1.compareTo(s2));
+
+// Print the sorted list
+names.forEach(name -> System.out.println(name));
+}
+}
+OUTPUT
+Amit
+Avinash
+Rohan
+Suman 
+</pre>
+<br>
+<pre>
+import java.util.*;
+import java.util.*;
+
+public class Main {
+public static void main(String[] args) {
+Set<Integer> nm=new HashSet<>(Arrays.asList(5,6,7,8,9));
+nm.forEach(name->System.out.println(name));
+}
+}
+OUTPUT
+
+5
+6
+7
+8
+9  
+</pre>
+<br>
+<pre>
+import java.util.*;
+
+public class Main {
+public static void main(String[] args) {
+Set<Integer> nm=new HashSet<>(Arrays.asList(5,6,7,8,9));
+List<Integer> aa=new ArrayList<>(nm);
+aa.sort((n1,n2)->n2-n1);
+aa.forEach(name->System.out.println(name));
+}
+}
+OUTPUT
+9
+8
+7
+6
+5
+</pre>
+<p>
+The Set interface (like HashSet) in Java does not have a sort method because it does not maintain any 
+specific order of its elements. To sort a Set in descending order, you need to convert it to a List and then
+ sort it using a custom comparator.
+</p>
+<br>
+<pre>
+import java.util.*;
+
+public class Main {
+public static void main(String[] args) {
+Map<Integer, String> map = new HashMap<>();
+map.put(1, "Avinash");
+map.put(2, "Rohan");
+map.put(3, "Amit");
+
+// Using lambda to iterate over the map
+map.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+}
+}
+OUTPUT
+Key: 1, Value: Avinash
+Key: 2, Value: Rohan
+Key: 3, Value: Amit
+</pre>
+<br>
+<pre>
+import java.util.stream.*;
+class Codechef
+{
+public static void main (String[] args) throws java.lang.Exception
+{
+List<String> nm=Arrays.asList("Avinash","Amit","suman","kristi");
+List<String> ns=nm.stream().filter(na->na.startsWith("A")).collect(Collectors.toList());
+ns.forEach((cc)->System.out.println(cc));
+
+}
+}
+OUTPUT
+Avinash
+Amit
+</pre>
+<br>
+<pre>
+import java.util.stream.*;
+class Codechef
+{
+public static void main (String[] args) throws java.lang.Exception
+{
+List<String> nm=Arrays.asList("Avinash","Amit","suman","kristi");
+List<String>nx=nm.stream().map(vv->vv.toUpperCase()).collect(Collectors.toList());
+nx.forEach((zz)->System.out.println(zz));
+}
+}
+OUTPUT
+AVINASH
+AMIT
+SUMAN
+KRISTI
+</pre>
+</div>   
+</body>
+</html>
