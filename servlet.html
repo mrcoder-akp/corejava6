@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div>
+<p>
+By using this technology we will build server side programe  <br>
+These programs will be process to http request and genrate http response <br>
+Life cycle of these programs  will be managed by web server,web server will be container of these program These program will be called servlet.  <br>
+These programs will be responsible to perform following taks.. <br>
+1.Accepting HTTP request and data   <br>
+2.Generating HTTP response  <br>
+3.Sending response to the web browser  <br>
+Inorder to build this program we will be user classes and interface provided be web server Vendors.So jar file of these classes and  interfaces must be added into our projects. <br>
+If you are using tomcat web server then you can get this jar files from the lib folder of tomcat.Name of this har file is <span class="highlight">(servlet-api.jar)</span> <br>
+We will use following interfaces and classes in the source code of these programs  <br>
+1.Servlet interface  <br>
+2.GenericServlet class:It is implementation of Servlet interface <br>
+3.HttpServlet class:It is a child of GenericServlet class  <br>
+4.ServletRequest interface  <br>
+5.ServletResponse interface  <br>
+6.ServletContext interface  <br>
+7.ServletConfig interface  <br>
+8.HttpServletRequest interface  <br>
+9.HttpServletResponse interface  <br>
+10.HttpSession interface  <br>
+etc
+</p> 
+<p>
+This jar file has several package,two of them are as follows- <br>
+1.Javax.Servlet  <br>
+2.Javax.Servlethttp
+</p>   
+<h3>Javax.Servlet. Servlet interface</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>Every servlet(server side program that you are building using servlet technology) must impliments this interface either
+directly or indirectly
+</p>
+<h4>Servlet interface has following %5% method</h4>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+1.public void init(servletConfig config) <br>
+2.public void service(servletRequest req,servletresponse res) <br>
+3.public void destroy()  <br>
+4.public String getservletInfo()  <br>
+5.public servletConfig getservletCongif()  <br>
+first three method of servlet interface are Life cycle method of servlets. these methode will be called by web server
+</p>
+<h3>Javax.servlet.http  Httpservlet class</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+HttpServlet class is a child of GenericServlet class, Genericservlet class is an  implimantaion of servlet interface. <br>
+Now you can create your servlet class by following three ways--  <br>
+1.By impliments servlet interface  <br>
+2.By extends GenricServlet class <br>
+3.By extends Httpservlet class  <br>
+third one is recommanded to create servlet. 
+</p>
+<h3>Building serlvets</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>It is better to extending HttpServlet class rather than implementing Servlet interface</p>
+<code>
+public class DemoServlet implements Servlet
+{
+//mandatory to override all methods of servlet interface here
+}
+public class DemoServlet extends GenericServlet
+{
+//mandatory to override service method of servlet interface here
+}
+//GenericServlet class is implementation of Servlet interface
+public class DemoServlet extends HttpServlet
+{
+//Override method which you need
+}
+</code>
+<h4>HttpServlet class has a sevral method we can override these method also few method are as follows--</h4>
+<p>
+<b>
+1.public void service(httpservletrequest req,httpServletresponse res)throws ServletException,IOException <br>
+2.public void doGet(httpservlet request req,httpresponse res)throws ServletException,IOException  <br>
+3.public void dopost(httpservlet request req,httpresponse res)throws ServletException,IOException  <br>
+4.public void doput(httpservlet request req,httpresponse res)throws ServletException,IOException  <br>
+5.public void do delete(httpservlet request req,httpresponse res)throws ServletException,IOException 
+</b>
+</p>
+<h3>Service method</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+This method will be called by web server each time web server will get http request for the servlets.  <br>
+web service pass by two object to the service method  <br>
+1.Object of HttpservletRequest Interface  <br>
+2.Object of HttpservletResponse Interface  <br>
+Service can call method of these interface....  
+</p>
+<h3>Java.io.Printwriter class</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+As we know service method of servlets will process Http request and genrate http respones and send that response to the 
+web browser service method can call method of printwriter class to second response to the web browser.  <br>
+Service method can get reference of object of printwriter class from the response object. <br>
+<b><span class="highlight">printwriter pw=res.getwriter();</span></b>
+We server creates an object of this class and gives reference of this object to the requested servlet <br>
+Servlet can call println() or print() or wtite() method of this class to send HTTP response to the web browser
+</p>
+<h4>Object Create by web server</h4>
+<p>
+1.Request object  <br>
+2.Response Object  <br>
+3.Out object  <br>
+4.Applicaion object  <br>
+5.Session Object  <br>
+etc  
+</p>
+<h3>Request object</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+It is an object of HttpServletRequest interface.web server create this object before calling service method of 
+request Servlet of jsp page. Web server passesd reference of these object to the service method.web server keep input 
+into this object.Request object keeps data into key value pair.
+</p>
+<h3>Response Object</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+It is an Object of httpServletresponse interface.Service method can call this method of Httpservletresponse interface
+to the send  response to the web browser.
+</p>
+<h3>Life cycle of servlets</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+Life cycle of servlet is managed by web server  <br>
+It has following 5 phases  <br>
+1.Loading servlets:Web server loads class of the servlets  <br>
+2.Instantiating servlets:Web server creates an object from class of the servlets  <br>
+3.Initializing servlets:Web server initializes that object.Web server calls init() life cycle method here  <br>
+4.Prcoessing HTTP request:Web server calls service method to prcoess http request.Web server calls this method each 
+time web server recieves HTTP request from browser.In this method web server passes following two objects as an argument. <br>
+a.request object  <br>
+b.response object  <br>
+5.Destroying servlets:Web server destroys servlets when web server stops or restarts
+ </p>
+ <h4>Example..</h4>
+ <pre>
+import javax.servlet.*;
+
+public class DemoServlet implements Servlet
+{
+
+}  
+ </pre>
+ <br>
+ <h4>Life cycle of servlet</h4>
+ <pre>
+import java.io.IOException;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/demo")
+public class DemoServlet implements Servlet
+{
+public DemoServlet()
+{
+System.out.println("Servlet class is instamtiated...");
+}
+static
+{
+System.out.println("Servlet class is loaded...");
+}
+public void destroy() 
+{
+System.out.println("Destroy method executed...");
+
+}
+public ServletConfig getServletConfig() 
+{
+System.out.println("getServletConfig method executed...");
+return null;
+}
+public String getServletInfo() 
+{
+System.out.println("getServletInfo method executed...");
+return null;
+}
+public void init(ServletConfig arg0) throws ServletException 
+{
+System.out.println("Init method executed...");
+}
+
+public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException 
+{
+System.out.println("Service method executed...");
+}
+}
+</pre>
+</div>
+</body>
+</html>
