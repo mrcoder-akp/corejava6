@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div>
+<h4>
+1.UpCasting <br>
+2.DownCsatig
+</h4>
+<h3>UpCasting(Widening)</h3>
+<hr style="border: 1px solid black; width: 16%; margin-top: 5px; margin-left: 0;">
+<p>
+When a parent class reference is used to point to a child class object, this process is called Upcasting.
+Storing the reference of a child class object in a variable whose type is an interface  <br>
+or parent class is called upcasting.  <br>
+Converting a subclass object to a superclass reference.  <br>
+Happens automatically.  <br>
+Allows a subclass to be treated as a superclass. <br>
+Upcasting happens when a child class object is assigned to a parent class reference.
+</p>
+<h4>Example..</h4>
+<pre>
+class Animal 
+{
+void sound() 
+{
+System.out.println("Animal makes a sound");
+}
+}
+class Dog extends Animal 
+{
+void sound() 
+{
+System.out.println("Dog barks");
+}
+}
+
+public class UpcastingExample 
+{
+public static void main(String[] args) 
+{
+Animal animal = new Dog(); // Upcasting (automatic)
+animal.sound(); // Calls Dog's overridden method
+}
+}
+OUTPUT
+Dog barks
+</pre>
+<h4 style="background-color: red;color: white; display: inline-block;">NOTE Explanation(Hindi)</h4>
+<p>
+Jab hum parent class ke reference se child class ke object ko refer karte hain, tab Upcasting hoti hai.
+</p>
+<p>
+jab ham kisi bhi method ko call krte hai object referenece ke through to refrenece variable ke baad dot lagaker us method ko call krte hai oo dot compile time pr insure  krta hai ki jo method hai jis refrenece variable se call ho rha hai uska type me oo method hai ki nhi agar hai to upcasting ho jaygi agar nhi hai to error throw kr dega <br>
+Reference Variable Ka Role:-Jab hum object reference ke through method call karte hain (using dot operator .), Java compile-time pe reference variable ke type ko check karta hai, na ki actual object ko.
+Lekin, agar method overridden hai, toh runtime pe actual object decide karega kaunsa method execute hoga (Runtime Polymorphism ya Dynamic Method Dispatch).
+Upcasting Mein Kya Hota Hai Jab hum upcasting karte hain, toh hum parent class reference ke through child class object ko point karte hain.
+Aise mein, parent class ke methods accessible hote hain (agar overridden hai toh child ka method chalega), lekin child-specific methods directly accessible nahi hote.
+</p>
+<pre>
+class Animal {
+void sound() {
+System.out.println("Animal sound");
+}
+}
+
+class Dog extends Animal {
+void sound() {
+System.out.println("Dog barks");
+}
+
+void wagTail() {
+System.out.println("Dog wags tail");
+}
+}
+
+public class TestCasting {
+public static void main(String[] args) {
+Animal a = new Dog();  // Upcasting
+
+a.sound();  // ✅ Output: Dog barks (Runtime Polymorphism)
+
+// a.wagTail(); // ❌ Compile-time Error: method not found in Animal
+
+// Correct Downcasting to access wagTail()
+if (a instanceof Dog) {
+Dog d = (Dog) a;
+d.wagTail();  // ✅ Output: Dog wags tail
+}
+}
+}
+</pre>
+<h3>DownCasting</h3>
+<hr style="border: 1px solid black; width: 16%; margin-top: 5px; margin-left: 0;">
+<p>
+When a child class inherits methods from the parent class, it can override some of them. <br>
+If the child class has its own specific methods that are not in the parent class, you need to use a child class reference to access them. This process is called downcasting. <br>
+In downcasting,class casting is required; otherwise, a ClassCastException will occur.
+Downcasting is the process of converting a superclass reference back to a subclass reference. It requires an explicit cast, and if the object is not of the target subclass type, a ClassCastException will be thrown at runtime. Downcasting is typically used to access subclass-specific methods that are not available in the parent class.
+<b>Downcasting is used when you want to access child-specific methods or properties using a parent class reference.</b>
+A child class can override all parent class methods except for those that are private, final, or static. If the child class has its own specific methods, they can only be accessed through downcasting when using a parent class reference. <br>
+Downcasting requires explicit casting; otherwise, a ClassCastException may occur at runtime if the object is not of the correct type. To avoid this, the instanceof operator should be used before downcasting
+</p>
+<pre>
+class Animal {
+void sound() {
+System.out.println("Animal makes a sound");
+}
+void show()
+{
+System.out.println("Its own method");
+}
+}
+
+class Dog extends Animal {
+void sound() {
+System.out.println("Dog barks");
+}
+
+void wagTail() {
+System.out.println("Dog wags tail");
+}
+}
+
+class DowncastingExample {
+public static void main(String[] args) {
+Animal a = new Dog();  // Upcasting
+a.sound(); //  ✅ Output: Dog barks (Runtime Polymorphism)
+a.show();// ✅ Output: DIts own method Runtime Polymorphism)
+
+// ✅ Downcasting to access wagTail()
+if (a instanceof Dog) {
+Dog d = (Dog) a;   // ✅ Explicit downcasting
+d.wagTail();       // Output: Dog wags tail
+}
+
+// ❌ Unsafe Downcasting Example
+Animal a2 = new Animal();
+if (a2 instanceof Dog) {
+Dog d2 = (Dog) a2; // This block won't execute
+} else {
+System.out.println("Downcasting not possible");
+}
+}
+}
+</pre>
+<h4 style="background-color: red;color: white; display: inline-block;">NOTE Explanation(Hindi)</h4>
+<p>
+Agar child class parent class ko inherit karta hai, to wo parent class ke methods ko override kar sakta hai (lekin zaroori nahi hai). Child class ke paas apne khud ke specific methods bhi ho sakte hain. Agar parent class ke reference se un child-specific methods ko access karna ho, to hume downcasting karni padti hai.
+Downcasting karte waqt explicit casting karna zaroori hota hai. Agar object actual mein child class ka nahi hai, to ClassCastException throw hoga. Isliye, downcasting se pehle instanceof ka use karna best practice hai.
+</p>
+<center>
+<table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+<tr>
+<th style="border: 5px solid black; padding: 5px;">Feature</th>
+<th style="border: 5px solid black; padding: 5px;">Upcasting</th>
+<th style="border: 5px solid black; padding: 5px;">Downcasting</th>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Definition</td>
+<td style="border: 5px solid black; padding: 5px;">Converting subclass reference to superclass reference.</td>
+<td style="border: 5px solid black; padding: 5px;">Converting superclass reference back to subclass reference.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Type of Casting</td>
+<td style="border: 5px solid black; padding: 5px;">Implicit (No explicit cast needed)</td>
+<td style="border: 5px solid black; padding: 5px;">Explicit (Uses cast operator)</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Compile-Time Check</td>
+<td style="border: 5px solid black; padding: 5px;">Reference variable's type is checked.</td>
+<td style="border: 5px solid black; padding: 5px;">Requires explicit cast and type checking.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Runtime Behavior</td>
+<td style="border: 5px solid black; padding: 5px;">Overridden methods of subclass are invoked (Polymorphism).</td>
+<td style="border: 5px solid black; padding: 5px;">Can throw <code>ClassCastException</code> if the object is not of the target type.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Purpose</td>
+<td style="border: 5px solid black; padding: 5px;">To achieve Runtime Polymorphism.</td>
+<td style="border: 5px solid black; padding: 5px;">To access subclass-specific methods.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Example</td>
+<td style="border: 5px solid black; padding: 5px;"><code>Animal a = new Dog();</code></td>
+<td style="border: 5px solid black; padding: 5px;"><code>Dog d = (Dog) a;</code></td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Risk</td>
+<td style="border: 5px solid black; padding: 5px;">Safe (No runtime errors)</td>
+<td style="border: 5px solid black; padding: 5px;">Risk of <code>ClassCastException</code></td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Use of instanceof</td>
+<td style="border: 5px solid black; padding: 5px;">Not required</td>
+<td style="border: 5px solid black; padding: 5px;">Recommended before downcasting</td>
+</tr>
+</table>
+</center>
+<h3>What is ClassCastException</h3>
+<hr style="border: 1px solid black; width: 26%; margin-top: 5px; margin-left: 0;">
+<p>
+ClassCastException is a runtime exception that occurs when you attempt to cast an object to a class of
+which it is not an instance. This typically happens when performing downcasting without verifying the
+actual type of the object.
+Downcasting (Risky): <br>
+Casting a parent class reference back to a child class requires explicit casting. <br> 
+If the actual object is not of the child class type, a ClassCastException will occur. <br>
+Use instanceof to check the object type before casting.  <br>
+Ensure that the object is of the correct type during downcasting.  <br>   
+</p>
+<pre>
+class Parent 
+{
+public void show() 
+{
+System.out.println("Parent class method");
+}
+}
+class Child extends Parent 
+{
+public void display() 
+{
+System.out.println("Child class method");
+}
+}
+public class Main 
+{
+public static void main(String[] args) 
+{
+Parent parent = new Parent(); // Parent object
+Child child = (Child) parent; // Downcasting, but parent is not a Child instance
+child.display(); // This will throw ClassCastException
+}
+}
+OUTPUT
+Exception in thread "main" java.lang.ClassCastException: Parent cannot be cast to Child
+--------------------------------------------------
+handlling exception
+handlling exception
+public class Main 
+{
+public static void main(String[] args) 
+{
+Parent parent = new Parent(); // Parent object
+if (parent instanceof Child) 
+{ // Check if parent is an instance of Child
+Child child = (Child) parent;
+child.display();
+}
+else   {
+System.out.println("Cannot cast Parent to Child");
+}
+}
+}
+OUTPUT
+Cannot cast Parent to Child
+
+correct code
+Parent parent = new Child(); // Actual object is of type Child
+Child child = (Child) parent; // Safe downcasting
+child.display();
+
+OUTPUT
+Child class method
+</pre>
+<br>
+<h3>Genric Class</h3>
+<hr style="border: 1px solid black; width: 26%; margin-top: 5px; margin-left: 0;">
+<p>
+When downcasting is not required.class made a genric <br>
+A generic class in Java allows you to define a class with type parameters. This enables you to write classes  <br>
+that work with different types while maintaining type safety.  <br>
+Type Safety: Ensures that only specific types of objects are used with the class. <br>
+Code Reusability: One generic class can work with different data types. <br>
+Avoid Casting: No need to cast objects when retrieving them.   
+</p>
+<h4>Example..</h4>
+<pre>
+public class Holder<T>
+{
+private T obj;
+public Holder(T obj)
+{
+this.obj=obj; 
+} 
+public T get()
+{
+return obj;
+}
+public void set(T obj)
+{
+this.obj=obj;
+}
+}
+public class App
+{
+public static void main(String[] args)
+{
+Holder<String> holder=new Holder<String>("Avinash");
+String str= holder.get();
+System.out.println(str);
+holder.set("Avi")
+System.out.println(holder.get());
+}
+}   
+OUTPUT
+Avinash
+Avi
+</pre>
+<h4>Generic Class with Multiple Type Parameters</h4>
+<pre>
+class Pair<K, V> 
+{
+private K key;
+private V value;
+
+public Pair(K key, V value)
+{
+this.key = key;
+this.value = value;
+}
+
+public K getKey() 
+{
+return key;
+}
+
+public V getValue() 
+{
+return value;
+}
+}
+public class Main 
+{
+public static void main(String[] args) 
+{
+Pair<String, Integer> pair = new Pair<>("Age", 25);
+System.out.println("Key: " + pair.getKey());
+System.out.println("Value: " + pair.getValue());
+}
+}
+OUTPUT
+Key: Age
+Value: 25
+</pre>
+<h4>Generic Methods in a Generic Class</h4>
+<pre>
+class Akp
+{
+public static <T> void printarray(T[] array)
+{
+for(T ele:array)
+{
+System.out.print(ele+"");
+}
+System.out.println();
+}
+}
+class App
+{
+public static void main(String[] args)
+{
+String[] str={"Avinash","pandey"};
+Integer[] x= {111};
+Akp.printarray(str);
+Akp.printarray(x);
+}
+}
+OUTPUT
+Avinashpandey
+111
+</pre>
+</div>
+</body>
+</html>

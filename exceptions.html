@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div>
+<h1>Exception</h1>
+<p>
+It is abnormal condition faced by program during rum time. <br>
+Few abnormal-condition that a program can face as follow-  <br>
+1.Divide by 0(Airthmatic execption)  <br>
+2.File not found(filenotfound execption)  <br>
+3.Database table does not exits(SQL-execption)   <br>
+4.Array index out of range(Array index out of bound execption)  <br>
+If program is not handdling-Execption then JVM will terminate execption  of that program.  <br>
+1.Protecting the program from bing terminated.  <br>
+2.Information user about the execption  <br>
+Due to abnormal condition following acitivites will be performed by JVM or Methods or Constructor <br>
+(Remember program is current using  JVM or Method or Constructor to perform task) <br>
+<h4>1Creating exception  <br>
+2.Throwing exception  <br>
+3.Catching execepton</h4>
+</p> 
+<h3>Creating exception</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>when Program(JVM predefine method or predefine construtor)encounter an abnormal condition then an object is created by JVM 
+    predefine method or predefine construtor.In this object information about that abnormal condition is stored.this object is
+    called Execption and this process is called creating execption.</p>
+<h3>Throwing exception</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>After creating exception,JVM predefine method or predefine construtor throw that exception to our program
+this process is called throwing execption. actually reference of exception is sent to the program by JVM or API.
+</p>
+<h3>Catching exception</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+Our program will accept reference of exception this proccess is called catching exception. <br>
+If program will not accept this exception then exception will be accepted by JVM.In this case program will be terminated.   
+</p>
+<h3>Exception Classes</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+These classes are in hierarchical manner.  <br>
+Top most class of the hierarchy is <span class="highlight">Throwable class</span>    
+</p>
+<h3>Throwable class</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+Every exception class inherits this class directly or indirectly.It has following two child classes-  <br>
+This class is super class of all exception classes.  <br>
+This class has two sub classes-  <br>
+1.Exception class  <br>
+2.Error class
+</p>
+<h1>Exception class</h1>
+<p>
+This class has property of throwable class it means object of this class can be thrown. <br>
+It has handling exception property also. <br>
+Every exception class must inherited this class to acquring properties from this class. <br>
+Exception class can inherited throwable as well as catchable property from throwable classes.  <br>
+Exception class can inherited catchable property from the exception class. <br>
+Remember Exception class is a child of throwable class.It means exception class has more property of throwable class. <br>
+It has several child classes.Few of them are as follows-- <br>
+1.FileNotFoundException class  <br>
+2.ClassNotFoundException class  <br>
+3.IterruptedException class  <br>
+4.IOException class  <br>
+5.RuntimeException class  <br>
+etc
+</p>
+<h3>RuntimeException class</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+It is a child of exception class <br>
+It has several child classes.Few of them are as follows  <br>
+1.ArithmeticException <br>
+2.NullPointerException  <br> 
+3.ArrayIndexOutOfBoundsException  <br>
+4.NumberFormatException  <br>
+5.ClassCastException  <br>
+Except RuntimeException class, other child classes of Exception class are checked exceptions  <br>
+Exception class itself is checked exception  <br>
+RuntimeException class and all childs of this class are unchecked exceptions.
+</p>
+<h4>Putting Handler</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Source code of the program must have exception handler.This handler insert by you inside source code of the program. <br>
+Responsibility of this program-- <br>
+1.Catching exception  <br>
+2.Displaying exception message on screen.  <br>
+you will have to define following two block. <br>
+Use following two blocks to catch exception  <br>
+1.try block  <br>
+2.catch block  <br>
+</p>
+<h4>try block</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Inside this block, write those statements/commands that might throw exception
+</p>
+<code>
+try
+{
+    //statements/commands
+}   
+</code>
+<h4>catch block</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Declered argument of type crossponding exception class(Such as Airthmatic,filenotfound,Database,Arrayindex etc)  <br>
+Inside body of catch,write,command to display exception message.  <br>
+Just immediately after try block, write catch block as method  <br>
+</p>
+<code>
+catch(ExceptionClass ex)
+{
+    //command to display exception message
+}   
+</code>
+<p>Note:A try block can have multiple catch blocks.</p>
+<h4>finally block </h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+This block is optional.  <br>
+This block is always be executed wether exception is thrown or not and catch or not So Commands that must be executed in any condition, write inside this block.  <br>    
+</p>
+<code>
+    try {
+        // Code that may throw an exception
+    } catch (ExceptionType e) {
+        // Code to handle the exception
+    } finally {
+        // Code that will always execute
+    }
+    
+</code>
+<h1>Types of exceptions</h1>
+<p>
+Exceptions are divided into following two categories... <br>
+1.Checked exceptions <br>
+2.Unchecked exceptions 
+</p>
+<h3>Checked exceptions</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Precaution of these exception are not possible So putting exception handler(Try,catch) inside source code of the program must be mandatory.  <br>
+This is responsible of compiler to chek and extansion of handler not found then compiler will genrate error.  <br>
+Except Runtimeexception class and its child.  <br>
+Handling these exceptions are mandatory  <br>
+Compiler will check existense of handler(try and catch) inside source code of program.If not found then compiler will generate error.  <br>
+Exception class and all child classes(Except RuntimeException class and childs of RuntimeException class) of Exception class are checked exception  <br>
+These exceptions are also known as compile time exceptions 
+</p>
+<h3>Unchecked exceptions</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Precaution of these exception are  possible, So putting exception handler(Try,catch) inside source code of the program is not mandatory.  <br>
+Compiler will not chek existance of handler inside source code of the program.  <br>
+Handling these exceptions are not mandatory.Because precaution of these exceptions are possible  <br>
+RuntimeException class and all childs of RuntimeException class re unchecked exception  <br>
+These exceptions are also known as runtime exceptions
+</p>
+<h4>Example...create exception</h4>
+<pre>
+import java.util.Scanner;
+public class App 
+{
+public static void main(String[] args) 
+{
+System.out.println("Execution begins");
+Scanner sc=new Scanner(System.in);
+System.out.print("Enter first number:");
+int num1=sc.nextInt();
+System.out.print("Enter second number:");
+int num2=sc.nextInt();
+int res=num1/num2;
+System.out.println("Division result:"+res);
+res=num1*num2;
+System.out.println("Multiplication result:"+res);
+res=num1-num2;
+System.out.println("Subtraction result:"+res);
+res=num1+num2;
+System.out.println("Addition result:"+res);
+System.out.println("Execution ends");
+}
+}
+OUTPUT
+----------
+Execution begins
+Enter first number:10
+Enter second number:0
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+at App.main(App.java:12)
+</pre>
+<br>
+<pre>
+Example-exception-handling
+--------------------------------
+import java.util.Scanner;
+public class App 
+{
+public static void main(String[] args) 
+{
+System.out.println("Execution begins");
+Scanner sc=new Scanner(System.in);
+System.out.print("Enter first number:");
+int num1=sc.nextInt();
+System.out.print("Enter second number:");
+int num2=sc.nextInt();
+try
+{
+int res=num1/num2;
+System.out.println("Division result:"+res);
+}
+catch(ArithmeticException ex)
+{
+ex.printStackTrace();
+}
+int res=num1*num2;
+System.out.println("Multiplication result:"+res);
+res=num1-num2;
+System.out.println("Subtraction result:"+res);
+res=num1+num2;
+System.out.println("Addition result:"+res);
+System.out.println("Execution ends");
+}
+}
+OUTPUT
+-----------
+Execution begins
+Enter first number:10
+Enter second number:0
+java.lang.ArithmeticException: / by zero
+at App.main(App.java:14)
+Multiplication result:0
+Subtraction result:10
+Addition result:10
+Execution ends
+</pre>
+<br>
+<pre>
+Example-catching-exception
+--------------------------------
+public class App 
+{
+public static void main(String[] args) 
+{
+System.out.println("Execution begins");
+int num1=60;
+int num2=0;
+try
+{
+System.out.println("Try block executed...");
+int res=num1/num2;
+System.out.println(res);
+}
+catch(ArithmeticException ex)
+{
+System.out.println("Catch block executed...");
+System.out.println(ex);
+}
+System.out.println("Execution ends");
+}
+}
+OUTPUT
+-------------
+Execution begins
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+at App.main(App.java:12)
+</pre>
+<br>
+<pre>
+Example-exception-precation without using handler
+-----------------------------------------------------
+import java.util.Scanner;
+public class App 
+{
+public static void main(String[] args) 
+{
+System.out.println("Execution begins");
+Scanner sc=new Scanner(System.in);
+System.out.print("Enter first number:");
+int num1=sc.nextInt();
+System.out.print("Enter second number:");
+int num2=sc.nextInt();
+if(num2!=0)
+{
+int res=num1/num2;
+System.out.println("Division result:"+res);
+}
+else
+{
+System.out.println("Divide by 0 is not defined");
+}
+int res=num1*num2;
+System.out.println("Multiplication result:"+res);
+res=num1-num2;
+System.out.println("Subtraction result:"+res);
+res=num1+num2;
+System.out.println("Addition result:"+res);
+System.out.println("Execution ends");
+}
+}
+</pre>
+<br>
+<pre>
+Example=Exception-handling
+---------------------------
+public class VoterAgeException extends RuntimeException 
+{
+public VoterAgeException(String msg)
+{
+super(msg);//this keyword call parent class constructor,parent class in this class RuntimeException
+}
+}
+public class Voter
+{ 
+int age;
+public Voter(int age)
+{
+this.age=age;
+}
+public void registerVote()throws VoterAgeException
+{
+if(18>age)
+{
+//Creating exception
+VoterAgeException exception=new VoterAgeException("age:"+age+"not eligible");
+//throwing exception
+throw exception;
+}
+System.out.println("Register sucessfully");
+}
+}
+public class App
+{
+public static void main(String[] args)
+{
+Voter voter=new Voter(20);
+try
+{ 
+if(voter!=null)
+{ 
+voter.registerVote();
+}
+}
+catch(VoterAgeException ex)
+{
+System.out.println(ex);
+or
+ex.printStackTrace();
+or
+System.out.println(ex.getmessage());
+}
+}
+
+}
+OUTPUT
+-----------
+Register sucessfully  
+</pre>
+<br>
+<pre>
+Example exception catching-throwing same as before but this is better then before example
+------------------------------------------------------------------------------------------
+public class AgeException extends RuntimeException 
+{
+public AgeException(String msg)
+{
+super(msg);
+}
+}
+public class Voter 
+{
+private int age;
+public Voter(int age)
+{
+if(age< 18)
+{
+//Creating exception
+AgeException exception=new AgeException("Your age is less than 18");
+//Throwing exception
+throw exception;
+}
+this.age=age;
+}
+public void registerVote()
+{
+System.out.println("Thank you fore registerming your vote");
+}
+}
+public class VotingApp 
+{
+public static void main(String[] args) 
+{
+System.out.println("Voting starts");
+try
+{
+Voter voter=new Voter(17);
+voter.registerVote();
+}
+catch(AgeException ex)
+{
+System.out.println(ex);
+}
+System.out.println("Voting ends");
+}
+}
+OUTPUT
+-------
+Your age is less than 18
+</pre>
+<br>
+<pre>
+Example=multiple-catche-block
+----------------------
+public class App 
+{
+public static void main(String[] args) 
+{
+System.out.println("Execution begins");
+int []x= {60,20,30};
+int y=0;
+try
+{
+int res=x[4]/y;
+System.out.println(res);
+}
+catch(ArithmeticException ex)
+{
+System.out.println("ArithmetciException catch executed");
+System.out.println(ex);
+}
+catch(ArrayIndexOutOfBoundsException ex)
+{
+System.out.println("ArrayIndexOutOfBoundsException catch executed");
+System.out.println(ex);
+}
+System.out.println("Execution ends");
+}
+} 
+</pre>
+<br>
+<pre>
+Example=Execption-handling-with-finaly-block
+-----------------------------------------------
+public class App extends Exception
+{
+public static void main(String[] args)
+{
+System.out.println("connection open");
+try
+{
+System.out.println("try block execute");
+int[] x={10,20,30};
+int y=0;
+System.out.println(x[1]/y);
+return;
+}
+catch(ArithmeticException ex)
+{ 
+System.out.println("catch block execute");
+System.out.println(ex);
+}
+finally
+{
+System.out.println("finally block execute");
+System.out.println("connection close");
+}
+}
+}
+OUTPUT
+-------------
+connection open
+try block execute
+catch block execute
+java.lang.ArithmeticException: / by zero
+finally block execute
+connection close   
+</pre>
+<br>
+<pre>
+Example=Checked-Exception
+----------------------------------
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class App 
+{
+public static void main(String[] args) 
+{
+System.out.println("Execution begins");
+try
+{
+FileReader fr=new FileReader("aa.txt");
+System.out.println("Contents of the flie is loaded");
+}
+catch(FileNotFoundException ex)
+{
+System.out.println(ex);
+}
+System.out.println("Execution ends");
+}
+}
+OUTPUT
+---------
+Execution begins
+java.io.FileNotFoundException: aa.txt (The system cannot find the file specified)
+Execution ends
+</pre>
+<br>
+<pre>
+File reading with Exception use
+__________________________________
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class App 
+{
+public static void main(String[] args) 
+{
+try 
+{
+FileReader fr=new FileReader("aa.txt")
+//When a FileReader object is created, its constructor will be called, and the file will be loaded into memory.
+// The data from the file will be stored in a memory container, i.e., an object in the FileReader class.
+BuffereReader br=new BuffereReader(fr);
+String str=br.readLine();//readLine() is a BuffereReader class and this method read data
+while (str != null) 
+{
+System.out.println(str);
+str = br.readLine(); 
+}
+br.close();
+}
+catch (FileNotFoundException ex) {
+System.out.println("File not found: " + ex);
+} 
+catch (IOException ex) {
+System.out.println("IO Exception: " + ex);
+}
+}
+}
+</pre>
+<br>
+<pre>
+Throws-Statement
+----------------
+public class AA 
+{
+public AA()throws Exception
+{
+System.out.println("Constructor of class AA is executed");
+}
+public void show()throws Exception
+{
+System.out.println("Show method of class AA is executed");
+}
+}
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class App 
+{
+public static void main(String[] args) 
+{
+System.out.println("Execution begins");
+try
+{
+AA obj=new AA();
+obj.show();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+System.out.println("Execution ends");
+}
+}
+OUTPUT
+------------
+Execution begins
+Constructor of class AA is executed
+Show method of class AA is executed
+Execution ends
+</pre>
+<br>
+<pre>
+public class AA
+{
+public void show() throws RuntimeException
+{
+System.out.println("Welcome");
+}
+}
+public class BB extends AA
+{
+public void show() throws NullPointerException
+{
+System.out.println("Welcome");
+}
+public static void main(String[] args)
+{
+new BB().show();
+}
+}
+</pre>
+<br>
+<p>
+<b>
+Return=>Return is terminate main method but finally will also execute. <br>
+System.exit(0)=> This is static method and terminate the JVM.  <br>
+</b>
+</p>
+<h3>Throw</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Throw is used inside the body of a method.  <br>
+Throw is used to throw an exception. <br>
+Exception Object throw.  <br>
+The throw keyword is used to create and throw an exception object. <br>
+Inside a method or a block of code, when you need to signal an error or unexpected condition.  <br>
+Only one exception can be thrown at a time using throw 
+</p>
+<h3>Throws</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+The throws keyword is part of a method signature  <br>
+It informs the caller of the method that the method may throw specific checked exceptions  <br>
+Checked exceptions are exceptions that must be handled using a try-catch block or declared with throws.  <br>
+To handle checked exceptions like IOException, SQLException, etc. <br>
+throws only declares exceptions; it doesn't throw them. The actual exception is thrown using the throw keyword inside the method.  <br>
+Exception object forword caller.  <br>
+It is written inside protype of method or constructor  <br>
+This statement is responsible to forward checked exception(created and thrown by method or constructor) to the caller <br>
+Throws statement is mandatory for those methods and constructor that has command to create and throw checked exceptions
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+<body>
+<div>
+<h1>SQL(Structured query language)</h1>
+<p>
+SQL stands for structured query language  <br>
+By using this language we can write SQL statements/commands  <br>
+These statements/commands will be executed by database server  <br>
+Database server will give the result of these commands  <br>
+Client program can communicate with database server(MySql,Oracle,etc) by using SQL
+Client program will write SQL queries by using this language
+Client program will send these queries to the database server
+Database server will execute these queries
+Commands could be as follows-----------------<br>
+1.Command to create,drop,alter and use database  <br>
+2.Command to create,drop,alter tables  <br>
+3.Command to insert record into table  <br>
+4.Command to delete record from table  <br>
+5.Command to update record from table   <br>
+6.Command to select record from table  <br>
+etc
+</p>
+<p>
+<b>These commands are divided into following three categories</b> <br>
+1.DDL(Data definition language):crete table,alter table,drop table  <br>
+2.DML(Data manipulation language):insert record,delete record,update record  <br>
+3.DQL(Data query language):select record
+</p>
+<h3>Database</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+Datbase server manages database and keeps states of real-world entity as a record into table.Table is created into database
+Multiple tables can be created into database by database server
+Each table will have multiple columns
+Each column will have a name and data type
+</p>
+<h4>Command to create database</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>create database database_name</p>
+<h4>Command to drop database</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>drop database database_name</p>
+<h4>Command to use database</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>use database database_name</p>
+<h4>Command to display list of databases</h4> 
+<p>show databases</p>
+<h3>Table</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>Inside database multiple tables can be created
+    Records will be kept into these tables</p>
+<h4>Command to create table</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+In this command you will have to specify  <br>
+1.Name of table  <br>
+2.Column name and datatype  <br>
+3.null or not null   <br>
+4.Constraints(primary key,foreign key,check,unique,etc) on column <br>
+etc <br>
+Example..... <br>
+<b>create table employeeinfo(eid int primary key,firstname varchar(20) not null, lastname varchar(20),department varchar(30),salary int)</b>
+</p>
+<h4>Command to create table</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>create table employeeinfo(eid int primary key,firstname varchar(20) not null, lastname varchar(20),department varchar(30),salary int)</p>
+<h4>Command to drop table</h4>
+<p>drop table employeeinfo</p>
+<h4>Command to insert record </h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>insert into employeeinfo values(101,'Rajesh','Kumar','IT',50000); <br>
+  or <br>
+insert into employeeinfo(eid,firstname,lastname,department,salary) values(101,'Rajesh','Kumar','IT',50000); <br>
+or <br>
+insert into employeeinfo(eid,firstname,lastname,department,salary) values(101,'Rajesh','Kumar','IT',50000),(102,'Ramesh','Kumar','IT',60000),(103,'Raj','Kumar','IT',70000)
+</p>  
+<h4>Command to update record</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>update employeeinfo set salary=60000 where eid=101;  <br>
+    or  <br>
+update employeeinfo set lastname='Ahmad' where eid=111  <br>
+update employeeinfo set salary=salary+15000 where eid=101
+</p>
+
+<h4>Command to delete record</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>delete from employeeinfo where eid=101;  <br>
+    or  <br>
+delete from employeeinfo //It will delete all record <br>
+delete from employeeinfo where eid=1111
+</p>
+<h3>Select query</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+1.select eid,firstname,lastname,department,salary from employeeinfo  <br>
+or  <br>
+select * from employeeinfo  <br>
+2.select * from employeeinfo where eid=111  <br>
+3.select * from employeeinfo where department='Sales'  <br>
+4.select * from employeeinfo where salary>50000  <br>
+5.select * from employeeinfo where salary>=50000 and salary<=80000; <br>
+6.select * from employeeinfo where salary between 50000 and 80000; <br>
+7.select * from employeeinfo where department='Sales' or department='Marketing' or department='Training' <br>
+8)select * from employeeinfo where department in('Sales','Marketing','Training')  <br>
+9.select * from employeeinfo where department in('Sales','Marketing','Training') and salary>50000  <br>
+10.select * from employeeinfo where eid=102 or eid=103 or eid=108  <br>
+11.select * from employeeinfo where eid in(102,103,108)  <br>
+12.select * from employeeinfo where salary>70000  <br>
+13.select * from employeeinfo where department='Sales'   <br>
+14.select * from employeeinfo where department='Sales' and salary>70000  <br>
+15.select * from employeeinfo where salary>=50000 and salary<=70000  <br>
+16.select * from employeeinfo where salary is null  <br>
+17.select * from employeeinfo where salary is not null  <br>
+18.select * from employeeinfo where firstname like 'a%'  <br>
+19.select * from employeeinfo where firstname like '%a'  <br>
+20.select * from employeeinfo where firstname like '%a%'  <br>
+21.select * from employeeinfo where firstname like '_____' 
+</p>
+<h4>Automatic genrate table</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+create table employeeinfo(eid int primary key auto_increment,firstname varchar(20) not null, lastname varchar(20),department varchar(30),salary int) <br>
+or <br>
+CREATE TABLE employees (id INT PRIMARY KEY AUTO_INCREMENT,name VARCHAR(100),salary DECIMAL(10,2));
+</p>
+<h1>JDBC(Java Database Connectivity)</h1>
+It is an API(Specially methods)  <br>
+Our program will call this API to connect to the database server(such as MySql,Oracle,MS-SQL server,DB2.etc) and execute SQL queries. <br>
+This API is made by both java vendors and database server vendors.Prototype of these methods(API) are developed by java vendors and 
+implementation of these methods are provided by database server vendors.These methods are declared inside interfaces by java vendors.
+<h3>Interfaces by java vendors</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+1.Driver interface  <br>
+2.Connection interface  <br>
+3.Statement interface  <br>
+4.PreparedStatement interface  <br>
+5.CallableStatement interface <br>
+6.ResultSet interface  <br>
+etc  <br>
+java.sql package contains these interfaces.  <br>
+Implementation of these interfaces are given by database server vendors
+</p>
+<h4>database server vendors(Steps to connect and execute query)</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+1.Load driver class  <br>
+2.Create connection object  <br>
+3.Create statement object <br>
+4.Execute SQL qeury  <br>
+5.Close connection
+</p>
+<h3>Driver class</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+Every driver class is an implementation of java.sql.Driver interface.Name of driver class will be given by
+database server vendors   
+</p>
+<code>public class MyDriver implements java.sql.Driver
+{
+}
+</code>
+<p>Driver interface has several methods.One of them is as follows- <br>
+<b>public Connection connect(String url,Peropties p)</b> <br>
+This method will be called to connect with database server <br>
+Code to call connect() method is already written   <br>
+This code is written inside <b>getConnection()</b> method of <b>java.sql.DriverManager</b> class  <br>
+Our program  will call getConnection() method of DriverManager class and getConnection() method will call connect() method of driver class. <br>
+Remember DriverManager class must have reference of object of driver class <br>
+This is responsiblity of our program to provide reference of driver class to the DriverManager class.
+</p>
+<h4 style="background-color: red;color: white; display: inline-block; border-radius: 2px;">Note</h4>
+<p>
+Every driver class on loading, creates an object of itslef and gives reference of this object to the DriverManager class"
+So our program must load driver class
+</p>
+<h4>Loading driver class</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+As we know, on loading, driver class creates an object of itself and gives reference of this object to the DriverManager class So our program must load driver class <br>
+Write following code to load driver class: <br>
+<b>Class.forName("com.mysql.cj.jdbc.Driver"); </b> <br>
+//forName is a static method of java.lang.Class class(object class) <br>
+//This method is responsible to load specified class into memory  <br>
+This code will load driver class and create an object of driver class and give reference of this object to the DriverManager class   
+</p>
+<h4>static block</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<code>
+We can define this block inside a class
+public class AA
+{
+static
+{
+//command
+}
+}
+This block is executed when class is loaded in memory   
+</code>
+<h3>Creating connection object</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+Object of Conection interface is called connection object  <br>
+connect() method of driver class is responsible to create object of Connection interface and return reference of this
+object to the called <br>
+Command to create connection object  <br>
+<b>Connection cn=DriverManager.getConnection("url of database","username","password");</b> <br>
+MySql database server url is as follows-- <br>
+jdbc:mysql://localhost:3306/jdbc2  <br>
+or  <br>
+jdbc:mysql://localhost:3306/jdbc2?createDatabaseIfNotExist=true <br>
+Username of MySql is root  <br>
+Password of root is you know it
+Don't forget to add jar file of MySql connector into project
+</p>
+<h4>Example</h4>
+<pre>
+//Don't forget to add jar file of MySql connector into project
+import java.sql.*;
+public class App 
+{
+public static void main(String[] args) 
+{
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc2","root","mysql");
+System.out.println("Connected...");
+cn.close();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}
+OUTPUT
+Connected...  
+</pre>
+<br>
+<h4>Creating statement object and executing SQL queries</h4>
+<p>Our program will create this object to call methods of Statement interface or PreparedStatement interface
+These methods will be responsible to execute SQL queries  <br>
+Inorder to execute SQL queries our program will call methods of the following interfaces.
+</p>
+<h3>Statement interface</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+Call methods of this interface when your program wants to execute SQL static query(non-parameterized queries).All DDL query are static select,delete,etc query without where are also static query. <br>
+Object of this interface must be created to call methods of this interface.  <br>
+//Command to create object of Statement interface  <br>
+Statement st=cn.createStatement();  <br>
+Statement interface has several methods.Few of them are as follows-- <br>
+1.public boolean execute(String query):Call this method to execute DDL query  <br>
+2.public int executeUpdate(String query):Call this method to execute DML query  <br>
+3.public ResultSet executeQuery(String query):Call this method to execute DQL query  <br>
+//Command to create object of Statement interface  <br>
+Statement st=cn.createStatement();  <br>
+//Command to execute DDL query  <br>
+create table productinfo(pid int primary key,name varchar(30),brand varchar(30),price int) <br>
+</p>
+<h4>Exaple</h4>
+<pre>
+////Don't forget to add jar file of MySql connector into project
+import java.sql.*;
+public class CreateTable 
+{
+public static void main(String[] args) 
+{
+try
+{
+//Code to load driver
+Class.forName("com.mysql.cj.jdbc.Driver");
+//Code to create connection object
+Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc2","root","mysql");
+System.out.println("Connected...");
+//code to create statement object
+Statement st=cn.createStatement();
+//Code to execute SQL query
+st.execute("create table productinfo(pid int primary key,name varchar(20),brand varchar(20),price int)");
+System.out.println("Table created...");
+//Code to close connection
+cn.close();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}
+OUTPUT
+Connected...
++-----------------+
+| Tables_in_jdbc2 |
++-----------------+
+| productinfo     |
++-----------------+
+Table created...  
+</pre>
+<br>
+<pre>
+public  class Jdbc
+{
+public static void main(String[] args)
+{
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection cn =DriverManager.getConnection("jdbc:mysql://localhost:3306/text2?createDatabaseIfNotExist=true","root","Linkedin@123");
+System.out.println("Connect");
+Statement st=cn.createStatement();
+st.execute("create table employeeinfo(eid int primary key,name varchar(225),department varchar(225),salary int)");
+System.out.println("Table created..");
+
+cn.close();
+}
+catch (Exception e) {
+e.printStackTrace();
+}
+}
+}
+</pre>
+<br>
+<pre>
+import java.sql.*;
+
+public class App3 
+{
+public static void main(String[] args) 
+{
+try
+{
+//Loading driver class
+Class.forName("com.mysql.cj.jdbc.Driver");
+//Creating connection object
+Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc10","root","mysql");
+//Creating statement object
+Statement st=cn.createStatement();
+//Execute SQL query
+st.executeUpdate("delete from productinfo");
+System.out.println("Records deleted...");
+//Closing connection
+cn.close();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}
+OUTPUT
+Records deleted...
+</pre>
+<h3>PreparedStatement interface</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+ Call methods of this interface when your program wants to execute SQL dyanamic query <br>
+insert,update,select with where,delete with where,etc query without where are also dynamic query  <br>
+Object of this interface must be created to call methods of this interface  <br>
+//Command to create object of PreparedStatement interface  <br>
+<b>PreparedStatement ps=cn.prepareStatement("query");</b> <br>
+PreparedStatement interface has several methods.Few of them are as follows  <br>
+1.public int executeUpdate():Call this method to execute DML query  <br>
+2.public ResultSet executeQuery():Call this method to execute DQL query
+</p>
+<pre>
+// before create a table after this query execute because this query insert data from created table
+import java.sql.*;
+public class InsertRecord 
+{
+public static void main(String[] args) 
+{
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc2","root","mysql");
+System.out.println("Connected...");
+PreparedStatement ps=cn.prepareStatement("insert into productinfo values(?,?,?,?)");
+ps.setInt(1,101);
+ps.setString(2,"Mouse");
+ps.setString(3,"Logitech");
+ps.setInt(4,1500);
+ps.executeUpdate();
+System.out.println("Record inserted");
+cn.close();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}
+OUTPUT
+Connected...
++-----+-------+----------+-------+
+| pid | name  | brand    | price |
++-----+-------+----------+-------+
+| 101 | mouse | Logitech |  1500 |
++-----+-------+----------+-------+
+Record inserted  
+</pre>
+<br>
+<pre>
+ 
+import java.sql.*;
+public  class Jdbc
+{
+public static void main(String[] args)
+{
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection cn =DriverManager.getConnection("jdbc:mysql://localhost:3306/text2?createDatabaseIfNotExist=true","root","Linkedin@123");
+System.out.println("Connect");
+//	  Statement st=cn.createStatement();
+// st.execute("create table employeeinfo(eid int primary key,name varchar(225),department varchar(225),salary int)");
+// System.out.println("Table created..");
+// st.executeUpdate("delete from employeeinfo");
+//  System.out.println("Records deleted...");
+PreparedStatement ps=cn.prepareStatement("insert into employeeinfo values(?,?,?,?)");
+ps.setInt(1,101);
+ps.setString(2,"Avinash");
+ps.setString(3,"IT");
+ps.setInt(4,1500);
+ps.executeUpdate();
+System.out.println("Record inserted");
+cn.close();
+}
+catch (Exception e) {
+e.printStackTrace();
+}
+}
+}
++-----+---------+------------+--------+
+| eid | name    | department | salary |
++-----+---------+------------+--------+
+| 101 | Avinash | IT         |   1500 |
++-----+---------+------------+--------+
+</pre>
+<br>
+<pre>
+//acept user data
+import java.sql.*;
+import java.util.Scanner;
+public class InsertRecord 
+{
+public static void main(String[] args) 
+{
+Scanner sc=new Scanner(System.in);
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc12","root","mysql");
+System.out.println("Connected...");
+PreparedStatement ps=cn.prepareStatement("insert into employeeinfo values(?,?,?,?)");
+System.out.print("Enter employee id:");
+String eid=sc.nextLine();
+ps.setString(1,eid);
+System.out.print("Enter employee name:");
+String name=sc.nextLine();
+ps.setString(2,name);
+System.out.print("Enter employee department:");
+String dept=sc.nextLine();
+ps.setString(3,dept);
+System.out.print("Enter employee salary:");
+String salary=sc.nextLine();
+ps.setString(4,salary);
+
+ps.executeUpdate();
+System.out.println("Record inserted");
+cn.close();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}   
+</pre>
+<br>
+<pre>
+//delete record 
+import java.sql.*;
+import java.util.Scanner;
+public class DeleteRecord 
+{
+public static void main(String[] args) 
+{
+Scanner sc=new Scanner(System.in);
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc12","root","mysql");
+System.out.println("Connected...");
+PreparedStatement ps=cn.prepareStatement("delete from employeeinfo where eid=?");
+
+System.out.print("Enter employee id:");
+String eid=sc.nextLine();
+ps.setString(1,eid);
+
+int n=ps.executeUpdate();
+if(n>=1)
+System.out.println("Record deleted");
+else
+System.out.println("Record does not exist");
+cn.close();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}
+
+</pre>
+<h3>Executing select query</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+Call following method of Statement or PreparedStatement interface to execute select query  <br>
+public ResultSet executeQuery(String query):It is a method of Statement interface  <br>
+public ResultSet executeQuery():It is a method of PreparedStatement interface
+</p>
+<h3>ResultSet interface</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+As we can see, return type of executeQuery() method is ResultSet interface.  <br>
+executeQuery() method creates an object of this interface and keeps resultset(set of records given by database server) 
+into this object and returns reference of this object to the caller.  <br>
+Our program(caller) can fetch data from this object by calling getter method of ResultSet interface
+</p>
+<h3>executeQuery()</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+The executeQuery() method, which belongs to the ResultSet interface, is responsible for sending the SQL query passed to it 
+the database server. Once the query is processed, the database server returns a result. This result is stored in a ResultSet object,
+and a reference to this object is given back to the caller.
+Statement st=cn.createStatement();
+ResultSet rst=st.executeQuery("select * from employeeinfo");
+PreparedStatement ps=cn.prepareStatement("select * from employeeinfo where eid=?");
+ResultSet rst=ps.executeQuery();  
+</p>
+<pre>
+import java.sql.*;
+public class SelectRecord 
+{
+public static void main(String[] args) 
+{
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc2","root","Linkedin@123");
+System.out.println("Connected...");
+Statement st=cn.createStatement();
+ResultSet rst=st.executeQuery("select * from employeeinfo");
+//Fetching data from resultset object
+while(rst.next())
+{
+System.out.println("Employee id:"+rst.getString(1));
+System.out.println("Employee name:"+rst.getString(2));
+System.out.println("Employee dept:"+rst.getString(3));
+System.out.println("Employee salary:"+rst.getString(4));
+System.out.println("------------------------");
+}
+cn.close();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}
+OUTPUT
+Connected...
+Employee id:101
+Employee name:Aviansh
+Employee dept:IT
+Employee salary:35000
+---------------------------------
+Employee id:102
+Employee name:Avh
+Employee dept:IT
+Employee salary:50000
+---------------------------------
+Employee id:103
+Employee name:Av
+Employee dept:IT
+Employee salary:45000
+---------------------------------   
+</pre>
+<br>
+<pre>
+import java.sql.*;
+import java.util.Scanner;
+public class SelectRecord5 
+{
+public static void main(String[] args) 
+{
+Scanner sc=new Scanner(System.in);
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc2","root","Linkedin@123");
+System.out.println("Connected...");
+PreparedStatement ps=cn.prepareStatement("select * from employeeinfo where eid=?");
+System.out.print("Enter employee id:");
+int eid=sc.nextInt();
+ps.setInt(1,eid);
+ResultSet rst=ps.executeQuery();
+if(rst.next())
+{
+System.out.println("Employee id:"+rst.getString(1));
+System.out.println("Employee name:"+rst.getString(2));
+System.out.println("Employee dept:"+rst.getString("department"));or(3));
+System.out.println("Employee salary:"+rst.getString(4));
+}
+else
+{
+System.out.println("Record not found");
+}
+cn.close();
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}
+OUTPUT
+Connected...
+Enter employee id:101
+Employee id:101
+Employee name:Aviansh
+Employee dept:IT
+Employee salary:35000  
+</pre>
+<h3>Moving cursor</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+As we know every resultset object maintains a cursor which is initially positioned just before the first record(at index -1)  <br>
+Inorder to fetch any record/data from this object we will have to place cursor on that record  <br>
+We can call one of following methods of ResultSet interface to move cursor <br>
+1.public boolean first()  <br>
+2.public boolean next()  <br>
+3.public boolean previous()  <br>
+4.public boolean last()  <br>
+5.public boolean relative(int n) <br>
+6.public boolean absolute(int n)  <br>
+etc <br>
+Every resultset object is bydefault forward only so you can call only next() method in that case.Other methods will not perform task. <br>
+Inorder to call other methods you will have to make scrollable resultset object. <br>
+<b>ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE</b>
+</p>
+<h4>Relative(int n)</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+If the cursor is currently at position 3 and n=4 is given, the cursor will move to position 7 (3 + 4). It shifts the cursor by n positions from its current location.
+</p>
+<h4>Absolute(int n)</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+If n=2 is given, the cursor will move directly to position 2, starting from the beginning, regardless of its current position.
+</p>
+<h3>Note Sortcut</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+Step1=>Create a table;  <br>
+Statement st=cn.createStatement();  <br>
+st.execute("create a table productinfo(pid int primary,name varchar(20),brand varchar(20),price int)");  <br>
+Step2=>insert a record into table;  <br>
+PreparedStatement ps=cn.preparedStatement("insert into productinfo values(101,"Avinash","IT",4000)");  <br>
+ps.executeUpdate();  <br>
+Step3=>record shows inside a table;  <br>
+Statement st=cn.createStatement();  <br>
+Rsultset Rst=st.cn.executequery("select * from productinfo");  <br>
+if(Rst.next())  <br>
+{  <br>
+System.out.println("found");  <br>
+}  <br>
+else  <br>
+{  <br>
+System.out.println("NOt found");  <br>
+}     <br>
+</p>
+</div>  
+</body>
+</html>

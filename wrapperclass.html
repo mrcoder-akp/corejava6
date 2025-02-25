@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div>
+<p>
+By using Wrapper class we can convert a primitive datatype value into object form. <br>
+Wrapper classes in Java are used to convert primitive data types (like int, double, etc.) into objects. <br>
+They are part of the <span class="highlight">java.lang package</span> and provide a way to use primitives as objects when needed. <br>
+Each primitive datatype a wrapper class is given.  <br>
+Used in collections like ArrayList, where primitives cannot be stored directly.
+</p>
+<center>
+<table  style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+<tr>
+<th style="border: 5px solid black; padding: 5px;">Primitive Datatype</th>
+<th style="border: 5px solid black; padding: 5px;">Wrapper Class</th>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">byte</td>
+<td style="border: 5px solid black; padding: 5px;">Byte</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">short</td>
+<td style="border: 5px solid black; padding: 5px;">Short</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">int</td>
+<td style="border: 5px solid black; padding: 5px;">Integer</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">long</td>
+<td style="border: 5px solid black; padding: 5px;">Long</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">float</td>
+<td style="border: 5px solid black; padding: 5px;">Float</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">double</td>
+<td style="border: 5px solid black; padding: 5px;">Double</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">boolean</td>
+<td style="border: 5px solid black; padding: 5px;">Boolean</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">char</td>
+<td style="border: 5px solid black; padding: 5px;">Character</td>
+</tr>
+</table>    
+</center>
+<p>
+Super class of these classes are <span class="highlight">Number Class</span> <br>
+Number class is abstract class because this class is not need instantiation only this class inherit child class. <br>
+Number class is abstract super class of all classes <br>
+Java.lang package contain these classes.</p>
+<h3>Boxing</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>Creating an object of wrapper class to keep data into it is called boxing. <br>
+<code>Integer num1=new Integer(90);</code> </p>
+<h3>AutoBoxing</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>Creating object of wrapper class automatically to keep data into it is called auto-boxing <br>
+   <code> Integer num1=90;</code>
+    </p>
+<h3>Auto-Unboxing</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>Converting object of wrapper class into primitive datatype is called auto-unboxing <br>
+<code>
+Integer num1= new Integer(90);
+System.out.println(num1);
+int num2=num1.intValue();
+System.out.println(num2);
+OUTPUT
+90 
+</code>    
+<h3>Utility Methods</h3>
+<p>
+Wrapper classes provide many utility methods, such as parsing strings into primitives or vice versa. <br>
+Wrapper classes provide methods like parseInt(), valueOf(), etc.</p>
+<code>
+String str = "123";
+int num = Integer.parseInt(str); // Converts string to int
+Converting String to Primitive
+int num = Integer.parseInt("123");
+double dbl = Double.parseDouble("45.67");
+Converting Primitive to String:
+String str = Integer.toString(123);
+String str2 = Double.toString(45.67);
+</code>
+<h4>Create a wrapper class self</h4>
+<pre>
+public class a MyInteger
+{
+private int value;
+public MyInteger()
+{
+this.value=value;
+}
+public String toString()
+{
+return String.Valueof(value);
+}
+public int intValue()
+{
+returm vlaue;
+}
+}
+
+public class App
+{
+public static void main(String[] args)
+{
+MyInteger num1=new MyInteger(90)
+System.out.println(num1);
+int num2=num1.intValue()
+System.out.println(num2);
+}
+}   
+</pre>
+</div>
+</body>
+</html>

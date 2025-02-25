@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div>
+<p>
+It is one of the way to achieve multitasking
+Performing more than one tasks simutaneously is called multitasking.
+Multithreading means running multiple threads at the same time.
+It allows a program to perform multiple tasks simultaneously, making it faster and more efficient
+All server are multitasking
+We can devloped multitasking application by using multithreding.
+Multitasking application/program creates and starts more than one thread at a time(per task one thread)
+Multithreading in Java is a way to execute multiple tasks (threads) simultaneously within a single program. Here's a step-by-step explanation in simple terms:
+</p>
+<h3>Thread</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+It is a smallest unit of processing.  <br>
+In java, every thread is represented in the form of object and has responsibility to execute run() method. <br>
+run() is method of runable interface.  <br>
+you will have to provide implimantation/body of run() method in a class(By overriding run() method inside this class)  <br>
+That object is created by our program either from Thread class or from child of Thread class  
+</p>
+<h3>Thread-Class</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+Thread class is a predefined class in java.  <br>
+It is used to create and start a thread.  <br>
+This class is implimantion of Runable interface.
+This class has property of thread as well as it has run() method also every thread object(create by your program) must have property of thread.  <br>
+This object get thread property from thread class.
+</p>
+<h3>public void run()</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+It is a method of Runnable interface  <br>
+We need to provide implementation/body of this method in a class.  <br>
+Thread class has already implemented Runnable interface and overridden run() method <br> 
+We can provide implementation of this method by following two ways <br>
+1By implementing Runnable interface  <br>
+2.By extending Thread class
+</p>
+<h3>By implementing Runnable interface</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<code>
+public class Task implements Runnable
+{
+public void run()
+{
+//code to perform task by thread
+}
+}
+</code>
+<h3>By extending Thread class</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<code>
+public class Task extends Thread
+{
+public void run()
+{
+//code to perform task by thread
+}
+}
+</code>
+<h3>Main Thread in Java</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+Every Java program starts with a main thread (the one that executes the main() method).  <br>
+You can create additional threads to run alongside the main thread.
+</p>
+<h3>Why use Multithreading</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+To perform multiple tasks simultaneously.  <br>
+To improve performance and resource utilization.  <br>
+To make applications like games, chat apps, and multimedia programs more responsive.
+</p>
+<center>
+<table  style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+<thead>
+<tr>
+<th style="border: 5px solid black; padding: 5px;">Method</th>
+<th style="border: 5px solid black; padding: 5px;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">start()</td>
+<td style="border: 5px solid black; padding: 5px;">Starts the thread and calls the run() method.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">run()</td>
+<td style="border: 5px solid black; padding: 5px;">Contains the code that the thread executes.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">sleep(ms)</td>
+<td style="border: 5px solid black; padding: 5px;">Puts the thread to sleep for a specified time.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">join()</td>
+<td style="border: 5px solid black; padding: 5px;">Waits for a thread to finish execution.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">getName()</td>
+<td style="border: 5px solid black; padding: 5px;">Returns the name of the thread.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">setName(name)</td>
+<td style="border: 5px solid black; padding: 5px;">Sets the name of the thread.</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">isAlive()</td>
+<td style="border: 5px solid black; padding: 5px;">Checks if the thread is still running.</td>
+</tr>
+</tbody>
+</table>
+</center>
+<h3>Advantages of Multithreading</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+It doesn't block the user interface.  <br>
+It allows multiple tasks to run simultaneously.  <br>
+It improves the performance of the application.  <br>
+It makes the application more responsive.  <br>
+It utilizes resources efficiently.
+</p>
+<h4>Example..</h4>
+<pre>
+//Creating thread by using Runnable interface
+
+public class Task impliments Runnable//impliment Runnable interface
+{
+public void run()
+{
+System.out.println("Task..Perfrom");
+}
+public class App
+{
+public static void main(String[] args) {
+Task task = new Task();
+Thread th = new Thread(task);
+th.start();
+}
+}
+}
+OUTPUT
+--------
+Task..Perfrom    
+</pre>
+<h3 style="background-color: rgb(255, 0, 0); color: white; display: inline-block;">NOTE Explain Deeply</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0; border-radius: 2px;">
+<p>
+When creating a Thread object, you need to pass a reference to your class's object (e.g., Task object) to the Thread constructor. <br>
+This is because your class (Task) implements the Runnable interface and provides its own run() method. <br>
+If you don't pass your class's object, the thread will not know about your run() method and will execute the default run() method of  the Runnable interface, which does nothing. By implementing Runnable, you define what the thread should do when it runs, and passing  the object to the thread ensures that your run() method is executed.
+</p>
+<pre>
+//Creating a thread by thread class
+
+public class Task extends Threads
+{
+public void run()
+{
+System.out.println("Task..Perform")
+}
+}
+public class App
+{
+public static void main(String[] args)
+{
+Task task=new Task();
+task.start();
+}
+}  
+</pre>
+<p>
+If the spelling of the run() method is incorrect, the parent thread's run() method will be called because the child class override the run() method.  <br>
+However, when implementing the Runnable interface, if the run() method's spelling is wrong, the compiler will give an error.  <br>
+This happens because the Runnable interface requires the correct run() method to be implemented, and the compiler checks for it.
+</p>
+<h3>Unsyncronized method</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<pre>
+Multithreding by Runnable interface
+------------------------------------
+public class TableThread implements Runnable
+{
+private int num;
+public TableThread(int num)
+{
+this.num=num;
+}
+public void run()
+{
+for(int ctr=1;ctr<=10;ctr++)
+{
+int res=num*ctr;
+System.out.println(num+"*"+ctr+"="+res);
+}
+}
+}
+public class App 
+{
+public static void main(String[] args) 
+{
+//Creating thread
+Thread th1=new Thread(new TableThread(9));
+Thread th2=new Thread(new TableThread(12));
+Thread th3=new Thread(new TableThread(28));
+//Starting thread
+th1.start();
+th2.start();
+th3.start();
+}
+}
+OUTPUT
+-------
+12*1=12
+9*1=9
+28*1=28
+12*2=24
+9*2=18
+28*2=56
+12*3=36
+12*4=48
+9*3=27
+28*3=84
+12*5=60
+9*4=36
+28*4=112
+12*6=72
+*
+*
+*   
+</pre>
+<br>
+<pre>
+public class AA
+{
+public void show()
+{
+for(int c=65;c<=90;c++)
+{
+System.out.println((char)c);
+try
+{
+Thread.sleep(1000);
+}
+catch(Exception ex)
+{  
+System.out.println(ex);
+}
+}
+}
+}
+public class Mythread extends Thread
+{
+private AA ref;
+public Mythread(AA ref)
+{
+this.ref=ref;
+}
+public void run()
+{
+ref.start()
+}
+}
+public class App 
+{
+public static void main(String[] args) 
+{
+AA obj = new AA();
+Mythread th1 = new Mythread(obj);
+Mythread th2 = new Mythread(obj);
+Mythread th3 = new Mythread(obj);
+th1.start();
+th2.start();
+th3.start();
+}
+}
+
+OutPut
+---------
+A
+A
+A
+B
+B
+B
+C
+C
+C    
+</pre>
+<br>
+<h3>synchronized method</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<pre>
+>>To make a method synchronized, you need to add the synchronized keyword to it.
+
+public class AA
+{
+public  synchronized void show()
+{
+for(int c=65;c<=90;c++)
+{
+System.out.println((char)c);
+try
+{ 
+Thread.sleep(1000);
+}
+catch(Exception ex)
+{
+System.out.println(ex);
+}
+}
+}
+}
+class Mythread extends Thread
+{
+private AA ref;
+public Mythread(AA ref)
+{
+this.ref=ref;
+}
+public void run()
+{
+ref.show();
+}
+}
+public class App 
+{
+public static void main(String[] args) 
+{
+AA obj = new AA();
+Mythread th1 = new Mythread(obj);
+Mythread th2 = new Mythread(obj);
+Mythread th3 = new Mythread(obj);
+th1.start();
+th2.start();
+th3.start();
+}
+}
+OUTPUT
+---------
+A
+B
+C
+D
+E
+F
+G
+</pre>
+<h3>Thread.currentThread().getName()</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>
+The statement (Thread.currentThread().getName()) is used in multithreading to print the name of the currently executing thread.  <br>
+Let me break it down step by step with a simple example for better understanding:  <br>
+This returns a reference to the currently executing thread.  
+</p>
+<pre>
+public class ThreadExample implements Runnable 
+{
+public void run() 
+{
+System.out.println(Thread.currentThread().getName() + " is running");
+}
+public static void main(String[] args) 
+{
+ThreadExample example = new ThreadExample();
+
+Thread thread1 = new Thread(example, "Thread-1");
+Thread thread2 = new Thread(example, "Thread-2");
+Thread thread3 = new Thread(example, "Thread-3");
+
+thread1.start();
+thread2.start();
+thread3.start();
+
+System.out.println(Thread.currentThread().getName() + " is running");
+}
+}
+OUTPUT
+----------
+Thread-1 is running
+main is running
+Thread-2 is running
+Thread-3 is running  
+</pre>
+<br>
+<h3 style="background-color: rgb(255, 0, 0); color: white; display: inline-block;">NOTE Explain Deeply</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0; border-radius: 2px;">
+<p>
+The JVM has its own thread called the main thread, which is responsible for running the main() method.  <br>
+But in our program, there can be other threads as well. To make them run, we need to call the start() 
+method. However, calling the start() method doesn't make the thread run immediately. <br>
+When we call start(), it sends the thread to the Thread Scheduler, which decides which thread will run 
+first and which one will get CPU time later. The thread that gets CPU time first will start running, and
+the main() thread waits for its turn. The main() thread usually runs first and last, while the other threads run in between.  <br>
+In short, the Thread Scheduler decides the order in which threads get CPU time, and the main() thread typically runs first and last in the process.
+</p>
+<h4>If you want the main thread to complete its work first, you can use the join() method.</h4>
+<pre>
+public class ThreadExample implements Runnable 
+{
+public void run() 
+{
+System.out.println(Thread.currentThread().getName() + " is running");
+}
+public static void main(String[] args) 
+{
+ThreadExample example = new ThreadExample();
+Thread thread1 = new Thread(example, "Thread-1");
+Thread thread2 = new Thread(example, "Thread-2");
+Thread thread3 = new Thread(example, "Thread-3");
+thread1.start();
+thread2.start();
+thread3.start();
+try {
+thread1.join(); 
+thread2.join();
+thread3.join();
+} 
+catch (InterruptedException e) 
+{
+e.printStackTrace();
+}
+
+System.out.println(Thread.currentThread().getName() + " is running");
+}
+}
+OUTPUT
+----------
+Thread-1 is running
+Thread-2 is running
+Thread-3 is running
+main is running  
+</pre>
+<br>
+<h3>Join() in Thread</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0; border-radius: 2px;">
+<p>
+The join() method in Java is used to ensure that the main thread waits for other threads to complete their execution
+before it continues further. Here's why and how it works: <br>
+Thread Lifecycle Management:---  <br>
+When you start a thread using Thread.start(), it runs concurrently with the main thread.  <br>
+If you want to ensure that the main thread waits for the newly started thread to finish its task, you use join(). <br>
+Blocking Behavior:--  <br>
+The join() method causes the current thread (e.g., the main thread) to pause execution and wait until the thread on which join() was called completes.  <br>
+Sequential Execution:--  <br>
+Without join(), threads may execute independently and finish at different times, causing potential inconsistency
+in results if the main thread proceeds without waiting.  <br> 
+When join() is called on a thread (e.g., t1.join()):  <br>
+The main thread (or any thread calling join()) moves to a waiting state.  <br>
+It waits until the thread t1 finishes its run() method and terminates. <br>
+Once the target thread (t1) completes:  <br>
+The main thread resumes its execution.
+</p>
+<h3>Without Join()</h3>
+<hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0; border-radius: 2px;">
+<pre>
+public class WithoutJoinExample 
+{
+public static void main(String[] args) 
+{
+Thread t1 = new Thread(() -> {
+System.out.println("Thread 1 is running");
+try {
+Thread.sleep(1000); // Simulate some work
+} catch (InterruptedException e) {
+e.printStackTrace();
+}
+System.out.println("Thread 1 finished");
+});
+
+t1.start();
+
+// Main thread continues immediately without waiting for t1 to finish
+System.out.println("Main thread finished");
+}
+}
+OUTPUT
+Thread 1 is running
+Thread 1 finished
+Main thread finished
+</pre>
+<br>
+<h3>With Join()</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0; border-radius: 2px;">
+<pre>
+public class WithJoinExample 
+{
+public static void main(String[] args) 
+{
+Thread t1 = new Thread(() -> {
+System.out.println("Thread 1 is running");
+try {
+Thread.sleep(1000); // Simulate some work
+} catch (InterruptedException e) {
+e.printStackTrace();
+}
+System.out.println("Thread 1 finished");
+});
+
+t1.start();
+
+try {
+t1.join(); // Main thread waits for t1 to finish
+} catch (InterruptedException e) {
+e.printStackTrace();
+}
+
+System.out.println("Main thread finished");
+}
+}
+OUTPUT
+Thread 1 is running
+Thread 1 finished
+Main thread finished
+</pre>
+</div>
+</body>
+</html>
