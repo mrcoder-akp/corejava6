@@ -1,0 +1,24 @@
+/* App Open Hone Par 3D Effect Icon */
+.app-icon {
+    width: 100px; /* Icon Size */
+    height: 100px;
+    border-radius: 20px; /* Smooth Corners */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Shadow */
+    backdrop-filter: blur(10px); /* Background Blur */
+    animation: openAppEffect 0.6s ease-in-out;
+}
+
+/* 3D Effect Animation */
+@keyframes openAppEffect {
+    0% {
+        transform: scale(0.5) rotateX(30deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotateX(10deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotateX(0deg);
+    }
+}
