@@ -141,52 +141,67 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-// ✅ Check network status when the page loads
-window.addEventListener("load", () => {
-  checkInternet();
-});
+// ✅ Page Load Par Internet Check Karega
+window.addEventListener("load", checkInternet);
 
-// ✅ Listen for network changes
+// ✅ Internet Status Change Hone Par Listen Karega
 window.addEventListener("online", () => {
-  showAlert("✅ You are back online!", "green");
+  showAlert("✅ Back online!", "green");
 });
 
 window.addEventListener("offline", () => {
-  showAlert("❌ No Internet Connection!", "red");
+  showAlert("❌ Connection Lost!", "red");
 });
 
-// ✅ Function to check internet status
+// ✅ Internet Speed Check Function
 function checkInternet() {
-  if (!navigator.onLine) {
-      showAlert("❌ No Internet Connection!", "red");
-  }
+  const image = new Image();
+  const startTime = new Date().getTime();
+  
+  image.onload = function () {
+    const endTime = new Date().getTime();
+    const duration = endTime - startTime;
+    
+    if (duration > 3000) {
+      showAlert("⚠️ Your net is slow, please wait...", "orange");
+    }
+  };
+
+  image.onerror = function () {
+    showAlert("❌ Connection Lost!", "red");
+  };
+
+  // Google se small image load karenge
+  image.src = "https://www.google.com/images/phd/px.gif?" + new Date().getTime();
 }
 
-// ✅ Function to show alert
+// ✅ Alert Box Function
 function showAlert(message, color) {
   let alertBox = document.getElementById("networkAlert");
 
   if (!alertBox) {
-      alertBox = document.createElement("div");
-      alertBox.id = "networkAlert";
-      alertBox.style.position = "fixed";
-      alertBox.style.top = "10px";
-      alertBox.style.left = "50%";
-      alertBox.style.transform = "translateX(-50%)";
-      alertBox.style.background = color;
-      alertBox.style.color = "white";
-      alertBox.style.padding = "10px 20px";
-      alertBox.style.borderRadius = "5px";
-      alertBox.style.zIndex = "1000";
-      document.body.appendChild(alertBox);
+    alertBox = document.createElement("div");
+    alertBox.id = "networkAlert";
+    alertBox.style.position = "fixed";
+    alertBox.style.top = "10px";
+    alertBox.style.left = "50%";
+    alertBox.style.transform = "translateX(-50%)";
+    alertBox.style.background = color;
+    alertBox.style.color = "white";
+    alertBox.style.padding = "10px 20px";
+    alertBox.style.borderRadius = "5px";
+    alertBox.style.zIndex = "1000";
+    alertBox.style.fontSize = "16px";
+    document.body.appendChild(alertBox);
   }
 
   alertBox.innerText = message;
   alertBox.style.display = "block";
 
-  // Hide alert after 3 seconds
+  // 3 sec ke baad alert hide ho jayega
   setTimeout(() => {
-      alertBox.style.display = "none";
+    alertBox.style.display = "none";
   }, 3000);
 }
+
 
