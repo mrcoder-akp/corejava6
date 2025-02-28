@@ -233,3 +233,15 @@ window.addEventListener("beforeunload", (event) => {
     alert("❌ No Internet! You can't refresh the page offline.");
   }
 });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+      document.getElementById("app-splash").style.opacity = "0";
+      setTimeout(() => {
+          document.getElementById("app-splash").style.display = "none";
+      }, 500); // Smooth Hide Effect
+  }, 3000); // 3 Seconds Tak Show Hoga
+});
+

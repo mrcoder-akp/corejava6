@@ -1,24 +1,40 @@
-/* App Open Hone Par 3D Effect Icon */
-.app-icon {
-    width: 100px; /* Icon Size */
-    height: 100px;
-    border-radius: 20px; /* Smooth Corners */
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Shadow */
-    backdrop-filter: blur(10px); /* Background Blur */
-    animation: openAppEffect 0.6s ease-in-out;
+/* Fullscreen Icon with Blur */
+#app-splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* Dark Transparent Background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px); /* Blur Effect */
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* App Icon 3D Effect */
+#app-splash img {
+    width: 120px; /* Adjust Size */
+    max-width: 150px;
+    border-radius: 20px; /* Rounded Corners */
+    transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) scale(1);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5); /* Shadow Effect */
+    animation: splashEffect 0.8s ease-in-out;
 }
 
 /* 3D Effect Animation */
-@keyframes openAppEffect {
+@keyframes splashEffect {
     0% {
-        transform: scale(0.5) rotateX(30deg);
+        transform: perspective(1000px) rotateX(30deg) scale(0.5);
         opacity: 0;
     }
     50% {
-        transform: scale(1.1) rotateX(10deg);
+        transform: perspective(1000px) rotateX(10deg) scale(1.1);
         opacity: 1;
     }
     100% {
-        transform: scale(1) rotateX(0deg);
+        transform: perspective(1000px) rotateX(0deg) scale(1);
     }
 }
