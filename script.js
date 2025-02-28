@@ -140,4 +140,53 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////
+// ✅ Check network status when the page loads
+window.addEventListener("load", () => {
+  checkInternet();
+});
+
+// ✅ Listen for network changes
+window.addEventListener("online", () => {
+  showAlert("✅ You are back online!", "green");
+});
+
+window.addEventListener("offline", () => {
+  showAlert("❌ No Internet Connection!", "red");
+});
+
+// ✅ Function to check internet status
+function checkInternet() {
+  if (!navigator.onLine) {
+      showAlert("❌ No Internet Connection!", "red");
+  }
+}
+
+// ✅ Function to show alert
+function showAlert(message, color) {
+  let alertBox = document.getElementById("networkAlert");
+
+  if (!alertBox) {
+      alertBox = document.createElement("div");
+      alertBox.id = "networkAlert";
+      alertBox.style.position = "fixed";
+      alertBox.style.top = "10px";
+      alertBox.style.left = "50%";
+      alertBox.style.transform = "translateX(-50%)";
+      alertBox.style.background = color;
+      alertBox.style.color = "white";
+      alertBox.style.padding = "10px 20px";
+      alertBox.style.borderRadius = "5px";
+      alertBox.style.zIndex = "1000";
+      document.body.appendChild(alertBox);
+  }
+
+  alertBox.innerText = message;
+  alertBox.style.display = "block";
+
+  // Hide alert after 3 seconds
+  setTimeout(() => {
+      alertBox.style.display = "none";
+  }, 3000);
+}
 
