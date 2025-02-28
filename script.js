@@ -142,7 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // ✅ Page Load Par Internet Check Karega
-window.addEventListener("load", checkInternet);
+// ✅ Page Load Par Internet Check Karega
+window.addEventListener("load", () => {
+  if (!navigator.onLine) {
+    showAlert("❌ Connection Lost!", "red");
+  } else {
+    checkInternet(); // ✅ Slow Net Check Karega
+  }
+});
 
 // ✅ Internet Status Change Hone Par Listen Karega
 window.addEventListener("online", () => {
@@ -175,7 +182,7 @@ function checkInternet() {
   image.src = "https://www.google.com/images/phd/px.gif?" + new Date().getTime();
 }
 
-// ✅ Alert Box Function
+// ✅ Alert Box Function (Transparent Blur)
 function showAlert(message, color) {
   let alertBox = document.getElementById("networkAlert");
 
@@ -186,22 +193,34 @@ function showAlert(message, color) {
     alertBox.style.top = "10px";
     alertBox.style.left = "50%";
     alertBox.style.transform = "translateX(-50%)";
-    alertBox.style.background = color;
-    alertBox.style.color = "white";
-    alertBox.style.padding = "10px 20px";
-    alertBox.style.borderRadius = "5px";
+    alertBox.style.padding = "12px 24px";
+    alertBox.style.borderRadius = "10px";
     alertBox.style.zIndex = "1000";
     alertBox.style.fontSize = "16px";
+    alertBox.style.fontWeight = "bold";
+    alertBox.style.textAlign = "center";
+    alertBox.style.width = "auto";
+    alertBox.style.maxWidth = "300px";
+    alertBox.style.backdropFilter = "blur(15px)";
+    alertBox.style.boxShadow = "0px 4px 15px rgba(0, 0, 0, 0.2)";
     document.body.appendChild(alertBox);
   }
 
+  const colors = {
+    green: "rgba(0, 128, 0, 0.3)",
+    red: "rgba(255, 0, 0, 0.3)",
+    orange: "rgba(255, 165, 0, 0.3)"
+  };
+
   alertBox.innerText = message;
+  alertBox.style.background = colors[color] || "rgba(0, 0, 0, 0.3)";
+  alertBox.style.color = "white";
   alertBox.style.display = "block";
 
-  // 3 sec ke baad alert hide ho jayega
-  setTimeout(() => {
-    alertBox.style.display = "none";
-  }, 3000);
+  // ✅ Hide alert after 3 seconds (Lekin agar connection lost hai to nahi)
+  if (color !== "red") {
+    setTimeout(() => {
+      alertBox.style.display = "none";
+    }, 3000);
+  }
 }
-
-
