@@ -224,3 +224,12 @@ function showAlert(message, color) {
     }, 3000);
   }
 }
+
+// ✅ Page Refresh Hone Par Internet Check Karega
+window.addEventListener("beforeunload", (event) => {
+  if (!navigator.onLine) {
+    event.preventDefault();
+    event.returnValue = ""; // Browser ko rokne ke liye
+    alert("❌ No Internet! You can't refresh the page offline.");
+  }
+});
