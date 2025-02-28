@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div>
+ <p>
+It is also a structure in java like class <br>
+Like class we can define variables and methods inside interface  <br>
+Variables inside interface will be by default public static and final  <br>
+Abstract method can also define inside interface All method inside interface bydefalut public and abstract <br>
+Interfaces are lightweight because they cannot have instance variables or constructors.  
+</p>
+<code>
+public interface AA
+{
+int num; //public static final int num;
+void method()//public abstarct void method();
+}
+</code>
+<p>
+It means inside interface we can declare instance variables  <br>
+Variable can be public only  <br>
+Variable can be final only
+Variable can be static only
+Method by default public and abstract.   
+</p>
+<h4>Rule</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+All abstract method must be implimantation (provide implimantation/body of method) by implimantation class.  <br>
+this will be achive by overiden method of interface by implimantaion class.  
+</p>
+<h4>Methods inside interface</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Purpose of interface is to define abstract method  <br>
+That's why methods inside interface are bydefault abstract  <br>
+Methods are public also bydefault  <br>
+Abstract methods can be public only inside interface
+</p>
+<h4>Implementation of abstract methods of interface</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Interface is implemented by class to provide implementation of the abstract methods of interface
+This class is known as implementation class of the interface
+</p>
+<code>
+public interface AA
+{
+void method1();
+}
+public class BB implements AA
+{
+public void method1()
+{
+//commands
+}
+}    
+</code>
+<p>
+Here class BB is an implementation of interface AA  <br>
+It is not child of AA  <br>
+This is mandatory for implementation class to give body of all abstract methods of interface  <br>
+Implementation class will override all abstract methods of interface to give body
+</p>
+<br>
+<p>
+1.Interface does not have a construtor.  <br>
+2.Method of interface by defrault public and abstract. <br>
+3.Abstract method of interface public only.  <br>
+4.A class can implement more then one interface. <br>
+5.Interface can extend interfaces  <br>
+6.Interface is default abstract.It is a blueprinte of object
+</p>
+<code>
+public interface AA{} 
+public interface BB{}
+public class cc implement AA,BB{}  
+</code>
+<h4>It is a blueprint of object</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+An interface serves as a blueprint for a class, not directly for an object.It defines the methods
+that a class must implement, which ultimately dictates the behavior of objects created from those classes.
+</p>
+<h4>Blueprint of Behavior, Not Objects Directly</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+An interface does not define the structure or properties of an object (like fields or state),
+but rather the behavior (methods) that objects of implementing classes must exhibit.
+</p>
+<h4>Why Use Constants in an Interface or All classes</h4>
+<p>
+Interfaces can only have constants (static final variables), not instance variables. <br>
+If all implementing classes require the same value (e.g., a maximum limit, default size,
+or a mathematical constant), defining it in the interface ensures consistency.  <br>
+Constants provide meaningful names for values, making the code easier to understand and maintain. <br>
+Constants in interfaces eliminate the need to hardcode values in multiple places  <br>
+Since constants in interfaces are static and final, they cannot be changed by implementing classes, ensuring consistency.
+</p>
+<h4>When Not to Use Constants in an Interface</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+If a value is not shared or relevant to all implementations,
+there's no need to define it as a constant in the interface.
+</p>
+<h1>[Java 7 Interface]</h1>
+<p>until java 7 method of body interface was not allowed.</p>
+<h4>Example..</h4>
+<pre>
+public interface Animal
+{
+public abstract void Animalsound()//Abstract methid without body
+public abstract void sleep()
+}
+public class DoG impliment Animal
+{
+public void Animalsound()
+{
+System.out.println("Bho..Bho..");
+}
+public void sleep()
+{
+System.out.println("Zzz..")
+}
+}
+public class App
+{
+public static void main(String[] args)
+{
+DoG mydog=new DoG();
+mydog.Animalsound();
+mydog.sleep();
+}
+}
+OUTPUT
+-------
+Bho..Bho..
+Zzz...
+</pre>
+<br>
+<pre>
+interface Animal {
+void eat();  //public abstract void eat()
+void makeSound();//public abstract void makesound()
+}
+class Dog implements Animal {
+public void eat() {
+System.out.println("Dog eats bones.");
+}
+
+public void makeSound() {
+System.out.println("Dog barks.");
+}
+}
+public class App {
+public static void main(String[] args) {
+Animal myDog = new Dog();
+myDog.eat();
+myDog.makeSound();
+}
+}
+OUTPUT
+------------
+Dog eats bones.
+Dog barks.
+</pre>
+<br>
+<pre>
+interface ErrorCodes {
+int FILE_NOT_FOUND = 404;
+int SERVER_ERROR = 500;
+}
+
+class FileReader implements ErrorCodes {
+public void checkError(int errorCode) {
+if (errorCode == FILE_NOT_FOUND) {
+System.out.println("File not found error.");
+} else if (errorCode == SERVER_ERROR) {
+System.out.println("Server error occurred.");
+}
+}
+}
+</pre>
+<h1>Interface of java 8</h1>
+<p>
+java 8 onwards method of body is allowed, method must be define by using either static keywords or default keywords. <br>
+Variable can also be declared  inside interface will be by deafult public static and final.
+</p>
+<h3>Final</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+It is a java keywordes by using this keywordes we can define final class,final varibale,final method.
+</p>
+<h3>Final Class</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+A final class can not be inherited <br>
+It means final class can not have any child class
+</p>
+<code>
+public final class AA
+{
+}
+public class BB extends AA //error
+{
+}
+</code>
+<p><span class="highlight">Both String class and System class of the library are final.</span></p>
+<h3>Final variable</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+We can declare final variable by using final keyword  <br>
+Value of final variable can not be changed  <br>
+final variable is also known as constant  <br>
+final varibale can be declerd inside class as well as inside method.  <br>
+final varibale inside class should be static also initilaization of final variable is mandatry.
+</p>
+<h3>Final method</h3>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+Final method can not be overridden <br>
+It means child class can not override final methods of parent class.
+</p>
+<pre>
+interface Vehicle 
+{
+int WHEELS = 4; // Constant (static and final by default)
+void start(); // Abstract method
+
+default void stop() // Default method
+{ 
+System.out.println("Vehicle is stopping.");
+}
+
+static void displayInfo()  // Static method
+{
+System.out.println("Vehicles are used for transportation.");
+}
+}
+
+class Car implements Vehicle {
+public void start() {
+System.out.println("Car is starting.");
+}
+}
+
+public class App {
+public static void main(String[] args) {
+Car myCar = new Car();
+myCar.start();         // Outputs: Car is starting.
+myCar.stop();          // Outputs: Vehicle is stopping.
+Vehicle.displayInfo(); // Outputs: Vehicles are used for transportation.
+}
+} 
+</pre>
+<h4>NOTE</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>
+In an interface, it is mandatory to assign a value to a variable because by default,  <br>
+all variables in an interface are public, static, and final.  <br>
+The variable cannot change (final).   <br>
+It belongs to the interface itself, not to any instance (static).  <br>
+<code>1.public interface AA
+{
+    int x=10;// public static final int x;
+}</code>
+It is accessible to everyone (public).  <br>
+Similarly, in a class, if you declare a variable as final, you must also assign it a value.  <br>
+This is because final means the variable's value cannot be changed after it is set, so it must be initialized immediately.
+</p>
+<code>
+2.public class AA
+{
+final int x=10;
+final int y;
+public AA(int y)
+{
+this.y=y;
+}
+}
+</code>
+<br>
+<h4>Example..</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<pre>
+import java.util.Scanner;
+public class AA
+{
+final int x=10;
+final int y;
+public AA(int x,int y)
+{
+this.y=y;
+}
+public void add()
+{ 
+int sum=x+y;
+System.out.println("Sum is: " + sum);
+}
+public static void main(String[] args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter num");
+int y=sc.nextInt();
+AA o1=new AA(6,7);
+o1.add();
+}
+}
+</pre>
+<h4>In a class, can we declare a final variable in two ways</h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+Assign its value where it's declared.  <br>
+Assign its value through a constructor.
+</p>
+<h4>why interfaces are used even when abstract classes exist</h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+Abstract classes do not support multiple inheritance in Java.  <br>
+A class can extend only one abstract class but can implement multiple interfaces.   <br>
+This allows a class to inherit behavior from multiple sources without being limited by single inheritance.
+</p>
+<h3>Java 8 (Default and Static Methods)</h3>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+From Java 8 onward, the <b>default</b> and <b>static</b> keywords allowed methods to have a body in interfaces. But if two interfaces have a method with the same name, the JVM will not understand which method to call. This creates ambiguity, which can also lead to the <b>diamond problem</b>.
+</p>
+<h4>Method Name Not Same </h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+If method names are different, there is no ambiguity, and everything works smoothly without needing to override. This is because the JVM clearly knows which method belongs to which interface.
+</p>
+<pre>
+interface A {
+default void methodA() {
+System.out.println("Method from Interface A");
+}
+}
+
+interface B {
+default void methodB() {
+System.out.println("Method from Interface B");
+}
+}
+
+class C implements A, B {
+// No need to override anything
+}
+
+public class Main {
+public static void main(String[] args) {
+C obj = new C();
+obj.methodA();  // Calls method from Interface A
+obj.methodB();  // Calls method from Interface B
+}
+}
+Method from Interface A
+Method from Interface B
+</pre>
+<br>
+<h3>Java 8 Method name Same</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+From Java 8 onward, the <b>default</b> and <b>static</b> keywords allowed methods to have a body in interfaces. But if two interfaces have a method with the same name, the JVM will not understand which method to call. This creates ambiguity, which can also lead to the <b>diamond problem</b>.
+</p>
+<pre>
+interface A {
+default void show() {
+System.out.println("A interface show() method");
+}
+}
+
+interface B {
+default void show() {
+System.out.println("B interface show() method");
+}
+}
+
+// Diamond Problem - Which show() method will be called?
+class C implements A, B {
+// Compilation Error: show() method is ambiguous
+}
+</pre>
+<h3>Resolve this type issue</h3>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+To solve this kind of problem with ambiguity, we need to override the method in the class that implements the interfaces.
+</p>
+<pre>
+interface A {
+default void show() {
+System.out.println("A interface ka show() method");
+}
+}
+
+interface B {
+default void show() {
+System.out.println("B interface ka show() method");
+}
+}
+
+// Diamond Problem - Which show() method will be called?
+class C implements A, B {
+// Overriding to resolve conflict
+public void show() {
+System.out.println("C class  show() method");
+}
+public sttic void main(String[] args)
+{
+    C obj=new C();
+    obj.show();
+}
+}
+output 
+C class show() method    
+</pre>
+<br>
+<h4>If we want to call a specific interface's method.</h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+<b>A.super.show()</b> ; is used in Java to call a default method from a specific interface when there is ambiguity (like in the diamond problem). <br>
+<strong>A</strong> → The name of the interface.  <br>
+<strong>super</strong> → Refers to the parent interface.  this keyword use default and static keyword  <br>
+ <strong>show()</strong> → The method being called from the interface. <br>
+ This syntax is used when a class implements multiple interfaces that have the same default method name, causing ambiguity.
+</p>
+<pre>
+interface A {
+default void show() {
+System.out.println("A interface show() method");
+}
+}
+
+interface B {
+default void show() {
+System.out.println("B interface show() method");
+}
+}
+
+// Class implementing both interfaces
+class C implements A, B {
+// Resolving ambiguity by overriding
+public void show() {
+System.out.println("C class show() method");
+
+// Calling specific interface methods
+A.super.show();  // Calls show() from A
+B.super.show();  // Calls show() from B
+}
+}
+
+public class Main {
+public static void main(String[] args) {
+C obj = new C();
+obj.show();
+}
+}
+C class show() method
+A interface show() method
+B interface show() method
+</pre>
+<h3 style="background-color: red;color:white;border-radius: 3px; display: inline-block;">Deeply Explain with Hindi Language</h3>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+Interface ka kaam bas ye tha ki class multiple class ko inherit nahi kar sakta tha kyunki agar inherit karta to diamond problem face karna padta. Java avoid karta hai diamond problem ko kyunki Java multiple class ko extend hi nahi karta. Is problem ko solve karne ke liye interface laya gaya, kyunki interface me ek class multiple interfaces ko implement kar sakti hai. Interface child-parent relationship nahi banata, sirf implementation deta hai, jabki class me extend karne par child-parent ka relation aa jata hai.  <br>
+Java 7 tak interface sahi tha, kyunki method ka body allowed nahi tha, to implementation class us method ka body override karke de deti thi. Lekin Java 8 me default aur static feature aane ke baad method ka body allowed ho gaya.  <br>
+Agar method name alag-alag hai, to koi dikkat nahi aayegi, implementation class ke object se methods easily call ho sakte hain.  <br>
+Lekin agar method name same ho, to hume implementation class me us method ko override karna padega. Tab tak theek hai, lekin agar hum override nahi karte, to diamond problem aa jayega, jo ambiguity face karayega.  <br>
+Is problem ko solve karne ke liye, implementation class me method ko override karna padega taaki JVM ko pata chale ye method implementation class ka hai. Phir problem solve ho jayegi. <br>
+Lekin agar dono methods ko call karna hai, to override karne ke saath interface ke naam ke saath super keyword aur method name dena hoga. Example: A.super.show();Isse specific method call hoga.Is tarah se bhi problem solve karna padega, jo problem naye feature (Java 8 default method) me aata hai
+</p>
+<br>
+<h1>Java 9</h1>
+<p>
+Before Java 9, interfaces <strong>could not have private methods</strong> . This meant that if two or more default or static methods inside an interface had common code, <strong>we had to repeat the same code</strong> in each method. <br>
+To solve this problem, <strong>Java 9 introduced private methods in interfaces</strong>, which allow code reuse within the interface.  <br>
+<strong>Private methods</strong> can be used only inside the <strong>interface</strong>. <br>
+They <strong>cannot be accessed</strong> from an implementation class.  <br>
+Private static methods can also be created to share logic between static methods.
+</p>
+<h4>Why Do We Need Private Methods in Interfaces</h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+Before Java 9, if multiple default methods needed to perform the same operation, we had to duplicate the same logic in each method.
+</p>
+<h4>Without Private Methods - Before Java 9</h4>
+<pre>
+interface MyInterface {
+default void method1() {
+System.out.println("Step 1: Common logic");
+System.out.println("Method 1 logic");
+}
+
+default void method2() {
+System.out.println("Step 1: Common logic");
+System.out.println("Method 2 logic");
+}
+}
+</pre>
+<p>Step 1: Common logic" is repeated in both methods.Code duplication makes maintenance harder.</p>
+<h4>How Java 9 Solves This Using Private Methods</h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+Java 9 allows us to define a private method inside the interface, which can be called inside default or static methods, reducing code duplication.
+</p>
+<h4>Using Private Methods in Interface (Java 9)</h4>
+<pre>
+interface MyInterface {
+// Private method to avoid code duplication
+private void commonLogic() {
+System.out.println("Step 1: Common logic");
+}
+
+// Using private method inside default methods
+default void method1() {
+commonLogic();  // Call private method
+System.out.println("Method 1 logic");
+}
+
+default void method2() {
+commonLogic();  // Call private method
+System.out.println("Method 2 logic");
+}
+}
+
+class MyClass implements MyInterface {
+// No need to override anything, can use default methods directly
+}
+
+public class Main {
+public static void main(String[] args) {
+MyClass obj = new MyClass();
+obj.method1();
+obj.method2();
+}
+}
+Step 1: Common logic
+Method 1 logic
+Step 1: Common logic
+Method 2 logic
+
+</pre>
+<br>
+<pre>
+interface MathOperations {
+private static int square(int x) {
+return x * x;
+}
+
+static void printSquare(int num) {
+System.out.println("Square of " + num + " is: " + square(num));
+}
+
+static void printDoubleSquare(int num) {
+System.out.println("Double of square is: " + (2 * square(num)));
+}
+}
+
+public class Main {
+public static void main(String[] args) {
+MathOperations.printSquare(4);
+MathOperations.printDoubleSquare(3);
+}
+}
+Square of 4 is: 16
+Double of square is: 18
+</pre>
+<p>
+✔ Private methods can be used only within the interface. <br>
+✔ They cannot be accessed by implementing classes.  <br>
+✔ Private methods are used inside default and static methods only.  <br>
+✔ Private static methods are used inside static methods only.
+</p>
+<h1>Java 16(Sealed Interfaces)& Records</h1>
+<p>
+Before Java 16, <strong>any class could implement an interface</strong>. There was <strong>no restriction</strong> on which classes could implement an interface. <br>
+Java 16 introduced the <strong>sealed</strong> keyword, which allows you to <strong>control</strong> which classes are allowed to implement an interface. <br>
+✅ Restricts unwanted implementations - You can decide which classes are allowed to implement the interface. <br>
+✅ Improves security and maintainability - Prevents unexpected behavior by limiting subclassing.
+</p>
+<h4>How Sealed Interfaces Work</h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+When you declare an interface as <strong>sealed</strong> , you must use the <strong>permits</strong> keyword to define which classes can implement it.
+</p>
+<h4>Sealed Interface in Java 16</h4>
+<pre>
+// Sealed interface - only Car and Bike can implement it
+sealed interface Vehicle permits Car, Bike {  
+void drive();  
+}
+
+// Only these two classes are allowed
+final class Car implements Vehicle {  
+public void drive() {  
+System.out.println("Car is driving");  
+}  
+}  
+
+final class Bike implements Vehicle {  
+public void drive() {  
+System.out.println("Bike is driving");  
+}  
+}  
+
+public class Main {  
+public static void main(String[] args) {  
+Vehicle car = new Car();  
+car.drive();  // Output: Car is driving
+
+Vehicle bike = new Bike();  
+bike.drive();  // Output: Bike is driving
+}  
+}
+
+</pre>
+<p>
+1️⃣ sealed interface Vehicle → Only specific classes (Car, Bike) can implement it.  <br>
+2️⃣ permits Car, Bike → Only these two classes can implement Vehicle.  <br>
+3️⃣ final class Car/Bike → These classes cannot be extended further.
+</p>
+<br>
+<pre>
+import java.util.*;
+
+// Corrected spelling of Vehicle
+sealed interface Vehicle permits Car {
+void drive();
+}
+
+// Corrected spelling of Nissan & permits only specific classes
+sealed class Car implements Vehicle permits BMW, Nissan {
+public void drive() {
+System.out.println("Car started");
+}
+}
+
+// Final classes cannot be extended further
+final class BMW extends Car {
+public void topspeed() {
+System.out.println("BMW Top Speed: 300km/h");
+}
+}
+
+final class Nissan extends Car {
+public void topspeed() {
+System.out.println("Nissan Top Speed: 200km/h");
+}
+}
+
+class App {
+public static void main(String[] args) {
+// Creating objects and calling all methods
+BMW bmw = new BMW();
+bmw.drive();     // Calls drive() method from Car
+bmw.topspeed();  // Calls topspeed() method from BMW
+
+Nissan nissan = new Nissan();
+nissan.drive();      // Calls drive() method from Car
+nissan.topspeed();   // Calls topspeed() method from Nissan
+}
+}
+Car started
+BMW Top Speed: 300km/h
+Car started
+Nissan Top Speed: 200km/h
+</pre>
+<br>
+<pre>
+
+import java.util.*;
+
+// Sealed interface - now allows Car and Bike
+sealed interface Vehicle permits Car, Bike {
+void drive();
+}
+
+// Car can be extended by BMW and Nissan
+sealed class Car implements Vehicle permits BMW, Nissan {
+public void drive() {
+System.out.println("Car started");
+}
+}
+
+// Final classes extending Car
+final class BMW extends Car {
+public void topspeed() {
+System.out.println("BMW Top Speed: 300km/h");
+}
+}
+
+final class Nissan extends Car {
+public void topspeed() {
+System.out.println("Nissan Top Speed: 200km/h");
+}
+}
+
+// New Bike class implementing Vehicle
+final class Bike implements Vehicle {
+public void drive() {
+System.out.println("Bike started");
+}
+
+public void mileage() {
+System.out.println("Bike Mileage: 40 km/l");
+}
+}
+
+class App {
+public static void main(String[] args) {
+// Car objects
+BMW bmw = new BMW();
+bmw.drive();     // Inherited from Car
+bmw.topspeed();  // BMW-specific method
+
+Nissan nissan = new Nissan();
+nissan.drive();      // Inherited from Car
+nissan.topspeed();   // Nissan-specific method
+
+// Bike object
+Bike bike = new Bike();
+bike.drive();      // Implemented in Bike
+bike.mileage();    // Bike-specific method
+}
+}
+Car started
+BMW Top Speed: 300km/h
+Car started
+Nissan Top Speed: 200km/h
+Bike started
+Bike Mileage: 40 km/l
+
+</pre>
+<br>
+<p>
+✅ <strong>final</strong> → No further subclassing. <br>
+✅ <strong>sealed</strong> → Allows only specific subclasses.  <br>
+✅ <strong>non-sealed</strong> → Allows any class to extend it.
+</p>
+<h4>Using sealed and non-sealed</h4>
+<pre>
+sealed interface Vehicle permits Car, Bike, Truck {}
+
+// Sealed class - only SUV and Pickup can extend it
+sealed class Truck implements Vehicle permits SUV, Pickup {}
+
+final class SUV extends Truck {}  // No further subclassing allowed
+non-sealed class Pickup extends Truck {}  // Any class can extend Pickup
+</pre>
+<h4>Using non-sealed in Java</h4>
+<pre>
+    // Sealed interface - only Car and Bike can implement it
+    sealed interface Vehicle permits Car, Bike {  
+    void drive();  
+    }
+
+    // Car is a sealed class, only allows Truck and SUV to extend it
+    sealed class Car implements Vehicle permits Truck, SUV {  
+    public void drive() {  
+    System.out.println("Car started");  
+    }  
+    }
+
+    // Truck is non-sealed, meaning any class can extend it
+    non-sealed class Truck extends Car {  
+    public void loadCapacity() {  
+    System.out.println("Truck Load Capacity: 5000kg");  
+    }  
+    }
+
+    // SUV is final, meaning it cannot be extended further
+    final class SUV extends Car {  
+    public void offroadMode() {  
+    System.out.println("SUV Offroad Mode Activated");  
+    }  
+    }
+
+    // A new class that extends Truck (because Truck is non-sealed)
+    class MiniTruck extends Truck {  
+    public void smallLoadCapacity() {  
+    System.out.println("Mini Truck Load Capacity: 2000kg");  
+    }  
+    }
+
+    // Final class Bike (cannot be extended)
+    final class Bike implements Vehicle {  
+    public void drive() {  
+    System.out.println("Bike started");  
+    }  
+    }
+
+    class App {  
+    public static void main(String[] args) {  
+    Truck truck = new Truck();
+    truck.drive();  
+    truck.loadCapacity();  
+
+    SUV suv = new SUV();
+    suv.drive();
+    suv.offroadMode();
+
+    MiniTruck miniTruck = new MiniTruck();
+    miniTruck.drive();
+    miniTruck.smallLoadCapacity();
+    }  
+    }
+    Car started
+    Truck Load Capacity: 5000kg
+    Car started
+    SUV Offroad Mode Activated
+    Car started
+    Mini Truck Load Capacity: 2000kg
+    
+</pre>
+<h3 style="background-color: red;color:white;border-radius: 3px; display: inline-block;">Deeply Explain with Hindi Language</h3>
+<p>
+Java 16 me Sealed Classes and Interfaces ka feature introduce kiya gaya, jo ki inheritance ko control karne ke liye use hota hai. Isme hum decide kar sakte hain ki kaun-si classes kisi sealed class ya interface ko extend ya implement kar sakti hain. Pehle, koi bhi class kisi bhi interface ko implement ya kisi class ko extend kar sakti thi, lekin ab sealed keyword se hum restriction laga sakte hain. <br>
+1️⃣ Sealed Classes and Interfaces – Yeh inheritance ko restrict karne me madad karta hai. <br>
+2️⃣ Final, Sealed aur Non-Sealed Modifiers – Sealed class ko extend karne wale classes 3 types ke ho sakte hain <br>
+Final 🛑 – Isko aur extend nahi kiya ja sakta.  <br>
+Sealed 🔒 – Sirf kuch specific classes isko extend kar sakti hain. <br>
+Non-Sealed ✅ – Isko koi bhi freely extend kar sakta hai.   <br>
+Java 16 ne aur bhi kai performance aur security improvements laaye, jisme Pattern Matching for instanceof, Records ke enhancements, aur Foreign Memory API jaise features shamil hain. 
+</p>
+<br>
+<h3> Records in java 16</h3>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+In Java 16, records were introduced to reduce boilerplate code for data-holding classes. Before records, we had to manually write constructors, getters, toString(), equals(), and hashCode(). Records automatically generate these methods, making code cleaner and more efficient.
+</p>
+<h4>Before Java 16 (Without Records)</h4>
+<pre>
+
+class Person {
+private final String name;
+private final int age;
+
+// Constructor
+public Person(String name, int age) {
+this.name = name;
+this.age = age;
+}
+
+// Getters
+public String getName() { return name; }
+public int getAge() { return age; }
+
+// toString() method
+@Override
+public String toString() {
+return "Person{name='" + name + "', age=" + age + "}";
+}
+}
+</pre>
+<h4>Java 16 onward (Using Records)</h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<pre>
+record Person(String name, int age) {}
+
+class App {
+public static void main(String[] args) {
+Person p1 = new Person("John", 25);
+
+System.out.println(p1.name());  // Auto-generated getter
+System.out.println(p1.age());   // Auto-generated getter
+System.out.println(p1);         // Auto-generated toString()
+}
+}
+output 
+John
+25
+Person[name=John, age=25]
+</pre>
+<br>
+<pre>
+record Employee(int eid,String name,String department,int salary){
+public void show()
+{
+System.out.println("eid:="+eid);
+System.out.println("name:="+name);
+System.out.println("department:="+department);
+System.out.println("salary:="+salary);
+}
+}
+class  AA 
+{
+public static void main (String[] args) {
+Employee obj=new Employee(101,"Avinash","CS",4484);
+obj.show();
+}
+}
+output 
+eid:=101
+name:=Avinash
+department:=CS
+salary:=4484
+</pre>
+<br>
+<pre>
+record Person(String name, int age) {
+public Person {
+if (age < 0) {
+throw new IllegalArgumentException("Age cannot be negative");
+}
+}
+
+public void show() {
+System.out.println(name);
+System.out.println(age);
+}
+}
+
+class AA {
+public static void main(String[] args) {
+Person obj = new Person("Avinash", 20);
+obj.show();
+}
+}
+</pre>
+<br>
+<center>
+<table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+<tr>
+<th style="border: 5px solid black; padding: 5px;">Feature</th>
+<th style="border: 5px solid black; padding: 5px;">Interface</th>
+<th style="border: 5px solid black; padding: 5px;">Abstract Class</th>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Multiple Inheritance</td>
+<td style="border: 5px solid black; padding: 5px;">Supported</td>
+<td style="border: 5px solid black; padding: 5px;">Not supported</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Methods</td>
+<td style="border: 5px solid black; padding: 5px;">Only abstract (default/static allowed)</td>
+<td style="border: 5px solid black; padding: 5px;">Can have abstract and concrete methods</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Fields</td>
+<td style="border: 5px solid black; padding: 5px;">Only public static final (constants)</td>
+<td style="border: 5px solid black; padding: 5px;">Can have instance variables</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">Constructors</td>
+<td style="border: 5px solid black; padding: 5px;">Not allowed</td>
+<td style="border: 5px solid black; padding: 5px;">Allowed</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">When to Use</td>
+<td style="border: 5px solid black; padding: 5px;">For defining a contract across hierarchies</td>
+<td style="border: 5px solid black; padding: 5px;">For sharing common code and behavior</td>
+</tr>
+</table>
+</center>
+</div>
+</body>
+</html>

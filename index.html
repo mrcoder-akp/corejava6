@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="bot.css">
     <link rel="stylesheet" href="popup.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(() => console.log('Service Worker Registered'))
+            .catch(err => console.log('Service Worker Failed', err));
+        }
+      </script>
+      
+
 </head>
 <body>
     <!-- Navbar -->
