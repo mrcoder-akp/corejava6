@@ -404,7 +404,7 @@ body {
 }
 
 /* 🔹 Responsive Design for Mobile & Tablet */
-@media (max-width: 422px) {
+@media (max-width: 1024px) {
   .marquee-container {
     top: 12vh; /* Adjust height */
     left: 50%; /* Center the box */
