@@ -279,6 +279,7 @@ body {
 /* Ensuring image loads fully before display */
 #mainContent.special-content::before {
   content: '';
+  position: fixed; /* Ensures background stays fixed -----*/
   background-image: url('public/main.jpg');
   background-size: cover;
   background-position: center;
@@ -297,6 +298,7 @@ body {
     background-attachment: scroll; /* Scrollable if needed */
     background-size: cover;
     background-position: center;
+    min-height: calc(100dvh - 60px); /* Ensures height adjusts dynamically--- */
   }
 }
 
