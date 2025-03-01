@@ -71,6 +71,36 @@ public void run()
 }
 }
 </code>
+<br>
+<h4 style="background-color: red;color: white; display: inline-block; border-radius: 2px;">Note Deeply Explain</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+✅ When you extend the Thread class: <br>
+If you extend the Thread class and type the run() method name incorrectly (like Run() or runn()), it will not override the original method.  <br>
+Because of this, Java will call the default run() method from the Thread class, which does nothing. <br>
+Result: The thread will start, but it won't do anything (no output).  <br>
+✅ When you implement the Runnable interface:  <br>
+If you implement the Runnable interface and type run() incorrectly, the compiler will show an error.  <br>
+This happens because Runnable is an interface, and it requires the run() method to be written correctly.  <br>
+Result: The code won't even compile if the run() method name is incorrect. <br>
+✅ Using Runnable is better because if you make a mistake in the method name, you will get an error while compiling.  <br>
+⚠️ Extending Thread won't show an error, but the program will run without doing anything.
+</p>
+<br>
+<h4 style="background-color: red;color: white; display: inline-block; border-radius: 2px;">Note Deeply Explain(HIndi)</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+✅ Thread class ko extend karne par:  <br>
+Agar tum Thread class extend karte ho aur run() method ka naam galat likh dete ho (jaise Run() ya runn()), to override nahi hoga.  <br>
+Is wajah se Thread class ka default run() method execute ho jayega, jo actually kuch nahi karta.  <br>
+Result: Thread chalega, par koi output nahi aayega.  <br>
+✅ Runnable interface implement karne par:  <br>
+Agar tum Runnable interface ko implement karte ho aur run() ka spelling galat likh dete ho, to compiler error dega. <br> 
+Kyunki Runnable ek interface hai, aur run() method ko correctly override karna compulsory hai. <br>
+Result: Code compile hi nahi hoga agar run() ka naam galat ho.  <br>
+"parent ka run() method call nahi hota, balki default Thread class ka empty run() method call hota hai."
+</p>
+
 <h3>Main Thread in Java</h3>
 <hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
 <p>
@@ -189,6 +219,108 @@ This happens because the Runnable interface requires the correct run() method to
 </p>
 <h3>Unsyncronized method</h3>
 <hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>Unsynchronized threads execute in random order. One thread's first command can be followed by another thread's first command. There is no fixed sequence; JVM can execute threads in different orders each time</p>
+<h4 style="background-color: red;color: white; display: inline-block; border-radius: 2px;">Note Deeply Explain(HIndi)</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+Jab threads unsynchronized hote hain, to koi order fix nahi hota. <br>
+Ek thread ka pehla command execute hone ke baad, doosre thread ka pehla command execute ho sakta hai.  <br>
+JVM ka scheduling mechanism decide karta hai ki kaunsa thread pehle execute hoga.  <br>
+Thread execution ka order har baar change ho sakta hai, yani:  <br>
+Pehli baar Thread 1 ka command 1 chala, fir Thread 2 ka command 1, fir Thread 3 ka command 1
+Dusri baar ho sakta hai Thread 2 pehle chale, fir Thread 1, fir Thread 3
+JVM randomly kisi bhi order me execute kar sakti hai. <br>
+</p>
+<h4> First execution:</h4>
+<code>
+A->1 Thread 1 Command
+A->2 Thread 1 Command
+A->3 Thread 1 Command
+</code>
+<h4>Second execution (JVM randomly schedules differently):</h4>
+<code>
+A->2 Thread 1 Command
+A->1 Thread 1 Command
+A->3 Thread 1 Command
+</code>
+<h4>Third execution (Again different order):</h4>
+<code>
+A->3 Thread 1 Command
+A->1 Thread 1 Command
+A->2 Thread 1 Command
+</code>
+<h4>Thread Scheduling Mechanism </h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>
+Thread scheduling ka kaam JVM + OS milkar karte hain. JVM ka Thread Scheduler decide karta hai ki kaunsa thread kab aur kitne time tak execute hoga.
+</p>
+<h4>Thread Scheduling Algorithms</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>JVM mostly preemptive ya time-slicing scheduling follow karti hai, jo OS pe depend karta hai  <br>
+(A) Preemptive Scheduling:  <br>
+High priority thread low priority thread ko interrupt karke CPU le sakta hai.  <br>
+Example: Agar ek thread priority 10 (high) hai aur doosra 5 (low) hai, to JVM pehle high priority thread ko run karega. <br>
+(B) Time-Slicing (Round Robin) Scheduling: <br>
+Har thread fixed time ke liye CPU use karta hai.  <br>
+JVM ek thread ko kuch time ke liye execute karne deti hai, phir doosre thread ko chance deti hai.
+</p>
+<code>
+Thread 1 -> execute for 50ms
+Thread 2 -> execute for 50ms
+Thread 3 -> execute for 50ms
+Phir wapas Thread 1 -> 50ms (Agar complete nahi hua ho to)  
+</code>
+<h4>Factors Affecting Scheduling</h4>
+<hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
+<p>JVM thread ka order randomly decide nahi karti, balki kuch factors ke basis pe karti hai <br>
+(A) <b>Thread Priority (setPriority(int))</b> <br>
+Har thread ki ek priority hoti hai (1 to 10, default = 5). <br>
+JVM high priority thread ko pehle execute karne ki koshish karti hai.
+ </p>
+<code>
+Thread t1 = new Thread();
+t1.setPriority(Thread.MAX_PRIORITY); // 10
+</code>
+<p>
+(B) <b>Thread State (Runnable, Blocked, Waiting)</b> <br>
+Sirf Runnable (Ready to run) state wale threads ko scheduler execute karta hai.  <br>
+Agar thread Waiting ya Blocked state me hai, to wo execute nahi hoga.   <br>
+(C) <b>JVM + OS Based Scheduling</b> <br>
+JVM ka scheduler OS ke scheduler pe depend karta hai.  <br>
+Windows/Linux ka thread scheduling algorithm JVM ke behavior ko affect karta hai. <br>
+Isi wajah se different systems par same program ka output change ho sakta hai.
+</p>
+<h4>Example: How Thread Scheduling Works</h4>
+<pre>
+class MyThread extends Thread {
+public void run() {
+System.out.println(Thread.currentThread().getName() + " is running");
+}
+}
+
+public class ThreadExample {
+public static void main(String[] args) {
+MyThread t1 = new MyThread();
+MyThread t2 = new MyThread();
+
+t1.setPriority(8);  // Higher priority
+t2.setPriority(5);  // Lower priority
+
+t1.start();
+t2.start();
+}
+}
+output 
+Thread-0 is running
+Thread-1 is running
+</pre>
+<br>
+<p>
+Thread scheduling ka kaam JVM + OS scheduler milkar karte hain. <br>
+JVM ya to priority-based scheduling karega (Preemptive) ya time-slicing karega.  <br>
+Threads ka execution order fixed nahi hota, har baar change ho sakta hai.
+</p>
+<hr>
 <pre>
 Multithreding by Runnable interface
 ------------------------------------
@@ -303,6 +435,14 @@ C
 <br>
 <h3>synchronized method</h3>
 <hr style="border: 1px solid black; width: 38%; margin-top: 5px; margin-left: 0;">
+<p>One thread at a time to work in this method.</p>
+<h4 style="background-color: red;color: white; display: inline-block; border-radius: 2px;">Note Deeply Explain(HIndi)</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>Synchronized block/method me jo bhi thread enter karega, wo apna pura kaam (all commands) complete karega, fir lock release karega. Uske baad jo bhi next thread waiting hoga, wo execute hoga. Ye next thread koi bhi ho sakta hai jo lock acquire karne ke liye ready hai. <br>
+✅ Synchronized Block/Method ka Concept: <br>
+Jab ek thread synchronized method ya block ke andar enter karta hai, to lock acquire kar leta hai.  <br>
+Jab tak ye thread apna poora kaam (all commands) complete nahi kar leta, tab tak koi doosra thread us block/method ko execute nahi kar sakta.  <br>
+Jaise hi pehla thread ka execution complete hota hai, lock release ho jata hai, aur koi doosra thread execute ho sakta hai. </p>
 <pre>
 >>To make a method synchronized, you need to add the synchronized keyword to it.
 

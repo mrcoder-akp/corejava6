@@ -321,7 +321,7 @@ body {
      -ms-user-select: none; /* IE ke liye */
       /* Right-click aur long-press block karne ke liye */
   -webkit-touch-callout: none; /* iOS devices */
-  pointer-events: auto; /* Ensure other interactions work */
+  pointer-events: none; /* Ensure other interactions work */
 }
 @keyframes glowing-shadow {
  50% {

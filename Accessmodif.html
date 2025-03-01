@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div>
+<p>
+We can set/define accessibility/visibility of class,methods and variables by using access modifiers.There are three keywords given in java.
+Inside class we can define variables,methods,classes,etc  <br>
+These(variables,methods,classes) will be members of the class  <br>
+These members can be made visible or invisible in other classes by using one of following access modifiers
+</p>
+<h4 style="background-color: rgb(247, 3, 3); display: inline-block; color: white; border-radius: 10px;">
+1.public  <br>
+2.protected  <br>
+3.private  <br>
+4.Default 
+</h4>
+<p>We will use one of the above keywrod as access modifier  <br>
+If: public or private or protected will not be used then member will be default</p>
+<code>
+Package is container of classes in java.
+
+public void method1() //public
+{
+}
+protected void method2() //protected
+{
+}
+void method3() //default
+{
+}
+private void method4() //private
+{
+} 
+</code>
+<br>
+<center>
+<table style="border: 5px solid black; background-color: rgb(192, 250, 85); border-collapse: collapse;">
+<tr>
+<th style="border: 5px solid black; padding: 5px;">Access Modifiers</th>
+<th style="border: 5px solid black; padding: 5px;">Same Package Visibility</th>
+<th style="border: 5px solid black; padding: 5px;">Other Package Visibility</th>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">public</td>
+<td style="border: 5px solid black; padding: 5px;">In all classes of this package</td>
+<td style="border: 5px solid black; padding: 5px;">In all classes of this package</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">protected</td>
+<td style="border: 5px solid black; padding: 5px;">In all classes of this package</td>
+<td style="border: 5px solid black; padding: 5px;">In child classes of this package</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">default</td>
+<td style="border: 5px solid black; padding: 5px;">In all classes of this package</td>
+<td style="border: 5px solid black; padding: 5px;">Not visible in this package</td>
+</tr>
+<tr>
+<td style="border: 5px solid black; padding: 5px;">private</td>
+<td style="border: 5px solid black; padding: 5px;">Not visible in this package</td>
+<td style="border: 5px solid black; padding: 5px;">Not visible in this package</td>
+</tr>
+</table>  
+</center>
+<br>
+<p>Class can be public or default only.It means class can not be private or protected <br>
+Nested class/Inner class can be public,proected,default or private
+</p>
+<h4>Example...Public Modifiers</h4>
+<pre>
+p1
+package p1;
+
+public class AA 
+{
+public void show()
+{
+System.out.println("Welcome");
+}
+}
+package p1;
+
+public class BB 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p1;
+
+public class CC extends AA
+{
+public void method()
+{
+show();
+}
+}
+p2
+package p2;
+
+import p1.AA;
+
+public class DD 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p2;
+
+import p1.AA;
+
+public class EE extends AA
+{
+public void method()
+{
+show();
+}
+}
+p3
+package p3;
+
+import p1.AA;
+
+public class FF 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p3;
+
+import p1.AA;
+
+public class GG 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+</pre>
+<br>
+<h4>Example..Protect-modifiers</h4>
+<pre>
+p1
+package p1;
+
+public class AA 
+{
+protected void show()
+{
+System.out.println("Welcome");
+}
+}
+
+package p1;
+
+public class BB 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p1;
+
+public class CC extends AA
+{
+public void method()
+{
+show();
+}
+}
+p2
+package p2;
+
+import p1.AA;
+
+public class DD 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p2;
+
+import p1.AA;
+
+public class EE extends AA
+{
+public void method()
+{
+show();
+}
+}
+p3
+package p3;
+
+import p1.AA;
+
+public class FF 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p3;
+
+import p1.AA;
+
+public class GG 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+</pre>
+<br>
+<h4>Example..Default-modifires</h4>
+<pre>
+p1
+package p1;
+
+public class AA 
+{
+void show()
+{
+System.out.println("Welcome");
+}
+}
+package p1;
+
+public class BB 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p1;
+
+public class CC extends AA
+{
+public void method()
+{
+show();
+}
+}
+p2
+package p2;
+
+import p1.AA;
+
+public class DD 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p2;
+
+import p1.AA;
+
+public class EE extends AA
+{
+public void method()
+{
+show();
+}
+}
+p3
+package p3;
+
+import p1.AA;
+
+public class FF 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p3;
+
+import p1.AA;
+
+public class GG 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+</pre>
+<br>
+<h4>Example..private-modifiers</h4>
+<pre>
+p1
+package p1;
+
+public class AA 
+{
+private void show()
+{
+System.out.println("Welcome");
+}
+}
+package p1;
+
+public class BB 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p1;
+
+public class CC extends AA
+{
+public void method()
+{
+show();
+}
+}
+p2
+package p2;
+
+import p1.AA;
+
+public class DD 
+{
+public void method()
+{
+AA obj=new AA();
+obj.show();
+}
+}
+package p2;
+
+import p1.AA;
+
+public class EE extends AA
+{
+public void method()
+{
+show();
+}
+}
+
+</pre>
+<br>
+<h3>Nested-Class</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+A Nested class in Java is a class defined within another class. This helps to logically group classes that are only used in one place or improve code readability and organization.
+There are two main types of nested classes: <br>
+1.Static Nested Class. <br>
+2.Non-static Inner Class.
+</p>
+</div> 
+</body>
+<footer class="footer">
+    <h1 class="footer-title">These are our companies</h1>
+    <div class="footer-container">
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Upgrade Guide</a></li>
+          <li><a href="#">Using with Preprocessors</a></li>
+          <li><a href="#">Optimizing for Production</a></li>
+          <li><a href="#">Browser Support</a></li>
+          <li><a href="#">IntelliSense</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Utility-First</a></li>
+          <li><a href="#">Responsive Design</a></li>
+          <li><a href="#">Hover, Focus &amp; Other States</a></li>
+          <li><a href="#">Dark Mode</a></li>
+          <li><a href="#">Adding Base Styles</a></li>
+          <li><a href="#">Extracting Components</a></li>
+          <li><a href="#">Adding New Utilities</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">Configuration</a></li>
+          <li><a href="#">Theme Configuration</a></li>
+          <li><a href="#">Breakpoints</a></li>
+          <li><a href="#">Customizing Colors</a></li>
+          <li><a href="#">Customizing Spacing</a></li>
+          <li><a href="#">Configuring Variants</a></li>
+          <li><a href="#">Plugins</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <ul>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025. All Rights Reserved. and made by Avinash</p>
+    </div>
+  </footer>
+</html>
