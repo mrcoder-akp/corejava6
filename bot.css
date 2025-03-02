@@ -69,6 +69,11 @@
     line-height: 1.4; 
     margin-bottom: 10px;
     word-wrap: break-word;
+     /*  unselectable banane ke liye  */
+     user-select: none;  /* Disable text selection */
+     -webkit-user-select: none; /* Safari ke liye */
+     -moz-user-select: none; /* Firefox ke liye */
+     -ms-user-select: none; /* IE ke liye */
 }
 
 .bot-message { 
@@ -153,6 +158,11 @@
     font-size: 24px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    /*  unselectable banane ke liye  */
+    user-select: none;  /* Disable text selection */
+    -webkit-user-select: none; /* Safari ke liye */
+    -moz-user-select: none; /* Firefox ke liye */
+    -ms-user-select: none; /* IE ke liye */
 }
 
 .cross-btn { 

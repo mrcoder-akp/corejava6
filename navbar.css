@@ -359,6 +359,7 @@ body {
     -webkit-user-select: none; /* Safari ke liye */
     -moz-user-select: none; /* Firefox ke liye */
     -ms-user-select: none; /* IE ke liye */
+    pointer-events: none; /* Ensure other interactions work */
     z-index: 5; /* Slightly forward */
 }
 /* /////////////////////////////////////////////////////////////////////////////////////// */

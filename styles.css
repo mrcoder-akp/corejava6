@@ -40,6 +40,10 @@ body {
 .sidebar h2 {
   margin-top: 0;
   color:white;
+  user-select: none;  /* Disable text selection */
+  -webkit-user-select: none; /* Safari ke liye */
+  -moz-user-select: none; /* Firefox ke liye */
+  -ms-user-select: none; /* IE ke liye */
 }
 
 .sidebar ul {
@@ -48,6 +52,10 @@ body {
   scrollbar-width: none; /* Firefox ke liye */
   -ms-overflow-style: none; /* IE/Edge ke liye */
   padding: 15px; /* Remove default padding */
+  user-select: none;  /* Disable text selection */
+  -webkit-user-select: none; /* Safari ke liye */
+  -moz-user-select: none; /* Firefox ke liye */
+  -ms-user-select: none; /* IE ke liye */
 }
 
 .sidebar li {

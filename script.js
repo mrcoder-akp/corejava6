@@ -28,32 +28,66 @@ function attachTopicClickListener() {
 
   if (topicsList) {
     topicsList.addEventListener("click", function (e) {
-      if (e.target.tagName === "LI") {
-        const topicKey = e.target.dataset.topic;
-        const url = `${topicKey}.html`; // Example: "Language.html", "Compilation.html"
+        if (e.target.tagName === "LI") {
+            const topicKey = e.target.dataset.topic;
+            const url = `${topicKey}.html`; // Example: "Language.html", "Compilation.html"
 
-        contentTitle.textContent = e.target.textContent;
-        contentDescription.textContent = "Loading content...";
+            contentTitle.textContent = e.target.textContent;
 
-        fetch(url)
-          .then(response => {
-            if (!response.ok) throw new Error("Network error");
-            return response.text();
-          })
-          .then(content => {
-            // Hide sidebar and show content on mobile
-            sidebar.classList.add("hide-sidebar");
-            document.querySelector(".content").classList.add("full-width");
+            // Pure Transparent + Blur Effect
+            contentDescription.innerHTML = `
+                <p style="font-weight: bold; font-size: 22px; color: rgba(0, 0, 0, 0.9); 
+                    text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.8); margin-left: 20px;">
+                    Loading content...
+                </p>
 
-            contentDescription.innerHTML = content;
-          })
-          .catch(error => {
-            console.error("Error fetching content:", error);
-            contentDescription.textContent = "Error loading content. Try again.";
-          });
-      }
+                <div id="loadingBarContainer" style="width: 100%; height: 14px; background: rgba(255, 255, 255, 0.1);
+                    border-radius: 14px; overflow: hidden; box-shadow: 0 0 18px rgba(0, 0, 0, 0.6); backdrop-filter: blur(12px);">
+                    
+                    <div id="loadingBar" style="width: 0%; height: 100%; background: linear-gradient(90deg,rgb(0, 105, 100),rgb(214, 111, 111),rgb(107, 0, 0));
+                        background-size: 200% 100%; animation: loadingAnimation 1.5s infinite ease-in-out;
+                        box-shadow: 0 0 10px rgba(245, 253, 201, 0.84);">
+                    </div>
+                </div>
+
+                <style>
+                    @keyframes loadingAnimation {
+                        0% { background-position: 0% 50%; }
+                        50% { background-position: 100% 50%; }
+                        100% { background-position: 0% 50%; }
+                    }
+                </style>
+            `;
+
+            let loadingBar = document.getElementById("loadingBar");
+            let width = 0;
+            let interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    
+                    // ✅ **Loading complete hote hi content load karega** ✅
+                    fetch(url)
+                        .then(response => {
+                            if (!response.ok) throw new Error("Network error");
+                            return response.text();
+                        })
+                        .then(content => {
+                            contentDescription.innerHTML = content; // Replace loading bar with actual content
+                            sidebar.classList.add("hide-sidebar");
+                            document.querySelector(".content").classList.add("full-width");
+                        })
+                        .catch(error => {
+                            console.error("Error fetching content:", error);
+                            contentDescription.innerHTML = "<p style='color: rgb(51, 0, 0);'>Error loading content. Try again.</p>";
+                        });
+                } else {
+                    width += 10;
+                    loadingBar.style.width = width + "%";
+                }
+            }, 70); // Animation speed
+        }
     });
-  }
+ }
 }
 
 // Function to Show Sidebar Again (For Mobile)

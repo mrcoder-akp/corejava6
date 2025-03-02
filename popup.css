@@ -11,6 +11,11 @@
     align-items: center;
     z-index: 9999;
     backdrop-filter: blur(5px); /* Background blur only */
+    user-select: none;  /* Disable text selection */
+    -webkit-user-select: none; /* Safari ke liye */
+    -moz-user-select: none; /* Firefox ke liye */
+    -ms-user-select: none; /* IE ke liye */
+    
 }
 
 /* 💥 Popup Content Box */
