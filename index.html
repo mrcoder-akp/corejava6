@@ -20,6 +20,9 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker Registered"))
     .catch((err) => console.log("Service Worker Failed", err));
 }
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.body.classList.add("force-mobile");
+} 
 </script>
 </head>
 <body>

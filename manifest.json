@@ -2,8 +2,8 @@
   "name": "CodingUniverse",
   "short_name": "CodingUniverse",
   "start_url": "/",
-  "display": "standalone",
-  "background_color": "#1a1a1a", 
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
   "theme_color": "#121212",
   "icons": [
     {
