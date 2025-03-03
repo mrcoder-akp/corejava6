@@ -487,7 +487,9 @@ border-bottom-right-radius: 20px;  /* Rounded corner on the right */
 /* ///////////////////////////////////////////////////////////// */
 /* Agar App Open Hai, to wo Hamesha Mobile Mode me Hi Rahega, */
 .force-mobile {
-  width: 375px;
+  width: 375px;  /* Mobile width fix */
+  max-width: 100%;
   margin: auto;
   overflow-x: hidden;
 }
+
