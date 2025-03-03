@@ -330,7 +330,7 @@ body {
     filter: drop-shadow(0px 0px 20px rgb(30, 202, 233)); /* Blue */
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 450px) {
   #mainContent.special-content .special-img {
     width: 100%;
     filter: drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.6)); /* Lighter effect for mobile */
@@ -353,7 +353,9 @@ body {
   padding: 10px; /* Inner spacing */
   color: white; /* Text color */
   font-size: clamp(14px, 3vw, 22px); /* Responsive text */
-  filter: drop-shadow(0px 0px 30px white);
+  box-shadow: -10px 10px 30px rgba(255, 255, 255, 0.77), 
+            10px 10px 30px rgba(255, 255, 255, 0.8); 
+
   /*  unselectable banane ke liye  */
     user-select: none;  /* Disable text selection */
     -webkit-user-select: none; /* Safari ke liye */
@@ -393,7 +395,7 @@ body {
 .marquee-text {
   font-size: clamp(14px, 4vw, 22px);
   font-weight: bold;
-  color:rgb(254, 255, 255);
+  color:rgb(254, 255, 255,0.8);
   overflow: hidden;
   display: inline-block;
 }
@@ -405,14 +407,17 @@ body {
 }
 
 /* 🔹 Responsive Design for Mobile & Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 600px) {
   .marquee-container {
-    top: 12vh; /* Adjust height */
+    top: 15vh; /* Adjust height */
     left: 50%; /* Center the box */
     transform: translateX(-50%); /* Perfect centering */
     width: 90%; /* Take more width on small screens */
     height: 40vh; /* Adjust height */
     padding: 15px; /* Reduce padding */
+    box-shadow: -10px 0px 30px rgba(255, 255, 255, 0.49), 
+    10px 0px 30px rgba(255, 255, 255, 0.49);
+
   }
 }
 
@@ -447,7 +452,7 @@ body {
   color:rgb(70, 0, 46);
   background-color:rgba(181, 248, 164, 0.81);
   font-size: clamp(24px, 3vw, 60px);
-  padding: 1vw;
+  padding: 1vw; /* Relative padding */
 /* ⭐ Added a single-colored shadow ⭐ */
    text-shadow: 3px 3px 5px black; /* You can change 'red' to any color */
    border-bottom: 1px solid rgba(252, 254, 255, 0.85);; /* White line under the text */
@@ -466,6 +471,10 @@ border-bottom-right-radius: 20px;  /* Rounded corner on the right */
    -webkit-user-select: none; /* Safari ke liye */
    -moz-user-select: none; /* Firefox ke liye */
    -ms-user-select: none; /* IE ke liye */
+    /* Responsive adjustments */
+  max-width: 90%; /* Prevents text from going too wide */
+  text-align: center; /* Ensures alignment stays proper */
+  line-height: 1; /* Adjust line spacing for better readability */
 
 }
 .special-content .welcome-heading .first-letter {
