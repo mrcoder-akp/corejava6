@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=375, initial-scale=1">
     <meta name="theme-color" content="#330000">
     <title>Java Full Stack</title>
     <link rel="stylesheet" href="navbar.css">
@@ -21,18 +20,13 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker Registered"))
     .catch((err) => console.log("Service Worker Failed", err));
 }
-///////////////////////////////////////////////////////////////// 
-function forceMobileView() {
-    if (window.matchMedia("(max-width: 768px)").matches || window.innerWidth < 768) {
-        document.body.classList.add("force-mobile");
-    } else {
-        document.body.classList.remove("force-mobile");
-    }
+if (window.matchMedia("(display-mode: standalone)").matches) {
+    // App mobile view me rakho
+    document.body.classList.add("force-mobile");
+} else {
+    // Browser (Chrome) normal mode me chalega
+    document.body.classList.remove("force-mobile");
 }
-// Run on load & resize
-window.addEventListener("load", forceMobileView);
-window.addEventListener("resize", forceMobileView);
-
 if (navigator.userAgent.includes("Android") || navigator.userAgent.includes("iPhone")) {
     if (window.innerWidth > 768 && window.matchMedia("(display-mode: standalone)").matches) {
         document.body.classList.add("force-mobile");
