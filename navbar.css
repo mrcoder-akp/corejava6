@@ -283,9 +283,10 @@ body{
 /* Mobile Specific Tweaks */
 @media only screen and (max-width: 768px) {
   #mainContent.special-content {
-    background-attachment: fixed;
-    height: calc(100vh - 60px); /* Navbar ki height adjust */
-    max-height: calc(100vh - 60px); /* Extra scroll prevent */
+    background-attachment: scroll; /* Scrollable if needed */
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 60px); /* Fixed height */
   }
 }
 
