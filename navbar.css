@@ -448,8 +448,8 @@ body {
 .special-content .welcome-heading {
   color:rgb(70, 0, 46);
   background-color:rgba(181, 248, 164, 0.81);
-  font-size: clamp(24px, 3vw, 60px);
-  padding: 1vw; /* Relative padding */
+  font-size: clamp(24px, 3vw, 70px);
+ // padding: 1vw; /* Relative padding */
 /* ⭐ Added a single-colored shadow ⭐ */
    text-shadow: 3px 3px 5px black; /* You can change 'red' to any color */
    border-bottom: 1px solid rgba(252, 254, 255, 0.85);; /* White line under the text */
@@ -457,9 +457,9 @@ body {
 /* Width adjusts to fit the content */
    width: fit-content;
   /* Ensure it behaves like text but allows block-level properties */
-  display: block;
+//  display: block;
   /* Optional: add margin to adjust spacing, if necessary */
-  margin: 0 auto;
+  margin:auto;
 /* Rounded top-left and top-right corners (Rebound effect) */
 border-bottom-left-radius: 20px;  /* Rounded corner on the left */
 border-bottom-right-radius: 20px;  /* Rounded corner on the right */
@@ -469,9 +469,9 @@ border-bottom-right-radius: 20px;  /* Rounded corner on the right */
    -moz-user-select: none; /* Firefox ke liye */
    -ms-user-select: none; /* IE ke liye */
     /* Responsive adjustments */
-  max-width: 90%; /* Prevents text from going too wide */
-  text-align: center; /* Ensures alignment stays proper */
-  line-height: 1; /* Adjust line spacing for better readability */
+ // max-width: 90%; /* Prevents text from going too wide */
+ // text-align: center; /* Ensures alignment stays proper */
+ // line-height: 1; /* Adjust line spacing for better readability */
 
 }
 .special-content .welcome-heading .first-letter {
