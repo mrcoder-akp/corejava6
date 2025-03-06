@@ -1,12 +1,9 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Horizontal overflow hatane ke liye */
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Ensure padding and border do not affect layout */
-}
+
 
 /* Navbar Styles */
 .navbar {
@@ -293,20 +290,12 @@ body {
 }
 
 /* Mobile Specific Tweaks */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   #mainContent.special-content {
     background-attachment: scroll; /* Scrollable if needed */
     background-size: cover;
     background-position: center;
-    max-height:  100vh; /* Har mobile ke hisaab se adjust */
-  }
-}
-@media only screen and (max-width: 766px) {
-  #mainContent.special-content {
-    background-attachment: scroll; /* Scrollable if needed */
-    background-size: cover;
-    background-position: center;
-    max-height: 93.5vh; /* Har mobile ke hisaab se adjust */
+    max-height:auto;
   }
 }
 
@@ -352,7 +341,7 @@ body {
   position: absolute;
   bottom: 15vh;
   left: 5vh; /* Left side position */
-  width: 38%; /* Box width */
+  width: 33%; /* Box width */
   height: 60vh; /* Box height */
   overflow: hidden;
   display: flex;
@@ -421,7 +410,7 @@ body {
     left: 50%; /* Center the box */
     transform: translateX(-50%); /* Perfect centering */
     width: 90%; /* Take more width on small screens */
-    height: 40vh; /* Adjust height */
+    height: 35vh; /* Adjust height */
     padding: 15px; /* Reduce padding */
     box-shadow: -10px 0px 30px rgba(255, 255, 255, 0.49), 
     10px 0px 30px rgba(255, 255, 255, 0.49);
