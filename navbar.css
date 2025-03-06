@@ -1,7 +1,6 @@
 body{
   margin: 0;
   font-family: Arial, sans-serif;
-  height: calc(100vh - 60px); /* Fixed height */
 }
 * {
   margin: 0;
