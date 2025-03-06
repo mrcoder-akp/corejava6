@@ -298,7 +298,7 @@ body {
     background-attachment: scroll; /* Scrollable if needed */
     background-size: cover;
     background-position: center;
-    max-height:auto;
+    height: calc(100vh - 60px); /* Fixed height */
   }
 }
 
