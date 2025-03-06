@@ -298,7 +298,7 @@ body {
     background-attachment: scroll; /* Scrollable if needed */
     background-size: cover;
     background-position: center;
-    min-height: 90vh; /* Har mobile ke hisaab se adjust */
+    min-height: 100vh; /* Har mobile ke hisaab se adjust */
   }
 }
 
