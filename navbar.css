@@ -295,7 +295,7 @@ body {
     background-attachment: scroll; /* Scrollable if needed */
     background-size: cover;
     background-position: center;
-    max-height:auto;
+    max-height: calc(100vh - 60px)
   }
 }
 
@@ -448,8 +448,8 @@ body {
 .special-content .welcome-heading {
   color:rgb(70, 0, 46);
   background-color:rgba(181, 248, 164, 0.81);
-  font-size: clamp(24px, 3vw, 70px);
- // padding: 1vw; /* Relative padding */
+  font-size: clamp(24px, 3vw, 60px);
+  padding: 1vw; /* Relative padding */
 /* ⭐ Added a single-colored shadow ⭐ */
    text-shadow: 3px 3px 5px black; /* You can change 'red' to any color */
    border-bottom: 1px solid rgba(252, 254, 255, 0.85);; /* White line under the text */
