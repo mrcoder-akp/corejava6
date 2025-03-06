@@ -7,11 +7,11 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  height:60px;
+ // height:60px;
   display:flex;
   justify-content:space-around;
   align-items: center;
-  width: 100%;
+ // width: 100%;
   background-color: rgb(36, 5, 5); /* Change to your desired navbar color */
   color: white;
   z-index: 1000; /* Ensure the navbar is above the content */
@@ -273,23 +273,21 @@ body {
   background-color: #000; /* Optional: Fallback color while image loads */
 }
 
-
 /* Ensuring image loads fully before display */
-/* #mainContent.special-content::before { */
-  /* content: ''; */
-  /* position: fixed; Ensures background stays fixed */
-  /* background-image: url('public/main.jpg'); */
-  /* background-size: cover; */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* z-index: -1; */
-/* } */
-
+#mainContent.special-content::before {
+  content: '';
+  position: fixed; /* Ensures background stays fixed */
+  background-image: url('public/main.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
 /* Mobile Specific Tweaks */
 @media only screen and (max-width: 768px) {
@@ -297,7 +295,8 @@ body {
     background-attachment: scroll; /* Scrollable if needed */
     background-size: cover;
     background-position: center;
-    max-height: calc(100vh - 60px)
+    height:auto;
+    min-height: calc(100vh - 60px)
   }
 }
 
