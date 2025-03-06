@@ -2,6 +2,12 @@ body{
   margin: 0;
   font-family: Arial, sans-serif;
   height: calc(100vh - 60px); /* Fixed height */
+  
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure padding and border do not affect layout */
 }
 
 /* Navbar Styles */
