@@ -1,0 +1,23 @@
+[
+    {
+        "question": "What is JVM?",
+        "options": ["Java Virtual Machine", "Java Visual Model", "Java Version Maker", "None of these"],
+        "correct": 0,
+        "explanation": "JVM stands for Java Virtual Machine. It runs Java bytecode.",
+        "moreExplanation": "JVM allows Java to be platform-independent by converting bytecode into machine code at runtime."
+    },
+    {
+        "question": "Which collection does not allow duplicates?",
+        "options": ["List", "Set", "Map", "Queue"],
+        "correct": 1,
+        "explanation": "Set does not allow duplicate values in Java.",
+         "moreExplanation": "JVM allows Java to be platform-independent by converting bytecode into machine code at runtime."
+    },
+    {
+        "question": "What is Spring Boot, and why is it used in Java development for building microservices?",
+        "options": ["A Java framework", "A Python library", "An IDE", "A database"],
+        "correct": 0,
+        "explanation": "Spring Boot is a Java framework used for standalone applications and microservices.",
+         "moreExplanation": "Spring Boot simplifies Java development by providing embedded servers, auto-configuration, and production-ready features."
+    }
+]

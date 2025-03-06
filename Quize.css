@@ -1,0 +1,689 @@
+/* ✅ Fullscreen Dark Background & Remove Overflow */
+body {
+    background: linear-gradient(45deg, rgb(255, 255, 255), #292929);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* ✅ Fullscreen Quiz Container */
+.quiz-container {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+/* ✅ Level - Top Left Corner */
+#level-container {
+    position: absolute;
+    top: 7vh;
+    left: 1vw;
+    font-size: 3.5vw; /* 🔥 Dynamic Font Size */
+    font-weight: bold;
+    color: rgb(48, 0, 138);
+    text-shadow: 0 0 1.5vw rgba(255, 255, 255, 0.98);
+}
+
+/* Only apply to h1 inside .special-content */
+.quiz-container .welcome-heading {
+    color:rgb(70, 0, 46);
+    background-color:rgba(181, 248, 164, 0.81);
+    font-size: clamp(24px, 3vw, 60px);
+    padding: 1vw; /* Relative padding */
+  /* ⭐ Added a single-colored shadow ⭐ */
+     text-shadow: 3px 3px 5px black; /* You can change 'red' to any color */
+     border-bottom: 1px solid rgba(252, 254, 255, 0.85);; /* White line under the text */
+     box-shadow: 0px 3px 5px rgb(0, 0, 0); /* Shadow effect on the underline */
+  /* Width adjusts to fit the content */
+     width: fit-content;
+    /* Ensure it behaves like text but allows block-level properties */
+    display: block;
+    /* Optional: add margin to adjust spacing, if necessary */
+    margin: 0 auto;
+  /* Rounded top-left and top-right corners (Rebound effect) */
+  border-bottom-left-radius: 20px;  /* Rounded corner on the left */
+  border-bottom-right-radius: 20px;  /* Rounded corner on the right */
+     /*  unselectable banane ke liye  */
+     user-select: none;  /* Disable text selection */
+     -webkit-user-select: none; /* Safari ke liye */
+     -moz-user-select: none; /* Firefox ke liye */
+     -ms-user-select: none; /* IE ke liye */
+      /* Responsive adjustments */
+    max-width: 90%; /* Prevents text from going too wide */
+    text-align: center; /* Ensures alignment stays proper */
+    line-height: 1; /* Adjust line spacing for better readability */
+  
+  }
+  .quiz-container .welcome-heading .first-letter {
+    color: rgba(245, 149, 5, 0.81);
+    font-weight: bold;
+    font-size: 1.2em; /* Slightly bigger for visibility */
+  }
+  
+
+
+/* ✅ Info Box - Top Right Corner */
+.info-container {
+    position: absolute;
+    top: 9vh;
+    right: 2vw;
+    text-align: right;
+    min-width: 20vw; /* 🔥 Using vw instead of fixed px */
+    color: rgba(167, 255, 251, 0.86);
+    text-shadow: 0 0 1.5vw rgba(22, 2, 2, 0.98);
+}
+
+.info-container p {
+    font-size: 2vw;
+    font-weight: bold;
+    margin: 1vh 0;
+    line-height: 1.1;
+}
+
+/* ✅ Change Color of Only Values */
+.info-container span {
+    color: rgba(255, 0, 0, 0.83);
+    font-weight: bold;
+}
+
+/* ✅ Timer Styling */
+#timer {
+    font-size: 2vw;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 0 0 1.5vw rgba(255, 204, 0, 0.8);
+}
+
+/* ✅ Question Styling */
+#question {
+    margin-top: 15vh;
+    font-size: 2vw;
+    font-weight: bold;
+    color: rgb(65, 62, 53);
+    text-align: left;
+    width: 50%;
+    max-width: 60vw;
+    word-wrap: break-word;
+    white-space: normal;
+    padding-left: 2vw;
+}
+
+/* ✅ Options - Align Left */
+#options {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    align-items: flex-start;
+    padding-left: 2vw;
+}
+
+/* ✅ Knife-Edge Style for Buttons */
+.option-btn {
+    width: 25vw; /* 🔥 Adjusted */
+    max-width: 100%;
+    background: linear-gradient(45deg, rgb(112, 72, 72), rgb(143, 80, 245));
+    color: rgba(166, 255, 0, 0.76);
+    font-size: 1.6vw; /* 🔥 Dynamic */
+    padding: 1.9vh 4vw;
+    border: none;
+    border-radius: 5px 5vw 5px 5vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.5vh 1vw rgba(0, 0, 0, 0.73);
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ✅ Hover Effect */
+.option-btn:hover {
+    background: linear-gradient(45deg, rgb(139, 99, 250), #ff4b2b);
+    transform: scale(1.05);
+}
+
+/* ✅ Blade Edge */
+.option-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5vw;
+    height: 100%;
+    clip-path: polygon(100% 0, 100% 100%, 0% 50%);
+    border-radius: 5vw 0 0 5vw;
+}
+
+/* ✅ Correct/Incorrect Message - Right Bottom Corner */
+#result {
+    position: fixed;
+    bottom: 2vh;
+    right: 5vw;
+    color: rgba(88, 87, 87, 0.94);
+    text-align: left;
+    font-size: 2vw;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* ✅ Correct/Incorrect Colors */
+.correct-text {
+    color: green;
+    font-size: 2vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.incorrect-text {
+    color: red;
+}
+
+/* ✅ More Explanation Button */
+.more-explanation-btn {
+    display: block;
+    width: auto;
+    margin: 1vh auto 0 auto;
+    background-color: #a4bfa8;
+    color: rgba(18, 24, 26, 0.7);
+    font-size: 1.6vw;
+    padding: 1vh 2vw;
+    border: none;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+
+.more-explanation-btn:hover {
+    background-color:rgba(129, 62, 0, 0.7);
+}
+
+
+/* ✅ Back Button */
+.back-btn {
+    background-color: #3498db;
+    color: white;
+    font-size: 1.4rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.back-btn:hover {
+    background-color: #2980b9;
+}
+
+/* ✅ Styling for More Explanation Pop-up */
+#more-explanation-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 80%;
+    max-width: 500px;
+    font-size: 1.6vw; /* 🔥 Dynamic */
+    background: rgba(255, 255, 255, 0.1); /* 3D Transparent Effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    display: none;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 1000;
+}
+
+/* ✅ When Active, Show the Pop-up */
+#more-explanation-container.active {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* ✅ Background Overlay (Blurred) */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dim Background */
+    backdrop-filter: blur(5px);
+    display: none;
+    z-index: 999;
+}
+
+/* ✅ Back Button */
+.back-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+/* ✅ Mobile Screens (up to 768px) */
+@media (max-width: 512px) {
+    
+    #level-container {
+        font-size: 7vw; /* 🔥 Bigger text */
+    }
+
+    .info-container p {
+        font-size: 5vw; /* 🔥 Bigger text */
+    }
+
+    #timer {
+        font-size: 6vw; /* 🔥 Bigger timer */
+    }
+
+    #question {
+    font-size: 7vw; /* ✅ Bada font for mobile */
+    width: 90%; /* ✅ Full width cover kare */
+    max-width: 100%; 
+    text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.05; /* ✅ Line spacing kaafi tight kar diya */
+    margin-top: 25vh;
+    padding: 0 5vw;
+    display: block;
+    }
+
+    #options {
+        margin-top: 5vh;
+        align-items:center;
+    }
+
+    .option-btn {
+        width: 55vw; /* 🔥 Full width for better tap */
+        font-size: 4vw; /* 🔥 Bigger option buttons */
+        padding: 2.5vh 5vw;
+        border-radius: 5px 10vw 5px 10vw;
+    }
+
+    #result {
+        position: fixed;
+      //  bottom: 5vh; /* ✅ Bottom center position */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        display: flex;
+        flex-direction: column; /* ✅ Sab kuch vertically align hoga */
+        align-items: center; /* ✅ Center me rahega */
+        gap: 1vh; /* ✅ Correct text & button ke beech ka gap adjust */
+    }
+
+    .correct-text, .incorrect-text {
+        font-size: 4vw;
+        text-align: center;
+    }
+
+    .more-explanation-btn {
+        font-size: 3vw;
+        padding: 1vh 3vw;
+        border: none;
+        border-radius: 1vw;
+        cursor: pointer;
+        background-color: #a4bfa8;
+        color: rgba(18, 24, 26, 0.7);
+    }
+
+    #more-explanation-container {
+        font-size: 3.5vw;
+        width: 90%;
+        max-width: none;
+    }
+
+    .back-btn {
+        font-size: 3vw;
+    }
+}
+
+//✅ Tablets (768px - 1024px)
+@media (max-width: 1024px) {
+    .quiz-container h1 {
+        font-size: 7vw;
+    }
+
+    #level-container {
+        font-size: 8vw;
+    }
+
+    .info-container p {
+        font-size: 5vw;
+    }
+
+    #timer {
+        font-size: 4vw;
+    }
+
+    #question {
+    font-size: 7vw; /* ✅ Bada font for mobile */
+    width: 90%; /* ✅ Full width cover kare */
+    max-width: 100%; 
+    text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.05; /* ✅ Line spacing kaafi tight kar diya */
+    margin-top: 25vh;
+    padding: 0 5vw;
+    display: block;
+    }
+
+    #options {
+        margin-top: 5vh;
+        align-items:center;
+    }
+
+.option-btn {
+  width: 55vw; /* 🔥 Full width for better tap */
+  font-size: 4vw; /* 🔥 Bigger option buttons */
+  padding: 2.5vh 5vw;
+   border-radius: 5px 10vw 5px 10vw;
+    }
+
+    #result {
+        position: fixed;
+      //  bottom: 5vh; /* ✅ Bottom center position */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        display: flex;
+        flex-direction: column; /* ✅ Sab kuch vertically align hoga */
+        align-items: center; /* ✅ Center me rahega */
+        gap: 1vh; /* ✅ Correct text & button ke beech ka gap adjust */
+    }
+    
+    .correct-text, .incorrect-text {
+        font-size: 7vw;
+        text-align: center;
+    }
+    
+    .more-explanation-btn {
+        font-size: 3vw;
+        padding: 1vh 3vw;
+        border: none;
+        border-radius: 1vw;
+        cursor: pointer;
+        background-color: #a4bfa8;
+        color: rgba(18, 24, 26, 0.7);
+    }
+    
+    #more-explanation-container {
+        font-size: 3vw;
+    }
+
+    .back-btn {
+        font-size: 2.8vw;
+    }
+}
+
+  
+/* ///////////////////////////////////////////////////////////////////// */
+/* Navbar Styles */
+.navbar {
+    height:60px;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(36, 5, 5); /* Change to your desired navbar color */
+    color: white;
+    z-index: 1000; /* Ensure the navbar is above the content */
+    box-shadow: 0 4px 2px -2px gray; /* Optional shadow for styling */
+     /*  unselectable banane ke liye  */
+     user-select: none;  /* Disable text selection */
+     -webkit-user-select: none; /* Safari ke liye */
+     -moz-user-select: none; /* Firefox ke liye */
+     -ms-user-select: none; /* IE ke liye */
+  }
+  
+  /* Navbar Container */
+  .container-nave {
+    left: 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    position: relative; /* Make the container relative to position mobile-menu */
+    z-index: 1000;
+  }
+  
+  
+  /* Logo Styling */
+  .logo {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: bold;
+    background-image: linear-gradient(90deg, 
+        red, orange, yellow, green, cyan, blue, violet, red);
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: moveColor 4s linear infinite;
+    cursor: pointer;
+  }
+  
+  
+  /* Keyframes for Moving Color Effect */
+  @keyframes moveColor {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  
+  
+  /* Navbar Menu */
+  .menu {
+    display: flex;
+    gap: 15px;
+    font-size: 19px;
+  }
+  
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 8px; /* Adding border-radius */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    
+  }
+  
+  .java {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .new-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    animation: blinkEffect 2s infinite alternate !important;
+    visibility: visible !important;
+  }
+  /* Blinking Effect */
+  @keyframes blinkEffect {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
+  /* Mobile Menu Button */
+  .menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    display: none;
+    border-radius: 50%; /* Circular border-radius for button */
+    z-index: 10; /* Ensure the button is on top */
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    position: absolute; /* Positioned below the navbar */
+    top: 60px; /* Adjust this to control the vertical position of the mobile menu */
+    right: 0;
+   // width: 100%; /* Full width */
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3));
+    backdrop-filter: blur(15px); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border */
+    padding: 10px;
+    text-align: center;
+    z-index: 9999; /* Ensure it's below the navbar */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-10px); /* Start position */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+    border-radius: 10px; /* Smooth rounded edges */
+  }
+  
+  /* Apply styles to links in mobile menu */
+  /* Mobile Menu Links */
+  .mobile-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 18px; /* Adjust font size as needed */
+    margin-bottom: 10px; /* Spacing between links */
+    position: relative; /* This ensures that the "NEW" badge will be positioned relative to this link */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: black;
+    display: inline-block; /* Ensure correct positioning of the badge */
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+  
+  .mobile-menu.open {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  .mobile-menu.closing {
+    animation: fadeOut 0.5s ease-in-out forwards;
+  }
+  
+  /* Mobile Menu Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* ///////////////////////////////////////////////////////////////////////////////////////////// */
+  /* "NEW" Badge for Java (first link) */
+  .mobile-menu a:first-child {
+    position: relative; /* Ensures correct positioning of the "NEW" badge inside the Java link */
+  }
+  
+  .mobile-menu a:first-child .new-badge {
+    position: absolute;
+    top: 0; /* Align the "NEW" badge to the top edge of the Java link */
+    right: -8px; /* Adjust this to position the badge on the right side without going outside */
+    background-color: red; /* Full red background */
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px 8px; /* Adjust padding for a larger badge */
+    border-radius: 4px;
+    text-transform: uppercase;
+    animation: blink .5s infinite alternate; /* Blinking effect */
+    white-space: nowrap; /* Prevents the text from wrapping */
+  }
+  
+  /* Blinking effect for "NEW" badge */
+  @keyframes blink {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  
+  
+  .mobile-menu a:hover {
+    background-color: rgba(252, 220, 38, 0.849);
+    color:rgb(0, 0, 0);
+  }
+  
+  /* Show mobile menu when it has the 'open' class */
+  .mobile-menu.open {
+    display: flex;
+  }
+  
+  .menu a:hover {
+    background-color: rgba(252, 220, 38, 0.849);
+    color: #000000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .menu-toggle:hover {
+    color: #d65454;
+    transition: color 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  /* Mobile navbar ko fixed karna */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Body me padding add karna taaki content navbar ke neeche se start ho */
+  body {
+    padding-top: 60px;
+  }
+  }
