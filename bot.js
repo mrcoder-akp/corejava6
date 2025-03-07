@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let offsetX, offsetY, isDragging = false;
 
-    // Function to load saved messages from local storage
+    // 🟢 Function to load saved messages from local storage
     function loadMessages() {
         const messages = JSON.parse(localStorage.getItem("chatMessages")) || [];
         messages.forEach(msg => {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Function to save messages to local storage
+    // 🟢 Function to save messages to local storage
     function saveMessage(text, type) {
         const messages = JSON.parse(localStorage.getItem("chatMessages")) || [];
         messages.push({ text, type });
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function botResponse(userText) {
         let botReply = "I didn't understand that. Can you ask something else? Plz Connect with mail-mrtark@gmail.com";
-    
+
         const responses = {
             "hello": "Hi there! How can I assist you🤖?",
             "hi": "Hello! I'm Avinash😊",
@@ -58,35 +58,32 @@ document.addEventListener("DOMContentLoaded", function () {
             "help": "I'm here to assist you. Ask me anything (Software Developer issue)🔍!",
             "java": "Yes, I can help you with all Java topics. Click the Navbar Java icon and read all topics deeply😊"
         };
-    
+
         Object.keys(responses).forEach(key => {
             if (userText.toLowerCase().includes(key)) {
                 botReply = responses[key];
             }
         });
-    
-        // 🟢 Create "Typing..." effect with animated dots
+
+        // 🟢 Typing Indicator Animation
         const typingIndicator = document.createElement("div");
         typingIndicator.classList.add("message", "bot-message", "typing");
-        typingIndicator.innerHTML = `<span></span><span></span><span></span>`; // 🟢 Dots for animation
+        typingIndicator.innerHTML = `<span></span><span></span><span></span>`;
         chatBox.appendChild(typingIndicator);
         chatBox.scrollTop = chatBox.scrollHeight;
-    
-        // 🟢 Simulate typing delay before bot replies
+
         setTimeout(() => {
-            chatBox.removeChild(typingIndicator); // Remove typing indicator
-            
+            chatBox.removeChild(typingIndicator);
+
             const botMessage = document.createElement("div");
             botMessage.classList.add("message", "bot-message");
             botMessage.textContent = botReply;
             chatBox.appendChild(botMessage);
-            
+
             saveMessage(botReply, "bot-message");
             chatBox.scrollTop = chatBox.scrollHeight;
-        }, 5000); // 🟢 2-second delay before showing bot response
+        }, 2000);
     }
-    
-    
 
     sendButton.addEventListener("click", sendMessage);
     inputField.addEventListener("keypress", (event) => {
@@ -110,11 +107,11 @@ document.addEventListener("DOMContentLoaded", function () {
         chatLogo.style.display = 'block';
     });
 
-    // Load messages on page load
+    // 🟢 Load messages on page load
     loadMessages();
 });
 
-// JavaScript to make the chat container movable within 90% of its allowed display area
+// 🟢 Chat Container Moveable Code (Fixed Bottom Boundaries)
 const chatHeader = document.querySelector('.chat-header');
 const chatContainer = document.querySelector('.chat-container');
 
@@ -130,7 +127,7 @@ chatHeader.addEventListener('mousedown', (e) => {
     offsetY = e.clientY - rect.top;
 
     chatContainer.style.cursor = 'grabbing';
-    chatContainer.style.transition = 'none'; // Disable transition while dragging
+    chatContainer.style.transition = 'none';
 });
 
 document.addEventListener('mousemove', (e) => {
@@ -138,64 +135,34 @@ document.addEventListener('mousemove', (e) => {
         let newLeft = e.clientX - offsetX;
         let newTop = e.clientY - offsetY;
 
-        // Get the allowed movement area (90% of max-width & max-height)
-        const maxWidth = window.innerWidth * 0.9 - chatContainer.offsetWidth;
-        const maxHeight = window.innerHeight * 0.9 - chatContainer.offsetHeight;
+        const navbarHeight = document.querySelector(".navbar") ? document.querySelector(".navbar").offsetHeight : 60;
+        const maxWidth = window.innerWidth - chatContainer.offsetWidth - 10;
+        const maxHeight = window.innerHeight - chatContainer.offsetHeight - 10;
 
-        // Apply movement restrictions
-        if (newLeft < 0) newLeft = 0;
-        if (newTop < 0) newTop = 0;
+        if (newLeft < 10) newLeft = 10;
         if (newLeft > maxWidth) newLeft = maxWidth;
+        if (newTop < navbarHeight) newTop = navbarHeight;
         if (newTop > maxHeight) newTop = maxHeight;
 
         chatContainer.style.left = `${newLeft}px`;
         chatContainer.style.top = `${newTop}px`;
-        chatContainer.style.transform = 'none'; // Remove centering transform
+        chatContainer.style.transform = 'none';
     }
 });
 
 document.addEventListener('mouseup', () => {
     isDragging = false;
     chatContainer.style.cursor = 'move';
-    chatContainer.style.transition = '0.2s ease-out'; // Re-enable smooth movement after dragging
+    chatContainer.style.transition = '0.2s ease-out';
 });
 
-
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// Source div se text fetch karein
-const sourceText = document.getElementById("text-source").innerText;
-
-// Line breaks preserve karne ke liye "\n" ko "<br>" me replace karein
-const formattedText = sourceText.replace(/\n/g, "<br>");
-
-// Marquee text container ka reference lein
-const textElement = document.getElementById("marquee-text");
-
-let index = 0;
-let displayText = "";
-
-function typeEffect() {
-  if (index < formattedText.length) {
-    displayText += formattedText[index];
-    textElement.innerHTML = displayText; // Update marquee text
-    index++;
-    setTimeout(typeEffect, 50); // Speed adjust karne ke liye change karein
-  } else {
-    setTimeout(() => {
-      textElement.innerHTML = "";
-      index = 0;
-      displayText = "";
-      typeEffect();
-    }, 1000); // Text complete hone ke baad kitna delay ho
-  }
+// 🟢 Auto Adjust Chat Logo Position in Bottom Right Corner (Responsive)
+function adjustChatLogo() {
+    const logo = document.getElementById("chat-logo");
+    logo.style.position = "fixed";
+    logo.style.bottom = "10px";
+    logo.style.right = "10px";
 }
 
-typeEffect();
-
-
+window.addEventListener("resize", adjustChatLogo);
+window.addEventListener("load", adjustChatLogo);
