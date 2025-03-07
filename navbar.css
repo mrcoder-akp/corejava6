@@ -295,11 +295,11 @@ body {
 /* } */
 
 /* Mobile Specific Tweaks */
-@media only screen and (max-width: 768px) {
-  #mainContent.special-content {
-    background-attachment: scroll; /* Scrollable if needed */
-  }
-}
+//@media only screen and (max-width: 768px) {
+ // #mainContent.special-content {
+  //  background-attachment: scroll; /* Scrollable if needed */
+  //}
+//}
 
 
 /* Image Styling */
