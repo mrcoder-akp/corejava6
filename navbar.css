@@ -256,7 +256,7 @@ body{
   background-repeat: no-repeat; /* Prevent repetition */
   background-attachment: fixed; /* Fixed background */
   height: calc(100vh - 60px); /* Fixed height */
- // position: relative;
+  position: relative;
   overflow: hidden; /* Prevents content overflow */
  // transform: translate3d(0, 0, 0); /* Prevents flickering */
  // will-change: transform; /* Optimizes rendering */
@@ -322,7 +322,7 @@ body{
     width: 100%;
    // max-width:100%;
     filter: drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.6)); /* Lighter effect for mobile */
-    position:fixed;
+    position:absolute;
     bottom:0;
     transform:translateX(-50); 
   }
@@ -331,7 +331,7 @@ body{
 /* ///////////////////////////////////////////////////////////////////////// */
 /* Marquee Container (Full Height Except Navbar) */
 .marquee-container {
-  top:33vh;
+  top:20vh;
   position: absolute;
   bottom: 15vh;
   left: 5vh; /* Left side position */
@@ -400,7 +400,7 @@ body{
 /* 🔹 Responsive Design for Mobile & Tablet */
 @media (max-width: 600px) {
   .marquee-container {
-    top: 23vh; /* Adjust height */
+    top: 13vh; /* Adjust height */
     left: 50%; /* Center the box */
     transform: translateX(-50%); /* Perfect centering */
     width: 80%; /* Take more width on small screens */
