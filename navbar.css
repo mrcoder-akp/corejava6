@@ -25,6 +25,8 @@ html, body {
    -webkit-user-select: none; /* Safari ke liye */
    -moz-user-select: none; /* Firefox ke liye */
    -ms-user-select: none; /* IE ke liye */
+   top: 0;
+   left: 0;
 }
 
 /* Navbar Container */
@@ -246,7 +248,21 @@ html, body {
   .menu-toggle {
     display: block;
   }
+  /* Mobile navbar ko fixed karna */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
+
+/* Body me padding add karna taaki content navbar ke neeche se start ho */
+body {
+  padding-top: 60px;
+}
+}
+
 
 /* ///////////////////////////////////////////////////////////////////////////////////////// */
 #mainContent.special-content {
@@ -328,7 +344,115 @@ html, body {
     transform:translateX(-50); 
   }
 }
- 
+
+/* ///////////////////////////////////////////////////////////////////////// */
+/* Marquee Container (Full Height Except Navbar) */
+.marquee-container {
+  top:20vh;
+  position: absolute;
+  bottom: 15vh;
+  left: 5vh; /* Left side position */
+  width: 38%; /* Box width */
+  height: 60vh; /* Box height */
+  overflow: hidden;
+  display: flex;
+  background-color: rgb(29, 26, 26); /* Dark background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 10px; /* Inner spacing */
+  color: white; /* Text color */
+  font-size: clamp(14px, 3vw, 22px); /* Responsive text */
+  box-shadow: -10px 10px 30px rgba(255, 255, 255, 0.77), 
+            10px 10px 30px rgba(255, 255, 255, 0.8); 
+
+  /*  unselectable banane ke liye  */
+    user-select: none;  /* Disable text selection */
+    -webkit-user-select: none; /* Safari ke liye */
+    -moz-user-select: none; /* Firefox ke liye */
+    -ms-user-select: none; /* IE ke liye */
+    pointer-events: none; /* Ensure other interactions work */
+    z-index: 5; /* Slightly forward */
+}
+/* /////////////////////////////////////////////////////////////////////////////////////// */
+
+/* 🔥 Left Shadow (Moves Backward for Depth) */
+.marquee-shadow-left {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Slight shadow */
+  left: -10px; /* Slight shift for depth */
+  top: 10px;
+  border-radius: 10px;
+  z-index: -5; /* Moves backward */
+  filter: blur(10px);
+}
+/* 🔥 Right Shadow (Moves Forward for Depth) */
+.marquee-shadow-right {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.08); /* Light highlight */
+  left: 10px; /* Slight shift for depth */
+  top: -10px;
+  border-radius: 10px;
+  z-index: 5; /* Moves slightly forward */
+  filter: blur(10px);
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+/* Marquee Text */
+.marquee-text {
+  font-size: clamp(14px, 4vw, 22px);
+  font-weight: bold;
+  color:rgb(254, 255, 255,0.8);
+  overflow: hidden;
+  display: inline-block;
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.marquee-text {
+  animation: blink 0.7s step-end infinite;
+}
+
+/* 🔹 Responsive Design for Mobile & Tablet */
+@media (max-width: 600px) {
+  .marquee-container {
+    top: 15vh; /* Adjust height */
+    left: 50%; /* Center the box */
+    transform: translateX(-50%); /* Perfect centering */
+    width: 90%; /* Take more width on small screens */
+    height: 40vh; /* Adjust height */
+    padding: 15px; /* Reduce padding */
+    box-shadow: -10px 0px 30px rgba(255, 255, 255, 0.49), 
+    10px 0px 30px rgba(255, 255, 255, 0.49);
+
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* 🔥 Blinking Circles on 4 Corners */
+.blinking-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  animation: blinkAnimation 1s infinite alternate;
+}
+
+/* Positioning 4 Circles */
+.blinking-circle.top-left { top: 5px; left: 5px; }
+.blinking-circle.top-right { top: 5px; right: 5px; }
+.blinking-circle.bottom-left { bottom: 5px; left: 5px; }
+.blinking-circle.bottom-right { bottom: 5px; right: 5px; }
+
+/* 🔥 Color Blinking Animation */
+@keyframes blinkAnimation {
+  0% { background-color: red; }
+  25% { background-color: white; }
+  50% { background-color: green; }
+  75% { background-color: yellow; }
+  100% { background-color: purple; }
+} 
 /* ////////////////////////////////////////////////////////////////////////////////////// */
 /* Only apply to h1 inside .special-content */
 .special-content .welcome-heading {
