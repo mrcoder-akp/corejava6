@@ -1,7 +1,6 @@
-html, body {
+body {
   margin: 0;
   font-family: Arial, sans-serif;
-  height: calc(100vh - 60px); /* Fixed height */
 }
 * {
   margin: 0;
@@ -32,7 +31,7 @@ html, body {
 /* Navbar Container */
 .container-nave {
   left: 0;
-  height: 100%;
+  height:60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -134,7 +133,7 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border */
   padding: 10px;
   text-align: center;
-  z-index: 9999; /* Ensure it's below the navbar */
+ // z-index: 9999; /* Ensure it's below the navbar */
   opacity: 0; /* Initially hidden */
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
