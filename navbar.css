@@ -126,7 +126,7 @@ body {
   position: fixed; /* Positioned below the navbar */
   top: 60px; /* Adjust this to control the vertical position of the mobile menu */
   right: 0;
-  width: 100%; /* Full width */
+ // width: 100%; /* Full width */
   flex-direction: column;
   background: linear-gradient(135deg, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3));
   backdrop-filter: blur(15px); /* Glassmorphism effect */
@@ -298,8 +298,6 @@ body {
 @media only screen and (max-width: 768px) {
   #mainContent.special-content {
     background-attachment: scroll; /* Scrollable if needed */
-    height: auto;
-    min-height: calc(100vh - 60px);
   }
 }
 
