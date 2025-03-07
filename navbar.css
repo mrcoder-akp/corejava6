@@ -29,7 +29,7 @@ body{
 /* Navbar Container */
 .container-nave {
   left: 0;
-  height: 100%;
+  height: 100%; /* Fixed height */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -434,41 +434,41 @@ body{
 }
  
 /* ////////////////////////////////////////////////////////////////////////////////////// */
-/* Only apply to h1 inside .special-content */
+/* Only apply to h1 inside .special-content
 .special-content .welcome-heading {
   color:rgb(70, 0, 46);
   background-color:rgba(181, 248, 164, 0.81);
   font-size: clamp(24px, 3vw, 60px);
   padding: 1vw; /* Relative padding */
 /* ⭐ Added a single-colored shadow ⭐ */
-   text-shadow: 3px 3px 5px black; /* You can change 'red' to any color */
-   border-bottom: 1px solid rgba(252, 254, 255, 0.85);; /* White line under the text */
-   box-shadow: 0px 3px 5px rgb(0, 0, 0); /* Shadow effect on the underline */
+//   text-shadow: 3px 3px 5px black; /* You can change 'red' to any color */
+  // border-bottom: 1px solid rgba(252, 254, 255, 0.85);; /* White line under the text */
+ //  box-shadow: 0px 3px 5px rgb(0, 0, 0); /* Shadow effect on the underline */
 /* Width adjusts to fit the content */
-   width: fit-content;
+  // width: fit-content;
   /* Ensure it behaves like text but allows block-level properties */
 //  display: block;
   /* Optional: add margin to adjust spacing, if necessary */
-  margin:auto;
+ // margin:auto;
 /* Rounded top-left and top-right corners (Rebound effect) */
-border-bottom-left-radius: 20px;  /* Rounded corner on the left */
-border-bottom-right-radius: 20px;  /* Rounded corner on the right */
+//border-bottom-left-radius: 20px;  /* Rounded corner on the left */
+//border-bottom-right-radius: 20px;  /* Rounded corner on the right */
    /*  unselectable banane ke liye  */
-   user-select: none;  /* Disable text selection */
-   -webkit-user-select: none; /* Safari ke liye */
-   -moz-user-select: none; /* Firefox ke liye */
-   -ms-user-select: none; /* IE ke liye */
+  // user-select: none;  /* Disable text selection */
+  // -webkit-user-select: none; /* Safari ke liye */
+  // -moz-user-select: none; /* Firefox ke liye */
+  // -ms-user-select: none; /* IE ke liye */
     /* Responsive adjustments */
  // max-width: 90%; /* Prevents text from going too wide */
  // text-align: center; /* Ensures alignment stays proper */
  // line-height: 1; /* Adjust line spacing for better readability */
 
-}
-.special-content .welcome-heading .first-letter {
-  color: rgba(245, 149, 5, 0.81);
-  font-weight: bold;
-  font-size: 1.2em; /* Slightly bigger for visibility */
-}
+//}
+//.special-content .welcome-heading .first-letter {
+ // color: rgba(245, 149, 5, 0.81);
+ // font-weight: bold;
+ // font-size: 1.2em; /* Slightly bigger for visibility */
+//} */
 
 
 /* ///////////////////////////////////////////////////////////// */
