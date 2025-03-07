@@ -126,18 +126,18 @@ body {
   position: fixed; /* Positioned below the navbar */
   top: 60px; /* Adjust this to control the vertical position of the mobile menu */
   right: 0;
- // width: 100%; /* Full width */
+  width: 100%; /* Full width */
   flex-direction: column;
   background: linear-gradient(135deg, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3));
   backdrop-filter: blur(15px); /* Glassmorphism effect */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border */
   padding: 10px;
   text-align: center;
- // z-index: 9999; /* Ensure it's below the navbar */
+  z-index: 9999; /* Ensure it's below the navbar */
   opacity: 0; /* Initially hidden */
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
- // border-radius: 10px; /* Smooth rounded edges */
+  border-radius: 10px; /* Smooth rounded edges */
 }
 
 /* Apply styles to links in mobile menu */
@@ -300,7 +300,6 @@ body {
     background-attachment: scroll; /* Scrollable if needed */
     height: auto;
     min-height: calc(100vh - 60px);
-    padding-bottom: 20px;
   }
 }
 
