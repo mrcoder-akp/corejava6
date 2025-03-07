@@ -1,6 +1,7 @@
-body{
+html, body {
   margin: 0;
   font-family: Arial, sans-serif;
+  height: calc(100vh - 60px); /* Fixed height */
 }
 * {
   margin: 0;
@@ -249,13 +250,18 @@ body{
 
 /* ///////////////////////////////////////////////////////////////////////////////////////// */
 #mainContent.special-content {
-  background-color:red;
+  /* Background Image */
+  background-image: url('public/main.jpg'); /* Replace with your image path */
+  background-size: cover; /* Fit the container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repetition */
+  background-attachment: fixed; /* Fixed background */
   height: calc(100vh - 60px); /* Fixed height */
   position: relative;
   overflow: hidden; /* Prevents content overflow */
  // transform: translate3d(0, 0, 0); /* Prevents flickering */
  // will-change: transform; /* Optimizes rendering */
- // background-color: #000; /* Optional: Fallback color while image loads */
+  background-color: #000; /* Optional: Fallback color while image loads */
 }
 
 /* Ensuring image loads fully before display */
@@ -277,6 +283,9 @@ body{
 /* Mobile Specific Tweaks */
 @media only screen and (max-width: 768px) {
   #mainContent.special-content {
+    background-attachment: scroll; /* Scrollable if needed */
+    background-size: cover;
+    background-position: center;
     height: calc(100vh - 60px); /* Fixed height */
   }
 }
