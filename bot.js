@@ -166,3 +166,35 @@ function adjustChatLogo() {
 
 window.addEventListener("resize", adjustChatLogo);
 window.addEventListener("load", adjustChatLogo);
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Source div se text fetch karein
+const sourceText = document.getElementById("text-source").innerText;
+
+// Line breaks preserve karne ke liye "\n" ko "<br>" me replace karein
+const formattedText = sourceText.replace(/\n/g, "<br>");
+
+// Marquee text container ka reference lein
+const textElement = document.getElementById("marquee-text");
+
+let index = 0;
+let displayText = "";
+
+function typeEffect() {
+  if (index < formattedText.length) {
+    displayText += formattedText[index];
+    textElement.innerHTML = displayText; // Update marquee text
+    index++;
+    setTimeout(typeEffect, 50); // Speed adjust karne ke liye change karein
+  } else {
+    setTimeout(() => {
+      textElement.innerHTML = "";
+      index = 0;
+      displayText = "";
+      typeEffect();
+    }, 1000); // Text complete hone ke baad kitna delay ho
+  }
+}
+
+typeEffect();
