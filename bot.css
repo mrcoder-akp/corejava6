@@ -147,7 +147,7 @@
 
 /* Chat Logo & Close Button */
 .chat-logo, .cross-btn {
- //   position: fixed;  /* ✅ Fixed position so it stays in the bottom-right corner */
+    position: fixed;  /* ✅ Fixed position so it stays in the bottom-right corner */
     bottom: 10px;  /* ✅ Adjusted to always stick to bottom */
     right: 20px; 
     background-color: rgb(255, 255, 255);
