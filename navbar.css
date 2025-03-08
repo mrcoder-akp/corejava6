@@ -265,7 +265,7 @@ body {
   /* Background Image */
   background-image: url('public/main.jpg'); /* Replace with your image path */
   background-size: cover; /* Fit the container */
-  background-position: center; /* Center the image */
+  /* background-position: center; Center the image */
   background-repeat: no-repeat; /* Prevent repetition */
   background-attachment: fixed; /* Fixed background */
   height: calc(100vh - 60px); /* Fixed height */
@@ -325,7 +325,6 @@ body {
     width: 100%;
    /* // max-width:100%; */
     filter: drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.6)); /* Lighter effect for mobile */
-    position:absolute;
     bottom:0;
   }
 }
@@ -333,9 +332,9 @@ body {
 /* ///////////////////////////////////////////////////////////////////////// */
 /* Marquee Container (Full Height Except Navbar) */
 .marquee-container {
-  top:20vh;
+  top:auto;
   position: absolute;
-  bottom: 15vh;
+  bottom: 10vh;
   left: 5vh; /* Left side position */
   width: 35%; /* Box width */
   height: 60vh; /* Box height */
@@ -441,34 +440,29 @@ body {
 /* ////////////////////////////////////////////////////////////////////////////////////// */
 /* Only apply to h1 inside .special-content */
 .special-content .welcome-heading {
-  color:rgb(70, 0, 46);
-  background-color:rgba(181, 248, 164, 0.81);
-  font-size: clamp(24px, 3vw, 60px);
-  padding: 1vw; /* Relative padding */
-/* ⭐ Added a single-colored shadow ⭐ */
-   text-shadow: 3px 3px 5px black; /* You can change 'red' to any color */
-   border-bottom: 1px solid rgba(252, 254, 255, 0.85);; /* White line under the text */
-   box-shadow: 0px 3px 5px rgb(0, 0, 0); /* Shadow effect on the underline */
-/* Width adjusts to fit the content */
-   width: fit-content;
-  /* Ensure it behaves like text but allows block-level properties */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(70, 0, 46);
+  background-color: rgba(181, 248, 164, 0.81);
+  font-size: clamp(20px, 3vw, 50px); /* Responsive size: min 20px, max 50px */
+  padding: 1vw;
+  text-shadow: 3px 3px 5px black;
+  border-bottom: 1px solid rgba(252, 254, 255, 0.85);
+  box-shadow: 0px 3px 5px rgb(0, 0, 0);
+  width: 90%; /* Max width rakhenge takki content break na ho */
+  max-width: 600px; /* PC par zyada bada na ho */
   display: block;
-  /* Optional: add margin to adjust spacing, if necessary */
-  margin:auto;
-/* Rounded top-left and top-right corners (Rebound effect) */
-border-bottom-left-radius: 20px;  /* Rounded corner on the left */
-border-bottom-right-radius: 20px;  /* Rounded corner on the right */
-   /*  unselectable banane ke liye  */
-   user-select: none;  /* Disable text selection */
-   -webkit-user-select: none; /* Safari ke liye */
-   -moz-user-select: none; /* Firefox ke liye */
-   -ms-user-select: none; /* IE ke liye */
-    /* Responsive adjustments */
- /* // max-width: 90%; Prevents text from going too wide */
-  text-align: center; /* Ensures alignment stays proper */
-  line-height: 1; /* Adjust line spacing for better readability */
-
+  text-align: center;
+  line-height: 1.2; /* Line spacing adjust */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  word-wrap: break-word; /* Word wrapping enable */
+  overflow-wrap: break-word; /* Ensure wrapping works */
+  user-select: none;
 }
+
+
 .special-content .welcome-heading .first-letter {
   color: rgba(245, 149, 5, 0.81);
   font-weight: bold;
