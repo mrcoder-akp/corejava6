@@ -289,14 +289,6 @@ body {
   /* height: 100%; */
   /* z-index: -1; */
 /* } */
-@media (max-width: 768px) {
-  #mainContent.special-content {
-    background-attachment: scroll;
-  }
-}
-
-
-
 
 /* Image Styling */
 #mainContent.special-content .special-img {

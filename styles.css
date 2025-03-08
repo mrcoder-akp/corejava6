@@ -29,7 +29,7 @@ body {
   overflow-y: auto; 
   position: relative; /* Ensures elements inside can use absolute or sticky positioning */
   display: flex;
-  flex-direction: column; /* Stack content (h2, searchBar, topics) vertically */ 
+  flex-direction: column; /* Stack content (h2, searchBar, topics) vertically */
 }
 
 /* Smooth animation to create a shifting effect */
@@ -181,6 +181,9 @@ body {
   color: #888;
   font-style: italic;
 }
+/* Search Bar Placeholder Styling */
+#
+::contentReference[oaicite:0]{index=0}
 
 /* Responsive adjustments for the search bar */
 @media (max-width: 552px) {
