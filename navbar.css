@@ -1,36 +1,37 @@
-/* Reset & Basic Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  padding-top: 60px; /* Navbar ke liye padding add */
 }
-
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensure padding and border do not affect layout */
 }
 
 /* Navbar Styles */
 .navbar {
-  height: 60px;
-  display: flex;
-  justify-content: space-around;
+  height:60px;
+  display:flex;
+  justify-content:space-around;
   align-items: center;
   width: 100%;
-  background-color: rgb(36, 5, 5);
+  background-color: rgb(36, 5, 5); /* Change to your desired navbar color */
   color: white;
-  z-index: 1000;
-  box-shadow: 0 4px 2px -2px gray;
-  position: fixed;
-  top: 0;
-  left: 0;
-  user-select: none;
+  z-index: 1000; /* Ensure the navbar is above the content */
+  box-shadow: 0 4px 2px -2px gray; /* Optional shadow for styling */
+   /*  unselectable banane ke liye  */
+   user-select: none;  /* Disable text selection */
+   -webkit-user-select: none; /* Safari ke liye */
+   -moz-user-select: none; /* Firefox ke liye */
+   -ms-user-select: none; /* IE ke liye */
+   top: 0;
+   left: 0;
 }
 
 /* Navbar Container */
 .container-nave {
-  height: 60px;
+  left: 0;
+  height:60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,15 +39,17 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
-  position: relative;
+  position: relative; /* Make the container relative to position mobile-menu */
   z-index: 1000;
 }
+
 
 /* Logo Styling */
 .logo {
   font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
-  background-image: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+  background-image: linear-gradient(90deg, 
+      red, orange, yellow, green, cyan, blue, violet, red);
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -56,13 +59,11 @@ body {
 }
 
 
-
 /* Keyframes for Moving Color Effect */
 @keyframes moveColor {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
-
 
 
 /* Navbar Menu */
@@ -146,7 +147,7 @@ body {
   padding: 10px 15px;
   border-radius: 8px;
   font-size: 18px; /* Adjust font size as needed */
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Spacing between links */
   position: relative; /* This ensures that the "NEW" badge will be positioned relative to this link */
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   background-color: black;
@@ -303,9 +304,8 @@ body {
   object-fit: cover; /* Ensure the aspect ratio remains intact */
   filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.8));
   animation: glowing-shadow 1.5s infinite alternate ease-in-out;
- /* // background-color:black; */
-  /* margin: 0;
-  padding: 0; */
+  margin: 0;
+  padding: 0;
      /*  unselectable banane ke liye  */
      user-select: none;  /* Disable text selection */
      -webkit-user-select: none; /* Safari ke liye */
@@ -323,19 +323,19 @@ body {
 @media (max-width: 450px) {
   #mainContent.special-content .special-img {
     width: 100%;
-   /* // max-width:100%; */
     filter: drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.6)); /* Lighter effect for mobile */
     position:absolute;
     bottom:0;
+    transform:translateX(-50); 
   }
 }
 
 /* ///////////////////////////////////////////////////////////////////////// */
 /* Marquee Container (Full Height Except Navbar) */
 .marquee-container {
-  top:auto;
+  top:20vh;
   position: absolute;
-  bottom: 8vh;
+  bottom: 15vh;
   left: 5vh; /* Left side position */
   width: 35%; /* Box width */
   height: 60vh; /* Box height */
@@ -464,7 +464,6 @@ border-bottom-right-radius: 20px;  /* Rounded corner on the right */
    -moz-user-select: none; /* Firefox ke liye */
    -ms-user-select: none; /* IE ke liye */
     /* Responsive adjustments */
- /* // max-width: 90%; Prevents text from going too wide */
   text-align: center; /* Ensures alignment stays proper */
   line-height: 1; /* Adjust line spacing for better readability */
 
@@ -483,5 +482,3 @@ border-bottom-right-radius: 20px;  /* Rounded corner on the right */
   margin: auto;
   overflow-x: hidden;
 }
-
-
