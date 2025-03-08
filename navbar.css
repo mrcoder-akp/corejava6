@@ -1,34 +1,35 @@
+/* Reset & Basic Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  padding-top: 60px; /* Navbar ke liye padding add */
 }
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Ensure padding and border do not affect layout */
+  box-sizing: border-box;
 }
 
 /* Navbar Styles */
 .navbar {
-  height:60px;
-  display:flex;
-  justify-content:space-around;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  background-color: rgb(36, 5, 5); /* Change to your desired navbar color */
+  background-color: rgb(36, 5, 5);
   color: white;
-  z-index: 1000; /* Ensure the navbar is above the content */
-  box-shadow: 0 4px 2px -2px gray; /* Optional shadow for styling */
-   /*  unselectable banane ke liye  */
-   user-select: none;  /* Disable text selection */
-   -webkit-user-select: none; /* Safari ke liye */
-   -moz-user-select: none; /* Firefox ke liye */
-   -ms-user-select: none; /* IE ke liye */
+  z-index: 1000;
+  box-shadow: 0 4px 2px -2px gray;
+  position: fixed;
+  top: 0;
+  left: 0;
+  user-select: none;
 }
 
 /* Navbar Container */
 .container-nave {
-  left: 0;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -37,17 +38,15 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
-  position: relative; /* Make the container relative to position mobile-menu */
+  position: relative;
   z-index: 1000;
 }
-
 
 /* Logo Styling */
 .logo {
   font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
-  background-image: linear-gradient(90deg, 
-      red, orange, yellow, green, cyan, blue, violet, red);
+  background-image: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -57,11 +56,13 @@ body {
 }
 
 
+
 /* Keyframes for Moving Color Effect */
 @keyframes moveColor {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
+
 
 
 /* Navbar Menu */
@@ -121,10 +122,9 @@ body {
 /* Mobile Menu */
 .mobile-menu {
   display: none;
-  position: absolute; /* Positioned below the navbar */
+  position: fixed; /* Positioned below the navbar */
   top: 60px; /* Adjust this to control the vertical position of the mobile menu */
   right: 0;
- // width: 100%; /* Full width */
   flex-direction: column;
   background: linear-gradient(135deg, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3));
   backdrop-filter: blur(15px); /* Glassmorphism effect */
@@ -133,7 +133,6 @@ body {
   text-align: center;
   z-index: 9999; /* Ensure it's below the navbar */
   opacity: 0; /* Initially hidden */
-  transform: translateY(-10px); /* Start position */
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
   border-radius: 10px; /* Smooth rounded edges */
@@ -245,7 +244,7 @@ body {
   .menu-toggle {
     display: block;
   }
-/* Mobile navbar ko fixed karna */
+  /* Mobile navbar ko fixed karna */
 .navbar {
   position: fixed;
   top: 0;
@@ -260,47 +259,43 @@ body {
 }
 }
 
+
 /* ///////////////////////////////////////////////////////////////////////////////////////// */
 #mainContent.special-content {
   /* Background Image */
-  background-image: url('public/main.jpg'); /* Replace with your image path */
+  background-image: url('/public/main.jpg'); /* Replace with your image path */
   background-size: cover; /* Fit the container */
-  background-position: center; /* Center the image */
+  /* background-position: center; Center the image */
   background-repeat: no-repeat; /* Prevent repetition */
   background-attachment: fixed; /* Fixed background */
   height: calc(100vh - 60px); /* Fixed height */
   position: relative;
   overflow: hidden; /* Prevents content overflow */
-  transform: translate3d(0, 0, 0); /* Prevents flickering */
-  will-change: transform; /* Optimizes rendering */
   background-color: #000; /* Optional: Fallback color while image loads */
 }
 
 /* Ensuring image loads fully before display */
-#mainContent.special-content::before {
-  content: '';
-  position: fixed; /* Ensures background stays fixed */
-  background-image: url('public/main.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-/* Mobile Specific Tweaks */
-@media only screen and (max-width: 768px) {
+/* #mainContent.special-content::before { */
+  /* content: ''; */
+  /* position: fixed; Ensures background stays fixed */
+  /* background-image: url('public/main.jpg'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* z-index: -1; */
+/* } */
+@media (max-width: 768px) {
   #mainContent.special-content {
-    background-attachment: scroll; /* Scrollable if needed */
-    background-size: cover;
-    background-position: center;
-    max-height:auto;
+    background-attachment: scroll;
   }
 }
+
+
 
 
 /* Image Styling */
@@ -308,12 +303,13 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 60%;
+  width: auto;
+  max-width: 70%;
   height: auto;
-  object-fit: cover; /* Ensure the aspect ratio remains intact */
+  object-fit: contain; /* Ensure the aspect ratio remains intact */
   filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.8));
   animation: glowing-shadow 1.5s infinite alternate ease-in-out;
- // background-color:black;
+ /* // background-color:black; */
   margin: 0;
   padding: 0;
      /*  unselectable banane ke liye  */
@@ -332,25 +328,28 @@ body {
 }
 @media (max-width: 450px) {
   #mainContent.special-content .special-img {
-    width: 100%;
+    max-width: 100%;
+   /* // max-width:100%; */
     filter: drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.6)); /* Lighter effect for mobile */
+    position:absolute;
+    bottom:0;
   }
 }
 
 /* ///////////////////////////////////////////////////////////////////////// */
 /* Marquee Container (Full Height Except Navbar) */
 .marquee-container {
-  top:20vh;
+  top:auto;
   position: absolute;
-  bottom: 15vh;
+  bottom: 8vh;
   left: 5vh; /* Left side position */
-  width: 38%; /* Box width */
+  width: 35%; /* Box width */
   height: 60vh; /* Box height */
   overflow: hidden;
   display: flex;
   background-color: rgb(29, 26, 26); /* Dark background */
   border-radius: 10px; /* Rounded corners */
-  padding: 10px; /* Inner spacing */
+  padding: 15px; /* Inner spacing */
   color: white; /* Text color */
   font-size: clamp(14px, 3vw, 22px); /* Responsive text */
   box-shadow: -10px 10px 30px rgba(255, 255, 255, 0.77), 
@@ -444,44 +443,43 @@ body {
   50% { background-color: green; }
   75% { background-color: yellow; }
   100% { background-color: purple; }
-}
- 
+} 
 /* ////////////////////////////////////////////////////////////////////////////////////// */
 /* Only apply to h1 inside .special-content */
 .special-content .welcome-heading {
-  color:rgb(70, 0, 46);
-  background-color:rgba(181, 248, 164, 0.81);
-  font-size: clamp(24px, 3vw, 60px);
-  padding: 1vw; /* Relative padding */
-/* ⭐ Added a single-colored shadow ⭐ */
-   text-shadow: 3px 3px 5px black; /* You can change 'red' to any color */
-   border-bottom: 1px solid rgba(252, 254, 255, 0.85);; /* White line under the text */
-   box-shadow: 0px 3px 5px rgb(0, 0, 0); /* Shadow effect on the underline */
-/* Width adjusts to fit the content */
-   width: fit-content;
-  /* Ensure it behaves like text but allows block-level properties */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(70, 0, 46);
+  background-color: rgba(181, 248, 164, 0.81);
+  font-size: clamp(20px, 3vw, 50px); /* Responsive size: min 20px, max 50px */
+  padding: 1vw;
+  text-shadow: 3px 3px 5px black;
+  border-bottom: 1px solid rgba(252, 254, 255, 0.85);
+  box-shadow: 0px 3px 5px rgb(0, 0, 0);
+  width: 0 auto; /* Max width rakhenge takki content break na ho */
   display: block;
-  /* Optional: add margin to adjust spacing, if necessary */
-  margin: 0 auto;
-/* Rounded top-left and top-right corners (Rebound effect) */
-border-bottom-left-radius: 20px;  /* Rounded corner on the left */
-border-bottom-right-radius: 20px;  /* Rounded corner on the right */
-   /*  unselectable banane ke liye  */
-   user-select: none;  /* Disable text selection */
-   -webkit-user-select: none; /* Safari ke liye */
-   -moz-user-select: none; /* Firefox ke liye */
-   -ms-user-select: none; /* IE ke liye */
-    /* Responsive adjustments */
-  max-width: 90%; /* Prevents text from going too wide */
-  text-align: center; /* Ensures alignment stays proper */
-  line-height: 1; /* Adjust line spacing for better readability */
-
+  text-align: center;
+  line-height: 1.2; /* Line spacing adjust */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  word-wrap: break-word; /* Word wrapping enable */
+  overflow-wrap: break-word; /* Ensure wrapping works */
+  user-select: none;
 }
 .special-content .welcome-heading .first-letter {
   color: rgba(245, 149, 5, 0.81);
   font-weight: bold;
   font-size: 1.2em; /* Slightly bigger for visibility */
 }
+@media (max-width: 600px) {
+  .special-content .welcome-heading {
+    font-size: clamp(18px, 5vw, 40px); /* Mobile me aur responsive banane ke liye */
+    width: 90%; /* Mobile ke liye width increase */
+    padding: 2vw; /* Extra padding for better look */
+  }
+}
+
 
 
 /* ///////////////////////////////////////////////////////////// */

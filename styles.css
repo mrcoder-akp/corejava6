@@ -197,9 +197,8 @@ body {
 @media (max-width: 552px) {
   .container {
     flex-direction: column; /* Stack sidebar and content vertically on small screens */
-    height: 100vh; /* ✅ Full viewport height */
-    max-height: 100%; /* ✅ Ensure it doesn’t exceed viewport */
     overflow: hidden; /* ✅ Prevent unwanted scrolling */
+    height: calc(100vh - 60px);
   }
 
   .content {
