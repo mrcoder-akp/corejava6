@@ -126,6 +126,7 @@ body {
   position: fixed; /* Positioned below the navbar */
   top: 60px; /* Adjust this to control the vertical position of the mobile menu */
   right: 0;
+ // width: 100%; /* Full width */
   flex-direction: column;
   background: linear-gradient(135deg, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3));
   backdrop-filter: blur(15px); /* Glassmorphism effect */
@@ -272,6 +273,8 @@ body {
   height: calc(100vh - 60px); /* Fixed height */
   position: relative;
   overflow: hidden; /* Prevents content overflow */
+ // transform: translate3d(0, 0, 0); /* Prevents flickering */
+ // will-change: transform; /* Optimizes rendering */
   background-color: #000; /* Optional: Fallback color while image loads */
 }
 
@@ -291,7 +294,12 @@ body {
   /* z-index: -1; */
 /* } */
 
-
+/* Mobile Specific Tweaks */
+//@media only screen and (max-width: 768px) {
+ // #mainContent.special-content {
+  //  background-attachment: scroll; /* Scrollable if needed */
+  //}
+//}
 
 
 /* Image Styling */
@@ -304,6 +312,7 @@ body {
   object-fit: cover; /* Ensure the aspect ratio remains intact */
   filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.8));
   animation: glowing-shadow 1.5s infinite alternate ease-in-out;
+ // background-color:black;
   margin: 0;
   padding: 0;
      /*  unselectable banane ke liye  */
@@ -323,6 +332,7 @@ body {
 @media (max-width: 450px) {
   #mainContent.special-content .special-img {
     width: 100%;
+   // max-width:100%;
     filter: drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.6)); /* Lighter effect for mobile */
     position:absolute;
     bottom:0;
@@ -464,6 +474,7 @@ border-bottom-right-radius: 20px;  /* Rounded corner on the right */
    -moz-user-select: none; /* Firefox ke liye */
    -ms-user-select: none; /* IE ke liye */
     /* Responsive adjustments */
+ // max-width: 90%; /* Prevents text from going too wide */
   text-align: center; /* Ensures alignment stays proper */
   line-height: 1; /* Adjust line spacing for better readability */
 
