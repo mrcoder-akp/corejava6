@@ -8,7 +8,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     display: flex;
     flex-direction: column; 
-    position: absolute; 
+    position: fixed; /* ✅ absolute se fixed kiya */
     bottom: 5vh; 
     left: 50%; 
     transform: translateX(-50%); /* Keep centered */
@@ -147,7 +147,7 @@
 
 /* Chat Logo & Close Button */
 .chat-logo, .cross-btn {
-    position: fixed;  /* ✅ Fixed position so it stays in the bottom-right corner */
+ //   position: fixed;  /* ✅ Fixed position so it stays in the bottom-right corner */
     bottom: 10px;  /* ✅ Adjusted to always stick to bottom */
     right: 20px; 
     background-color: rgb(255, 255, 255);
