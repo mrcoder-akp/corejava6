@@ -24,10 +24,9 @@ body {
   rgba(255, 15, 99, 0.6), 
   rgba(0, 0, 0, 0.9));
   animation: holoEffect 6s infinite linear alternate; 
- // padding: 6px;
+  padding: 6px;
   box-shadow: 2px 0 5px rgb(0, 0, 0);
-  overflow: hidden; /* Pura sidebar scroll na ho */
-  height: calc(100vh - 60px); /* Ensure proper height */
+  overflow-y: auto; 
   position: relative; /* Ensures elements inside can use absolute or sticky positioning */
   display: flex;
   flex-direction: column; /* Stack content (h2, searchBar, topics) vertically */
@@ -44,12 +43,8 @@ body {
 }
 
 .sidebar h2 {
-  position: sticky;
-  top: 0;
-  z-index: 11; /* Ensure it stays above other content */
+  margin-top: 0;
   color:white;
-  padding: 10px;
-  text-align: center;
   user-select: none;  /* Disable text selection */
   -webkit-user-select: none; /* Safari ke liye */
   -moz-user-select: none; /* Firefox ke liye */
@@ -62,7 +57,6 @@ body {
   scrollbar-width: none; /* Firefox ke liye */
   -ms-overflow-style: none; /* IE/Edge ke liye */
   padding: 15px; /* Remove default padding */
-  max-height: calc(100vh - 60px); /* Ensure proper height */
   user-select: none;  /* Disable text selection */
   -webkit-user-select: none; /* Safari ke liye */
   -moz-user-select: none; /* Firefox ke liye */
@@ -170,7 +164,7 @@ body {
 #searchBar {
   width: 85%;
   left:7%;
-  padding: 12px;
+  padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -178,7 +172,7 @@ body {
   box-sizing: border-box; /* Ensures padding doesn’t overflow */
   background-color: #fff;
   position: sticky; /* Sticky position for search bar */
-  top: 40px; /* h2 ke niche fix rahe */
+  top: 0;
   z-index: 10;
 }
 
