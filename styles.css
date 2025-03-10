@@ -24,9 +24,9 @@ body {
   rgba(255, 15, 99, 0.6), 
   rgba(0, 0, 0, 0.9));
   animation: holoEffect 6s infinite linear alternate; 
-  height: 100%; /* Full height */
+  padding: 6px;
   box-shadow: 2px 0 5px rgb(0, 0, 0);
-  overflow: hidden; /* Prevent unnecessary scrolling */
+  overflow-y: auto; 
   position: relative; /* Ensures elements inside can use absolute or sticky positioning */
   display: flex;
   flex-direction: column; /* Stack content (h2, searchBar, topics) vertically */
@@ -173,7 +173,7 @@ body {
   background-color: #fff;
   position: sticky; /* Sticky position for search bar */
   top: 0;
-  z-index: 20;
+  z-index: 10;
 }
 
 /* Search Bar Placeholder Styling */
