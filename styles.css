@@ -44,6 +44,7 @@ body {
 
 .sidebar h2 {
   margin-top: 0;
+  position:sticky;
   color:white;
   user-select: none;  /* Disable text selection */
   -webkit-user-select: none; /* Safari ke liye */
