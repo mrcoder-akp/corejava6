@@ -157,8 +157,12 @@ public class DemoServlet implements Servlet
 }  
  </pre>
  <br>
- <h4>Life cycle of servlet</h4>
+ <h4>Life cycle of servlet(ServletInterface-Implementaion)</h4>
  <pre>
+Step.1=>Click New and Click Dynamic Web project and create  Project file <br>
+Ex.. Demo-Servlet and Click Src to create a package and  Class, class name your choice <br>
+Step.2=>import build path of servlet-api.jar file <br>
+Step.3=>Write code in the class file <br>    
 import java.io.IOException;
 
 import javax.servlet.Servlet;
@@ -204,6 +208,96 @@ public void service(ServletRequest arg0, ServletResponse arg1) throws ServletExc
 System.out.println("Service method executed...");
 }
 }
+Service method again and agin Call when you load server page 
+Init only one time Call
+Destroy only one time Call when server destroy
+</pre>
+<hr>
+<h4>Servlet-Demo</h4>
+<pre>
+Step.1=>Click New and Click Dynamic Web project and create  Project file <br>
+Ex.. Demo-Servlet and Click Src to create a package and  Class, class name your choice <br>
+Step.2=>import build path of servlet-api.jar file <br>
+Step.3=>Write code in the class file <br>  
+package com.mrstark;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.rmi.ServerException;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/add")
+public class DemoServlet extends HttpServlet
+{
+public void service(HttpServletRequest req,HttpServletResponse res)throws ServerException,IOException
+{
+int x=10,y=20;
+int z=x+y;
+PrintWriter pw=res.getWriter();
+pw.println("<html>");
+pw.println("<body>");
+pw.println("<h2>Sum of "+x+" and "+y+" is "+z+" </h2>");
+pw.println("</body>");
+pw.println("</html>");
+}
+}
+output 
+open server and type url http://localhost:8080/Demo-Servlet/add
+</pre>
+<hr>
+<h4>HttpServlet-class-demo</h4>
+<pre>
+Step.1=>Click New and Click Dynamic Web project and create  Project file <br>
+Ex.. Demo-Servlet and Click Src to create a package and  Class, class name your choice <br>
+Step.2=>import build path of servlet-api.jar file <br>
+Step.3=>Write code in the class file <br> 
+package com.mrstark;
+
+import java.io.IOException;
+import java.rmi.ServerException;
+
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/demo")
+public class DemoServlet extends HttpServlet
+{
+// public void service(HttpServletRequest req,HttpServletResponse res)throws ServerException,IOException
+// {
+//	System.out.println("Duplicate service method..");
+// }
+// public void service(ServletRequest req,ServletResponse res)throws ServerException,IOException
+// {
+//	System.out.println("orignal service method..");
+// }
+ public void doGet(HttpServletRequest req,HttpServletResponse res)throws ServerException,IOException
+ {
+	System.out.println("doGet service method..");
+ }
+ public void doPost(HttpServletRequest req,HttpServletResponse res)throws ServerException,IOException
+ {
+	System.out.println("doPost service method..");
+ }
+ public void doDelete(HttpServletRequest req,HttpServletResponse res)throws ServerException,IOException
+ {
+	System.out.println("doDelete service method..");
+ }
+ public void doPut(HttpServletRequest req,HttpServletResponse res)throws ServerException,IOException
+ {
+	System.out.println("doputservice method..");
+ }
+ 
+}
+working
+open Postman and type url http://localhost:8080/Demo-Servlet/demo
+select method type get or post or delete or put and click send button
+when you change method Ex..Get in Postman then it will call service method original and hide service method of original then call Service method Dublictae because first Prority Service method call original and Dublictae when both hide the Get and Put and Delete call when you change method in Postman
 </pre>
 </div>
 </body>

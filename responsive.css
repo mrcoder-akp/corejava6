@@ -11,7 +11,7 @@ body {
     padding: 0;
     list-style-position: inside;
     list-style-type: decimal; /* Apply decimal numbering */
-   // margin-left: 20px; /* Optional: Indent for better appearance */
+    /* margin-left: 20px; Optional: Indent for better appearance */
 
   }
   .decimal-list code {

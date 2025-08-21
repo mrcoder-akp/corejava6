@@ -176,6 +176,393 @@ This is syncronized class.
 <hr style="border: 1px solid black; width: 25%; margin-top: 5px; margin-left: 0;">
 <p>It is mutable class so string kipt into object of this class can be modified/change
 This is unsyncronized class.</p>
+<h4>Difference between StringBuffer and StringBuilder class</h4>
+<hr style="border: 1px solid black; width: 55%; margin-top: 5px; margin-left: 0;">
+<p>
+1. Synchronization: StringBuffer is synchronized, which means it is thread-safe and can be used in a multi-threaded environment. StringBuilder, on the other hand, is not synchronized, making it faster but not thread-safe. <br>
+2. Performance: Due to synchronization overhead, StringBuffer is generally slower than StringBuilder. If thread safety is not a concern, StringBuilder is preferred for better performance. <br>
+3. Use Cases: StringBuffer is suitable for scenarios where multiple threads access the same string object, while StringBuilder is ideal for single-threaded scenarios or when performance is a priority.
+</p>
+<h4  style="background-color: darkgoldenrod;  border-radius: 3px; display: inline-block;">NOTE</h4>
+<hr style="border: 1px solid black; width: 10%; margin-top: 5px; margin-left: 0;">
+<p>
+StringBuffer class is thread safe class and StringBuilder class is not thread safe class.
+If a class of thread class can be access are used by only one thread at a time that is a thread safe class also known as a StringBuffer class.
+when multiple thread work at a time this class unsafe thread also know as a StringBuilder class.
+</p>
+<hr>
+<h4 style="background-color: goldenrod; border-radius: 3px; display: inline-block;">NOTE Deeply Explanation(Hindi)👇</h4>
+<p>
+Java me <strong>String</strong> ka kaam hota hai <em>set of characters</em> ya <em>set of array</em> ke roop me. Set ka matlab hota hai symbols, digits ya characters ka collection. Ye memory me store hota hai, aur String ke liye internally <strong>char type array</strong> banaya jata hai.<br>
+String ka size predefined hota hai kyunki once create hone ke baad <strong>String immutable</strong> hoti hai — iska matlab ye hai ki iski value <strong>modify</strong> ya <strong>change</strong> nahi ki ja sakti. Java me <strong>String</strong> ek <strong>final class</strong> hai, jise inherit nahi kiya ja sakta.<br>
+Java me <strong>StringBuffer</strong> aur <strong>StringBuilder</strong> bhi hote hain jo <strong>mutable</strong> hote hain — matlab inki value ko hum badal sakte hain. <strong>StringBuffer</strong> <strong>synchronized</strong> hota hai (thread-safe) jabki <strong>StringBuilder</strong> <strong>unsynchronized</strong> hota hai (thread-safe nahi, lekin fast).<br>
+Java me <strong>reference printing directly allow nahi</strong> hoti. Jab hum likhte hain:<br>
+<code>String str = new String("Avinash");</code><br>
+<code>System.out.println(str);</code><br>
+to compiler internally ise convert kar deta hai: <code>System.out.println(str.toString());</code><br>
+Java me saari classes directly ya indirectly <strong>Object class</strong> se inherit hoti hain. <strong>Object</strong> class me ek method hota hai <strong>toString()</strong> jise hum <strong>override</strong> kar sakte hain. <strong>String</strong>, <strong>StringBuffer</strong>, aur <strong>StringBuilder</strong> classes already <strong>toString()</strong> method ko override karti hain. Isliye jab hum unka object print karte hain to actual value print hoti hai.<br>
+Agar hum apni <strong>custom class</strong> banate hain aur usme <strong>toString()</strong> override nahi karte, to output aata hai jaise: <code>ClassName@hashcode</code> (e.g., <code>MyClass@7f36c9</code>)<br>
+Java me jab hum likhte hain: <code>String str = "Avinash";</code> to yeh object <strong>String Constant Pool (SCP)</strong> me create hota hai. Lekin agar likhen: <code>String str = new String("Avinash");</code> to yeh object <strong>Heap memory</strong> me banta hai, aur iska reference <strong>Stack</strong> me store hota hai.<br>
+<strong>Example:</strong><br>
+<code>String str1 = new String("Avinash");</code><br>
+<code>String str2 = new String("Avinash");</code><br>
+<code>System.out.println(str1 == str2);</code> // Output: <strong>false</strong> (kyonki reference compare hota hai)<br>
+<code>System.out.println(str1.equals(str2));</code> // Output: <strong>true</strong> (value compare hoti hai)<br>
+<strong>Custom Class Example:</strong><br>
+<code>MyString str1 = new MyString("Avinash");</code><br>
+<code>MyString str2 = new MyString("Avinash");</code><br>
+<code>System.out.println(str1 == str2);</code> // Output: <strong>false</strong><br>
+<code>System.out.println(str1.equals(str2));</code> // Output: <strong>false</strong> (equals() override nahi kiya hai)<br>
+<strong>SCP Example:</strong><br>
+<code>String st1 = "Avinash";</code><br>
+<code>String st2 = "Avinash";</code><br>
+<code>System.out.println(st1 == st2);</code> // Output: <strong>true</strong><br>
+<code>System.out.println(st1.equals(st2));</code> // Output: <strong>true</strong><br>
+Kyunki <strong>SCP me same value ke liye ek hi object</strong> banta hai aur dono variables same reference ko point karte hain.
+</p>
+<h4>How to make a thread safe class or syncronized</h4>
+<hr style="border: 1px solid black; width: 40%; margin-top: 5px; margin-left: 0;">
+<p>
+If all public method of a class are declierd syncronized then that class is known as a syncronized or thread safe class and object of this class
+is known as a syncronized object or thread safe object.      
+</p>
+<h1>==operator</h1>
+<p>
+This is object class method and compaired of reference of object but reference is unique. <br>
+For primitives (like int, char), it compares their actual values. <br>
+int a = 5; <br>
+int b = 5;  <br>
+System.out.println(a == b); // Output: true (same value)  
+<hr>
+For objects, it compares their memory addresses. <br>
+String str1 = new String("Hello"); <br>
+String str2 = new String("Hello"); <br>
+System.out.println(str1 == str2); // Output: false (different objects)
+</p>
+<h1>.equal()</h1>
+<p> 
+This is object class method and compaired of reference of object but this method is overriden by string class then this method compaired value. <br>
+<hr>
+<Strong>Without override the .equal() because MyString is a custom class</Strong>
+<hr>
+MyString str1 = new MyString("Avinash"); <br>
+MyString str2 = new MyString("Avinash");  <br>
+System.out.println(str1.equals(str2)); // Output: false (default behavior compares references)
+<hr>
+<strong>String class override .equal() because String class is java class and also override tostring() then tostring() return the value</strong>
+<hr>
+String str1 = new String("Avinash"); <br>
+String str2 = new String("Avinash");  <br>
+System.out.println(str1.equals(str2)); // Output: true 
+</p>
+<h3>What is toString() in Java</h3>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+The toString() method in Java is used to get a string representation of an object.  <br>
+It’s a method from the Object class, which is the parent class of all Java classes <br>
+Every class in Java inherits the toString() method from the Object class. <br>
+It’s automatically called in print statements and string concatenation. <br>
+Think of toString() as a label for your object. If you don’t customize it, you get a basic label (class name + hash code). <br>
+If you override it, you can make the label meaningful and easy to understand. <br>
+By default, it returns a string in this format: <br>
+<span class="highlight">ClassName@hashCode</span>    
+</p>
+<h4>Without tostring()</h4>
+<pre>
+public class App 
+{
+public static void main(String[] args) 
+{
+App obj=new App();
+System.out.println(obj);
+}
+}
+OUTPUT
+------------
+App@372f7a8d    
+</pre>
+<h4>With tostring()</h4>
+<pre>
+public class MyString 
+{
+private String str;
+public MyString(String data)
+{
+str=data;
+}
+public String toString()
+{
+return str;
+}
+}
+public class App2 
+{
+public static void main(String[] args) 
+{
+MyString obj=new MyString("Avinash");
+System.out.println(obj);
+}
+}
+OUTPUT
+Avinash    
+</pre>
 </div>
+<br>
+<pre>
+class Student {
+String name;
+int age;
+
+Student(String name, int age) {
+this.name = name;
+this.age = age;
+}
+}
+
+public class Main {
+public static void main(String[] args) {
+Student student = new Student("Alice", 20);
+System.out.println(student); // Output: Student@<hashcode>
+}
+}
+With tostring()
+-----------------
+class Student {
+String name;
+int age;
+
+Student(String name, int age) {
+this.name = name;
+this.age = age;
+}
+
+@Override
+public String toString() {
+return "Student{name='" + name + "', age=" + age + "}";
+}
+}
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student("Alice", 20);
+        System.out.println(student); // Output: Student{name='Alice', age=20}
+    }
+}   
+</pre>
+<h4>What is getClass()</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+getClass() is a method inherited from the Object class in Java. <br>
+It returns the runtime class (type) of the object.  <br>
+Example: java <br>
+MyString str1 = new MyString("Avinash"); <br>
+System.out.println(str1.getClass()); // Output: class MyString
+</p>
+<h4>Why Check getClass() != obj.getClass()</h4>
+<p>
+This condition ensures that two objects are of the same type before comparing their content. <br>
+If the classes are different, the objects cannot be considered "equal," even if they have similar fields.
+</p>
+<hr>
+<h4>Without getClass() Check:</h4>
+<pre>
+class Parent {
+int value;
+Parent(int value) {
+this.value = value;
+}
+}
+
+class Child extends Parent {
+Child(int value) {
+super(value);
+}
+}
+
+Parent p = new Parent(10);
+Child c = new Child(10);
+
+// Without `getClass()` check:
+System.out.println(p.equals(c)); // Could incorrectly return true if comparing only `value`
+</pre>
+<hr>
+<h4>With getClass() Check:</h4>
+<pre>
+class Parent {
+int value;
+Parent(int value) {
+this.value = value;
+}
+}
+
+class Child extends Parent {
+Child(int value) {
+super(value);
+}
+@Override
+public boolean equals(Object obj) {
+if (this == obj) return true; // Same reference
+if (obj == null || getClass() != obj.getClass()) return false; // Class types must match
+Parent other = (Parent) obj;
+return this.value == other.value; // Compare fields
+}
+}
+Parent p = new Parent(10);
+Child c = new Child(10);
+System.out.println(p.equals(c)); // Output: false (because their classes are different)    
+</pre>
+<hr>
+<h3>String class methods</h3>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+1)public int lenght() <br>
+2)public char charAt(int index) <br>
+3)public int indexOf(char ch)  <br>
+4)public int lastIndexOf(char ch)  <br>
+5)public String toUpperCase()  <br>
+6)public String toLowerCase()  <br>
+7)public String substring(int fromindex)  <br>
+8)public String substring(int fromindex,int toindex)  <br>
+9)public String[] split(String separator)  <br>
+10)public String toString()  <br>
+11)public String replace(char old,char new)  <br>
+12)public String replace(String old,String new)  <br>
+13)public static String valueOf(int num):This method overloaded <br>
+14)public String trim()  <br>
+15)public String concat(String str) <br>
+16)public boolean equals(Object obj)  <br>
+17)public boolean equalsIgnoreCase(String str)  <br>
+18)public int compareTo(Object obj)    
+</p>
+<hr>
+<h4>All-method-How to work</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<pre>
+1)public int lenght()
+public class App 
+{
+public static void main(String[] args) 
+{
+String str="My name is Avinash pandey";
+System.out.println(str.length());
+}
+}
+OUTPUT
+27    
+</pre>
+<hr>
+<pre>
+2)public char charAt(int index)
+public class CharAt 
+{
+public static void main(String[] args) 
+{
+String str="Avinash";
+char ch=str.charAt(2);
+System.out.println(ch);
+}
+}
+OUTPUT
+i    
+</pre>
+<hr>
+<pre>
+import java.util.Scanner;
+
+public class CharAt2 
+{
+public static void main(String[] args) {
+String str="Avinash";
+int x=str.length();
+Scanner sc=new Scanner(System.in);
+System.out.print("Enter charecter: ");
+int index=sc.nextInt();
+for(int r=0;r< x;r++)
+{
+for(int c=0;c<=r;c++)
+{
+char ch=str.charAt(c);
+System.out.print(ch);
+}
+System.out.println();
+}
+
+
+}
+}
+OUTPUT
+Enter your name:AVinash
+A
+AV
+AVi
+AVin
+AVina
+AVinas
+AVinash    
+</pre>
+<hr>
+<pre>
+3)public int indexOf(char ch)
+public class IndexOf 
+{
+public static void main(String[] args) 
+{
+String str="international";
+int i=str.indexOf('n');//The indexOf() method in Java finds the position of a  letter in a sentence. If the  
+letter is repeated, it gives the position of the first time indexOf() will return the index of the first.when letter is no in sentance
+then return -1 value
+System.out.println(i);
+}
+}
+OUTPUT
+1
+------------------------------------------------------------------------------------------
+4)public int lastIndexOf(char ch)
+
+public class IndexOf 
+{
+public static void main(String[] args) 
+{
+String str="international";
+int i=str.lastIndexOf('n');////The lastindexOf() method in Java finds the position of a  letter in a sentence. it gives the
+position of the last time lastindexOf() will return the index of the last.when letter is no in sentancethen return -1 value
+System.out.println(i);
+}
+}
+OUTPUT
+----------
+10  
+</pre>
+<hr>
+<pre>
+5)public String toUpperCase()
+public class ToUpperCase 
+{
+public static void main(String[] args) 
+{
+String str="international";
+String res=str.toUpperCase();
+System.out.println(res);
+}
+}
+OUTPUT
+INTERNATIONAL
+-------------------------------------------------------------------------------------------------------
+6)public String toLowerCase()
+public class toLowerCase
+{
+public static void main(String[] args) 
+{
+String str="INTERNATIONAL";
+String res=str.toLowerCase();
+System.out.println(res);
+}
+}
+OUTPUT
+international   
+</pre>
+<hr>
+<pre>
+
+</pre>
 </body>
 </html>

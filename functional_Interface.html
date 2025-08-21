@@ -242,6 +242,62 @@ name:=Ak
 depat:=EC
 salary:=65000 
 </pre>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+Comparable ka compareTo() method bas ek rule deta hai ki do objects ko compare kaise karna hai.
+Actual sorting ka kaam Collections.sort() karta hai, jo internally ek sorting algorithm chalata hai (Java 7 me Merge Sort, Java 8 se TimSort). <br>
+<code>
+@Override
+public int compareTo(Employee eid) {
+return this.salary - eid.salary;
+}    
+</code>  <br>
+Agar this.salary chhota hai dusre object ke salary se → negative number return hoga → this object pehle aayega. <br>
+Agar equal hai → 0 return hoga → order same rahega.  <br>
+Agar bada hai → positive number → dusra object pehle aayega. <br>
+Collections.sort(emm); <br>
+Collections.sort() list ke elements ko pair-by-pair compare karta hai using compareTo(). <br>
+Internally, wo tumhare compareTo() ko call karke decide karta hai kaunsa object pehle aayega. <br>
+Fir TimSort algorithm ke according list ko arrange karta hai.  <br>
+"Internally sort kaise ho raha hai" ka matlab    
+Tum soch rahe ho ki Java salary ke numbers ko apne aap sort kaise kar raha hai?
+Wo tumhare compareTo() ka return value use karke hi karta hai.
+Example: <br>
+45000 - 55000 = -10000 → iska matlab 45000 pehle aayega. <br>
+65000 - 25000 = 40000 → iska matlab 65000 baad me aayega. <br>
+Aise hi compare karke pura list sort hota hai.  <br>
+<hr>
+if (this.salary < other.salary) return -1;  <br>
+else if (this.salary > other.salary) return 1;  <br>
+else return 0;  <br>
+Ye same kaam karega jo tumhara this.salary - other.salary kar raha hai, bas yeh zyada readable hai.
+</p>
+<h4>Internally work</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>Java ka Collections.sort() actually TimSort algorithm use karta hai (Merge Sort + Insertion Sort ka hybrid). <br>
+Collections.sort()  <br>
+Algorithm list ke elements ko do-do pair me compare karta hai using compareTo(): <br>
+Pehla compare:  <br>
+Avinash (45000) vs Amit (55000) <br>
+→ 45000 - 55000 = -10000 (negative) → Avinash pehle rahega. <br>
+Dusra compare:  <br>
+Amit (55000) vs Akash (25000)  <br>
+→ 55000 - 25000 = 30000 (positive) → Akash pehle aayega. <br>
+[Avinash(45000), Akash(25000), Amit(55000), Ak(65000)] <br>
+Teesra compare:  <br>
+Amit (55000) vs Ak (65000)  <br>
+→ 55000 - 65000 = -10000 (negative) → order same.  <br>
+Sorting algorithm adjust karta hai  <br>
+Ab TimSort pura list ko sorted banane ke liye aur comparisons karega:  <br>
+Compare Avinash (45000) vs Akash (25000)  <br>
+→ 45000 - 25000 = 20000 (positive) → swap.  <br>
+[Akash(25000), Avinash(45000), Amit(55000), Ak(65000)]  <br>
+Compare Avinash (45000) vs Amit (55000)  <br>
+→ 45000 - 55000 = -10000 → order same.  <br>
+Compare Amit (55000) vs Ak (65000)  <br>
+→ 55000 - 65000 = -10000 → order same.  <br>
+[Akash(25000), Avinash(45000), Amit(55000), Ak(65000)]</p>
 <h4>Collections</h4>
 <pre>
 public class Main {
@@ -378,6 +434,1241 @@ AMIT
 SUMAN
 KRISTI
 </pre>
-</div>   
+<hr>
+<h1>Runnable interface</h1>
+<p>The Runnable interface in Java is a functional interface that represents a task which can be executed by a thread. It has one and only one abstract method: <br>
+It does not take any arguments and does not return a result. <br>
+Package <br>
+java.lang.Runnable  <br>
+(Since Java 1.0) <br>
+Runnable is mainly used for multithreading — running multiple tasks at the same time without blocking each other. <br>
+Checked exceptions → cannot be thrown directly from run() (only unchecked exceptions allowed). <br>
+Can be implemented by:  <br>
+Class (implements Runnable)  <br>
+Anonymous inner class  <br>
+Lambda expression (Java 8+)  <br>
+Runnable object is passed to a Thread or ExecutorService for execution.
+</p>
+<code>
+class MyTask implements Runnable {
+public void run() {
+System.out.println("Task is running in thread: " + Thread.currentThread().getName());
+}
+}
+
+public class Main {
+public static void main(String[] args) {
+Thread t = new Thread(new MyTask());
+t.start();
+}
+}
+</code>
+<hr>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+ Java me Runnable ek functional interface hai jo ek aise task ko represent karta hai jo thread ke dwara execute kiya ja sakta hai.
+Isme sirf ek hi abstract method hota hai:  <br>
+void run(); <br>
+Ye koi argument nahi leta aur kuch return nahi karta. <br>
+Runnable ka main use multithreading me hota hai — ek hi samay me multiple tasks chalane ke liye jo ek dusre ko block na karein. <br>
+Jab hume apna code alagh thread me chalana ho tab use hota hai.Mostly multithreading, background work, aur concurrent programming me use hota hai.   <br>
+Java 8 se pehle Runnable ko anonymous inner class se banate the.
+</p>
+<h4> With Lambda — Short and Clean (Java 8+)</h4>
+<hr>
+<code>
+public class RunnableExample2 {
+public static void main(String[] args) {
+Runnable task = () -> System.out.println("Task running in a separate thread (Lambda)");
+
+Thread t = new Thread(task);
+t.start();
+}
+}
+output 
+Task running in a separate thread (Lambda)
+
+OR
+-------------
+public class RunnableExample3 {
+    public static void main(String[] args) {
+        new Thread(() -> System.out.println("Direct Lambda passed to Thread")).start();
+    }
+}
+output
+Direct Lambda passed to Thread
+</code>
+<hr>
+<h4>Runnable with ExecutorService</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>ExecutorService allows better thread management than manually creating threads.</p>
+<code>
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class RunnableExample4 {
+public static void main(String[] args) {
+
+ExecutorService executor = Executors.newSingleThreadExecutor();
+
+Runnable task = () -> {
+System.out.println("Task running inside ExecutorService");
+};
+
+executor.execute(task);
+
+executor.shutdown(); // Stop accepting new tasks
+}
+}
+output 
+Task running inside ExecutorService
+</code>
+<h3>Code Explanation</h3>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+import java.util.concurrent.ExecutorService;  <br>
+We are importing the ExecutorService interface from the java.util.concurrent package.  <br>
+This interface helps us manage and control threads for running tasks asynchronously (in the background).    <br>
+import java.util.concurrent.Executors;  <br>
+We are importing the Executors class — a utility class that has static methods to create different types of thread pools (e.g., single thread, fixed thread pool, cached thread pool). <br>
+<strong>ExecutorService executor = Executors.newSingleThreadExecutor();</strong> <br>
+<strong>Executors.newSingleThreadExecutor()</strong>  <br>
+Static method of Executors class.  <br>
+Creates a thread pool with only ONE thread. <br>
+Even if we give it multiple tasks, it will run them one after another in order. <br>
+<strong>ExecutorService executor</strong>  <br>
+This is an interface reference variable.  <br>
+We store the returned object (of an internal executor class) here so we can use its methods like <strong>execute(), submit(), shutdown().</strong> <br>
+<strong>executor.shutdown();</strong>  <br>
+shutdown() is a method of ExecutorService.  <br>
+It stops accepting new tasks but allows already submitted tasks to finish.  <br>
+Once all tasks are done, the executor will terminate.  <br>
+<strong>shutdownNow()</strong> <br>
+Stops all running tasks immediately (forcefully), and returns a list of tasks that were waiting. <br>
+<strong>isShutdown()</strong> <br>
+Returns true if shutdown() or shutdownNow() has been called.
+<strong>isTerminated()</strong>  <br>
+Returns true if all tasks are completed after shutdown.
+awaitTermination(long timeout, TimeUnit unit)
+Waits until all tasks finish or a given time passes.
+</p>
+<hr>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+ import java.util.concurrent.ExecutorService; <br>
+ExecutorService ek interface hai jo threads ko manage karne ka kaam karta hai. <br>
+Isse hum background me tasks run kara sakte hain. <br>
+import java.util.concurrent.Executors; <br>
+Executors ek utility class hai jisme ready-made methods hote hain alag-alag tarah ke thread pools banane ke liye. <br>
+ExecutorService executor = Executors.newSingleThreadExecutor(); <br>
+Ek single-thread executor banata hai. <br>
+Isme ek hi thread hota hai jo ek ke baad ek task run karta hai. <br>
+Runnable task = () -> { ... }; <br>
+Lambda expression ka use karke ek Runnable banaya. <br>
+Runnable ke andar ek hi method hota hai — run() — jo hum define karte hain. <br>
+Humne yahan sirf ek line likhi jo console par print karegi. <br>
+executor.execute(task); <br>
+Executor service ko task diya. <br>
+Ye task apne single thread me run karega. <br>
+executor.shutdown(); <br>
+Naye tasks lena band karega. <br>
+Jo chal rahe hain unko complete hone dega.   
+</p>
+<h4>Fixed Thread Pool</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+A fixed thread pool means the number of worker threads is fixed (decided when you create it). <br>
+If you give more tasks than the number of threads, extra tasks will wait in a queue until a thread becomes free.  <br>
+Example: You create a pool of 3 threads. If you submit 10 tasks, first 3 tasks run together, and the other 7 will wait in line. <br>
+Good for predictable workload where you know how many threads are enough.    
+</p>
+<pre>
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class FixedThreadPoolExample {
+public static void main(String[] args) {
+ExecutorService executor = Executors.newFixedThreadPool(3); // Fixed size = 3 threads
+
+for (int i = 1; i <= 6; i++) {
+int taskId = i;
+executor.execute(() -> {
+System.out.println("Task " + taskId + " running in " + Thread.currentThread().getName());
+try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+});
+}
+
+executor.shutdown();
+}
+}
+</pre>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+ Fixed thread pool ka matlab hota hai ki thread ki jo number hai wo fixed hoti hai (banate time decide hota hai). <br>
+Agar aap threads se zyada kaam doge to extra kaam ek queue me wait karega jab tak koi thread free na ho jaye.  <br>
+Example: Aapne 3 threads ka pool banaya. Agar 10 kaam diye to pehle 3 saath me chalenge, baaki 7 wait karenge. <br>
+Ye tab useful hai jab workload predictable ho aur threads ka number fix ho sakta ho.   
+</p>
+<h4>Cached Thread Pool</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+A cached thread pool creates new threads as needed but will reuse old threads if they are free.  <br>
+If a thread is idle for 60 seconds, it will be removed from memory.  <br>
+Good for short-lived, many small tasks because it creates threads quickly and reuses them.  <br>
+No fixed limit — but too many tasks can create too many threads and use high CPU/RAM. 
+</p>
+<pre>
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class CachedThreadPoolExample {
+public static void main(String[] args) {
+ExecutorService executor = Executors.newCachedThreadPool();
+
+for (int i = 1; i <= 6; i++) {
+int taskId = i;
+executor.execute(() -> {
+System.out.println("Task " + taskId + " running in " + Thread.currentThread().getName());
+try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+});
+}
+
+executor.shutdown();
+}
+}
+</pre>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+<p>
+Cached thread pool me threads jarurat ke hisaab se banaye jate hain, aur agar koi purana thread free ho to usko reuse kiya jata hai.  <br>
+Agar koi thread 60 seconds tak idle rahe to use memory se hata diya jata hai. <br>
+Ye chhote, jaldi khatam hone wale kaamon ke liye best hai. <br>
+Isme thread ka koi fixed limit nahi hota, lekin zyada kaam dene se bahut zyada threads ban sakte hain jo CPU/RAM use karenge.    
+</p>
+<h1>Callable</h1>
+<p>Callable<T> is a functional interface in Java (java.util.concurrent package).  <br>
+It is like Runnable but can return a result and can throw a checked exception. <br>
+It is mainly used with ExecutorService to perform background tasks and get results using a Future object. 
+<br>
+It has only one method <br>
+<strong>V call() throws Exception</strong>
+</p>
+<pre>
+//Without Lambda    
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class CallableExampleWithoutLambda {
+public static void main(String[] args) throws Exception {
+// Create ExecutorService with a single thread
+ExecutorService executor = Executors.newSingleThreadExecutor();
+
+// Create Callable using an anonymous class
+Callable<String> task = new Callable<String>() {
+@Override
+public String call() throws Exception {
+Thread.sleep(1000); // simulate work
+return "Task Completed";
+}
+};
+
+// Submit the task and get a Future
+Future<String> future = executor.submit(task);
+
+// Get the result (blocks until task is done)
+String result = future.get();
+System.out.println(result);
+
+// Shutdown the executor
+executor.shutdown();
+}
+}
+</pre>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+
+<p>
+<strong>ExecutorService executor = Executors.newSingleThreadExecutor();</strong> <br>
+→ 1 thread ka ek pool banata hai jo task chalane ke liye ready hai. <br>
+<strong>Callable<String> task = () -> { ... };</strong>  <br>
+→ Ek task banaya jo 2 second lega aur "Task Completed!" return karega.  <br>
+<strong>Future<String> future = executor.submit(task);</strong>  <br>
+→ Task ko executor me bhej diya, Future object mila jisse baad me result le sakte hain.  <br>
+<strong>System.out.println("Task submitted...");</strong>  <br>
+→ Jab tak background thread kaam kar raha hai, ye print ho jayega.  <br>
+<strong>String result = future.get();</strong>  <br>
+→ Task complete hone ka wait karta hai aur result nikalta hai.  <br>
+<strong>executor.shutdown();</strong>  <br>
+→ New task lena band karta hai aur executor ko band kar deta hai.    
+</p>
+<hr>
+<pre>
+    //With Lambda
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class CallableExampleWithLambda {
+public static void main(String[] args) throws Exception {
+ExecutorService executor = Executors.newSingleThreadExecutor();
+
+// Using Lambda Expression for Callable
+Callable<String> task = () -> {
+Thread.sleep(1000); // simulate work
+return "Task Completed with Lambda";
+};
+
+Future<String> future = executor.submit(task);
+
+String result = future.get();
+System.out.println(result);
+
+executor.shutdown();
+}
+}
+
+</pre>
+<p>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 20%; margin-top: 5px; margin-left: 0;">
+Callable<T> Java ka ek functional interface hai (package java.util.concurrent me). <br>
+Ye Runnable ki tarah hai, lekin ye kuch value return kar sakta hai aur checked exception throw kar sakta hai.  <br>
+Ye generic hai (<T>), iska matlab aap decide karte ho ki kaunsa type ka result return karega.  <br>
+Iska use mostly ExecutorService ke sath hota hai background me kaam karwane ke liye, jiska result hum Future object se lete hain.   
+</p>
+<h1>Comparable</h1>
+<p>
+Comparable is a functional interface in Java used to define the natural ordering of objects. <br>
+It contains only one abstract method:  <br>
+<strong>int compareTo(T obj);</strong>  <br>
+This method is used to compare the current object (this) with another object (obj). <br>
+ Return value:  <br>
+<strong>Negative</strong> → this object is smaller. <br>
+<strong>Zero</strong> → both are equal.  <br>
+<strong>Positive</strong> → this object is greater.  <br>
+It is mostly used in sorting (e.g., Collections.sort() or Arrays.sort()).
+</p>
+<pre>
+import java.util.*;
+class Employee implements Comparable<Employee> {
+private int eid;
+private String name;
+private String depat;
+private int salary;
+
+public Employee(int eid, String name, String depat, int salary) {
+this.eid = eid;
+this.name = name;
+this.depat = depat;
+this.salary = salary;
+}
+
+public void show() {
+System.out.println("eid:=" + this.eid);
+System.out.println("name:=" + this.name);
+System.out.println("depat:=" + this.depat);
+System.out.println("salary:=" + this.salary);
+}
+
+public int geteid() {
+return eid;
+}
+
+public String getname() {
+return name;
+}
+
+public String getdepat() {
+return depat;
+}
+
+public int getsalary() {
+return salary;
+}
+
+public void seteid(int eid) {
+this.eid = eid;
+}
+
+public void setname(String name) {
+this.name = name;
+}
+
+public void setdepat(String depat) {
+this.depat = depat;
+}
+
+public void setsalary(int salary) {
+this.salary = salary;
+}
+
+
+@Override
+public int compareTo(Employee eid) {
+int c=this.salary-eid.salary;
+return c;
+}
+}
+
+class App {
+public static void main(String[] args) {
+List<Employee> emm = new ArrayList<Employee>();
+emm.add(new Employee(101, "Avinash", "IT", 45000));
+emm.add(new Employee(102, "Amit", "EC", 55000));
+emm.add(new Employee(103, "Akash", "EC", 25000));
+emm.add(new Employee(104, "Ak", "EC", 65000));
+
+Collections.sort(emm); // Corrected method name
+
+for (Employee e : emm) {
+e.show(); 
+}
+}
+}
+OUTPUT
+eid:=103
+name:=Akash
+depat:=EC
+salary:=25000
+eid:=101
+name:=Avinash
+depat:=IT
+salary:=45000
+eid:=102
+name:=Amit
+depat:=EC
+salary:=55000
+eid:=104
+name:=Ak
+depat:=EC
+salary:=65000
+</pre>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+Comparable ka compareTo() method bas ek rule deta hai ki do objects ko compare kaise karna hai.
+Actual sorting ka kaam Collections.sort() karta hai, jo internally ek sorting algorithm chalata hai (Java 7 me Merge Sort, Java 8 se TimSort). <br>
+<code>
+@Override
+public int compareTo(Employee eid) {
+return this.salary - eid.salary;
+}    
+</code>  <br>
+Agar this.salary chhota hai dusre object ke salary se → negative number return hoga → this object pehle aayega. <br>
+Agar equal hai → 0 return hoga → order same rahega.  <br>
+Agar bada hai → positive number → dusra object pehle aayega. <br>
+Collections.sort(emm); <br>
+Collections.sort() list ke elements ko pair-by-pair compare karta hai using compareTo(). <br>
+Internally, wo tumhare compareTo() ko call karke decide karta hai kaunsa object pehle aayega. <br>
+Fir TimSort algorithm ke according list ko arrange karta hai.  <br>
+"Internally sort kaise ho raha hai" ka matlab    
+Tum soch rahe ho ki Java salary ke numbers ko apne aap sort kaise kar raha hai?
+Wo tumhare compareTo() ka return value use karke hi karta hai.
+Example: <br>
+45000 - 55000 = -10000 → iska matlab 45000 pehle aayega. <br>
+65000 - 25000 = 40000 → iska matlab 65000 baad me aayega. <br>
+Aise hi compare karke pura list sort hota hai.  <br>
+<hr>
+if (this.salary < other.salary) return -1;  <br>
+else if (this.salary > other.salary) return 1;  <br>
+else return 0;  <br>
+Ye same kaam karega jo tumhara this.salary - other.salary kar raha hai, bas yeh zyada readable hai.
+</p>
+<h4>Internally work</h4>
+<hr style="border: 1px solid black; width: 15%; margin-top: 5px; margin-left: 0;">
+<p>Java ka Collections.sort() actually TimSort algorithm use karta hai (Merge Sort + Insertion Sort ka hybrid). <br>
+Collections.sort()  <br>
+Algorithm list ke elements ko do-do pair me compare karta hai using compareTo(): <br>
+Pehla compare:  <br>
+Avinash (45000) vs Amit (55000) <br>
+→ 45000 - 55000 = -10000 (negative) → Avinash pehle rahega. <br>
+Dusra compare:  <br>
+Amit (55000) vs Akash (25000)  <br>
+→ 55000 - 25000 = 30000 (positive) → Akash pehle aayega. <br>
+[Avinash(45000), Akash(25000), Amit(55000), Ak(65000)] <br>
+Teesra compare:  <br>
+Amit (55000) vs Ak (65000)  <br>
+→ 55000 - 65000 = -10000 (negative) → order same.  <br>
+Sorting algorithm adjust karta hai  <br>
+Ab TimSort pura list ko sorted banane ke liye aur comparisons karega:  <br>
+Compare Avinash (45000) vs Akash (25000)  <br>
+→ 45000 - 25000 = 20000 (positive) → swap.  <br>
+[Akash(25000), Avinash(45000), Amit(55000), Ak(65000)]  <br>
+Compare Avinash (45000) vs Amit (55000)  <br>
+→ 45000 - 55000 = -10000 → order same.  <br>
+Compare Amit (55000) vs Ak (65000)  <br>
+→ 55000 - 65000 = -10000 → order same.  <br>
+[Akash(25000), Avinash(45000), Amit(55000), Ak(65000)]</p>   
+<pre>
+import java.util.*;
+
+class Student implements Comparable {
+String name;
+int marks;
+
+Student(String name, int marks) {
+this.name = name;
+this.marks = marks;
+}
+
+@Override
+public int compareTo(Student other) {
+return this.marks - other.marks; // Sort by marks ascending
+}
+
+@Override
+public String toString() {
+return name + " (" + marks + ")";
+}
+}
+
+public class Main {
+public static void main(String[] args) {
+List<Student> list = new ArrayList<>();
+list.add(new Student("Avinash", 85));
+list.add(new Student("Rahul", 92));
+list.add(new Student("Priya", 75));
+
+Collections.sort(list); // Uses compareTo
+System.out.println(list);
+}
+}
+output 
+[Priya (75), Avinash (85), Rahul (92)]
+</pre>
+<pre>
+import java.util.*;
+
+// Step 1: Create a class and implement Comparable
+class Student implements Comparable {
+String name;
+int age;
+
+// Constructor
+Student(String name, int age) {
+this.name = name;
+this.age = age;
+}
+
+// Step 2: Override compareTo method to sort by name
+@Override
+public int compareTo(Student other) {
+// Compare names alphabetically
+return this.name.compareTo(other.name);
+}
+
+// Step 3: For printing
+@Override
+public String toString() {
+return name + " (" + age + ")";
+}
+}
+
+// Step 4: Main class
+public class SortByNameExample {
+public static void main(String[] args) {
+List list = new ArrayList<>();
+list.add(new Student("Avinash", 23));
+list.add(new Student("Ravi", 25));
+list.add(new Student("Karan", 22));
+list.add(new Student("Bittu", 24));
+
+System.out.println("Before Sorting:");
+for (Student s : list) {
+System.out.println(s);
+}
+
+// Step 5: Sort list (Internally uses compareTo)
+Collections.sort(list);
+
+System.out.println("\nAfter Sorting by Name:");
+for (Student s : list) {
+System.out.println(s);
+}
+}
+}
+output
+Before Sorting:
+Avinash (23)
+Ravi (25)
+Karan (22)
+Bittu (24)
+
+After Sorting by Name:
+Avinash (23)
+Bittu (24)
+Karan (22)
+Ravi (25)
+</pre>
+<pre>
+import java.util.*;
+
+public class SortNamesExample {
+public static void main(String[] args) {
+// List of names
+List<String> names = new ArrayList<>();
+names.add("Avinash");
+names.add("Rahul");
+names.add("Priya");
+names.add("Amit");
+names.add("Kiran");
+
+// Sorting names in ascending order
+Collections.sort(names, new Comparator<String>() {
+@Override
+public int compare(String name1, String name2) {
+return name1.compareTo(name2); // Natural order (A-Z)
+}
+});
+
+System.out.println("Sorted Names: " + names);
+}
+}
+output
+Sorted Names: [Amit, Avinash, Kiran, Priya, Rahul]
+</pre>
+<pre>
+import java.util.*;
+
+public class SortNamesExampleLambda {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Avinash", "Rahul", "Priya", "Amit", "Kiran");
+
+// Sorting using Lambda (short version)
+names.sort((name1, name2) -> name1.compareTo(name2));
+
+System.out.println("Sorted Names: " + names);
+}
+}
+output 
+Sorted Names: [Amit, Avinash, Kiran, Priya, Rahul]
+</pre>
+<h4>Note Hindi Explanation</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+ab hum Collections.sort() use karte hain String list ke liye: <br>
+Java pehle list ko array me convert karta hai.  <br>
+Java Timsort Algorithm use karta hai (Merge Sort + Insertion Sort ka mix). <br>
+Chhote part ke liye Insertion Sort lagata hai (fast hota hai).  <br>
+Bade part ke liye Merge Sort logic lagata hai (stable aur efficient hota hai).  <br>
+String ka compareTo() method har character ka Unicode value compare karta hai.  <br>
+Agar pehla character same ho to agla character check karta hai jab tak difference na mil jaye. <br>
+Jab sorting ho jati hai, sorted data wapas list me copy hota hai.    
+</p>
+<h1>Comparator</h1>
+<p>
+Comparator is an interface in Java that defines how two objects should be compared for sorting without modifying their class. This is external ordering. 
+<strong>int compare(T a, T b)</strong>   
+Returns:  <br>
+Negative → a < b  <br>
+Zero → a == b  <br>
+Positive → a > b  <br>
+</p>
+<pre>
+import java.util.*;
+
+class Person {
+String name;
+int age;
+double salary;
+
+Person(String name, int age, double salary) {
+this.name = name;
+this.age = age;
+this.salary = salary;
+}
+
+public String getName() { return name; }
+
+@Override
+public String toString() {
+return name + " - " + age + " - " + salary;
+}
+}
+
+public class ComparatorExample {
+public static void main(String[] args) {
+List<Person> people = Arrays.asList(
+new Person("Avinash", 25, 50000),
+new Person("Ravi", 30, 60000),
+new Person("Karan", 22, 55000),
+new Person("Manish", 25, 48000)
+);
+
+// 1. Sort by Name
+people.sort(Comparator.comparing(Person::getName));
+System.out.println("By Name: " + people);
+
+// 2. Sort by Age, then Name
+people.sort(Comparator.comparingInt((Person p) -> p.age)
+        .thenComparing(p -> p.name));
+System.out.println("By Age then Name: " + people);
+
+// 3. Sort by Salary (descending)
+people.sort(Comparator.comparingDouble((Person p) -> p.salary).reversed());
+System.out.println("By Salary Desc: " + people);
+}
+}   
+output
+By Name: [Avinash - 25 - 50000.0, Karan - 22 - 55000.0, Manish - 25 - 48000.0, Ravi - 30 - 60000.0]
+By Age then Name: [Karan - 22 - 55000.0, Avinash - 25 - 50000.0, Manish - 25 - 48000.0, Ravi - 30 - 60000.0]
+By Salary Desc: [Ravi - 30 - 60000.0, Karan - 22 - 55000.0, Avinash - 25 - 50000.0, Manish - 25 - 48000.0]
+</pre>
+<pre>
+import java.util.*;
+// 4. Nulls First Example
+class Person 
+{
+public static void main (String[] args) {
+List<String> names = Arrays.asList("Ravi", null, "Avinash");
+names.sort(Comparator.nullsFirst(Comparator.naturalOrder()));
+System.out.println("Nulls First: " + names);
+}
+} 
+output 
+Nulls First: [null, Avinash, Ravi]
+</pre>
+<h4>Methods with Examples</h4>
+<hr style="border: 1px solid black; width: 30%; margin-top: 5px; margin-left: 0;">
+<p>
+<strong>Comparator.comparing(keyExtractor)</strong> <br>
+<strong>English</strong>: Sort by a single field easily using a method reference or lambda. <br>
+<strong>Hindi</strong>: Kisi ek field ke basis par simple sorting karna.    <br>
+<code>
+people.sort(Comparator.comparing(p -> p.name)); // by name
+// OR
+people.sort(Comparator.comparing(Person::getName));
+</code> <br>
+<strong>thenComparing(...)</strong> <br>
+<strong>English</strong>: If first field is same, compare using another field.  <br>
+<strong>Hindi</strong>: Agar pehla field same ho to dusre field ka use karo <br>
+<code>
+people.sort(
+Comparator.comparing((Person p) -> p.age)
+            .thenComparing(p -> p.name)
+);
+</code>  <br>
+<strong>reversed()</strong>  <br>
+English: Reverse the order of sorting.  <br>
+Hindi: Sorting order ko ulta kar do. <br>
+<code> 
+ people.sort(Comparator.comparing(p -> p.salary).reversed()); 
+</code> <br>
+<strong>naturalOrder() and reverseOrder()</strong>  <br>
+English: Works for objects that implement Comparable.  <br>
+Hindi: Un objects ke liye jo Comparable implement karte hain.  <br>
+<code>
+ List<String> names = Arrays.asList("Avinash", "Ravi", "Karan");
+names.sort(Comparator.naturalOrder()); // Ascending
+names.sort(Comparator.reverseOrder()); // Descending
+</code> <br>
+<strong>nullsFirst(cmp) / nullsLast(cmp)</strong> <br>
+English: Decide where to put null values.  <br>
+Hindi: Null values ko kahaan rakhna hai decide karo. <br>
+<code>
+ List list = Arrays.asList("Ravi", null, "Avinash");
+list.sort(Comparator.nullsFirst(Comparator.naturalOrder()));
+list.sort(Comparator.nullsLast(Comparator.naturalOrder()));
+</code>  <br>
+<strong>comparingInt, comparingLong, comparingDouble</strong>  <br>
+English: Special methods for primitive fields (faster).  <br>
+Hindi: Primitive fields ke liye special methods (fast performance). <br>
+<code>
+people.sort(Comparator.comparingInt(p -> p.age));       // int
+people.sort(Comparator.comparingDouble(p -> p.salary)); // double
+</code>
+</p>
+<pre>
+class Person 
+{
+public static void main (String[] args) {
+Comparator<String> byLength = new Comparator<String>() {
+@Override
+public int compare(String s1, String s2) {
+return Integer.compare(s1.length(), s2.length());
+}
+};
+List<String> names = Arrays.asList("Sam","Avinash","Ajay");
+Collections.sort(names, byLength);
+System.out.println(names);
+}
+}   
+output 
+[Sam, Ajay, Avinash]
+</pre>
+<pre>
+class Person 
+{
+public static void main (String[] args) {
+List<String> names = Arrays.asList("Sam","Avinash","Ajay");
+
+names.sort(Comparator
+.comparingInt(String::length)        // primary: length
+.thenComparing(Comparator.naturalOrder()) // tie-break: alphabetic
+);
+
+System.out.println(names);
+}
+}   
+output 
+ [Sam, Ajay, Avinash]
+</pre>
+<h1>Predicate</h1>
+<p>
+Predicate<T> is a functional interface in Java (java.util.function package). <br>
+It takes one input (of type T) and returns a boolean result. <br>
+Mostly used for filtering or checking conditions in streams or collections. <br>
+Abstract method: <strong>boolean test(T t)</strong> → Your condition logic goes here. <br>
+Default methods: <strong></strong>and</strong>, <strong>or</strong>, <strong>negate</strong> → Combine multiple predicates.  <br>
+Static method: <strong>isEqual</strong> → Checks equality with a given object.   <br>
+</p>
+<pre>
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+// Step 1: Create a class that implements Comparable
+class Student implements Comparable {
+String name;
+
+// Constructor
+public Student(String name) {
+this.name = name;
+}
+
+// Getter
+public String getName() {
+return name;
+}
+
+// Step 2: Override compareTo method
+@Override
+public int compareTo(Student other) {
+// Compare based on name
+return this.name.compareTo(other.name);
+}
+}
+
+public class SortNamesExample {
+public static void main(String[] args) {
+// Step 3: Create list of Students
+List<Student> students = new ArrayList<>();
+students.add(new Student("Ravi"));
+students.add(new Student("Amit"));
+students.add(new Student("Suman"));
+students.add(new Student("Kiran"));
+
+System.out.println("Before Sorting:");
+for (Student s : students) {
+System.out.println(s.getName());
+}
+
+// Step 4: Sort using Collections.sort()
+Collections.sort(students);
+
+System.out.println("\nAfter Sorting:");
+for (Student s : students) {
+System.out.println(s.getName());
+}
+}
+}
+output  
+Before Sorting:
+Ravi
+Amit
+Suman
+Kiran
+
+After Sorting:
+Amit
+Kiran
+Ravi
+Suman
+</pre>
+<h4>Custom Predicate Example</h4>
+<pre>
+ import java.util.function.Predicate;
+class People implements Predicate<People>
+{
+    public  String name;
+    
+    public People(String name)
+    {
+        this.name=name;
+    }
+    public String getName()
+    {
+        return name;
+    }
+    @Override
+    public boolean test(People p)
+    {
+       return p.getName()!= null && p.getName().startsWith("A");
+    }
+}
+class App 
+{
+    public static void main (String[] args) {
+        People p1=new People("Avinash");
+        People p2=new People("sonu");
+        People checker=new People(null);
+        System.out.println(checker.test(p1));
+        System.out.println(checker.test(p2));
+    }
+} 
+output
+true
+false
+</pre>
+<pre>
+import java.util.function.Predicate;
+class People implements Predicate<People>
+{
+public  String name;
+
+public People(String name)
+{
+this.name=name;
+}
+public String getName()
+{
+return name;
+}
+@Override
+public boolean test(People p)
+{
+return p.getName()!= null && p.getName().length()>3;
+}
+}
+class App 
+{
+public static void main (String[] args) {
+People p1=new People("Avinash");
+People p2=new People("sonu");
+People checker=new People(null);
+System.out.println(checker.test(p1));
+System.out.println(checker.test(p2));
+}
+}   
+output
+true
+false
+</pre>
+<pre>
+import java.util.function.Predicate;
+class People implements Predicate<People>
+{
+public  String name;
+
+public People(String name)
+{
+this.name=name;
+}
+public String getName()
+{
+return name;
+}
+@Override
+public boolean test(People p)
+{
+return p.getName()!= null && p.getName().startsWith("A") && p.getName().length()>3;
+}
+}
+class App 
+{
+public static void main (String[] args) {
+People p1=new People("Avinash");
+People p2=new People("sonu");
+People checker=new People(null);
+System.out.println(checker.test(p1));
+System.out.println(checker.test(p2));
+}
+}   
+output
+true
+false
+</pre>
+<h4>Predicate All Method</h4>
+<pre>
+import java.util.function.Predicate;
+
+public class PredicateExample {
+public static void main(String[] args) {
+
+//  test() - Single condition
+Predicate<String> startsWithA = name -> name.startsWith("A");
+System.out.println("Test for 'Avinash': " + startsWithA.test("Avinash")); // true
+System.out.println("Test for 'Vikas': " + startsWithA.test("Vikas"));     // false
+
+//  and() - Combine conditions (both must be true)
+Predicate<String> lengthGreaterThan3 = name -> name.length() > 3;
+Predicate<String> startsWithAAndLong = startsWithA.and(lengthGreaterThan3);
+System.out.println("Starts with A AND length > 3: " + startsWithAAndLong.test("Avinash")); // true
+System.out.println("Starts with A AND length > 3: " + startsWithAAndLong.test("Ajay"));    // true
+System.out.println("Starts with A AND length > 3: " + startsWithAAndLong.test("Al"));      // false
+
+// or() - Combine conditions (any one true)
+Predicate<String> startsWithAOrLong = startsWithA.or(lengthGreaterThan3);
+System.out.println("Starts with A OR length > 3: " + startsWithAOrLong.test("Vikas")); // true
+System.out.println("Starts with A OR length > 3: " + startsWithAOrLong.test("Al"));    // true
+
+//  negate() - Opposite of the condition
+Predicate<String> notStartsWithA = startsWithA.negate();
+System.out.println("NOT starts with A: " + notStartsWithA.test("Avinash")); // false
+System.out.println("NOT starts with A: " + notStartsWithA.test("Vikas"));   // true
+
+//  isEqual() - Check equality
+Predicate<String> isAvinash = Predicate.isEqual("Avinash");
+System.out.println("Is equal to Avinash: " + isAvinash.test("Avinash")); // true
+System.out.println("Is equal to Avinash: " + isAvinash.test("Vikas"));   // false
+}
+}
+</pre>
+<p>
+<strong>test()</strong> → Aapki condition chalata hai aur true/false return karta hai.  <br>
+<strong>and()</strong> → Naya Predicate deta hai jisme dono condition true honi chahiye.  <br>
+<strong>or()</strong> → Naya Predicate deta hai jisme koi ek condition true ho sakti hai.  <br>
+<strong>negate()</strong> → Naya Predicate deta hai jo original condition ka ulta karega.  <br>
+<strong>isEqual()</strong> → Naya Predicate deta hai jo input ka .equals() check karega given object se.    
+</p>
+<h1>Function T R</h1>
+<p>
+ The Function<T, R> interface is a functional interface in Java (part of java.util.function package). <br>
+It represents a function that:  <br>
+<strong>T</strong> → Input type  <br>
+<strong>R</strong> → Output type  <br>
+<strong>apply(T R)</strong> → Method to take input of type T and return output of type R.  <br>
+It is mainly used when you need to convert, transform, or map one object type to another.  <br>
+Abstract method (must be implemented) <br>
+</p>
+<pre>
+import java.util.function.Function;
+
+class StringLengthFunction implements Function<String, Integer> {
+@Override
+public Integer apply(String s) {
+return s.length(); // Converts String → Integer (length)
+}
+public static void main (String[] args) {
+Function<String, Integer> lengthFunc = new StringLengthFunction();
+int length = lengthFunc.apply("Avinash");
+System.out.println("Length of 'Avinash': " + length);
+}
+} 
+output 
+Length of 'Avinash': 7   
+</pre>
+<pre>
+import java.util.function.Function;
+
+class StringLengthFunction implements Function<String, Integer> {
+@Override
+public Integer apply(String s) {
+return s.length(); // Converts String → Integer (length)
+}
+}
+class DoubleItFunction implements Function<Integer, Integer> {
+@Override
+public Integer apply(Integer num) {
+return num * 2; // Doubles the number
+}
+}
+class App {
+public static void main (String[] args) {
+// 1. apply() example
+Function<String, Integer> lengthFunc = new StringLengthFunction();
+int length = lengthFunc.apply("Avinash");
+System.out.println("Length of 'Avinash': " + length);
+// 2. andThen() example
+Function<String, Integer> lengthThenDouble = lengthFunc.andThen(new DoubleItFunction());
+int doubledLength = lengthThenDouble.apply("Avinash");
+System.out.println("Doubled length: " + doubledLength);
+}
+}   
+output 
+Length of 'Avinash': 7
+Doubled length: 14
+</pre>
+<pre>
+import java.util.function.Function;
+
+// This class doubles the input number
+class DoubleItFunction implements Function<Integer, Integer> {
+@Override
+public Integer apply(Integer n) {
+return n * 2;
+}
+}
+
+public class AA {
+public static void main(String[] args) {
+
+// This function repeats "Hi" n times
+Function<Integer, String> repeatFunction = new Function<Integer, String>() {
+@Override
+public String apply(Integer n) {
+return "Hi".repeat(n);
+}
+};
+
+// compose(): First double the number, then repeat "Hi"
+Function<Integer, String> doubleThenRepeat = repeatFunction.compose(new DoubleItFunction());
+
+// Apply the composed function
+String repeated = doubleThenRepeat.apply(3);
+System.out.println("Repeated after doubling: " + repeated);
+}
+}
+output
+Repeated after doubling: HiHiHiHiHiHiHiHiHiHi
+</pre>
+<p>
+<strong> apply()</strong> → main function chalata hai.  <br>
+<strong></strong>andThen()</strong> → pehle current function, phir doosra.  <br>
+<strong>compose()</strong> → pehle doosra function, phir current.  <br>
+<strong>identity()</strong> → jo input aaya, wahi return kare. <br>
+<strong>UnaryOperator<T></strong> = Function<T,T> <br>
+<strong>BinaryOperator<T></strong> = BiFunction<T,T,T> <br>
+<strong>Primitive:</strong> IntFunction<R>, ToIntFunction<T>, IntUnaryOperator, etc.
+</p>
+<h1>Supplier</h1>
+<p>
+Supplier<T> is a functional interface in Java (inside java.util.function package). <br>
+It supplies (gives) an object of type T without taking any input.  <br>
+It has only one method:    <br>
+<strong>public T get();</strong> <br>
+Supplier<T> ek functional interface hai jo kuch input nahi leta, bas ek value return karta hai. <br>
+Iska kaam hai data supply karna.  <br>
+Isme sirf ek method hota hai: <br>
+<strong>public T get();</strong>
+</p>
+<code>
+Supplier<T> supplierName = () -> {
+    // return some value
+};
+</code>
+<pre>
+import java.util.function.Supplier;
+
+public class SupplierExample1 {
+public static void main(String[] args) {
+
+// Supplier that gives a fixed message
+Supplier<String> messageSupplier = () -> "Hello, Avinash!";
+
+// Calling get()
+System.out.println(messageSupplier.get());
+}
+}
+output
+Hello, Avinash!
+</pre>
+<pre>
+import java.util.function.Supplier;
+import java.util.Random;
+
+public class SupplierExample2 {
+public static void main(String[] args) {
+
+Random random = new Random();
+
+// Supplier that gives random number between 1 and 100
+Supplier<Integer> randomNumberSupplier = () -> random.nextInt(100) + 1;
+
+// Calling get() multiple times
+System.out.println(randomNumberSupplier.get());
+System.out.println(randomNumberSupplier.get());
+System.out.println(randomNumberSupplier.get());
+}
+}
+output
+58
+23
+77
+</pre>
+<p>
+Supplier ko ek nal (tap) samjho — tum usme kuch nahi dalte, bas ghumaate ho (get()), aur paani (value) aa jaata hai.    
+</p>
+<h1>Consumer</h1>
+<p>
+Consumer<T> is a functional interface in Java (in the java.util.function package). <br>
+It accepts a single argument but does not return anything.  <br>
+It is used when you want to perform an action on a value, without producing a result.  <br>
+The T means the type of the input.    <br>
+<strong>accept(T t)</strong>Takes a value of type T and performs an action. Returns nothing. <br>
+<strong>andThen(Consumer<? super T> after)</strong> <br>
+Combines two Consumers: first one runs, then second one runs.
+</p>
+<pre>
+import java.util.function.Consumer;
+
+class UpperCasePrinter implements Consumer<String> {
+public void accept(String name) {
+System.out.println("Uppercase: " + name.toUpperCase());
+}
+}
+
+class LowerCasePrinter implements Consumer<String> {
+public void accept(String name) {
+System.out.println("Lowercase: " + name.toLowerCase());
+}
+}
+
+public class ConsumerExample {
+public static void main(String[] args) {
+Consumer<String> upperPrinter = new UpperCasePrinter();
+Consumer<String> lowerPrinter = new LowerCasePrinter();
+
+// Using accept()
+upperPrinter.accept("Avinash");  // Uppercase: AVINASH
+lowerPrinter.accept("Avinash");  // Lowercase: avinash
+
+// Using andThen()
+System.out.println("Using andThen:");
+upperPrinter.andThen(lowerPrinter).accept("India");
+// Output:
+// Uppercase: INDIA
+// Lowercase: india
+}
+}
+</pre>
+<pre>
+import java.util.function.Consumer;
+
+// Upper class implements Consumer interface for String type
+class Upper implements Consumer<String> {
+
+// accept method is overridden to convert to uppercase
+public void accept(String name) {
+System.out.println("Uppercase: " + name.toUpperCase());
+}
+}
+
+class AA {
+public static void main(String[] args) {
+// Creating object of Upper and assigning to Consumer reference
+Consumer<String> nm = new Upper();
+
+// Calling accept method
+nm.accept("Avinash");
+}
+}
+output 
+AVINASH
+</pre>
+<p>
+We created two classes (UpperCasePrinter and LowerCasePrinter) that implement Consumer<String>. <br>
+Each class overrides accept() to print the string differently.  <br>
+In main, we create objects of both classes.  <br>
+<strong>accept()</strong> runs the action once.  <br>
+<strong>andThen(</strong> runs two actions in sequence.    
+</p>    
+</div>
 </body>
 </html>
